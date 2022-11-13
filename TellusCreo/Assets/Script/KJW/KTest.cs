@@ -11,10 +11,9 @@ public class KTest : MonoBehaviour
         DOWN
     }
 
+    string tempStr;
     public Text playerName;
     public Text Alphabet;
-    [SerializeField]
-    string tempStr = "_ _ _";
     [SerializeField]
     State state = State.DOWN;
     [SerializeField]
@@ -49,49 +48,41 @@ public class KTest : MonoBehaviour
 
     public void SelectAlph()
     {
-
-        tempStr = tempStr.Substring(selectIdx+1);
-        tempStr = tempStr. Insert(selectIdx, alphArr[selectAlph]);
-        //tempStr = tempStr.Replace(tempStr[selectIdx].ToString(), alphArr[selectAlph]);
-        playerName.text = tempStr;
+        playerName.text = playerName.text.Remove(selectIdx, 1).Insert(selectIdx, alphArr[selectAlph]);
+        StopAllCoroutines();
     }
 
     void Display()
     {
-        if (state == State.DOWN)
+        Alphabet.text = "";
+        for (int i = 0; i < alphArr.Length; i++)
         {
-
-            Alphabet.text = "";
-            for (int i = 0; i < alphArr.Length; i++)
+            if (i == selectAlph)
             {
-                if (i == selectAlph)
-                {
-                    Alphabet.text += string.Format("<b><color=blue>{0}</color></b> ", alphArr[i]);
+                Alphabet.text += string.Format("<b><color=blue>{0}</color></b> ", alphArr[i]);
 
-                    if (i == 11)
-                    {
-                        Alphabet.text += '\n';
-                    }
-                }
-                else if (i == 11)
+                if (i == 11)
                 {
-                    Alphabet.text += alphArr[i] + " ";
                     Alphabet.text += '\n';
                 }
-                else
-                {
-                    Alphabet.text += alphArr[i] + " ";
-                }
             }
-        }
-        else if (state == State.UP)
-        {
-
+            else if (i == 11)
+            {
+                Alphabet.text += alphArr[i] + " ";
+                Alphabet.text += '\n';
+            }
+            else
+            {
+                Alphabet.text += alphArr[i] + " ";
+            }
         }
     }
 
     public void NextBT()
     {
+        if(playerName.text[selectIdx].ToString()!="_")
+        StopAllCoroutines();
+        
         if (state == State.DOWN)
         {
 
@@ -104,17 +95,19 @@ public class KTest : MonoBehaviour
                 selectAlph++;
             }
         }
-        else if(state==State.UP)
+        else if (state == State.UP)
         {
-            if(selectIdx==4)
+
+            if (selectIdx == 4)
             {
                 selectIdx = 0;
             }
             else
             {
-            selectIdx += 2;
-
+                selectIdx += 2;
             }
+
+            StartCoroutine(BlickText());
         }
 
         Display();
@@ -122,7 +115,7 @@ public class KTest : MonoBehaviour
 
     public void ResetBT()
     {
-        playerName.text = "";
+        playerName.text = "_ _ _";
     }
 
     public void UPDOWN()
@@ -130,6 +123,25 @@ public class KTest : MonoBehaviour
         if (state == State.UP)
             state = State.DOWN;
         else
+        {
             state = State.UP;
+           // StartCoroutine(BlickText());
+        }
+    }
+
+
+    public IEnumerator BlickText()
+    {
+       
+            tempStr = playerName.text[selectIdx].ToString();
+        while (true)
+        {
+            playerName.text = playerName.text.Remove(selectIdx, 1).Insert(selectIdx, "_");
+            yield return new WaitForSeconds(0.5f);
+            playerName.text = playerName.text.Remove(selectIdx, 1).Insert(selectIdx, tempStr);
+            yield return new WaitForSeconds(0.5f);
+            //playerName.text = playerName.text.Insert(selectIdx, tempStr);
+        }
+
     }
 }
