@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class P_ChangePos : MonoBehaviour
 {
-    public Vector3 beforePos;
-    public Vector3 afterPos;
+    public Vector2 beforePos;
+    public Vector2 afterPos;
 
     public bool isSet = true;
     public bool isMove = false;
@@ -26,8 +26,14 @@ public class P_ChangePos : MonoBehaviour
     private void OnMouseDown()
     {
         isSet = false;
+        GetComponent<Collider2D>().isTrigger = false;
         Debug.Log("위치 저장");
         beforePos = this.transform.localPosition;
+    }
+
+    private void OnMouseExit()
+    {
+        GetComponent<Collider2D>().isTrigger = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

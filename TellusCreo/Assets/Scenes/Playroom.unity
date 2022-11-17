@@ -133,9 +133,9 @@ GameObject:
   - component: {fileID: 202253198}
   - component: {fileID: 202253197}
   - component: {fileID: 202253200}
-  - component: {fileID: 202253201}
   - component: {fileID: 202253196}
-  m_Layer: 0
+  - component: {fileID: 202253201}
+  m_Layer: 8
   m_Name: masculine-user_r
   m_TagString: P_stop
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.00000047683716, y: 0}
@@ -264,13 +264,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 202253195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae882404fdf71e14da41ee5c3702a770, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e1ced335156b3749b475f36f955970b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beforePos: {x: 0, y: 0, z: 0}
-  afterPos: {x: 0, y: 0, z: 0}
-  isSet: 1
+  beforePos: {x: 0, y: 0}
+  afterPos: {x: 0, y: 0}
   isMove: 0
+  isSet: 1
 --- !u!1 &741484438
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,9 +283,9 @@ GameObject:
   - component: {fileID: 741484441}
   - component: {fileID: 741484439}
   - component: {fileID: 741484443}
-  - component: {fileID: 741484444}
   - component: {fileID: 741484440}
-  m_Layer: 0
+  - component: {fileID: 741484444}
+  m_Layer: 8
   m_Name: masculine-user
   m_TagString: P_stop
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0073068747, y: 0}
@@ -412,15 +412,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741484438}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae882404fdf71e14da41ee5c3702a770, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e1ced335156b3749b475f36f955970b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beforePos: {x: 0, y: 0, z: 0}
-  afterPos: {x: 0, y: 0, z: 0}
-  isSet: 1
+  beforePos: {x: 0, y: 0}
+  afterPos: {x: 0, y: 0}
   isMove: 0
+  isSet: 1
 --- !u!1 &1052022074
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,9 +516,9 @@ GameObject:
   - component: {fileID: 1423944309}
   - component: {fileID: 1423944308}
   - component: {fileID: 1423944311}
-  - component: {fileID: 1423944312}
   - component: {fileID: 1423944307}
-  m_Layer: 0
+  - component: {fileID: 1423944312}
+  m_Layer: 8
   m_Name: masculine-user_g
   m_TagString: P_stop
   m_Icon: {fileID: 0}
@@ -547,7 +547,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0050061345, y: 0}
@@ -645,12 +645,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423944306}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae882404fdf71e14da41ee5c3702a770, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e1ced335156b3749b475f36f955970b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beforePos: {x: 0, y: 0, z: 0}
-  afterPos: {x: 0, y: 0, z: 0}
-  isSet: 1
+  beforePos: {x: 0, y: 0}
+  afterPos: {x: 0, y: 0}
   isMove: 0
+  isSet: 1
