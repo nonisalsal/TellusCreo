@@ -7,14 +7,14 @@ public class P_ChangePos : MonoBehaviour
     public Vector2 beforePos;
     public Vector2 afterPos;
 
-    public bool isMove = false;
+    private bool isMove = false;
     public bool isSet = true;
-    public bool startOnTrig = false;
+    private bool startOnTrig = false;
 
     private int layerNum;
     private int layer_S;
     private int layer_NS;
-    public int checkLayer;
+    private int checkLayer;
 
 
     private void Start()
@@ -42,7 +42,11 @@ public class P_ChangePos : MonoBehaviour
     private void Update()
     {
         if (this.tag == "P_move") { isMove = true; }
-        else { isMove = false; }
+        else {
+            isMove = false;
+            //if (!isSet) { GetComponent<P_DragAndDrop>().enabled = false; }
+            //else { GetComponent<P_DragAndDrop>().enabled = true; }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
