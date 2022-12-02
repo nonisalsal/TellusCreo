@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class P_testing : MonoBehaviour
 {
-    public float angle;
-    private float speed = 5.0f;
+    public float distance;
+    private float speed = 500.0f;
 
     public bool isDrag = false;
 
@@ -29,11 +29,32 @@ public class P_testing : MonoBehaviour
 
     private void Update()
     {
-        angle = Mathf.Atan2(afterPos.y - beforePos.y, afterPos.x - afterPos.x) * Mathf.Rad2Deg;
-        if (angle >= 90)
+        distance = Mathf.Sqrt(((afterPos.x - beforePos.x) * (afterPos.x - beforePos.x)) +
+            ((afterPos.y - beforePos.y) * (afterPos.y - beforePos.y)));
+        if (distance >= 5)
         {
-            rig = GetComponent<Rigidbody2D>();
-            rig.angularVelocity = speed;
+            if ((afterPos.x - beforePos.x) >= 0)
+            {
+                if((afterPos.y - beforePos.y) <= 0) { turnRight(); }
+                else { turnLeft(); }
+            }
+            else
+            {
+                if ((afterPos.y - beforePos.y) <= 0) { turnLeft(); }
+                else { turnRight(); }
+            }
         }
+    }
+
+    private void turnRight()
+    {
+        rig = GetComponent<Rigidbody2D>();
+        rig.angularVelocity = -speed;
+    }
+
+    private void turnLeft()
+    {
+        rig = GetComponent<Rigidbody2D>();
+        rig.angularVelocity = speed;
     }
 }

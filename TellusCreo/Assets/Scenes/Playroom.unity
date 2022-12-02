@@ -282,13 +282,14 @@ GameObject:
   - component: {fileID: 230258807}
   - component: {fileID: 230258808}
   - component: {fileID: 230258809}
+  - component: {fileID: 230258810}
   m_Layer: 0
   m_Name: Pos_m
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &230258806
 Transform:
   m_ObjectHideFlags: 0
@@ -301,7 +302,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2019652486}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
 --- !u!70 &230258807
 CapsuleCollider2D:
@@ -331,7 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0858ac36f7c1cd449e223175baf537f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctObj: {fileID: 1376900040}
+  correctObj: {fileID: 1490386577}
   isRight: 0
 --- !u!212 &230258809
 SpriteRenderer:
@@ -383,6 +384,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &230258810
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230258805}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &585174268
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,13 +417,14 @@ GameObject:
   - component: {fileID: 585174270}
   - component: {fileID: 585174271}
   - component: {fileID: 585174272}
+  - component: {fileID: 585174273}
   m_Layer: 0
   m_Name: Pos_h
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &585174269
 Transform:
   m_ObjectHideFlags: 0
@@ -414,7 +437,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2019652486}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
 --- !u!70 &585174270
 CapsuleCollider2D:
@@ -444,7 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0858ac36f7c1cd449e223175baf537f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctObj: {fileID: 1490386577}
+  correctObj: {fileID: 1376900040}
   isRight: 0
 --- !u!212 &585174272
 SpriteRenderer:
@@ -496,6 +519,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &585174273
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585174268}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &741484438
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,8 +784,9 @@ GameObject:
   - component: {fileID: 1376900042}
   - component: {fileID: 1376900041}
   - component: {fileID: 1376900044}
+  - component: {fileID: 1376900045}
   m_Layer: 9
-  m_Name: clockHand_m
+  m_Name: clockHand_h
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -839,6 +884,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c784d402dfa61c47bf5b6adc456f147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &1376900045
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376900040}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1423944306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,8 +1066,9 @@ GameObject:
   - component: {fileID: 1490386579}
   - component: {fileID: 1490386578}
   - component: {fileID: 1490386581}
+  - component: {fileID: 1490386582}
   m_Layer: 8
-  m_Name: clockHand_h
+  m_Name: clockHand_m
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1099,6 +1166,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c784d402dfa61c47bf5b6adc456f147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &1490386582
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490386577}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1662077639
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,8 +1331,8 @@ Transform:
   - {fileID: 1662077641}
   - {fileID: 1376900043}
   - {fileID: 1490386580}
-  - {fileID: 230258806}
   - {fileID: 585174269}
+  - {fileID: 230258806}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1344,7 +1432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1ced335156b3749b475f36f955970b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
+  distance: 0
   isDrag: 0
   beforePos: {x: 0, y: 0}
   afterPos: {x: 0, y: 0}

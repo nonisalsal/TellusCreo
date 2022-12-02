@@ -14,7 +14,7 @@ public class P_DragAndRotation : MonoBehaviour
     {
         layer_S = SortingLayer.NameToID("Select");
         layer_NS = SortingLayer.NameToID("NotSelect");
-        GetComponent<SpriteRenderer>().sortingLayerID = layer_NS;
+        ChangeLayer(8);
     }
 
     private void OnMouseDown()
@@ -22,7 +22,7 @@ public class P_DragAndRotation : MonoBehaviour
         //Debug.Log("태그변경: P_move");
         this.tag = "P_move";
         clockHand = transform.position;
-        GetComponent<SpriteRenderer>().sortingLayerID = layer_S;
+        ChangeLayer(9);
     }
 
     private void OnMouseDrag()
@@ -36,6 +36,22 @@ public class P_DragAndRotation : MonoBehaviour
     {
         //Debug.Log("태그변경: P_stop");
         this.tag = "P_stop";
-        GetComponent<SpriteRenderer>().sortingLayerID = layer_NS;
+        ChangeLayer(8);
+    }
+
+    private void ChangeLayer(int layerNum)
+    {
+        if (layerNum == 8)
+        {
+            this.gameObject.layer = 8;
+            GetComponent<SpriteRenderer>().sortingLayerID = layer_NS;
+            //if (this.gameObject.layer == 8) { Debug.Log("레이어변경: 8"); }
+        }
+        else if (layerNum == 9)
+        {
+            this.gameObject.layer = 9;
+            GetComponent<SpriteRenderer>().sortingLayerID = layer_S;
+            //if (this.gameObject.layer == 9) { Debug.Log("레이어변경: 9"); }
+        }
     }
 }
