@@ -10,8 +10,18 @@ public class P_testing : MonoBehaviour
     public bool isDrag = false;
 
     public Vector2 beforePos, afterPos;
+    private struct AfterPositions
+    {
+        float afterX;
+        float afterY;
+    }
 
     private Rigidbody2D rig;
+
+    private void Start()
+    {
+        
+    }
 
     private void OnMouseDown()
     {
