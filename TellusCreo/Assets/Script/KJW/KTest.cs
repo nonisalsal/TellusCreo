@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class KTest : MonoBehaviour
 {
-    enum State
+
+
+   public  enum State
     {
         UP,
         DOWN
@@ -15,7 +17,7 @@ public class KTest : MonoBehaviour
     public Text playerName;
     public Text Alphabet;
     [SerializeField]
-    State state = State.DOWN;
+    State _state = State.DOWN;
     [SerializeField]
     int selectAlph;
     [SerializeField]
@@ -23,8 +25,14 @@ public class KTest : MonoBehaviour
     public string[] alphArr = {"A","B","C","D","E","F","G","H","I","K","L","M",
                                 "N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
 
-    void Start()
+
+
+    public Text tempStateText;
+    
+
+    void Init()
     {
+
         selectAlph = 0;
         selectIdx = 0;
 
@@ -44,6 +52,11 @@ public class KTest : MonoBehaviour
                 Alphabet.text += alphArr[i] + " ";
             }
         }
+    }
+
+    void Awake()
+    {
+        Init();
     }
 
     public void SelectAlph()
@@ -83,7 +96,7 @@ public class KTest : MonoBehaviour
         if(playerName.text[selectIdx].ToString()!="_")
         StopAllCoroutines();
         
-        if (state == State.DOWN)
+        if (_state == State.DOWN)
         {
 
             if (selectAlph == 24)
@@ -95,7 +108,7 @@ public class KTest : MonoBehaviour
                 selectAlph++;
             }
         }
-        else if (state == State.UP)
+        else if (_state == State.UP)
         {
 
             if (selectIdx == 4)
@@ -118,15 +131,21 @@ public class KTest : MonoBehaviour
         playerName.text = "_ _ _";
     }
 
-    public void UPDOWN()
+    public void UPDOWN(State state)
     {
-        if (state == State.UP)
-            state = State.DOWN;
-        else
+
+        _state = state;
+        if (_state == State.UP)
         {
-            state = State.UP;
-           // StartCoroutine(BlickText());
+            tempStateText.text = "UP";
         }
+        else
+            tempStateText.text = "DOWN";
+        //else
+        //{
+        //    _state = State.UP;
+        //   // StartCoroutine(BlickText());
+        //}
     }
 
 
