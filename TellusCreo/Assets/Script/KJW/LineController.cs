@@ -5,15 +5,16 @@ using UnityEngine;
 public class LineController : MonoBehaviour
 {
 
-    LineRenderer lr;
+    LineRenderer _lr;
     [SerializeField]
     Transform _startPos;
-    int idx = 1;
+    Vector2 _prevPos;
+    int _idx = 0;
     void Start()
     {
-        lr = GetComponent<LineRenderer>();
-        lr.SetPosition(0, _startPos.transform.position);
-       
+        _lr = GetComponent<LineRenderer>();
+        _lr.SetPosition(0, _startPos.position);
+        _prevPos = _startPos.position;
     }
 
     // Update is called once per frame
@@ -21,38 +22,46 @@ public class LineController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector2 mousPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(_startPos.transform.position, mousPos, 10f);
-
-            if (hit.collider)
+            Vector2 mousPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // 마우스 좌표 바꾸기
+            RaycastHit2D hit = Physics2D.Raycast(_startPos.position, mousPos, 10f); // 레이캐스트
+            if (hit.collider == null) // null이면 
+                return;
+            if (hit.collider.gameObject.layer == 8) // 레이어 8 (point인지)
             {
-                if (lr.positionCount > idx)
+                hit.collider.gameObject.GetComponent<PosterPoint>().PointEnabled();
+                //  hit.collider.gameObject.GetComponent<PosterPoint>().isPoint = true;
+
+                if (_lr.positionCount > _idx)
                 {
-                    lr.SetPosition(idx, hit.collider.transform.position);
-                  //  lr.enabled = false;
-                    lr.numPositions++;
-                    idx++;
+                    _lr.positionCount++;
+                    _idx++;
+                    _lr.SetPosition(_idx, hit.collider.transform.position);
                 }
 
-            }
-            else
-            {
-                if (lr.positionCount > idx)
-                    lr.SetPosition(idx, mousPos);
-                //lr.enabled = true;
+                if (_idx - 1 >= 0)
+                {
+                    _lr.SetPosition(_idx - 1, _prevPos);
+                    _prevPos = hit.collider.transform.position;
+
+                }
+
+
             }
         }
         else if (Input.GetMouseButtonDown(1))
         {
-            for (int i = 0; i < lr.positionCount; i++)
+            int cnt = _lr.positionCount;
+
+            for (int i = 0; i < cnt - 1; i++)
             {
-                lr.SetPosition(i, _startPos.position);
+                _lr.positionCount--;
             }
-            lr.numPositions = 2;
-            idx = 1;
+
+            _lr.SetPosition(0, _startPos.position);
+            _idx = 0;
         }
 
     }
 
-
 }
+
