@@ -20,8 +20,8 @@ public class P_ChangePos : MonoBehaviour
     private void Start()
     {
         GetComponent<Collider2D>().isTrigger = true;
-        layer_S = SortingLayer.NameToID("Select");
-        layer_NS = SortingLayer.NameToID("NotSelect");
+        layer_S = SortingLayer.NameToID("P_Select");
+        layer_NS = SortingLayer.NameToID("P_NotSelect");
     }
 
     IEnumerator StartSet()
@@ -94,7 +94,7 @@ public class P_ChangePos : MonoBehaviour
         {
             this.gameObject.layer = 9;
             GetComponent<SpriteRenderer>().sortingLayerID = layer_S;
-            if (this.gameObject.layer == 9) { Debug.Log("레이어변경: 9"); }
+            if (this.gameObject.layer == 10) { Debug.Log("레이어변경: 9"); }
         }
     }
 

@@ -27,7 +27,7 @@ public class P_IsRightPos : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerrExit2D(Collider2D collision)
     {
         Debug.Log("트리거 취소");
         if (collision.gameObject == correctObj)

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class P_DragAndDrop : MonoBehaviour
 {
+    private void Start()
+    {
+        this.tag = "P_stop";
+    }
     private void OnMouseDown()
     {
         //Debug.Log("태그변경: P_move");

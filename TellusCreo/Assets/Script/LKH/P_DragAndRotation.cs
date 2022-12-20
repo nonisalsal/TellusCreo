@@ -12,8 +12,9 @@ public class P_DragAndRotation : MonoBehaviour
 
     private void Start()
     {
-        layer_S = SortingLayer.NameToID("Select");
-        layer_NS = SortingLayer.NameToID("NotSelect");
+        this.tag = "P_stop";
+        layer_S = SortingLayer.NameToID("P_Select");
+        layer_NS = SortingLayer.NameToID("P_NotSelect");
         ChangeLayer(8);
     }
 

@@ -4,9 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - P_stop
   - P_move
-  - P_trigger
+  - P_stop
+  - P_platform
+  - P_building
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - UI
   - 
   - 
-  - NotSelectObj
-  - SelectObj
+  - P_NotSelect
+  - P_Select
   - 
   - 
   - 
@@ -44,9 +45,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: NotSelect
-    uniqueID: 3357825575
+  - name: P_NotSelect
+    uniqueID: 1990329913
     locked: 0
-  - name: Select
-    uniqueID: 988010613
+  - name: P_Select
+    uniqueID: 1753167433
     locked: 0
