@@ -7,13 +7,8 @@ public class P_testing : MonoBehaviour
     private int layer_S;
     private int layer_NS;
 
-    private Vector2 beforePos;
-
-<<<<<<< HEAD
     public bool isRight;
 
-    private void Start()
-=======
     public Vector2 beforePos, afterPos;
     private struct AfterPositions
     {
@@ -23,18 +18,13 @@ public class P_testing : MonoBehaviour
 
     private Rigidbody2D rig;
 
-    private void Start()
-    {
-        
-    }
-
     private void OnMouseDown()
->>>>>>> b6731a5df71ef6bcf71b5e938a3f5c552ed22731
     {
         layer_S = SortingLayer.NameToID("P_Select");
         layer_NS = SortingLayer.NameToID("P_NotSelect");
         ChangeLayer(8);
         isRight = false;
+        this.transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
     }
 
     private void Update()
@@ -47,12 +37,6 @@ public class P_testing : MonoBehaviour
         {
             isRight = false;
         }
-    }
-
-    private void OnMouseDown()
-    {
-        ChangeLayer(9);
-        this.transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
     }
 
     private void OnMouseDrag()
