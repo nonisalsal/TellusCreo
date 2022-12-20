@@ -8,8 +8,10 @@ using UnityEngine.UI;
 
 public class DroppableUI : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 { 
+    
     private Image image;
     private RectTransform rect;
+    public bool slotstate = false;
 
     private void Awake()
     {
@@ -27,6 +29,7 @@ public void OnPointerExit(PointerEventData eventData)
 {
     // 아이템 슬롯의 색상을 하얀색으로 변경
     //	image.color = Color.white;
+
 }
 
 
@@ -37,8 +40,14 @@ public void OnDrop(PointerEventData eventData)
          
         if(eventData.pointerDrag != null)
         {
-            eventData.pointerDrag.transform.SetParent(transform);
-            eventData.pointerDrag.GetComponent<RectTransform>().position = rect.position;
+            if(slotstate == false) {
+                eventData.pointerDrag.transform.SetParent(transform);
+                eventData.pointerDrag.GetComponent<RectTransform>().position = rect.position;
+
+               
+            }
+            //eventData.pointerDrag.transform.SetParent(transform);
+            //eventData.pointerDrag.GetComponent<RectTransform>().position = rect.position;
         }
     }
     // Start is called before the first frame update
