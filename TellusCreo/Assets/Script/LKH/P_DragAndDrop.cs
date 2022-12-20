@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class P_DragAndDrop : MonoBehaviour
 {
+
+    KTest test;
+
     private void OnMouseDown()
     {
         //Debug.Log("태그변경: P_move");
