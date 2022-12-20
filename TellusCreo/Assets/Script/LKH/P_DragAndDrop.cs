@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class P_DragAndDrop : MonoBehaviour
 {
+    private void Start()
+    {
+        this.tag = "P_stop";
+    }
     private void OnMouseDown()
     {
         //Debug.Log("태그변경: P_move");
-        gameObject.tag = "P_move";
+        this.tag = "P_move";
     }
 
     private void OnMouseDrag()
@@ -20,6 +24,6 @@ public class P_DragAndDrop : MonoBehaviour
     private void OnMouseUp()
     {
         //Debug.Log("태그변경: P_stop");
-        gameObject.tag = "P_stop";
+        this.tag = "P_stop";
     }
 }

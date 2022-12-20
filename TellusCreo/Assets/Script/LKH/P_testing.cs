@@ -4,72 +4,121 @@ using UnityEngine;
 
 public class P_testing : MonoBehaviour
 {
-    public Vector3 beforePos;
-    public Vector3 afterPos;
+    private int layer_S;
+    private int layer_NS;
 
-    public bool isSet = true;
-    public bool isMove = false;
+    public bool isRight;
 
-
-    void Update()
+    public Vector2 beforePos, afterPos;
+    private struct AfterPositions
     {
-        if (this.tag == "P_move") { isMove = true; }
-        else { isMove = false; }
-
-        if (!isMove && !isSet)
-        {
-            Debug.Log("초기화");
-            this.transform.localPosition = beforePos;
-            isSet = true;
-        }
+        float afterX;
+        float afterY;
     }
+
+    private Rigidbody2D rig;
 
     private void OnMouseDown()
     {
-        Debug.Log("태그변경: P_move");
-        gameObject.tag = "P_move";
+        layer_S = SortingLayer.NameToID("P_Select");
+        layer_NS = SortingLayer.NameToID("P_NotSelect");
+        ChangeLayer(8);
+        isRight = false;
+        this.transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
+    }
 
-        isSet = false;
-        Debug.Log("위치 저장");
-        beforePos = this.transform.localPosition;
+    private void Update()
+    {
+        if(this.transform.position.y >= 4)
+        {
+            isRight = true;
+        }
+        if(isRight==true &&this.transform.position.y < 4)
+        {
+            isRight = false;
+        }
     }
 
     private void OnMouseDrag()
     {
-        Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        Vector2 objectPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        this.transform.position = objectPosition;
+        this.transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
     }
 
     private void OnMouseUp()
     {
-        //Debug.Log("태그변경: P_stop");
-        gameObject.tag = "P_stop";
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!isMove)
+        ChangeLayer(8);
+        if (this.transform.position.y < beforePos.y)
         {
-            isSet = true;
-            Debug.Log("위치 변경");
-            afterPos = collision.transform.localPosition;
-            this.transform.localPosition = afterPos;
-            collision.transform.localPosition = beforePos;
+            this.transform.position = beforePos;
         }
     }
 
-    /*
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!isMove)
+        if (collision.gameObject.name == "platform")
         {
-            isSet = true;
-            afterPos = collision.transform.localPosition;
-            Debug.Log("위치 변경");
-            this.transform.localPosition = afterPos;
-            collision.transform.localPosition = beforePos;
+            if (collision.contacts[0].normal.y > 0.7f)
+            {
+                beforePos = this.transform.position;
+            }
         }
     }
-    */
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "platform" )
+        {
+            if (collision.contacts[0].normal.y > 0.7f)
+            {
+                this.tag = "P_building";
+            }
+            else
+            {
+                if (collision.contacts[0].normal.x <= 0.7f)
+                {
+                    this.transform.position = beforePos;
+                }
+            }
+        }
+
+        if (collision.gameObject.name == "wall")
+        {
+            if (collision.contacts[0].normal.x <= 0.7f)
+            {
+                this.transform.position = beforePos;
+            }
+        }
+
+        if (collision.gameObject.tag == "P_building")
+        {
+            if (collision.contacts[0].normal.y < 0.7f)
+            {
+                if (collision.contacts[0].normal.x <= 0.7f)
+                {
+                    this.transform.position = beforePos;
+                }
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        this.tag = "P_stop";
+    }
+
+    private void ChangeLayer(int layerNum)
+    {
+        if (layerNum == 8)
+        {
+            this.gameObject.layer = 8;
+            GetComponent<SpriteRenderer>().sortingLayerID = layer_NS;
+            //if (this.gameObject.layer == 8) { Debug.Log("레이어변경: 8"); }
+        }
+        else if (layerNum == 9)
+        {
+            this.gameObject.layer = 9;
+            GetComponent<SpriteRenderer>().sortingLayerID = layer_S;
+            //if (this.gameObject.layer == 9) { Debug.Log("레이어변경: 9"); }
+        }
+    }
 }
