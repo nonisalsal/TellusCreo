@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class P_IsRightPos : MonoBehaviour
 {
-    private int layer_NS;
+    //private int layer_NS;
     public GameObject correctObj;
 
     public bool isRight;
@@ -12,9 +12,9 @@ public class P_IsRightPos : MonoBehaviour
     void Start()
     {
         isRight = false;
-        this.gameObject.layer = 8;
-        layer_NS = SortingLayer.NameToID("NotSelect");
-        GetComponent<SpriteRenderer>().sortingLayerID = layer_NS;
+        this.gameObject.layer = 30;
+        //layer_NS = SortingLayer.NameToID("P_NotSelect");
+        //GetComponent<SpriteRenderer>().sortingLayerID = layer_NS;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
