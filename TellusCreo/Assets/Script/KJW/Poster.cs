@@ -9,27 +9,33 @@ public class Poster : MonoBehaviour
     int _prevIdx;
     int _lineIdx;
     bool isStart;
+
+    int cnt;
     Vector2 _prevPos;
     void Start()
     {
         isStart = false;
         _lineIdx = 0;
         _prevIdx = 0;
-
+        cnt = 0;
         _lr = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
+        if (cnt == transform.childCount)
+            Debug.Log("Clear");
+
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 mousPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // 마우스 좌표 바꾸기
             RaycastHit2D hit = Physics2D.Raycast(mousPos, mousPos, 10f); // 레이캐스트
             if (hit.collider == null) // null이면 
                 return;
-            if (hit.collider.gameObject.layer == 8) // 레이어 8 (point인지)
+            if (hit.collider.gameObject.layer == 8 && !hit.collider.GetComponent<PosterPoint>().isClick) // 레이어 8 (point인지)
             {
+                cnt++;
                 if (!isStart)
                 {
 
