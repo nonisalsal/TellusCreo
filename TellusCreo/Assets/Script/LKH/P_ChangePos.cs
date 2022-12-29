@@ -13,7 +13,6 @@ public class P_ChangePos : MonoBehaviour
 
     private int checkLayer;
 
-
     private void Start()
     {
         GetComponent<Collider2D>().isTrigger = true;
