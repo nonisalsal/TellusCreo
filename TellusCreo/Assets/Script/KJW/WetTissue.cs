@@ -5,7 +5,9 @@ using UnityEngine;
 public class WetTissue : MonoBehaviour
 {
     int cnt;
+    bool clear;
 
+    public GameObject mars;
 
     [SerializeField]
     Transform spwanPos;
@@ -29,15 +31,19 @@ public class WetTissue : MonoBehaviour
             }
             cnt--;
         }
-        Debug.Log(cnt);
+        else
+        {
+            if (!clear)
+            {
+                clear = true;
+                Instantiate(mars, transform.position, Quaternion.identity);
+            }
+
+        }
     }
     void Start()
     {
         cnt = 10;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        clear = false;
     }
 }

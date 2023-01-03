@@ -32,21 +32,10 @@ public class PosterPoint : MonoBehaviour
             render.color = new Color(0, 0, 1);
 
         }
-        //else
-        //{
-        //    isClick = false;
-        //    render.color = new Color(1, 0, 0);
-        //}
-    }
-
-    void Update()
-    {
-        if (isClick)
+        else
         {
-
-           
-
+            isClick = false;
+            render.color = new Color(1, 0, 0);
         }
-
     }
 }
