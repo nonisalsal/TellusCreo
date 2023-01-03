@@ -5,21 +5,24 @@ using UnityEngine;
 public class P_TowerPuzzle : MonoBehaviour
 {
     private Vector2 beforePos;
-    private Rigidbody2D rig;
-
-    public bool isRight;
+    public GameObject standard;
+    private float standard_x;
+    private float standard_y;
 
     void Start()
     {
-        isRight = false;
-        rig = gameObject.GetComponent<Rigidbody2D>();
+        //standard = GameObject.Find("TowerPuzzle");
+        standard_x = standard.transform.position.x;
+        //standard_x = GameObject.Find("TowerPuzzle").transform.position.x;
+        standard_y = standard.transform.position.y;
+        //standard_y = GameObject.Find("TowerPuzzle").transform.position.y;
     }
 
     void Update()
     {
         if (this.CompareTag("P_stop"))
         {
-            if (this.transform.position.y < -6 || this.transform.position.x < -10 || this.transform.position.x > 10)
+            if (this.transform.position.y < standard_y - 6 || this.transform.position.x < standard_x - 10 || this.transform.position.x > standard_x + 10)
             {
                 this.transform.position = beforePos;
             }
@@ -54,15 +57,5 @@ public class P_TowerPuzzle : MonoBehaviour
         {
             this.tag = "P_building";
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.name == "clearZone") { isRight = true; }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.gameObject.name == "clearZone") { isRight = false; }
     }
 }

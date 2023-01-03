@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc972c43bf3a8347aee5ba065c03157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRight: 0
+  standard: {fileID: 2105117385}
 --- !u!212 &23929911
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc972c43bf3a8347aee5ba065c03157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRight: 0
+  standard: {fileID: 2105117385}
 --- !u!212 &76545773
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -790,7 +790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc972c43bf3a8347aee5ba065c03157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRight: 0
+  standard: {fileID: 2105117385}
 --- !u!212 &184302997
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1477,6 +1477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleObj: {fileID: 882062972}
+  isActive: 0
   isClear: 0
 --- !u!61 &468538931
 BoxCollider2D:
@@ -2046,6 +2047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleObj: {fileID: 1694144918}
+  isActive: 0
   isClear: 0
 --- !u!61 &677017740
 BoxCollider2D:
@@ -2279,7 +2281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc972c43bf3a8347aee5ba065c03157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRight: 0
+  standard: {fileID: 2105117385}
 --- !u!114 &701712471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2496,6 +2498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleObj: {fileID: 2105117385}
+  isActive: 0
   isClear: 0
 --- !u!61 &819738022
 BoxCollider2D:
@@ -2858,7 +2861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc972c43bf3a8347aee5ba065c03157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRight: 0
+  standard: {fileID: 2105117385}
 --- !u!114 &874552038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3543,7 +3546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc972c43bf3a8347aee5ba065c03157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRight: 0
+  standard: {fileID: 2105117385}
 --- !u!212 &1163497985
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3928,6 +3931,7 @@ GameObject:
   - component: {fileID: 1255458507}
   - component: {fileID: 1255458509}
   - component: {fileID: 1255458508}
+  - component: {fileID: 1255458510}
   m_Layer: 30
   m_Name: clearZone
   m_TagString: Untagged
@@ -4025,6 +4029,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1255458510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255458506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e7a7fca3ac21046af21fe0f241df71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRight: 0
+  isContect: 0
+  isColliderMove: 0
+  time: 0
+  colliderLastPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1376759501
 GameObject:
   m_ObjectHideFlags: 0
@@ -4340,7 +4361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc972c43bf3a8347aee5ba065c03157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRight: 0
+  standard: {fileID: 2105117385}
 --- !u!114 &1442347106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4635,6 +4656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleObj: {fileID: 92631307}
+  isActive: 0
   isClear: 0
 --- !u!61 &1503077737
 BoxCollider2D:
@@ -5113,7 +5135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc972c43bf3a8347aee5ba065c03157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRight: 0
+  standard: {fileID: 2105117385}
 --- !u!114 &1769567629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5914,6 +5936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleObj: {fileID: 830367867}
+  isActive: 0
   isClear: 0
 --- !u!61 &2146425902
 BoxCollider2D:
