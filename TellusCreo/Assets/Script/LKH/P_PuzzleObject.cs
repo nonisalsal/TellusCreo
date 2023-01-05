@@ -5,10 +5,12 @@ using UnityEngine;
 public class P_PuzzleObject : MonoBehaviour
 {
     public GameObject puzzleObj;
-    private GameObject puzzleCopy;
+    public GameObject puzzleCopy;
     private GameObject puzzleClear;
     public bool isActive;
     public bool isClear;
+
+    private int debugTest= 0;
 
     void Start()
     {
@@ -24,13 +26,20 @@ public class P_PuzzleObject : MonoBehaviour
             else { puzzleClear.SetActive(false); }
         }
         //test
-        if (Input.GetKeyUp(KeyCode.DownArrow) && isActive == true)
+        //if (Input.GetKeyUp(KeyCode.DownArrow) && isActive == true)
+        //{
+        //    isClear = true;
+        //}
+        if (isClear == true)
         {
-            isClear = true;
             puzzleClear = puzzleCopy;
+            ClearControl();
+            if (debugTest == 0)
+            {
+                Debug.Log("퍼즐 클리어");
+                debugTest = 1;
+            }
         }
-
-        disableScripts();
     }
 
     private void OnMouseUp()
@@ -51,19 +60,14 @@ public class P_PuzzleObject : MonoBehaviour
         isActive = true;
     }
 
-    private void disableScripts()
+    private void ClearControl()
     {
-        if (isClear == true)
+        // 오브젝트 콜라이더를 비활성화해서 조작하지 못하게 함
+        GameObject puzzleClear = GetComponent<P_PuzzleObject>().puzzleClear;
+        Collider2D[] colliders = puzzleClear.GetComponentsInChildren<Collider2D>();
+        foreach (Collider2D collider in colliders)
         {
-            Transform[] objList = puzzleClear.GetComponentsInChildren<Transform>();
-            foreach (Transform obj in objList)
-            {
-                MonoBehaviour[] scripts = obj.GetComponents<MonoBehaviour>();
-                foreach (MonoBehaviour script in scripts)
-                {
-                    script.enabled = false;
-                }
-            }
+            collider.enabled = false;
         }
     }
 }
