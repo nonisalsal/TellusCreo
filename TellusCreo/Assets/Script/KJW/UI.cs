@@ -26,23 +26,30 @@ public class UI : MonoBehaviour
 
     public void BackArrow()
     {
-        foreach(var arrow in lrArrow)
+        foreach (var arrow in lrArrow)
         {
             arrow.SetActive(true);
         }
         Camera.main.transform.position = prevCameraPos;
 
-       foreach(var puzzle in gm.Puzzles)
+        if (gm.Puzzles[(int)(GameManager.Puzzle.Star) - 10].activeSelf)
+        {// 별자리 퍼즐이 켜져 있을때만
+            gm.LightEnable();
+        }
+
+        foreach (var puzzle in gm.Puzzles) // 모든 퍼즐 비활성화
         {
             puzzle.SetActive(false);
         }
         backArrow.SetActive(false);
+
+       
         gm.onPuzzle = false;
     }
 
     public void LeftArrow()
     {
-        Camera.main.transform.position = new Vector3((Camera.main.transform.position.x + 60) % 80, 0f,-10f);
+        Camera.main.transform.position = new Vector3((Camera.main.transform.position.x + 60) % 80, 0f, -10f);
     }
 
     public void RightArrow()
