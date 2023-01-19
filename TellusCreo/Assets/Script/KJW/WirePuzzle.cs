@@ -28,13 +28,14 @@ public class WirePuzzle : MonoBehaviour
                     if (obj.name.Substring(obj.name.Length - 1) != child.Substring(child.Length - 1)) // 마지막 번호 비교
                     {
                         cnt = 0;
-                        isClear = false;
-                        Debug.Log(isClear);
+                        isClear = false; // TODO 실패하면 전선 타일들 전부 인벤토리로 들어가게 구현하기
+                        Debug.Log(isClear); 
                         return;
                     }
                     else
                     {
                         isClear = true;
+                        GameManager.Instance.ClearPuzzles[(int)GameManager.Puzzle.LightSwitch - 10] = true;
                         cnt = 0;
 
                     }
