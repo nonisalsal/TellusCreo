@@ -10,19 +10,6 @@ public class UI : MonoBehaviour
 
     public GameObject[] lrArrow;
 
-    GameManager gm;
-
-    void Start()
-    {
-        gm = FindObjectOfType<GameManager>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 
     public void BackArrow()
     {
@@ -32,19 +19,18 @@ public class UI : MonoBehaviour
         }
         Camera.main.transform.position = prevCameraPos;
 
-        if (gm.Puzzles[(int)(GameManager.Puzzle.Star) - 10].activeSelf)
+        if (GameManager.Instance.Puzzles[(int)(GameManager.Puzzle.Star) - 10].activeSelf)
         {// 별자리 퍼즐이 켜져 있을때만
-            gm.LightEnable();
+            GameManager.Instance.LightEnable();
         }
 
-        foreach (var puzzle in gm.Puzzles) // 모든 퍼즐 비활성화
+        foreach (var puzzle in GameManager.Instance.Puzzles) // 모든 퍼즐 비활성화
         {
             puzzle.SetActive(false);
         }
         backArrow.SetActive(false);
 
-       
-        gm.onPuzzle = false;
+        GameManager.Instance.onPuzzle = false;
     }
 
     public void LeftArrow()
