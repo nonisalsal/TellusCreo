@@ -4,26 +4,34 @@ using UnityEngine;
 
 public class SymmetrySlot : MonoBehaviour
 {
-    public GameObject stove;
+    public bool check;
 
     void Start()
     {
-       
+       check = false;
+
     }
 
-
-    public void Symmetry()
+    public void OnTriggerEnter2D(Collider2D collider)
     {
+        
 
-
-        //if (GameObject stove = transform.GetChild(0).)
-        //{
-        //    Debug.Log("1234");
-        //}
-
-        //if (GameObject stove = child)
-        //{
-        //    Debug.Log("1234");
-        //}
+        if (collider.gameObject.name == "123")
+        {
+            check = true;
+            //Debug.Log(123);
+        }
     }
+
+    public void OnTriggerExit2D(Collider2D collider)
+    {
+       
+        if (collider.gameObject.name == "123")
+        {
+            check = false;
+            //Debug.Log(1);
+        }
+    }
+
+
 }

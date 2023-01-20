@@ -10,49 +10,69 @@ public class P_DragAndRotation : MonoBehaviour
     private int layer_S;
     private int layer_NS;
 
+    public GameObject rayControl;
+
     private void Start()
     {
         this.tag = "P_stop";
         layer_S = SortingLayer.NameToID("P_Select");
         layer_NS = SortingLayer.NameToID("P_NotSelect");
-        ChangeLayer(8);
+        ChangeLayer(30);
     }
 
-    private void OnMouseDown()
+    private void ChangeLayer(int layerNum)
     {
-        //Debug.Log("태그변경: P_move");
-        this.tag = "P_move";
-        clockHand = transform.position;
-        ChangeLayer(9);
+        if (layerNum == 30)
+        {
+            this.gameObject.layer = 30;
+            GetComponent<SpriteRenderer>().sortingLayerID = layer_NS;
+        }
+        else if (layerNum == 31)
+        {
+            this.gameObject.layer = 31;
+            GetComponent<SpriteRenderer>().sortingLayerID = layer_S;
+        }
     }
 
     private void OnMouseDrag()
     {
         mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         angle = Mathf.Atan2(mouse.y - clockHand.y, mouse.x - clockHand.x) * Mathf.Rad2Deg;
-        this.transform.rotation = Quaternion.AngleAxis(angle-90, Vector3.forward);
+        this.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
     }
 
-    private void OnMouseUp()
+    private void Update()
     {
-        //Debug.Log("태그변경: P_stop");
-        this.tag = "P_stop";
-        ChangeLayer(8);
+        PlayerInput();
     }
 
-    private void ChangeLayer(int layerNum)
+    private void PlayerInput()
     {
-        if (layerNum == 8)
+        if (rayControl.GetComponent<P_Camera>().isDown == true)
         {
-            this.gameObject.layer = 8;
-            GetComponent<SpriteRenderer>().sortingLayerID = layer_NS;
-            //if (this.gameObject.layer == 8) { Debug.Log("레이어변경: 8"); }
+            RaycastHit2D downHit = rayControl.GetComponent<P_Camera>().downHit;
+            if (downHit)
+            {
+                if (System.Object.ReferenceEquals(this.gameObject, downHit.collider.gameObject))
+                {
+                    this.tag = "P_move";
+                    clockHand = transform.position;
+                    ChangeLayer(31);
+                }
+            }
         }
-        else if (layerNum == 9)
+
+        if (rayControl.GetComponent<P_Camera>().isUp == true)
         {
-            this.gameObject.layer = 9;
-            GetComponent<SpriteRenderer>().sortingLayerID = layer_S;
-            //if (this.gameObject.layer == 9) { Debug.Log("레이어변경: 9"); }
+            RaycastHit2D upHit = rayControl.GetComponent<P_Camera>().upHit;
+            if (upHit)
+            {
+                if (System.Object.ReferenceEquals(this.gameObject, upHit.collider.gameObject))
+                {
+                    this.tag = "P_stop";
+                    ChangeLayer(30);
+                }
+            }
         }
     }
 }
