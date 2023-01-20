@@ -4,59 +4,37 @@ using UnityEngine;
 
 public class P_TowerPuzzle : MonoBehaviour
 {
-    private int layer_S;
-    private int layer_NS;
-
     private Vector2 beforePos;
-    private Rigidbody2D rig;
+    public GameObject standard;
+    private float standard_x;
+    private float standard_y;
 
-    public bool isRight;
+    public GameObject rayControl;
 
     void Start()
     {
-        layer_S = SortingLayer.NameToID("P_Select");
-        layer_NS = SortingLayer.NameToID("P_NotSelect");
-        ChangeLayer(8);
-        isRight = false;
-
-        rig = gameObject.GetComponent<Rigidbody2D>();
+        //standard = GameObject.Find("TowerPuzzle");
+        standard_x = standard.transform.position.x;
+        //standard_x = GameObject.Find("TowerPuzzle").transform.position.x;
+        standard_y = standard.transform.position.y;
+        //standard_y = GameObject.Find("TowerPuzzle").transform.position.y;
     }
 
     void Update()
     {
-        if (this.tag == "P_building" && this.transform.position.y >= 4)
-        {
-            isRight = true;
-        }
-        else { isRight = false; }
+        //PlayerInput();
 
-        //if (this.tag == "P_building")
-        //{
-        //    rig.bodyType = RigidbodyType2D.Kinematic;
-        //}
-        //else
-        //{
-        //    rig.bodyType = RigidbodyType2D.Dynamic;
-        //}
-    }
-
-    private void ChangeLayer(int layerNum)
-    {
-        if (layerNum == 8)
+        if (this.CompareTag("P_stop"))
         {
-            this.gameObject.layer = 8;
-            GetComponent<SpriteRenderer>().sortingLayerID = layer_NS;
-        }
-        else if (layerNum == 9)
-        {
-            this.gameObject.layer = 9;
-            GetComponent<SpriteRenderer>().sortingLayerID = layer_S;
+            if (this.transform.position.y < standard_y - 6 || this.transform.position.x < standard_x - 10 || this.transform.position.x > standard_x + 10)
+            {
+                this.transform.position = beforePos;
+            }
         }
     }
 
     private void OnMouseDown()
     {
-        ChangeLayer(9);
         this.transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
     }
 
@@ -65,51 +43,31 @@ public class P_TowerPuzzle : MonoBehaviour
         this.transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
     }
 
-    private void OnMouseUp()
-    {
-        ChangeLayer(8);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.name == "clearZone")
-        {
-            isRight = true;
-        }
-        else
-        {
-            if(collision.contacts[0].normal.y >= 0.9f && collision.gameObject.name == "platform")
-            {
-                beforePos = this.transform.position;
-            }
-            else if(collision.contacts[0].normal.y < 0.9f)
-            {
-                this.transform.position = beforePos;
-            }
-
-            if (collision.contacts[0].normal.y < 0.9f)
-            {
-                if (collision.contacts[0].normal.x < 0.9f)
-                {
-                    this.transform.position = beforePos;
-                }
-            }
-        }
-    }
+    //private void PlayerInput()
+    //{
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        this.transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
+    //    }
+    //}
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.name =="platform" || collision.gameObject.tag == "P_building")
+        if (collision.gameObject.CompareTag("P_building") && this.gameObject.CompareTag("P_building") == false)
         {
+            if (collision.contacts[0].normal.y < 0.7f)
+            {
+                this.transform.position = beforePos;
+            }
+        }
+        if (collision.gameObject.name == "platform" && collision.contacts[0].normal.y >= 1f  && this.gameObject.CompareTag("P_building") == false)
+        {
+            beforePos = this.transform.position;
             this.tag = "P_building";
         }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.name == "clearZone")
+        if (collision.gameObject.CompareTag("P_building") && this.gameObject.CompareTag("P_building") == false)
         {
-            isRight = false;
+            this.tag = "P_building";
         }
     }
 }
