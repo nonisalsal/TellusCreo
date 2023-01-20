@@ -36,6 +36,11 @@ public class P_TowerPuzzle : MonoBehaviour
         this.transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("P_building") && this.gameObject.CompareTag("P_building") == false)
