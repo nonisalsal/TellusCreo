@@ -49,19 +49,7 @@ public class P_PuzzleClear : MonoBehaviour
         }
         else if (System.Object.ReferenceEquals(puzzleObj, top))
         {
-            MonoBehaviour[] scripts = puzzleCopy.GetComponentsInChildren<P_Rotation>();
-            length = scripts.Length;
-            foreach (MonoBehaviour script in scripts)
-            {
-                if (script.GetComponent<P_Rotation>().isDrag == false) { break; }
-                else
-                {
-                    if (script == scripts[length - 1])
-                    {
-                        GetComponent<P_PuzzleObject>().isClear = true;
-                    }
-                }
-            }
+
         }
         else
         {
