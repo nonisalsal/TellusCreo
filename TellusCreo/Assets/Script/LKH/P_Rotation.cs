@@ -19,6 +19,8 @@ public class P_Rotation : MonoBehaviour
     public bool isSet;
     public bool isSetAll;
 
+    public GameObject rayControl;
+
     private void Start()
     {
         speed = 500.0f;
@@ -48,8 +50,8 @@ public class P_Rotation : MonoBehaviour
     {
         if (isSetAll == false) { CheckTrigger(); }
         if (isSetAll == true) {
-            RotateObj();
             PlayerInput();
+            RotateObj();
         }
     }
 
@@ -97,23 +99,11 @@ public class P_Rotation : MonoBehaviour
         }
     }
 
-    //private void OnMouseDown()
-    //{
-    //    beforePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    //}
-
-    //private void OnMouseUp()
-    //{
-    //    afterPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    //}
-
     private void PlayerInput()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (rayControl.GetComponent<P_Camera>().isDown == true)
         {
-            Vector2 downPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Ray2D downRay = new Ray2D(downPos, Vector2.zero);
-            RaycastHit2D downHit = Physics2D.Raycast(downRay.origin, downRay.direction, 1 << 30);
+            RaycastHit2D downHit = rayControl.GetComponent<P_Camera>().downHit;
             if (downHit)
             {
                 if (System.Object.ReferenceEquals(this.gameObject, downHit.collider.gameObject))
