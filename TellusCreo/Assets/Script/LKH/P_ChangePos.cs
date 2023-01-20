@@ -7,7 +7,7 @@ public class P_ChangePos : MonoBehaviour
     public Vector2 beforePos;
     public Vector2 afterPos;
 
-    public bool isMove = false;
+    private bool isMove = false;
     public bool isSet = true;
     private bool startOnTrig = false;
 
@@ -35,10 +35,10 @@ public class P_ChangePos : MonoBehaviour
 
     private void Update()
     {
+        PlayerInput();
+
         if (this.CompareTag("P_move")) { isMove = true; }
         else { isMove = false; }
-
-        PlayerInput();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -75,12 +75,9 @@ public class P_ChangePos : MonoBehaviour
             RaycastHit2D downHit = Physics2D.Raycast(downRay.origin, downRay.direction, 1 << 30);
             if (downHit)
             {
-                if (System.Object.ReferenceEquals(this.gameObject, downHit.collider.gameObject))
-                {
-                    isSet = false;
-                    beforePos = this.transform.localPosition;
-                    checkLayer = 1;
-                }
+                isSet = false;
+                beforePos = this.transform.localPosition;
+                checkLayer = 1;
             }
         }
         if (Input.GetMouseButtonUp(0))
@@ -90,10 +87,7 @@ public class P_ChangePos : MonoBehaviour
             RaycastHit2D upHit = Physics2D.Raycast(upRay.origin, upRay.direction);
             if (upHit)
             {
-                if (System.Object.ReferenceEquals(this.gameObject, upHit.collider.gameObject))
-                {
-                    if (checkLayer == 1 && !isMove) { checkLayer = 2; }
-                }
+                if (checkLayer == 1 && !isMove) { checkLayer = 2; }
             }
         }
     }

@@ -73,16 +73,15 @@ public class P_Rotation : MonoBehaviour
             RaycastHit2D downHit = Physics2D.Raycast(downRay.origin, downRay.direction, 1 << 30);
             if (downHit)
             {
-                if (System.Object.ReferenceEquals(this.gameObject, downHit.collider.gameObject))
-                {
-                    isDrag = true;
-                    beforePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                }
+                beforePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
         }
         if (Input.GetMouseButtonUp(0))
         {
-            if (isDrag)
+            Vector2 upPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Ray2D upRay = new Ray2D(upPos, Vector2.zero);
+            RaycastHit2D upHit = Physics2D.Raycast(upRay.origin, upRay.direction);
+            if (upHit)
             {
                 afterPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }

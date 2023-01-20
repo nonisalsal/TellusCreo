@@ -20,16 +20,20 @@ public class P_IsRightPos : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log("트리거 접촉");
-        if (System.Object.ReferenceEquals(collision.gameObject, correctObj))
+        if (collision.gameObject == correctObj)
         {
             isRight = true;
             //Debug.Log("IsRight 활성화");
         }
-        else { isRight = false; }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerrExit2D(Collider2D collision)
     {
-        isRight = false;
+        //Debug.Log("트리거 취소");
+        if (collision.gameObject == correctObj)
+        {
+            isRight = false;
+            //Debug.Log("IsRight 비활성화");
+        }
     }
 }

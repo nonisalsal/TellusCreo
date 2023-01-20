@@ -22,16 +22,12 @@ public class P_PuzzleObject : MonoBehaviour
 
     void Update()
     {
+        PlayerInput();
+
         if (GameObject.Find("MainCamera").GetComponent<P_Camera>().playPuzzle == false && isActive == true)
         {
-            if (isClear == false) { 
-                Destroy(puzzleCopy);
-                isActive = false;
-            }
-            else { 
-                puzzleClear.SetActive(false);
-                isActive = false;
-            }
+            if (isClear == false) { Destroy(puzzleCopy); }
+            else { puzzleClear.SetActive(false); }
         }
         //test
         //if (Input.GetKeyUp(KeyCode.DownArrow) && isActive == true)
@@ -48,8 +44,6 @@ public class P_PuzzleObject : MonoBehaviour
                 debugTest = 1;
             }
         }
-
-        PlayerInput();
     }
 
     //private void OnMouseUp()
