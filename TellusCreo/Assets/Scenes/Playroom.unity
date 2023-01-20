@@ -1313,7 +1313,7 @@ GameObject:
   - component: {fileID: 433375132}
   - component: {fileID: 433375131}
   - component: {fileID: 433375134}
-  m_Layer: 30
+  m_Layer: 0
   m_Name: picture1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1444,8 +1444,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1064922403
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b3ab972b21db85d48ade9657efdd4771, type: 3}
   m_Color: {r: 1, g: 0.5424528, b: 0.5424528, a: 1}
@@ -1508,7 +1508,6 @@ MonoBehaviour:
   puzzleCopy: {fileID: 0}
   isActive: 0
   isClear: 0
-  upHit: {fileID: 0}
 --- !u!61 &468538931
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2093,7 +2092,6 @@ MonoBehaviour:
   puzzleCopy: {fileID: 0}
   isActive: 0
   isClear: 0
-  upHit: {fileID: 0}
 --- !u!61 &677017740
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2559,7 +2557,6 @@ MonoBehaviour:
   puzzleCopy: {fileID: 0}
   isActive: 0
   isClear: 0
-  upHit: {fileID: 0}
 --- !u!61 &819738022
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2694,7 +2691,7 @@ GameObject:
   - component: {fileID: 867935989}
   - component: {fileID: 867935988}
   - component: {fileID: 867935991}
-  m_Layer: 30
+  m_Layer: 0
   m_Name: picture2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2825,8 +2822,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1064922403
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b3ab972b21db85d48ade9657efdd4771, type: 3}
   m_Color: {r: 1, g: 0.99609816, b: 0.5411765, a: 1}
@@ -3643,7 +3640,7 @@ GameObject:
   - component: {fileID: 1120277144}
   - component: {fileID: 1120277143}
   - component: {fileID: 1120277142}
-  m_Layer: 30
+  m_Layer: 0
   m_Name: picture3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3760,8 +3757,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1064922403
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b3ab972b21db85d48ade9657efdd4771, type: 3}
   m_Color: {r: 0.7510799, g: 1, b: 0.5411765, a: 1}
@@ -4507,7 +4504,7 @@ GameObject:
   - component: {fileID: 1376759504}
   - component: {fileID: 1376759503}
   - component: {fileID: 1376759506}
-  m_Layer: 30
+  m_Layer: 0
   m_Name: picture4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4638,8 +4635,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1064922403
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b3ab972b21db85d48ade9657efdd4771, type: 3}
   m_Color: {r: 0.5411765, g: 0.845226, b: 1, a: 1}
@@ -5179,7 +5176,6 @@ MonoBehaviour:
   puzzleCopy: {fileID: 0}
   isActive: 0
   isClear: 0
-  upHit: {fileID: 0}
 --- !u!61 &1503077737
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6479,7 +6475,6 @@ MonoBehaviour:
   puzzleCopy: {fileID: 0}
   isActive: 0
   isClear: 0
-  upHit: {fileID: 0}
 --- !u!61 &2146425902
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -18,17 +18,12 @@ public class P_DragAndRotation : MonoBehaviour
         ChangeLayer(30);
     }
 
-    private void Update()
+    private void OnMouseDown()
     {
-        PlayerInput();
+        this.tag = "P_move";
+        clockHand = transform.position;
+        ChangeLayer(31);
     }
-
-    //private void OnMouseDown()
-    //{
-    //    this.tag = "P_move";
-    //    clockHand = transform.position;
-    //    ChangeLayer(31);
-    //}
 
     private void OnMouseDrag()
     {
@@ -37,37 +32,10 @@ public class P_DragAndRotation : MonoBehaviour
         this.transform.rotation = Quaternion.AngleAxis(angle-90, Vector3.forward);
     }
 
-    //private void OnMouseUp()
-    //{
-    //    this.tag = "P_stop";
-    //    ChangeLayer(30);
-    //}
-
-    private void PlayerInput()
+    private void OnMouseUp()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector2 downPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Ray2D downRay = new Ray2D(downPos, Vector2.zero);
-            RaycastHit2D downHit = Physics2D.Raycast(downRay.origin, downRay.direction, 1 << 30);
-            if (downHit)
-            {
-                this.tag = "P_move";
-                clockHand = transform.position;
-                ChangeLayer(31);
-            }
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            Vector2 upPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Ray2D upRay = new Ray2D(upPos, Vector2.zero);
-            RaycastHit2D upHit = Physics2D.Raycast(upRay.origin, upRay.direction);
-            if (upHit)
-            {
-                this.tag = "P_stop";
-                ChangeLayer(30);
-            }
-        }
+        this.tag = "P_stop";
+        ChangeLayer(30);
     }
 
     private void ChangeLayer(int layerNum)

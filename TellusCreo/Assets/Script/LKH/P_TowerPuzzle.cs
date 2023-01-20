@@ -20,8 +20,6 @@ public class P_TowerPuzzle : MonoBehaviour
 
     void Update()
     {
-        //PlayerInput();
-
         if (this.CompareTag("P_stop"))
         {
             if (this.transform.position.y < standard_y - 6 || this.transform.position.x < standard_x - 10 || this.transform.position.x > standard_x + 10)
@@ -40,14 +38,6 @@ public class P_TowerPuzzle : MonoBehaviour
     {
         this.transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
     }
-
-    //private void PlayerInput()
-    //{
-    //    if (Input.GetMouseButtonDown(0))
-    //    {
-    //        this.transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
-    //    }
-    //}
 
     private void OnCollisionStay2D(Collision2D collision)
     {
