@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class P_Rotation : MonoBehaviour
 {
-    public float distance;
+    private float distance;
     private float speed, sum_x, sum_y;
     private float[] road_x, road_y;
     private int count;
 
-    public bool isDrag = false;
+    private bool isDrag = false;
+    public bool isRotation = false;
 
-    public Vector2 beforePos, afterPos;
+    private Vector2 beforePos, afterPos;
 
     private Rigidbody2D rig;
+
+    public GameObject pairTrigger;
+    public bool isSet;
+    public bool isSetAll;
+
+    public GameObject rayControl;
 
     private void Start()
     {
@@ -23,28 +30,58 @@ public class P_Rotation : MonoBehaviour
         road_x = new float[10];
         road_y = new float[10];
         count = 0;
+
+        isSet = false;
+        isSetAll = false;
+
+        this.GetComponent<SpriteRenderer>().enabled = false;
     }
 
-    private void OnMouseDown()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        beforePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    }
-
-    private void OnMouseUp()
-    {
-        afterPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if(System.Object.ReferenceEquals(collision.gameObject, pairTrigger))
+        {
+            isSet = true;
+            this.GetComponent<SpriteRenderer>().enabled = true;
+            collision.gameObject.SetActive(false);
+        }
     }
 
     private void Update()
     {
-        saveRoad(count);
-        count += 1;
+        if (isSetAll == false) { CheckTrigger(); }
+        if (isSetAll == true) {
+            PlayerInput();
+            RotateObj();
+        }
+    }
 
+    private void CheckTrigger()
+    {
+        MonoBehaviour[] scripts = transform.parent.GetComponentsInChildren<P_Rotation>();
+        int length = scripts.Length;
+        foreach (MonoBehaviour script in scripts)
+        {
+            if (script.GetComponent<P_Rotation>().isSet == false) { break; }
+            else
+            {
+                if (script == scripts[length - 1])
+                {
+                    GetComponent<P_Rotation>().isSetAll = true;
+                }
+            }
+        }
+    }
+
+    private void RotateObj()
+    {
+        //saveRoad(count);
+        //count += 1;
         distance = Mathf.Sqrt(((afterPos.x - beforePos.x) * (afterPos.x - beforePos.x)) +
             ((afterPos.y - beforePos.y) * (afterPos.y - beforePos.y)));
-        if (distance >= 5)
+        if (isRotation && distance >= 5)
         {
-            for (int i=0; i<10; i++)
+            for (int i = 0; i < 10; i++)
             {
                 sum_x += (road_x[i] - beforePos.x);
                 sum_y += (road_y[i] - beforePos.y);
@@ -62,6 +99,30 @@ public class P_Rotation : MonoBehaviour
         }
     }
 
+    private void PlayerInput()
+    {
+        if (rayControl.GetComponent<P_Camera>().isDown == true)
+        {
+            RaycastHit2D downHit = rayControl.GetComponent<P_Camera>().downHit;
+            if (downHit)
+            {
+                if (System.Object.ReferenceEquals(this.gameObject, downHit.collider.gameObject))
+                {
+                    isDrag = true;
+                    beforePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                }
+            }
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (isDrag)
+            {
+                afterPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                isRotation = true;
+            }
+        }
+    }
+
     private void saveRoad(int count)
     {
         if (count < 10)
@@ -69,6 +130,18 @@ public class P_Rotation : MonoBehaviour
             Vector2 thisPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             road_x[count] = thisPos.x;
             road_y[count] = thisPos.y;
+        }
+    }
+
+    private void OnMouseDrag()
+    {
+        if (isSet && count < 10)
+        {
+            Vector2 thisPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            road_x[count] = thisPos.x;
+            road_y[count] = thisPos.y;
+
+            count += 1;
         }
     }
 
