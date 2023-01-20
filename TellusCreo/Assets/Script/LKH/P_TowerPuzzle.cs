@@ -38,54 +38,28 @@ public class P_TowerPuzzle : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "platform" && collision.contacts[0].normal.y >= 1f)
-        {
-            beforePos = this.transform.position;
-            this.tag = "P_building";
-        }
-        if (this.transform.position.x > collision.transform.position.x - 0.3 && this.transform.position.x < collision.transform.position.x + 0.3)
-        {
-            if (this.transform.position.y > collision.transform.position.y - 0.3 && this.transform.position.y < collision.transform.position.y + 0.3)
-            {
-                this.transform.position = beforePos;
-            }
-        }
-        //    else
-        //    {
-        //        if(collision.contacts[0]s.normal.y >= 0.9f && collision.gameObject.name == "platform")
-        //        {
-        //            beforePos = this.transform.position;
-        //        }
-        //        else if(collision.contacts[0].normal.y < 0.9f)
-        //        {
-        //            this.transform.position = beforePos;
-        //        }
-
-        //        if (collision.contacts[0].normal.y < 0.9f)
-        //        {
-        //            if (collision.contacts[0].normal.x < 0.9f)
-        //            {
-        //                this.transform.position = beforePos;
-        //            }
-        //        }
-        //    }
+        
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("P_building"))
+        if (collision.gameObject.CompareTag("P_building") && this.gameObject.CompareTag("P_building") == false)
+        {
+            if (collision.contacts[0].normal.y < 0.7f)
+            {
+                this.transform.position = beforePos;
+            }
+        }
+        if (collision.gameObject.name == "platform" && collision.contacts[0].normal.y >= 1f  && this.gameObject.CompareTag("P_building") == false)
+        {
+            beforePos = this.transform.position;
+            this.tag = "P_building";
+        }
+        if (collision.gameObject.CompareTag("P_building") && this.gameObject.CompareTag("P_building") == false)
         {
             this.tag = "P_building";
         }
     }
-
-    //private void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.name == "clearZone")
-    //    {
-    //        isRight = false;
-    //    }
-    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
