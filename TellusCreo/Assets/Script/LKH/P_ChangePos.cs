@@ -11,12 +11,17 @@ public class P_ChangePos : MonoBehaviour
     public bool isSet = true;
     private bool startOnTrig = false;
 
+    private int layerNum;
+    private int layer_S;
+    private int layer_NS;
     private int checkLayer;
 
 
     private void Start()
     {
         GetComponent<Collider2D>().isTrigger = true;
+        layer_S = SortingLayer.NameToID("P_Select");
+        layer_NS = SortingLayer.NameToID("P_NotSelect");
     }
 
     IEnumerator StartSet()
@@ -36,13 +41,17 @@ public class P_ChangePos : MonoBehaviour
 
     private void Update()
     {
-        if (this.CompareTag("P_move")) { isMove = true; }
-        else { isMove = false; }
+        if (this.tag == "P_move") { isMove = true; }
+        else {
+            isMove = false;
+            //if (!isSet) { GetComponent<P_DragAndDrop>().enabled = false; }
+            //else { GetComponent<P_DragAndDrop>().enabled = true; }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!isSet && collision.CompareTag("P_stop"))
+        if (!isSet && collision.tag == "P_stop")
         {
             afterPos = collision.transform.localPosition;
             collision.transform.localPosition = beforePos;
@@ -57,12 +66,36 @@ public class P_ChangePos : MonoBehaviour
     {
         isSet = false;
         beforePos = this.transform.localPosition;
+
+        layerNum = 9;
+        ChangeLayer();
         checkLayer = 1;
     }
 
     private void OnMouseExit()
     {
-        if (checkLayer == 1 && !isMove) { checkLayer = 2; }
+        if (checkLayer == 1 && !isMove)
+        {
+            layerNum = 8;
+            ChangeLayer();
+            checkLayer = 2;
+        }
+    }
+
+    private void ChangeLayer()
+    {
+        if (layerNum == 8)
+        {
+            this.gameObject.layer = 8;
+            GetComponent<SpriteRenderer>().sortingLayerID = layer_NS;
+            if (this.gameObject.layer == 8) { Debug.Log("레이어변경: 8"); }
+        }
+        else if (layerNum == 9)
+        {
+            this.gameObject.layer = 9;
+            GetComponent<SpriteRenderer>().sortingLayerID = layer_S;
+            if (this.gameObject.layer == 10) { Debug.Log("레이어변경: 9"); }
+        }
     }
 
     public void SetObj()

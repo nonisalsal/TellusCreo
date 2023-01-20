@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Playroom.unity
+- path: Assets/Scenes/PlayroomScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
