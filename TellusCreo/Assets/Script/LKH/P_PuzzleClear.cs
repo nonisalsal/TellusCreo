@@ -6,12 +6,12 @@ public class P_PuzzleClear : MonoBehaviour
 {
     private int length;
     // 퍼즐 오브젝트 변수 정의 
-    private GameObject doll1;
-    private GameObject doll2;
-    private GameObject picture;
-    private GameObject clock;
-    private GameObject tower;
-    private GameObject top;
+    //private GameObject doll1;
+    //private GameObject doll2;
+    //private GameObject picture;
+    //private GameObject clock;
+    public GameObject tower;
+    public GameObject top;
     private GameObject puzzleObj;
     private GameObject puzzleCopy;
 
@@ -19,12 +19,12 @@ public class P_PuzzleClear : MonoBehaviour
     {
         length = 0;
         // 변수에 각각 오브젝트 넣어주기
-        doll1 = GameObject.Find("DollPuzzle1");
-        doll2 = GameObject.Find("DollPuzzle2");
-        picture = GameObject.Find("PicturePuzzle");
-        clock = GameObject.Find("ClockPuzzle");
-        tower = GameObject.Find("TowerPuzzle");
-        top = GameObject.Find("TopPuzzle");
+        //doll1 = GameObject.Find("DollPuzzle1");
+        //doll2 = GameObject.Find("DollPuzzle2");
+        //picture = GameObject.Find("PicturePuzzle");
+        //clock = GameObject.Find("ClockPuzzle");
+        //tower = GameObject.Find("TowerPuzzle");
+        //top = GameObject.Find("TopPuzzle");
         puzzleObj = GetComponent<P_PuzzleObject>().puzzleObj;
     }
 
@@ -53,7 +53,7 @@ public class P_PuzzleClear : MonoBehaviour
             length = scripts.Length;
             foreach (MonoBehaviour script in scripts)
             {
-                if (script.GetComponent<P_Rotation>().isDrag == false) { break; }
+                if (script.GetComponent<P_Rotation>().isRotation == false) { break; }
                 else
                 {
                     if (script == scripts[length - 1])
