@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/csharp,unity,visualstudio
-# Edit at https://www.toptal.com/developers/gitignore?templates=csharp,unity,visualstudio
+# Created by https://www.toptal.com/developers/gitignore/api/unity,csharp,visualstudio
+# Edit at https://www.toptal.com/developers/gitignore?templates=unity,csharp,visualstudio
 
 ### Csharp ###
 ## Ignore Visual Studio temporary files, build results, and
@@ -402,13 +402,14 @@ FodyWeavers.xsd
 # This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Uu]ser[Ss]ettings/
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -456,6 +457,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 
 # Temporary auto-generated Android Assets
+
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 ### VisualStudio ###
@@ -639,4 +641,4 @@ crashlytics-build.properties
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
 
-# End of https://www.toptal.com/developers/gitignore/api/csharp,unity,visualstudio
+# End of https://www.toptal.com/developers/gitignore/api/unity,csharp,visualstudio

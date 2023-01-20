@@ -1,13 +1,9 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:TellusCreo/Library/PackageCache/com.unity.render-pipelines.universal@7.7.1/Editor/2D/Resources/InspectorIcons/PointLight.png.meta
 guid: b3ab972b21db85d48ade9657efdd4771
-========
-guid: 64f2219143b3dbc48a9cf3e9e0610635
->>>>>>>> playroom_develop:TellusCreo/Assets/Prefab/LKH_Prefab/sqaure.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -35,7 +31,6 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-<<<<<<<< HEAD:TellusCreo/Library/PackageCache/com.unity.render-pipelines.universal@7.7.1/Editor/2D/Resources/InspectorIcons/PointLight.png.meta
     filterMode: -1
     aniso: -1
     mipBias: -100
@@ -43,15 +38,6 @@ TextureImporter:
     wrapV: -1
     wrapW: -1
   nPOTScale: 1
-========
-    filterMode: 1
-    aniso: 1
-    mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
-  nPOTScale: 0
->>>>>>>> playroom_develop:TellusCreo/Assets/Prefab/LKH_Prefab/sqaure.png.meta
   lightmap: 0
   compressionQuality: 50
   spriteMode: 0
@@ -71,7 +57,6 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -91,11 +76,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-<<<<<<<< HEAD:TellusCreo/Library/PackageCache/com.unity.render-pipelines.universal@7.7.1/Editor/2D/Resources/InspectorIcons/PointLight.png.meta
     spriteID: 
-========
-    spriteID: 5e97eb03825dee720800000000000000
->>>>>>>> playroom_develop:TellusCreo/Assets/Prefab/LKH_Prefab/sqaure.png.meta
     internalID: 0
     vertices: []
     indices: 
