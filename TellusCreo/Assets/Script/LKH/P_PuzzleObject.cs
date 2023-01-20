@@ -6,7 +6,8 @@ public class P_PuzzleObject : MonoBehaviour
 {
     public GameObject puzzleObj;
     private GameObject puzzleCopy;
-    private bool isActive;
+    private GameObject puzzleClear;
+    public bool isActive;
     public bool isClear;
 
     void Start()
@@ -20,13 +21,16 @@ public class P_PuzzleObject : MonoBehaviour
         if (GameObject.Find("MainCamera").GetComponent<P_Camera>().playPuzzle == false && isActive == true)
         {
             if (isClear == false) { Destroy(puzzleCopy); }
-            else { puzzleCopy.SetActive(false); }
+            else { puzzleClear.SetActive(false); }
         }
         //test
-        //if (Input.GetKeyUp(KeyCode.DownArrow))
-        //{
-        //    isClear = true;
-        //}
+        if (Input.GetKeyUp(KeyCode.DownArrow) && isActive == true)
+        {
+            isClear = true;
+            puzzleClear = puzzleCopy;
+        }
+
+        disableScripts();
     }
 
     private void OnMouseUp()
@@ -37,13 +41,29 @@ public class P_PuzzleObject : MonoBehaviour
         if (isClear == false)
         {
             puzzleCopy = Instantiate(puzzleObj, puzzleObj.transform.position, puzzleObj.transform.rotation);
+            puzzleCopy.SetActive(true);
         }
-        //if (isClear == true)
-        //{
-            //puzzleObj = puzzleCopy;
+        if (isClear == true)
+        {
+            puzzleClear.SetActive(true);
             //GameObject.Find("MainCamera").GetComponent<P_Camera>().playPuzzle = false;
-        //}
-        puzzleCopy.SetActive(true);
+        }
         isActive = true;
+    }
+
+    private void disableScripts()
+    {
+        if (isClear == true)
+        {
+            Transform[] objList = puzzleClear.GetComponentsInChildren<Transform>();
+            foreach (Transform obj in objList)
+            {
+                MonoBehaviour[] scripts = obj.GetComponents<MonoBehaviour>();
+                foreach (MonoBehaviour script in scripts)
+                {
+                    script.enabled = false;
+                }
+            }
+        }
     }
 }
