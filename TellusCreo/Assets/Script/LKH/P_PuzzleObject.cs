@@ -6,8 +6,7 @@ public class P_PuzzleObject : MonoBehaviour
 {
     public GameObject puzzleObj;
     private GameObject puzzleCopy;
-    private GameObject puzzleClear;
-    public bool isActive;
+    private bool isActive;
     public bool isClear;
 
     void Start()
@@ -21,16 +20,13 @@ public class P_PuzzleObject : MonoBehaviour
         if (GameObject.Find("MainCamera").GetComponent<P_Camera>().playPuzzle == false && isActive == true)
         {
             if (isClear == false) { Destroy(puzzleCopy); }
-            else { puzzleClear.SetActive(false); }
+            else { puzzleCopy.SetActive(false); }
         }
         //test
-        if (Input.GetKeyUp(KeyCode.DownArrow) && isActive == true)
-        {
-            isClear = true;
-            puzzleClear = puzzleCopy;
-        }
-
-        disableScripts();
+        //if (Input.GetKeyUp(KeyCode.DownArrow))
+        //{
+        //    isClear = true;
+        //}
     }
 
     private void OnMouseUp()
@@ -41,29 +37,13 @@ public class P_PuzzleObject : MonoBehaviour
         if (isClear == false)
         {
             puzzleCopy = Instantiate(puzzleObj, puzzleObj.transform.position, puzzleObj.transform.rotation);
-            puzzleCopy.SetActive(true);
         }
-        if (isClear == true)
-        {
-            puzzleClear.SetActive(true);
+        //if (isClear == true)
+        //{
+            //puzzleObj = puzzleCopy;
             //GameObject.Find("MainCamera").GetComponent<P_Camera>().playPuzzle = false;
-        }
+        //}
+        puzzleCopy.SetActive(true);
         isActive = true;
-    }
-
-    private void disableScripts()
-    {
-        if (isClear == true)
-        {
-            Transform[] objList = puzzleClear.GetComponentsInChildren<Transform>();
-            foreach (Transform obj in objList)
-            {
-                MonoBehaviour[] scripts = obj.GetComponents<MonoBehaviour>();
-                foreach (MonoBehaviour script in scripts)
-                {
-                    script.enabled = false;
-                }
-            }
-        }
     }
 }
