@@ -1741,8 +1741,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c51e9644cbfbb3428f5df34ef342ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 2105117385}
-  top: {fileID: 830367867}
 --- !u!1 &494224666
 GameObject:
   m_ObjectHideFlags: 0
@@ -2329,8 +2327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c51e9644cbfbb3428f5df34ef342ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 2105117385}
-  top: {fileID: 830367867}
 --- !u!1 &701712466
 GameObject:
   m_ObjectHideFlags: 0
@@ -2799,8 +2795,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c51e9644cbfbb3428f5df34ef342ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 2105117385}
-  top: {fileID: 830367867}
 --- !u!1 &830367867
 GameObject:
   m_ObjectHideFlags: 0
@@ -3834,8 +3828,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c51e9644cbfbb3428f5df34ef342ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 2105117385}
-  top: {fileID: 830367867}
 --- !u!114 &1057473995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4795,7 +4787,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccaa742ce23c84d99d542d72ccbc74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRotation: 0
+  distance: 0
+  isDrag: 0
+  beforePos: {x: 0, y: 0}
+  afterPos: {x: 0, y: 0}
   pairTrigger: {fileID: 149804969}
   isSet: 0
   isSetAll: 0
@@ -5868,8 +5863,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c51e9644cbfbb3428f5df34ef342ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 2105117385}
-  top: {fileID: 830367867}
 --- !u!1 &1505312709
 GameObject:
   m_ObjectHideFlags: 0
@@ -7098,7 +7091,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccaa742ce23c84d99d542d72ccbc74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRotation: 0
+  distance: 0
+  isDrag: 0
+  beforePos: {x: 0, y: 0}
+  afterPos: {x: 0, y: 0}
   pairTrigger: {fileID: 882879357}
   isSet: 0
   isSetAll: 0
@@ -7236,8 +7232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c51e9644cbfbb3428f5df34ef342ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 2105117385}
-  top: {fileID: 830367867}
 --- !u!114 &2014235151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7377,8 +7371,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c51e9644cbfbb3428f5df34ef342ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 2105117385}
-  top: {fileID: 830367867}
 --- !u!114 &2029249199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7735,8 +7727,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c51e9644cbfbb3428f5df34ef342ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 2105117385}
-  top: {fileID: 830367867}
 --- !u!1 &2146915019
 GameObject:
   m_ObjectHideFlags: 0
@@ -7833,7 +7823,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fccaa742ce23c84d99d542d72ccbc74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRotation: 0
+  distance: 0
+  isDrag: 0
+  beforePos: {x: 0, y: 0}
+  afterPos: {x: 0, y: 0}
   pairTrigger: {fileID: 1947532046}
   isSet: 0
   isSetAll: 0

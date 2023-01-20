@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class P_Rotation : MonoBehaviour
 {
-    private float distance;
+    public float distance;
     private float speed, sum_x, sum_y;
     private float[] road_x, road_y;
     private int count;
 
-    private bool isDrag = false;
-    public bool isRotation = false;
+    public bool isDrag = false;
 
-    private Vector2 beforePos, afterPos;
+    public Vector2 beforePos, afterPos;
 
     private Rigidbody2D rig;
 
@@ -75,11 +74,12 @@ public class P_Rotation : MonoBehaviour
 
     private void RotateObj()
     {
-        //saveRoad(count);
-        //count += 1;
+        saveRoad(count);
+        count += 1;
+
         distance = Mathf.Sqrt(((afterPos.x - beforePos.x) * (afterPos.x - beforePos.x)) +
             ((afterPos.y - beforePos.y) * (afterPos.y - beforePos.y)));
-        if (isRotation && distance >= 5)
+        if (distance >= 5)
         {
             for (int i = 0; i < 10; i++)
             {
@@ -118,7 +118,6 @@ public class P_Rotation : MonoBehaviour
             if (isDrag)
             {
                 afterPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                isRotation = true;
             }
         }
     }
@@ -130,18 +129,6 @@ public class P_Rotation : MonoBehaviour
             Vector2 thisPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             road_x[count] = thisPos.x;
             road_y[count] = thisPos.y;
-        }
-    }
-
-    private void OnMouseDrag()
-    {
-        if (isSet && count < 10)
-        {
-            Vector2 thisPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            road_x[count] = thisPos.x;
-            road_y[count] = thisPos.y;
-
-            count += 1;
         }
     }
 
