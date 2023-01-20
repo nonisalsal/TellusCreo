@@ -48,8 +48,11 @@ public class P_DragAndDrop : MonoBehaviour
             RaycastHit2D downHit = Physics2D.Raycast(downRay.origin, downRay.direction, 1 << 30);
             if (downHit)
             {
-                this.tag = "P_move";
-                ChangeLayer(31);
+                if (System.Object.ReferenceEquals(this.gameObject, downHit.collider.gameObject))
+                {
+                    this.tag = "P_move";
+                    ChangeLayer(31);
+                }
             }
         }
         if (Input.GetMouseButtonUp(0))
@@ -59,8 +62,11 @@ public class P_DragAndDrop : MonoBehaviour
             RaycastHit2D upHit = Physics2D.Raycast(upRay.origin, upRay.direction);
             if (upHit)
             {
-                this.tag = "P_stop";
-                ChangeLayer(30);
+                if (System.Object.ReferenceEquals(this.gameObject, upHit.collider.gameObject))
+                {
+                    this.tag = "P_stop";
+                    ChangeLayer(30);
+                }
             }
         }
     }
