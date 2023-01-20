@@ -216,7 +216,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standard: {fileID: 2105117385}
-  rayControl: {fileID: 0}
 --- !u!212 &23929911
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -279,7 +278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!1 &76545768
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +373,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standard: {fileID: 2105117385}
-  rayControl: {fileID: 0}
 --- !u!212 &76545773
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -438,7 +435,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!1 &92631307
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +661,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!50 &149804972
 Rigidbody2D:
   serializedVersion: 4
@@ -929,7 +924,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standard: {fileID: 2105117385}
-  rayControl: {fileID: 0}
 --- !u!212 &184302997
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -992,7 +986,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!1 &249446219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,7 +1345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c4acd799ebfb6468acd95debacdded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!50 &397063539
 Rigidbody2D:
   serializedVersion: 4
@@ -1491,7 +1483,6 @@ MonoBehaviour:
   afterPos: {x: 0, y: 0}
   isMove: 0
   isSet: 1
-  rayControl: {fileID: 1052022074}
 --- !u!114 &433375132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1504,7 +1495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!50 &433375133
 Rigidbody2D:
   serializedVersion: 4
@@ -1652,7 +1642,6 @@ MonoBehaviour:
   puzzleCopy: {fileID: 0}
   isActive: 0
   isClear: 0
-  rayControl: {fileID: 1052022074}
 --- !u!61 &468538931
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1976,7 +1965,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c4acd799ebfb6468acd95debacdded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!50 &592560380
 Rigidbody2D:
   serializedVersion: 4
@@ -2238,7 +2226,6 @@ MonoBehaviour:
   puzzleCopy: {fileID: 0}
   isActive: 0
   isClear: 0
-  rayControl: {fileID: 1052022074}
 --- !u!61 &677017740
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2484,7 +2471,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standard: {fileID: 2105117385}
-  rayControl: {fileID: 0}
 --- !u!114 &701712471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2497,7 +2483,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!212 &701712472
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2706,7 +2691,6 @@ MonoBehaviour:
   puzzleCopy: {fileID: 0}
   isActive: 0
   isClear: 0
-  rayControl: {fileID: 1052022074}
 --- !u!61 &819738022
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2883,7 +2867,6 @@ MonoBehaviour:
   afterPos: {x: 0, y: 0}
   isMove: 0
   isSet: 1
-  rayControl: {fileID: 1052022074}
 --- !u!114 &867935989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2896,7 +2879,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!50 &867935990
 Rigidbody2D:
   serializedVersion: 4
@@ -3089,7 +3071,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standard: {fileID: 2105117385}
-  rayControl: {fileID: 0}
 --- !u!114 &874552038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3102,7 +3083,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!212 &874552039
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3235,7 +3215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!50 &882879360
 Rigidbody2D:
   serializedVersion: 4
@@ -3381,7 +3360,6 @@ MonoBehaviour:
   afterPos: {x: 0, y: 0}
   isMove: 0
   isSet: 1
-  rayControl: {fileID: 0}
 --- !u!114 &914750238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3394,7 +3372,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 0}
 --- !u!70 &914750239
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3780,8 +3757,6 @@ MonoBehaviour:
   playPuzzle: 0
   puzzlePos_x: 0
   puzzlePos_y: 0
-  isDown: 0
-  isUp: 0
 --- !u!1 &1057473992
 GameObject:
   m_ObjectHideFlags: 0
@@ -3844,7 +3819,6 @@ MonoBehaviour:
   puzzleCopy: {fileID: 0}
   isActive: 0
   isClear: 0
-  rayControl: {fileID: 1052022074}
 --- !u!61 &1057473996
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4127,7 +4101,6 @@ MonoBehaviour:
   afterPos: {x: 0, y: 0}
   isMove: 0
   isSet: 1
-  rayControl: {fileID: 1052022074}
 --- !u!114 &1120277144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4140,7 +4113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!50 &1120277145
 Rigidbody2D:
   serializedVersion: 4
@@ -4363,7 +4335,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standard: {fileID: 2105117385}
-  rayControl: {fileID: 0}
 --- !u!212 &1163497985
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4426,7 +4397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!1 &1189912111
 GameObject:
   m_ObjectHideFlags: 0
@@ -4478,7 +4448,6 @@ MonoBehaviour:
   afterPos: {x: 0, y: 0}
   isMove: 0
   isSet: 1
-  rayControl: {fileID: 1052022074}
 --- !u!114 &1189912114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4491,7 +4460,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!70 &1189912115
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4794,7 +4762,6 @@ MonoBehaviour:
   pairTrigger: {fileID: 149804969}
   isSet: 0
   isSetAll: 0
-  rayControl: {fileID: 1052022074}
 --- !u!50 &1246143237
 Rigidbody2D:
   serializedVersion: 4
@@ -5131,7 +5098,6 @@ MonoBehaviour:
   afterPos: {x: 0, y: 0}
   isMove: 0
   isSet: 1
-  rayControl: {fileID: 1052022074}
 --- !u!114 &1376759504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5144,7 +5110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!50 &1376759505
 Rigidbody2D:
   serializedVersion: 4
@@ -5399,7 +5364,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standard: {fileID: 2105117385}
-  rayControl: {fileID: 0}
 --- !u!114 &1442347106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5412,7 +5376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!212 &1442347107
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5593,7 +5556,6 @@ MonoBehaviour:
   afterPos: {x: 0, y: 0}
   isMove: 0
   isSet: 1
-  rayControl: {fileID: 0}
 --- !u!114 &1477987973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5606,7 +5568,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 0}
 --- !u!70 &1477987974
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5774,7 +5735,6 @@ MonoBehaviour:
   puzzleCopy: {fileID: 0}
   isActive: 0
   isClear: 0
-  rayControl: {fileID: 1052022074}
 --- !u!61 &1503077737
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5976,7 +5936,6 @@ MonoBehaviour:
   afterPos: {x: 0, y: 0}
   isMove: 0
   isSet: 1
-  rayControl: {fileID: 1052022074}
 --- !u!114 &1571932108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5989,7 +5948,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!70 &1571932109
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -6273,7 +6231,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standard: {fileID: 2105117385}
-  rayControl: {fileID: 0}
 --- !u!114 &1769567629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6286,7 +6243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!212 &1769567630
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6388,7 +6344,6 @@ MonoBehaviour:
   afterPos: {x: 0, y: 0}
   isMove: 0
   isSet: 1
-  rayControl: {fileID: 1052022074}
 --- !u!114 &1790146664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6401,7 +6356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!70 &1790146665
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -6547,7 +6501,6 @@ MonoBehaviour:
   afterPos: {x: 0, y: 0}
   isMove: 0
   isSet: 1
-  rayControl: {fileID: 0}
 --- !u!114 &1844231948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6560,7 +6513,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 0}
 --- !u!70 &1844231949
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -6849,7 +6801,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428b914db33732c4a8e0a4f61823f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayControl: {fileID: 1052022074}
 --- !u!50 &1947532049
 Rigidbody2D:
   serializedVersion: 4
@@ -7098,7 +7049,6 @@ MonoBehaviour:
   pairTrigger: {fileID: 882879357}
   isSet: 0
   isSetAll: 0
-  rayControl: {fileID: 1052022074}
 --- !u!50 &2003040623
 Rigidbody2D:
   serializedVersion: 4
@@ -7248,7 +7198,6 @@ MonoBehaviour:
   puzzleCopy: {fileID: 0}
   isActive: 0
   isClear: 0
-  rayControl: {fileID: 1052022074}
 --- !u!61 &2014235152
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7387,7 +7336,6 @@ MonoBehaviour:
   puzzleCopy: {fileID: 0}
   isActive: 0
   isClear: 0
-  rayControl: {fileID: 1052022074}
 --- !u!61 &2029249200
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7638,7 +7586,6 @@ MonoBehaviour:
   puzzleCopy: {fileID: 0}
   isActive: 0
   isClear: 0
-  rayControl: {fileID: 1052022074}
 --- !u!61 &2146425902
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7830,7 +7777,6 @@ MonoBehaviour:
   pairTrigger: {fileID: 1947532046}
   isSet: 0
   isSetAll: 0
-  rayControl: {fileID: 1052022074}
 --- !u!50 &2146915023
 Rigidbody2D:
   serializedVersion: 4

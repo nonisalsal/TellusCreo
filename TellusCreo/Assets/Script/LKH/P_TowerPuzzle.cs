@@ -9,8 +9,6 @@ public class P_TowerPuzzle : MonoBehaviour
     private float standard_x;
     private float standard_y;
 
-    public GameObject rayControl;
-
     void Start()
     {
         //standard = GameObject.Find("TowerPuzzle");

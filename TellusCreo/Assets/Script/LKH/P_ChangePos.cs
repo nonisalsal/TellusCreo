@@ -13,8 +13,6 @@ public class P_ChangePos : MonoBehaviour
 
     private int checkLayer;
 
-    public GameObject rayControl;
-
     private void Start()
     {
         GetComponent<Collider2D>().isTrigger = true;
@@ -27,35 +25,11 @@ public class P_ChangePos : MonoBehaviour
         //Debug.Log("SetObj 실행");
     }
 
-    public void SetObj()
-    {
-        if (!isSet && !isMove)
-        {
-            this.transform.localPosition = beforePos;
-            isSet = true;
-            startOnTrig = false;
-            checkLayer = 0;
-            //Debug.Log("위치초기화");
-        }
-    }
-
     private void FixedUpdate()
     {
         if (startOnTrig)
         {
             StartCoroutine(StartSet());
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!isSet && collision.CompareTag("P_stop"))
-        {
-            afterPos = collision.transform.localPosition;
-            collision.transform.localPosition = beforePos;
-            beforePos = afterPos;
-            //if (beforePos == afterPos) { Debug.Log("collision위치 저장 완료"); }
-            //SetObj();
         }
     }
 
@@ -67,11 +41,38 @@ public class P_ChangePos : MonoBehaviour
         PlayerInput();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!isSet && collision.CompareTag("P_stop"))
+        {
+            afterPos = collision.transform.localPosition;
+            collision.transform.localPosition = beforePos;
+            beforePos = afterPos;
+            //if (beforePos == afterPos) { Debug.Log("collision위치 저장 완료"); }
+
+            SetObj();
+        }
+    }
+
+    //private void OnMouseDown()
+    //{
+    //    isSet = false;
+    //    beforePos = this.transform.localPosition;
+    //    checkLayer = 1;
+    //}
+
+    //private void OnMouseExit()
+    //{
+    //    if (checkLayer == 1 && !isMove) { checkLayer = 2; }
+    //}
+
     private void PlayerInput()
     {
-        if (rayControl.GetComponent<P_Camera>().isDown == true)
+        if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit2D downHit = rayControl.GetComponent<P_Camera>().downHit;
+            Vector2 downPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Ray2D downRay = new Ray2D(downPos, Vector2.zero);
+            RaycastHit2D downHit = Physics2D.Raycast(downRay.origin, downRay.direction, 1 << 30);
             if (downHit)
             {
                 if (System.Object.ReferenceEquals(this.gameObject, downHit.collider.gameObject))
@@ -82,10 +83,11 @@ public class P_ChangePos : MonoBehaviour
                 }
             }
         }
-
-        if (rayControl.GetComponent<P_Camera>().isUp == true)
+        if (Input.GetMouseButtonUp(0))
         {
-            RaycastHit2D upHit = rayControl.GetComponent<P_Camera>().upHit;
+            Vector2 upPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Ray2D upRay = new Ray2D(upPos, Vector2.zero);
+            RaycastHit2D upHit = Physics2D.Raycast(upRay.origin, upRay.direction);
             if (upHit)
             {
                 if (System.Object.ReferenceEquals(this.gameObject, upHit.collider.gameObject))
@@ -93,6 +95,18 @@ public class P_ChangePos : MonoBehaviour
                     if (checkLayer == 1 && !isMove) { checkLayer = 2; }
                 }
             }
+        }
+    }
+
+    public void SetObj()
+    {
+        if (!isSet && !isMove)
+        {
+            this.transform.localPosition = beforePos;
+            isSet = true;
+            startOnTrig = false;
+            checkLayer = 0;
+            //Debug.Log("위치초기화");
         }
     }
 
