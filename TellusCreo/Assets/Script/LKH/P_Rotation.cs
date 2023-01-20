@@ -15,6 +15,10 @@ public class P_Rotation : MonoBehaviour
 
     private Rigidbody2D rig;
 
+    public GameObject pairTrigger;
+    public bool isSet;
+    public bool isSetAll;
+
     private void Start()
     {
         speed = 500.0f;
@@ -23,12 +27,51 @@ public class P_Rotation : MonoBehaviour
         road_x = new float[10];
         road_y = new float[10];
         count = 0;
+
+        isSet = false;
+        isSetAll = false;
+
+        this.GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(System.Object.ReferenceEquals(collision.gameObject, pairTrigger))
+        {
+            isSet = true;
+            this.GetComponent<SpriteRenderer>().enabled = true;
+            collision.gameObject.SetActive(false);
+        }
     }
 
     private void Update()
     {
-        PlayerInput();
+        if (isSetAll == false) { CheckTrigger(); }
+        if (isSetAll == true) {
+            RotateObj();
+            PlayerInput();
+        }
+    }
 
+    private void CheckTrigger()
+    {
+        MonoBehaviour[] scripts = transform.parent.GetComponentsInChildren<P_Rotation>();
+        int length = scripts.Length;
+        foreach (MonoBehaviour script in scripts)
+        {
+            if (script.GetComponent<P_Rotation>().isSet == false) { break; }
+            else
+            {
+                if (script == scripts[length - 1])
+                {
+                    GetComponent<P_Rotation>().isSetAll = true;
+                }
+            }
+        }
+    }
+
+    private void RotateObj()
+    {
         saveRoad(count);
         count += 1;
 
@@ -36,7 +79,7 @@ public class P_Rotation : MonoBehaviour
             ((afterPos.y - beforePos.y) * (afterPos.y - beforePos.y)));
         if (distance >= 5)
         {
-            for (int i=0; i<10; i++)
+            for (int i = 0; i < 10; i++)
             {
                 sum_x += (road_x[i] - beforePos.x);
                 sum_y += (road_y[i] - beforePos.y);

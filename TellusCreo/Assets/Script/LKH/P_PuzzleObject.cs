@@ -10,7 +10,7 @@ public class P_PuzzleObject : MonoBehaviour
     public bool isActive;
     public bool isClear;
 
-    public GameObject upHit;
+    //public GameObject upHit;
 
     private int debugTest= 0;
 
@@ -18,38 +18,6 @@ public class P_PuzzleObject : MonoBehaviour
     {
         isActive = false;
         isClear = false;
-    }
-
-    void Update()
-    {
-        if (GameObject.Find("MainCamera").GetComponent<P_Camera>().playPuzzle == false && isActive == true)
-        {
-            if (isClear == false) { 
-                Destroy(puzzleCopy);
-                isActive = false;
-            }
-            else { 
-                puzzleClear.SetActive(false);
-                isActive = false;
-            }
-        }
-        //test
-        //if (Input.GetKeyUp(KeyCode.DownArrow) && isActive == true)
-        //{
-        //    isClear = true;
-        //}
-        if (isClear == true)
-        {
-            puzzleClear = puzzleCopy;
-            ClearControl();
-            if (debugTest == 0)
-            {
-                Debug.Log("퍼즐 클리어");
-                debugTest = 1;
-            }
-        }
-
-        PlayerInput();
     }
 
     //private void OnMouseUp()
@@ -69,6 +37,45 @@ public class P_PuzzleObject : MonoBehaviour
     //    }
     //    isActive = true;
     //}
+
+    void Update()
+    {
+        if (GameObject.Find("MainCamera").GetComponent<P_Camera>().playPuzzle == false && isActive == true)
+        {
+            if (isClear == false) { 
+                Destroy(puzzleCopy);
+                isActive = false;
+            }
+            else { 
+                puzzleClear.SetActive(false);
+                isActive = false;
+            }
+        }
+
+        if (isClear == true)
+        {
+            puzzleClear = puzzleCopy;
+            ClearControl();
+            if (debugTest == 0)
+            {
+                Debug.Log("퍼즐 클리어");
+                debugTest = 1;
+            }
+        }
+
+        PlayerInput();
+    }
+
+    private void ClearControl()
+    {
+        // 오브젝트 콜라이더를 비활성화해서 조작하지 못하게 함
+        //GameObject puzzleClear = GetComponent<P_PuzzleObject>().puzzleClear;
+        Collider2D[] colliders = puzzleClear.GetComponentsInChildren<Collider2D>();
+        foreach (Collider2D collider in colliders)
+        {
+            collider.enabled = false;
+        }
+    }
 
     private void PlayerInput()
     {
@@ -99,17 +106,6 @@ public class P_PuzzleObject : MonoBehaviour
                     isActive = true;
                 }
             }
-        }
-    }
-
-    private void ClearControl()
-    {
-        // 오브젝트 콜라이더를 비활성화해서 조작하지 못하게 함
-        GameObject puzzleClear = GetComponent<P_PuzzleObject>().puzzleClear;
-        Collider2D[] colliders = puzzleClear.GetComponentsInChildren<Collider2D>();
-        foreach (Collider2D collider in colliders)
-        {
-            collider.enabled = false;
         }
     }
 }
