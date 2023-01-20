@@ -22,7 +22,7 @@ public class P_ChangePos : MonoBehaviour
     {
         yield return null;
         SetObj();
-        //Debug.Log("SetObj 실행");
+        Debug.Log("SetObj 실행");
     }
 
     private void FixedUpdate()
@@ -46,7 +46,7 @@ public class P_ChangePos : MonoBehaviour
             afterPos = collision.transform.localPosition;
             collision.transform.localPosition = beforePos;
             beforePos = afterPos;
-            //if (beforePos == afterPos) { Debug.Log("collision위치 저장 완료"); }
+            if (beforePos == afterPos) { Debug.Log("collision위치 저장 완료"); }
 
             SetObj();
         }
@@ -72,7 +72,7 @@ public class P_ChangePos : MonoBehaviour
             isSet = true;
             startOnTrig = false;
             checkLayer = 0;
-            //Debug.Log("위치초기화");
+            Debug.Log("위치초기화");
         }
     }
 
