@@ -6,17 +6,23 @@ public class WirePuzzle : MonoBehaviour
 {
     bool isClear;
 
+    public bool WireClear { get { return isClear; } }
     public int cnt;
     public GameObject[] objs;
     void Start()
     {
         isClear = false;
         cnt = 0;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!isClear&&Input.GetMouseButtonDown(1))
+        {
+            
+        }
 
         if (cnt == 3) //원래는 4개
         {
