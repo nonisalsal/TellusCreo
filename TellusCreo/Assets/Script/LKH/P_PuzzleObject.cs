@@ -6,7 +6,7 @@ public class P_PuzzleObject : MonoBehaviour
 {
     public GameObject puzzleObj;
     public GameObject puzzleCopy;
-    private GameObject puzzleClear;
+    public GameObject puzzleClear;
     public bool isActive;
     public bool isClear;
 
