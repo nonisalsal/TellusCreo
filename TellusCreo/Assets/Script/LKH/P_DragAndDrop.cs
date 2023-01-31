@@ -45,9 +45,9 @@ public class P_DragAndDrop : MonoBehaviour
 
     private void PlayerInput()
     {
-        if (rayControl.GetComponent<P_Camera>().isDown == true)
+        if (rayControl.GetComponent<P_GameManager>().isDown == true)
         {
-            RaycastHit2D downHit = rayControl.GetComponent<P_Camera>().downHit;
+            RaycastHit2D downHit = rayControl.GetComponent<P_GameManager>().downHit;
             if (downHit)
             {
                 if (System.Object.ReferenceEquals(this.gameObject, downHit.collider.gameObject))
@@ -58,17 +58,20 @@ public class P_DragAndDrop : MonoBehaviour
                 }
             }
         }
-        if (rayControl.GetComponent<P_Camera>().isUp == true)
+        if (rayControl.GetComponent<P_GameManager>().isUp == true)
         {
-            RaycastHit2D upHit = rayControl.GetComponent<P_Camera>().upHit;
+            RaycastHit2D upHit = rayControl.GetComponent<P_GameManager>().upHit;
             if (upHit)
             {
-                if (System.Object.ReferenceEquals(this.gameObject, upHit.collider.gameObject))
-                {
-                    //Debug.Log("dragAndDrop Up start");
-                    this.tag = "P_stop";
-                    ChangeLayer(30);
-                }
+                //if (System.Object.ReferenceEquals(this.gameObject, upHit.collider.gameObject))
+                //{
+                //    //Debug.Log("dragAndDrop Up start");
+                //    this.tag = "P_stop";
+                //    ChangeLayer(30);
+                //}
+                Debug.Log("dragAndDrop Up start");
+                this.tag = "P_stop";
+                ChangeLayer(30);
             }
         }
         //    if (Input.GetMouseButtonDown(0))

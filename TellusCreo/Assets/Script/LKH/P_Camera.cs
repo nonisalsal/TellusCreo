@@ -8,13 +8,6 @@ public class P_Camera : MonoBehaviour
     public float puzzlePos_x;
     public float puzzlePos_y;
 
-    public bool isDown;
-    public bool isUp;
-    public Ray2D downRay;
-    public Ray2D upRay;
-    public RaycastHit2D downHit;
-    public RaycastHit2D upHit;
-
     private float thisPos_x;
     private float thisPos_y;
     private float thisPos_z;
@@ -23,9 +16,6 @@ public class P_Camera : MonoBehaviour
     {
         playPuzzle = false;
 
-        isDown = false;
-        isUp = false;
-
         thisPos_x = this.transform.position.x;
         thisPos_y = this.transform.position.y;
         thisPos_z = this.transform.position.z;
@@ -33,8 +23,6 @@ public class P_Camera : MonoBehaviour
 
     private void Update()
     {
-        ShootRay();
-
         if (playPuzzle == true)
         {
             this.transform.position = new Vector3(puzzlePos_x, puzzlePos_y, thisPos_z);
@@ -48,27 +36,6 @@ public class P_Camera : MonoBehaviour
         {
             test();
         }
-    }
-
-    private void ShootRay()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            isDown = true;
-            Vector2 downPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            downRay = new Ray2D(downPos, Vector2.zero);
-            downHit = Physics2D.Raycast(downRay.origin, downRay.direction, 1 << 30);
-        }
-        else { isDown = false; }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            isUp = true;
-            Vector2 upPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            upRay = new Ray2D(upPos, Vector2.zero);
-            upHit = Physics2D.Raycast(upRay.origin, upRay.direction);
-        }
-        else { isUp = false; }
     }
 
     private void test()

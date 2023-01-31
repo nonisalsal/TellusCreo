@@ -79,7 +79,7 @@ public class P_PuzzleClear : MonoBehaviour
                 {
                     if (script == scripts[length - 1])
                     {
-                        Debug.Log("last script");
+                        //Debug.Log("last script");
                         GetComponent<P_PuzzleObject>().isClear = true;
                     }
                 }
