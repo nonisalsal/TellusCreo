@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Experimental.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
@@ -10,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get { if (s_instance == null) return null; return s_instance; } }
 
+
     public enum Puzzle
     {
         Poster = 10,
@@ -18,7 +21,10 @@ public class GameManager : MonoBehaviour
         SignatureCard, // 13
         Wire,
         ShadowLight, // 15
-        LightSwitch
+        ArcadeConsole,
+        LightSwitch,
+        ChangeView,
+        Curtain
     }
 
     UI ui;
@@ -27,8 +33,20 @@ public class GameManager : MonoBehaviour
 
     public bool onPuzzle;
 
-    public bool[] ClearPuzzles;
+    bool[] ClearPuzzles;
 
+    bool curtain;
+
+    Action Room;
+    public bool this[int idx] // 인덱서 사용
+    {
+        get { return ClearPuzzles[idx]; }
+        set
+        {
+            ClearPuzzles[idx] = value;
+            Room?.Invoke();
+        }
+    }
 
     [SerializeField]
     GameObject light2D;
@@ -37,8 +55,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Room -= CheckRoomClear;
+        Room += CheckRoomClear;
         ClearPuzzles = new bool[10];
-
+        curtain = false;
         if (s_instance == null)
         {
             s_instance = this;
@@ -64,6 +84,30 @@ public class GameManager : MonoBehaviour
                 else // 테스트용
                     Debug.Log("전선 연결 필요");
                 return;
+            }
+
+            if (hit.collider.gameObject.layer == (int)Puzzle.ChangeView)
+            {
+                Debug.Log("창밖 변환");
+                return;
+            }
+            if (hit.collider.gameObject.layer == (int)Puzzle.Curtain)
+            {
+                Debug.Log("커튼 상태 " + (curtain = !curtain));
+                return;
+            }
+
+            if (hit.collider.gameObject.layer == (int)Puzzle.ArcadeConsole)
+            {
+                if (ClearPuzzles[(int)Puzzle.LightSwitch - 10])
+                    Puzzles[(int)Puzzle.ArcadeConsole - 10].SetActive(true);
+                else
+                {
+                    Debug.Log("전선 연결 필요");
+
+                    return;
+                }
+                Debug.Log("ArcadeConsole");
             }
 
             if (!onPuzzle)
@@ -113,6 +157,7 @@ public class GameManager : MonoBehaviour
                 Puzzles[(int)Puzzle.ShadowLight - 10].SetActive(true);
                 Debug.Log("ShadowLight");
             }
+
         }
 
     }
@@ -137,5 +182,20 @@ public class GameManager : MonoBehaviour
     {
         ui.backArrow.SetActive(true);
         ui.DisbleArrow();
+    }
+
+    void CheckRoomClear()
+    {
+
+        foreach(var puzzle in ClearPuzzles)
+        {
+            if(!puzzle)
+            {
+
+                Debug.Log("풀 퍼즐이 남았음");
+                return;
+            }
+        }
+
     }
 }
