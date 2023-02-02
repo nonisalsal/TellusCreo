@@ -8,9 +8,11 @@ public class P_Camera : MonoBehaviour
     public float puzzlePos_x;
     public float puzzlePos_y;
 
-    private float thisPos_x;
-    private float thisPos_y;
-    private float thisPos_z;
+    public float thisPos_x;
+    public float thisPos_y;
+    public float thisPos_z;
+
+    private bool destroyButton;
 
     private void Start()
     {
@@ -19,6 +21,9 @@ public class P_Camera : MonoBehaviour
         thisPos_x = this.transform.position.x;
         thisPos_y = this.transform.position.y;
         thisPos_z = this.transform.position.z;
+
+        destroyButton = false;
+        GameObject.Find("Button").transform.GetChild(2).gameObject.SetActive(false);
     }
 
     private void Update()
@@ -26,37 +31,54 @@ public class P_Camera : MonoBehaviour
         if (playPuzzle == true)
         {
             this.transform.position = new Vector3(puzzlePos_x, puzzlePos_y, thisPos_z);
-            if (Input.GetKeyUp(KeyCode.UpArrow))
+            //if (Input.GetKeyUp(KeyCode.UpArrow))
+            //{
+            //    this.transform.position = new Vector3(thisPos_x, thisPos_y, thisPos_z);
+            //    playPuzzle = false;
+            //}
+            if (!destroyButton)
             {
-                this.transform.position = new Vector3(thisPos_x, thisPos_y, thisPos_z);
-                playPuzzle = false;
+                GameObject.Find("Button").transform.GetChild(0).gameObject.SetActive(false);
+                GameObject.Find("Button").transform.GetChild(1).gameObject.SetActive(false);
+                GameObject.Find("Button").transform.GetChild(2).gameObject.SetActive(true);
+                destroyButton = true;
             }
         }
         else
         {
-            test();
+            if (destroyButton)
+            {
+                GameObject.Find("Button").transform.GetChild(0).gameObject.SetActive(true);
+                GameObject.Find("Button").transform.GetChild(1).gameObject.SetActive(true);
+                GameObject.Find("Button").transform.GetChild(2).gameObject.SetActive(false);
+                destroyButton = false;
+            }
         }
     }
 
-    private void test()
-    {
-        if (Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            thisPos_x += 20;
-            if (thisPos_x > 30)
-            {
-                thisPos_x = -30;
-            }
-            this.transform.position = new Vector3(thisPos_x, thisPos_y, thisPos_z);
-        }
-        if (Input.GetKeyUp(KeyCode.LeftArrow))
-        {
-            thisPos_x -= 20;
-            if (thisPos_x < -30)
-            {
-                thisPos_x = 30;
-            }
-            this.transform.position = new Vector3(thisPos_x, thisPos_y, thisPos_z);
-        }
-    }
+    //public void ClickLeftArrow()
+    //{
+    //    if (!playPuzzle)
+    //    {
+    //        thisPos_x -= 20;
+    //        if (thisPos_x < -30)
+    //        {
+    //            thisPos_x = 30;
+    //        }
+    //        this.transform.position = new Vector3(thisPos_x, thisPos_y, thisPos_z);
+    //    }
+    //}
+
+    //public void ClickRightArrow()
+    //{
+    //    if (!playPuzzle)
+    //    {
+    //        thisPos_x += 20;
+    //        if (thisPos_x > 30)
+    //        {
+    //            thisPos_x = -30;
+    //        }
+    //        this.transform.position = new Vector3(thisPos_x, thisPos_y, thisPos_z);
+    //    }
+    //}
 }

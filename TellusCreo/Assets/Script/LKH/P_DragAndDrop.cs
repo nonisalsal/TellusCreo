@@ -69,7 +69,7 @@ public class P_DragAndDrop : MonoBehaviour
                 //    this.tag = "P_stop";
                 //    ChangeLayer(30);
                 //}
-                Debug.Log("dragAndDrop Up start");
+                //Debug.Log("dragAndDrop Up start");
                 this.tag = "P_stop";
                 ChangeLayer(30);
             }
