@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Experimental.Rendering.Universal;
@@ -273,6 +274,7 @@ public class GameManager : MonoBehaviour
     {
         ui.backArrow.SetActive(true);
         ui.DisbleArrow();
+     
     }
 
     void CheckRoomClear()
