@@ -11,6 +11,9 @@ public class P_GameManager : MonoBehaviour
     public RaycastHit2D downHit;
     public RaycastHit2D upHit;
 
+    //public GameObject down;
+    //public GameObject up;
+
     //private GameObject dollObj;
     //private GameObject dollPuzzle1;
     //private GameObject dollPuzzle2;
@@ -29,6 +32,9 @@ public class P_GameManager : MonoBehaviour
     {
         ShootRay();
         //ClearSeq();
+
+        //if (upHit) { up = upHit.collider.gameObject; }
+        //if (downHit) { down = downHit.collider.gameObject; }
     }
 
     private void ShootRay()

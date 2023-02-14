@@ -58,6 +58,7 @@ public class P_PuzzleObject : MonoBehaviour
     {
         if (rayControl.GetComponent<P_GameManager>().isUp == true)
         {
+            //Debug.Log("uphit true");
             RaycastHit2D upHit = rayControl.GetComponent<P_GameManager>().upHit;
             if (upHit)
             {
