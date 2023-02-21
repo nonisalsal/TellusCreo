@@ -44,7 +44,7 @@ public class UI : MonoBehaviour
         Camera.main.transform.position = new Vector3((Camera.main.transform.position.x + 20) % 80, 0f, -10f);
     }
 
-    public void DisbleArrow()
+    public void DisableArrow()
     {
         foreach (var arrow in lrArrow)
         {

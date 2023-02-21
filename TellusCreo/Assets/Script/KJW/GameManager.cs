@@ -28,24 +28,20 @@ public class GameManager : MonoBehaviour
         Curtain
     }
 
-    UI ui;
-
-    public GameObject[] Puzzles;
-
-    public bool onPuzzle;
-
-    public bool[] ClearPuzzles;
-
-    bool curtain;
-
+    UI Ui;
     Action Room;
+    public GameObject[] Puzzles;
+    public bool onPuzzle;
+    bool[] ClearPuzzles;
+    bool isCurtainOpen;
+
     public bool this[int idx] // 인덱서 사용
     {
-        get { return ClearPuzzles[idx]; }
+        get => ClearPuzzles[idx];
         set
         {
             ClearPuzzles[idx] = value;
-            Room?.Invoke();
+            Room?.Invoke(); // Room이 null이 아닐때만
         }
     }
 
@@ -53,206 +49,115 @@ public class GameManager : MonoBehaviour
     GameObject light2D;
     [SerializeField]
     GameObject globalLight;
+    Light2D globalLight2D;
 
     void Start()
     {
-        Room -= CheckRoomClear;
+        Room -= CheckRoomClear; // 더블 체크
         Room += CheckRoomClear;
         ClearPuzzles = new bool[10];
-        curtain = false;
-        if (s_instance == null)
-        {
-            s_instance = this;
-        }
-        ui = FindObjectOfType<UI>();
+        isCurtainOpen = false;
+        s_instance = this;
+        Ui = FindObjectOfType<UI>();
         onPuzzle = false;
+        globalLight2D = globalLight?.GetComponent<Light2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Vector2 mousPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // 마우스 좌표 바꾸기
-        RaycastHit2D hit = Physics2D.Raycast(mousPos, transform.forward, 10f); // 레이캐스트
-        if (hit.collider == null)
+        HandlePuzzleClick();
+    }
+
+    void HandlePuzzleClick()
+    {
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // 마우스 좌표 바꾸기
+        RaycastHit2D rayHit = Physics2D.Raycast(mousePos, transform.forward, 10f); // 레이캐스트
+        if (rayHit.collider == null)
             return;
         if (Input.GetMouseButtonDown(0))
         {
-            int hitLayer = hit.collider.gameObject.layer;
-            if (hitLayer == (int)Puzzle.LightSwitch)
+            int hitLayer = rayHit.collider.gameObject.layer;
+
+            switch ((Puzzle)hitLayer)
             {
-                if (ClearPuzzles[(int)Puzzle.LightSwitch - 10])
-                    globalLight.GetComponent<Light2D>().intensity = globalLight.GetComponent<Light2D>().intensity == 0.5f ? 1f : 0.5f;
-                else // 테스트용
-                    Debug.Log("전선 연결 필요");
-                return;
+                case Puzzle.LightSwitch:
+                    if (ClearPuzzles[(int)Puzzle.LightSwitch - 10])
+                        globalLight2D.intensity = globalLight2D.intensity == 0.5f ? 1f : 0.5f;
+                    else // 테스트용
+                        Debug.Log("전선 연결 필요");
+                    break;
+
+                case Puzzle.ChangeView:
+                    Debug.Log("창밖 변환");
+                    break;
+
+                case Puzzle.Curtain:
+                    Debug.Log("커튼 상태 " + (isCurtainOpen = !isCurtainOpen));
+                    break;
+
+                case Puzzle.ArcadeConsole:
+                    if (ClearPuzzles[(int)Puzzle.LightSwitch - 10])
+                    {
+                        Puzzles[(int)Puzzle.ArcadeConsole - 10].SetActive(true);
+                    }
+                    else
+                    {
+                        Debug.Log("전선 연결 필요");
+                        break;
+                    }
+                    Debug.Log("ArcadeConsole");
+                    break;
+
+                case Puzzle.Poster:
+                    Debug.Log("Poster");
+                    Puzzles[(int)Puzzle.Poster - 10].SetActive(true);
+                    ChangeBackground();
+                    break;
+
+                case Puzzle.WetTissue:
+                    Puzzles[(int)Puzzle.WetTissue - 10].SetActive(true);
+                    Debug.Log("WetTissue");
+                    ChangeBackground();
+                    break;
+
+                case Puzzle.SignatureCard:
+                    Puzzles[(int)Puzzle.SignatureCard - 10].SetActive(true);
+                    Debug.Log("SignatureCard");
+                    ChangeBackground();
+                    break;
+
+                case Puzzle.Star:
+                    Puzzles[(int)Puzzle.Star - 10].SetActive(true);
+                    LightEnable();
+                    Debug.Log("Star");
+                    ChangeBackground();
+                    break;
+
+                case Puzzle.Wire:
+                    Puzzles[(int)Puzzle.Wire - 10].SetActive(true);
+                    Debug.Log("Wire");
+                    ChangeBackground();
+                    break;
+
+                case Puzzle.ShadowLight:
+                    Puzzles[(int)Puzzle.ShadowLight - 10].SetActive(true);
+                    Debug.Log("ShadowLight");
+                    ChangeBackground();
+                    break;
             }
-
-            if (hitLayer == (int)Puzzle.ChangeView)
-            {
-                Debug.Log("창밖 변환");
-                return;
-            }
-            if (hitLayer == (int)Puzzle.Curtain)
-            {
-                Debug.Log("커튼 상태 " + (curtain = !curtain));
-                return;
-            }
-
-            if (hitLayer == (int)Puzzle.ArcadeConsole)
-            {
-                if (ClearPuzzles[(int)Puzzle.LightSwitch - 10])
-                    Puzzles[(int)Puzzle.ArcadeConsole - 10].SetActive(true);
-                else
-                {
-                    Debug.Log("전선 연결 필요");
-
-                    return;
-                }
-                Debug.Log("ArcadeConsole");
-            }
-
-            if (!onPuzzle)
-            {
-                ui.prevCameraPos = Camera.main.transform.position;
-                Camera.main.transform.position = new Vector3(0, -25f, -100f);
-                ActiveBackArrow();
-                onPuzzle = true;
-            }
-
-            if (hitLayer == (int)Puzzle.Poster)
-            {
-                Debug.Log("Poster");
-
-                Puzzles[(int)Puzzle.Poster - 10].SetActive(true);
-
-            }
-            else if (hitLayer == (int)Puzzle.WetTissue)
-            {
-
-                Puzzles[(int)Puzzle.WetTissue - 10].SetActive(true);
-                Debug.Log("WetTissue");
-
-            }
-            else if (hitLayer == (int)Puzzle.SignatureCard)
-            {
-
-                Puzzles[(int)Puzzle.SignatureCard - 10].SetActive(true);
-                Debug.Log("SignatureCard");
-            }
-            else if (hitLayer == (int)Puzzle.Star)
-            {
-
-                Puzzles[(int)Puzzle.Star - 10].SetActive(true);
-                LightEnable();
-                Debug.Log("Star");
-            }
-            else if (hitLayer == (int)Puzzle.Wire)
-            {
-
-                Puzzles[(int)Puzzle.Wire - 10].SetActive(true);
-                Debug.Log("Wire");
-            }
-            else if (hitLayer == (int)Puzzle.ShadowLight)
-            {
-
-                Puzzles[(int)Puzzle.ShadowLight - 10].SetActive(true);
-                Debug.Log("ShadowLight");
-            }
-
         }
-
     }
 
-    //void Update()
-    //{
-    //    Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    //    RaycastHit2D hit = Physics2D.Raycast(mousePos, transform.forward, 10f);
-
-    //    if (hit.collider == null)
-    //    {
-    //        return;
-    //    }
-
-    //    if (Input.GetMouseButtonDown(0))
-    //    {
-    //        Puzzle puzzle = (Puzzle)hit.collider.gameObject.layer;
-
-    //        switch (puzzle)
-    //        {
-    //            case Puzzle.LightSwitch:
-    //                if (ClearPuzzles[(int)puzzle - 10])
-    //                {
-    //                    globalLight.GetComponent<Light2D>().intensity =
-    //                        globalLight.GetComponent<Light2D>().intensity == 0.5f ? 1f : 0.5f;
-    //                }
-    //                else
-    //                {
-    //                    Debug.Log("wire connection required");
-    //                }
-    //                break;
-
-    //            case Puzzle.ChangeView:
-    //                Debug.Log("conversion out of window");
-    //                break;
-
-    //            case Puzzle.Curtain:
-    //                Debug.Log("Curtain State" + (curtain = !curtain));
-    //                break;
-
-    //            case Puzzle.ArcadeConsole:
-    //                if (ClearPuzzles[(int)puzzle - 10])
-    //                {
-    //                    Puzzles[(int)puzzle - 10].SetActive(true);
-    //                }
-    //                else
-    //                {
-    //                    Debug.Log("wire connection required");
-    //                }
-    //                Debug.Log("ArcadeConsole");
-    //                break;
-
-    //            default:
-    //                if (!onPuzzle)
-    //                {
-    //                    ui.prevCameraPos = Camera.main.transform.position;
-    //                    Camera.main.transform.position = new Vector3(0, -25f, -100f);
-    //                    ActiveBackArrow();
-    //                    onPuzzle = true;
-    //                }
-
-    //                if ((int)puzzle - 10 < 0) return;
-    //                Puzzles[(int)puzzle - 10].SetActive(true);
-    //                switch (puzzle)
-    //                {
-    //                    case Puzzle.Poster:
-    //                        Debug.Log("Poster");
-    //                        break;
-
-    //                    case Puzzle.WetTissue:
-    //                        Debug.Log("WetTissue");
-    //                        break;
-
-    //                    case Puzzle.SignatureCard:
-    //                        Debug.Log("SignatureCard");
-    //                        break;
-
-    //                    case Puzzle.Star:
-    //                        LightEnable();
-    //                        Debug.Log("Star");
-    //                        break;
-
-    //                    case Puzzle.Wire:
-    //                        Debug.Log("Wire");
-    //                        break;
-
-    //                    case Puzzle.ShadowLight:
-    //                        Debug.Log("ShadowLight");
-    //                        break;
-    //                }
-    //                break;
-    //        }
-    //    }
-    //}
+    void ChangeBackground()
+    {
+        if (!onPuzzle)
+        {
+            Ui.prevCameraPos = Camera.main.transform.position;
+            Camera.main.transform.position = new Vector3(0, -25f, -100f);
+            ActiveBackArrow();
+            onPuzzle = true;
+        }
+    }
 
     public void LightEnable()
     {
@@ -272,23 +177,107 @@ public class GameManager : MonoBehaviour
 
     void ActiveBackArrow()
     {
-        ui.backArrow.SetActive(true);
-        ui.DisbleArrow();
-     
+        Ui.backArrow.SetActive(true);
+        Ui.DisableArrow();
+
     }
 
     void CheckRoomClear()
     {
 
-        foreach(var puzzle in ClearPuzzles)
+        foreach (var puzzle in ClearPuzzles)
         {
-            if(!puzzle)
+            if (!puzzle)
             {
-
                 Debug.Log("풀 퍼즐이 남았음");
                 return;
             }
         }
 
     }
+
+    //if (hitLayer == (int)Puzzle.LightSwitch)
+    //{
+    //    if (ClearPuzzles[(int)Puzzle.LightSwitch - 10])
+    //        globalLight2D.intensity = globalLight2D.intensity == 0.5f ? 1f : 0.5f;
+    //    else // 테스트용
+    //        Debug.Log("전선 연결 필요");
+    //    return;
+    //}
+
+    //if (hitLayer == (int)Puzzle.ChangeView)
+    //{
+    //    Debug.Log("창밖 변환");
+    //    return;
+    //}
+    //if (hitLayer == (int)Puzzle.Curtain)
+    //{
+    //    Debug.Log("커튼 상태 " + (isCurtainOpen = !isCurtainOpen));
+    //    return;
+    //}
+
+    //if (hitLayer == (int)Puzzle.ArcadeConsole)
+    //{
+    //    if (ClearPuzzles[(int)Puzzle.LightSwitch - 10])
+    //        Puzzles[(int)Puzzle.ArcadeConsole - 10].SetActive(true);
+    //    else
+    //    {
+    //        Debug.Log("전선 연결 필요");
+
+    //        return;
+    //    }
+    //    Debug.Log("ArcadeConsole");
+    //}
+
+    //if (!onPuzzle)
+    //{
+    //    Ui.prevCameraPos = Camera.main.transform.position;
+    //    Camera.main.transform.position = new Vector3(0, -25f, -100f);
+    //    ActiveBackArrow();
+    //    onPuzzle = true;
+    //}
+
+    //if (hitLayer == (int)Puzzle.Poster)
+    //{
+    //    Debug.Log("Poster");
+
+    //    Puzzles[(int)Puzzle.Poster - 10].SetActive(true);
+
+    //}
+    //else if (hitLayer == (int)Puzzle.WetTissue)
+    //{
+
+    //    Puzzles[(int)Puzzle.WetTissue - 10].SetActive(true);
+    //    Debug.Log("WetTissue");
+
+    //}
+    //else if (hitLayer == (int)Puzzle.SignatureCard)
+    //{
+
+    //    Puzzles[(int)Puzzle.SignatureCard - 10].SetActive(true);
+    //    Debug.Log("SignatureCard");
+    //}
+    //else if (hitLayer == (int)Puzzle.Star)
+    //{
+
+    //    Puzzles[(int)Puzzle.Star - 10].SetActive(true);
+    //    LightEnable();
+    //    Debug.Log("Star");
+    //}
+    //else if (hitLayer == (int)Puzzle.Wire)
+    //{
+
+    //    Puzzles[(int)Puzzle.Wire - 10].SetActive(true);
+    //    Debug.Log("Wire");
+    //}
+    //else if (hitLayer == (int)Puzzle.ShadowLight)
+    //{
+
+    //    Puzzles[(int)Puzzle.ShadowLight - 10].SetActive(true);
+    //    Debug.Log("ShadowLight");
+    //}
+
+
+
+
 }

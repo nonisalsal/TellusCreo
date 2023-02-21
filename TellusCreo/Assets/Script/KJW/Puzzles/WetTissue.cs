@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class WetTissue : MonoBehaviour
 {
-    int cnt;
-    bool clear;
 
+    bool clear;
     public GameObject mars;
 
     [SerializeField]
@@ -16,32 +15,25 @@ public class WetTissue : MonoBehaviour
     [SerializeField]
     GameObject tissue;
 
+    List<GameObject> tissueList = new List<GameObject>();
+    bool order;
     private void OnMouseDown()
     {
-        if (cnt > 0)
+        if (tissueList.Count > 0)
         {
-            GameObject tempTissue = Instantiate(tissue, spwanPos.position, Quaternion.identity);
-
-            if (cnt % 2 == 0)
+            tissueList[0].GetComponent<Tissue>().PullTissue((order = !order));
+            tissueList.RemoveAt(0);
+            if (tissueList.Count > 0)
             {
-                tempTissue.AddComponent<Rigidbody2D>().AddForce(new Vector2(1f, 1f) * 5f, ForceMode2D.Impulse);
+                tissueList[0].SetActive(true);
             }
-            else
-            {
-                tempTissue.AddComponent<Rigidbody2D>().AddForce(new Vector2(-1f, 1f) * 5f, ForceMode2D.Impulse);
-            }
-            cnt--;
         }
         else
         {
             if (!clear)
             {
-
-               
                 clear = true;
-               
                 Instantiate(mars, transform.position, Quaternion.identity).transform.SetParent(this.transform);
-              
             }
 
         }
@@ -49,7 +41,16 @@ public class WetTissue : MonoBehaviour
 
     void Start()
     {
-        cnt = 10;
+        for (int i = 0; i < 10; i++)
+        {
+            GameObject tempGamObj = Instantiate(tissue, spwanPos.position, Quaternion.identity, this.transform);
+            tempGamObj.SetActive(false);
+            tempGamObj.GetComponent<SpriteRenderer>().sortingOrder = 0;
+            tempGamObj.AddComponent<Rigidbody2D>().simulated = false;
+            tissueList.Add(tempGamObj);
+        }
+        tissueList[0].SetActive(true);
+        order = false;
         clear = false;
     }
 }
