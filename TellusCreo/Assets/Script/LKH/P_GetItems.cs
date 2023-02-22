@@ -7,6 +7,12 @@ public class P_GetItems : MonoBehaviour
     public GameObject rayControl;
     public GameObject parentObj;
 
+    //private GameObject dollPuzzle2;
+    //private GameObject picturePuzzle;
+    //private GameObject clockPuzzle;
+    //private GameObject towerPuzzle;
+    //private GameObject topPuzzle;
+
     private GameObject[] objList;
     private bool[] getItem;
     private bool getKey_A;
@@ -14,6 +20,8 @@ public class P_GetItems : MonoBehaviour
     private bool getPattern;
     private bool contectWire;
     private bool getWire;
+
+    private bool[] clearPuzzle;
 
     void Start()
     {
@@ -23,6 +31,8 @@ public class P_GetItems : MonoBehaviour
         {
             objList[i] = parentObj.transform.GetChild(i).gameObject;
         }
+
+        clearPuzzle = new bool[5] { false, false, false, false, false };
     }
 
     void Update()
