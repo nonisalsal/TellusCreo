@@ -7,7 +7,6 @@ public class P_IsRightPos : MonoBehaviour
     //private int layer_NS;
     public GameObject correctObj;
 
-    public bool isTrigger;
     public bool isRight;
 
     void Start()
@@ -23,22 +22,14 @@ public class P_IsRightPos : MonoBehaviour
         //Debug.Log("트리거 접촉");
         if (System.Object.ReferenceEquals(collision.gameObject, correctObj))
         {
-            isTrigger = true;
+            isRight = true;
             //Debug.Log("IsRight 활성화");
         }
-        else { isTrigger = false; }
+        else { isRight = false; }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isTrigger = false;
-    }
-
-    private void LateUpdate()
-    {
-        if (isTrigger)
-        {
-            isRight = true;
-        }
+        isRight = false;
     }
 }

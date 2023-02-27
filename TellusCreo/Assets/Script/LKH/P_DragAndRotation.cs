@@ -48,9 +48,9 @@ public class P_DragAndRotation : MonoBehaviour
 
     private void PlayerInput()
     {
-        if (rayControl.GetComponent<P_GameManager>().isDown == true)
+        if (rayControl.GetComponent<P_Camera>().isDown == true)
         {
-            RaycastHit2D downHit = rayControl.GetComponent<P_GameManager>().downHit;
+            RaycastHit2D downHit = rayControl.GetComponent<P_Camera>().downHit;
             if (downHit)
             {
                 if (System.Object.ReferenceEquals(this.gameObject, downHit.collider.gameObject))
@@ -62,9 +62,9 @@ public class P_DragAndRotation : MonoBehaviour
             }
         }
 
-        if (rayControl.GetComponent<P_GameManager>().isUp == true)
+        if (rayControl.GetComponent<P_Camera>().isUp == true)
         {
-            RaycastHit2D upHit = rayControl.GetComponent<P_GameManager>().upHit;
+            RaycastHit2D upHit = rayControl.GetComponent<P_Camera>().upHit;
             if (upHit)
             {
                 if (System.Object.ReferenceEquals(this.gameObject, upHit.collider.gameObject))

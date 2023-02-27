@@ -45,11 +45,6 @@ public class P_PuzzleClear : MonoBehaviour
             if (puzzleCopy.transform.Find("clearZone").GetComponent<P_TowerClearZone>().isRight == true)
             {
                 GetComponent<P_PuzzleObject>().isClear = true;
-                Rigidbody2D[] rigs = GetComponent<P_PuzzleObject>().puzzleClear.GetComponentsInChildren<Rigidbody2D>();
-                foreach (Rigidbody2D rig in rigs)
-                {
-                    Destroy(rig);
-                }
             }
         }
         else if (System.Object.ReferenceEquals(puzzleObj, top))
@@ -79,7 +74,6 @@ public class P_PuzzleClear : MonoBehaviour
                 {
                     if (script == scripts[length - 1])
                     {
-                        //Debug.Log("last script");
                         GetComponent<P_PuzzleObject>().isClear = true;
                     }
                 }
