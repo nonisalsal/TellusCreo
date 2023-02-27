@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class UI : MonoBehaviour
@@ -13,6 +14,8 @@ public class UI : MonoBehaviour
 
     public void BackArrow()
     {
+        GameManager.Instance.onPuzzle = false;
+        backArrow.SetActive(false);
         foreach (var arrow in lrArrow)
         {
             arrow.SetActive(true);
@@ -28,9 +31,6 @@ public class UI : MonoBehaviour
         {
             puzzle.SetActive(false);
         }
-        backArrow.SetActive(false);
-
-        GameManager.Instance.onPuzzle = false;
     }
 
     public void LeftArrow()
@@ -44,11 +44,12 @@ public class UI : MonoBehaviour
         Camera.main.transform.position = new Vector3((Camera.main.transform.position.x + 20) % 80, 0f, -10f);
     }
 
-    public void DisbleArrow()
+    public void DisableArrow()
     {
         foreach (var arrow in lrArrow)
         {
             arrow.SetActive(false);
         }
+      
     }
 }
