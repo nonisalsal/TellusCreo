@@ -9,6 +9,9 @@ public class WirePiece : MonoBehaviour
 
     WirePuzzle wirePuzzle;
 
+    
+
+
     private void Start()
     {
         wirePuzzle = GameObject.FindObjectOfType<WirePuzzle>();
@@ -42,4 +45,5 @@ public class WirePiece : MonoBehaviour
     {
         pos = null;
     }
+
 }

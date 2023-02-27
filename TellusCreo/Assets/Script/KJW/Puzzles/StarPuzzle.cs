@@ -14,7 +14,6 @@ public class StarPuzzle : MonoBehaviour
     {
         if (!light2D.gameObject.activeSelf)
         {
-
             light2D.transform.position = new Vector2(0, 0);
             light2D.gameObject.SetActive(true);
             globalLight.gameObject.SetActive(false);

@@ -53,32 +53,62 @@ public class Joystick : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHa
         lever.anchoredPosition = Vector2.zero;
     }
 
+    //void DragDirection(Vector2 clickPos)
+    //{
+      
+    //    Debug.Log(clickPos.x-originLeverPos.x);
+    //    Debug.Log("x:"+clickPos.x);
+    //    if (originLeverPos.x< clickPos.x &&
+    //        (Mathf.Abs(clickPos.y -originLeverPos.y)<=4f)) // 오른쪽
+    //    {
+    //        test.NextBT();
+    //    }
+    //    else if(originLeverPos.x > clickPos.x) // 왼쪽 
+    //    {
+           
+    //    }
+    //    else if(originLeverPos.y < clickPos.y &&
+    //        (Mathf.Abs(clickPos.x - originLeverPos.x) <= 5f)) // 위
+    //    {
+    //        test.UPDOWN(KTest.State.UP);
+    //        Debug.Log("Up");
+    //    }
+    //    else if(originLeverPos.y > clickPos.y) // 아래
+    //    {
+    //        test.UPDOWN(KTest.State.DOWN);
+    //        Debug.Log("Down");
+
+    //    }
+    //}
+
     void DragDirection(Vector2 clickPos)
     {
-      
-        Debug.Log(clickPos.x-originLeverPos.x);
-        Debug.Log("x:"+clickPos.x);
-        if (originLeverPos.x< clickPos.x &&
-            (Mathf.Abs(clickPos.y -originLeverPos.y)<=4f)) // 오른쪽
-        {
-            test.NextBT();
-        }
-        else if(originLeverPos.x > clickPos.x) // 왼쪽 
-        {
-           
-        }
-        else if(originLeverPos.y < clickPos.y &&
-            (Mathf.Abs(clickPos.x - originLeverPos.x) <= 5f)) // 위
-        {
-            test.UPDOWN(KTest.State.UP);
-            Debug.Log("Up");
-        }
-        else if(originLeverPos.y > clickPos.y) // 아래
-        {
-            test.UPDOWN(KTest.State.DOWN);
-            Debug.Log("Down");
+        float xDiff = clickPos.x - originLeverPos.x;
+        float yDiff = clickPos.y - originLeverPos.y;
 
+        if (Mathf.Abs(xDiff) >= Mathf.Abs(yDiff))
+        {
+            if (xDiff > 0)
+            {
+                test.NextBT();
+            }
+            else
+            {
+                // Left direction
+            }
+        }
+        else
+        {
+            if (yDiff > 0)
+            {
+                test.UPDOWN(KTest.State.UP);
+            }
+            else
+            {
+                test.UPDOWN(KTest.State.DOWN);
+            }
         }
     }
-
 }
+
+

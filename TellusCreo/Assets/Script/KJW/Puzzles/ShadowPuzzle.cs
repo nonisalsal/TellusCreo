@@ -19,12 +19,6 @@ public class ShadowPuzzle : MonoBehaviour
         idx = 0;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void ChangeShadow()
     {
         idx = (idx + 1) % 3;
