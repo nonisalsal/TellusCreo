@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Interactable
+  - interactable
+  - P_stop
+  - P_move
+  - P_building
   layers:
   - Default
   - TransparentFX
@@ -35,9 +40,15 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - P_NotSelectLayer
+  - P_SelectLayer
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: P_NotSelect
+    uniqueID: 1841922597
+    locked: 0
+  - name: P_Select
+    uniqueID: 1117059545
     locked: 0

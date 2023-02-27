@@ -45,32 +45,63 @@ public class P_DragAndDrop : MonoBehaviour
 
     private void PlayerInput()
     {
-        if(rayControl.GetComponent<P_Camera>().isDown == true)
+        if (rayControl.GetComponent<P_GameManager>().isDown == true)
         {
-            RaycastHit2D downHit = rayControl.GetComponent<P_Camera>().downHit;
+            RaycastHit2D downHit = rayControl.GetComponent<P_GameManager>().downHit;
             if (downHit)
             {
                 if (System.Object.ReferenceEquals(this.gameObject, downHit.collider.gameObject))
                 {
-                    Debug.Log("dragAndDrop Down start");
+                    //Debug.Log("dragAndDrop Down start");
                     this.tag = "P_move";
                     ChangeLayer(31);
                 }
             }
         }
-
-        if(rayControl.GetComponent<P_Camera>().isUp == true)
+        if (rayControl.GetComponent<P_GameManager>().isUp == true)
         {
-            RaycastHit2D upHit = rayControl.GetComponent<P_Camera>().upHit;
+            RaycastHit2D upHit = rayControl.GetComponent<P_GameManager>().upHit;
             if (upHit)
             {
-                if (System.Object.ReferenceEquals(this.gameObject, upHit.collider.gameObject))
-                {
-                    Debug.Log("dragAndDrop Up start");
-                    this.tag = "P_stop";
-                    ChangeLayer(30);
-                }
+                //if (System.Object.ReferenceEquals(this.gameObject, upHit.collider.gameObject))
+                //{
+                //    //Debug.Log("dragAndDrop Up start");
+                //    this.tag = "P_stop";
+                //    ChangeLayer(30);
+                //}
+                //Debug.Log("dragAndDrop Up start");
+                this.tag = "P_stop";
+                ChangeLayer(30);
             }
         }
+        //    if (Input.GetMouseButtonDown(0))
+        //    {
+        //        //downPos에 
+        //        Vector2 downPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //        Ray2D downRay = new Ray2D(downPos, Vector2.zero);
+        //        RaycastHit2D downHit = Physics2D.Raycast(downRay.origin, downRay.direction, 1 << 30);
+        //        if (downHit)
+        //        {
+        //            if (System.Object.ReferenceEquals(this.gameObject, downHit.collider.gameObject))
+        //            {
+        //                this.tag = "P_move";
+        //                ChangeLayer(31);
+        //            }
+        //        }
+        //    }
+        //    if (Input.GetMouseButtonUp(0))
+        //    {
+        //        Vector2 upPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //        Ray2D upRay = new Ray2D(upPos, Vector2.zero);
+        //        RaycastHit2D upHit = Physics2D.Raycast(upRay.origin, upRay.direction);
+        //        if (upHit)
+        //        {
+        //            if (System.Object.ReferenceEquals(this.gameObject, upHit.collider.gameObject))
+        //            {
+        //                this.tag = "P_stop";
+        //                ChangeLayer(30);
+        //            }
+        //        }
+        //    }
     }
 }

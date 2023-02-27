@@ -101,9 +101,9 @@ public class P_Rotation : MonoBehaviour
 
     private void PlayerInput()
     {
-        if (rayControl.GetComponent<P_Camera>().isDown == true)
+        if (rayControl.GetComponent<P_GameManager>().isDown == true)
         {
-            RaycastHit2D downHit = rayControl.GetComponent<P_Camera>().downHit;
+            RaycastHit2D downHit = rayControl.GetComponent<P_GameManager>().downHit;
             if (downHit)
             {
                 if (System.Object.ReferenceEquals(this.gameObject, downHit.collider.gameObject))
