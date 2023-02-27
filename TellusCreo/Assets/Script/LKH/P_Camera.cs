@@ -55,30 +55,4 @@ public class P_Camera : MonoBehaviour
             }
         }
     }
-
-    //public void ClickLeftArrow()
-    //{
-    //    if (!playPuzzle)
-    //    {
-    //        thisPos_x -= 20;
-    //        if (thisPos_x < -30)
-    //        {
-    //            thisPos_x = 30;
-    //        }
-    //        this.transform.position = new Vector3(thisPos_x, thisPos_y, thisPos_z);
-    //    }
-    //}
-
-    //public void ClickRightArrow()
-    //{
-    //    if (!playPuzzle)
-    //    {
-    //        thisPos_x += 20;
-    //        if (thisPos_x > 30)
-    //        {
-    //            thisPos_x = -30;
-    //        }
-    //        this.transform.position = new Vector3(thisPos_x, thisPos_y, thisPos_z);
-    //    }
-    //}
 }
