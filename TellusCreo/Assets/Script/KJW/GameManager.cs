@@ -99,6 +99,7 @@ public class GameManager : MonoBehaviour
                     if (ClearPuzzles[(int)Puzzle.LightSwitch - 10])
                     {
                         Puzzles[(int)Puzzle.ArcadeConsole - 10].SetActive(true);
+                        ChangeBackground();
                     }
                     else
                     {

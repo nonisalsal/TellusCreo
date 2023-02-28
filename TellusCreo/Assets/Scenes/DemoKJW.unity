@@ -877,7 +877,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 251818810}
-  - component: {fileID: 251818811}
   m_Layer: 0
   m_Name: Backgrounds
   m_TagString: Untagged
@@ -903,22 +902,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &251818811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 251818809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c739699893840344f87796d57fd7a750, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wetTissue:
-  - {fileID: 21300000, guid: 0ab209893df71484fad55ccdd10394a3, type: 3}
-  - {fileID: 21300000, guid: 17254cb797dbd504ab9a4c683b156108, type: 3}
-  puzzleBackgroundPostion: {x: 0, y: -25}
 --- !u!1 &270805937
 GameObject:
   m_ObjectHideFlags: 0
