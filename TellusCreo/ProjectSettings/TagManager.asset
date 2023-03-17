@@ -9,6 +9,9 @@ TagManager:
   - P_stop
   - P_move
   - P_building
+  - FirstPassword
+  - SecondPassword
+  - ThirdPassword
   layers:
   - Default
   - TransparentFX
@@ -27,10 +30,10 @@ TagManager:
   - Wire
   - ShadowLight
   - ArcadeConsole
+  - Lock
   - LightSwitch
   - ChangeView
   - Curtain
-  - 
   - 
   - 
   - 
