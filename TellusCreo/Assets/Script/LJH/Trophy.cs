@@ -6,7 +6,7 @@ public class Trophy : MonoBehaviour
 {
    
     public bool check1;
-
+   
     void Start()
     {
         check1 = false;
