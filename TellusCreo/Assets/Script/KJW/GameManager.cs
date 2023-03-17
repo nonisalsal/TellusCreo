@@ -23,9 +23,10 @@ public class GameManager : MonoBehaviour
         Wire,
         ShadowLight, // 15
         ArcadeConsole,
+        Lock,
         LightSwitch,
         ChangeView,
-        Curtain
+        Curtain,
     }
 
     UI Ui;
@@ -94,11 +95,16 @@ public class GameManager : MonoBehaviour
                 case Puzzle.Curtain:
                     Debug.Log("커튼 상태 " + (isCurtainOpen = !isCurtainOpen));
                     break;
-
+                case Puzzle.Lock:
+                    Debug.Log("LockPuzzle");
+                    Puzzles[(int)Puzzle.Lock - 10].SetActive(true);
+                    ChangeBackground();
+                    break;
                 case Puzzle.ArcadeConsole:
                     if (ClearPuzzles[(int)Puzzle.LightSwitch - 10])
                     {
                         Puzzles[(int)Puzzle.ArcadeConsole - 10].SetActive(true);
+                        ChangeBackground();
                     }
                     else
                     {
