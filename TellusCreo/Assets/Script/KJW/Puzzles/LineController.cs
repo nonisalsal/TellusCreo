@@ -28,9 +28,7 @@ public class LineController : MonoBehaviour
                 return;
             if (hit.collider.gameObject.layer == 8) // 레이어 8 (point인지)
             {
-                hit.collider.gameObject.GetComponent<PosterPoint>().PointEnabled();
-                //  hit.collider.gameObject.GetComponent<PosterPoint>().isPoint = true;
-
+                hit.collider.gameObject.GetComponent<PosterPoint>().OnPointClick();
                 if (_lr.positionCount > _idx)
                 {
                     _lr.positionCount++;

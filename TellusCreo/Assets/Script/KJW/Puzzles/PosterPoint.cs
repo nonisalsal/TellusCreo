@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PosterPoint : MonoBehaviour
 {
-    public bool isClick;
-    SpriteRenderer render;
+    public bool isClicked;
+    SpriteRenderer spriteRenderer;
 
 
     LineRenderer _lr;
@@ -13,29 +13,31 @@ public class PosterPoint : MonoBehaviour
     Transform _startPos;
     Vector2 _prevPos;
 
-    public List<int> node = new List<int>();
-
     void Start()
     {
-        render = GetComponent<SpriteRenderer>();
-
-        isClick = false;
-
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        isClicked = false;
     }
 
 
-    public void PointEnabled() // 클릭시 색깔 변경
+    public void OnPointClick()
     {
-        if (isClick == false)
-        {
-            isClick = true;
-            render.color = new Color(0, 0, 1);
-
-        }
-        else
-        {
-            isClick = false;
-            render.color = new Color(1, 0, 0);
-        }
+        isClicked = !isClicked;
+        spriteRenderer.color = isClicked ? Color.blue : Color.red;
     }
+
+    //public void PointEnabled() // 클릭시 색깔 변경
+    //{
+    //    if (isClick == false)
+    //    {
+    //        isClick = true;
+    //        render.color = new Color(0, 0, 1);
+
+    //    }
+    //    else
+    //    {
+    //        isClick = false;
+    //        render.color = new Color(1, 0, 0);
+    //    }
+    //}
 }
