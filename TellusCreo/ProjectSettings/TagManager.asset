@@ -12,6 +12,8 @@ TagManager:
   - FirstPassword
   - SecondPassword
   - ThirdPassword
+  - Background2
+  - Background3
   layers:
   - Default
   - TransparentFX

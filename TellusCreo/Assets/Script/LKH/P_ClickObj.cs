@@ -18,16 +18,12 @@ public class P_ClickObj : MonoBehaviour
     void Start()
     {
         getItem = new bool[8] { false, false, false, false, false, false, false, false };
-        //for (int i=0; i<8; i++) { Debug.Log(this.transform.GetChild(i).gameObject.name); }
+        this.transform.GetChild(8).gameObject.SetActive(false);
+        this.transform.GetChild(9).gameObject.SetActive(false);
     }
 
     void Update()
     {
-        //if (FindObjectOfType<P_Camera>().playPuzzle == false)
-        //{
-        //    ShootRay();
-        //    PlayerInput();
-        //}
         ShootRay();
         PlayerInput();
     }
@@ -53,16 +49,17 @@ public class P_ClickObj : MonoBehaviour
                 if (getItem[0] == false && System.Object.ReferenceEquals(this.transform.GetChild(0).gameObject, upHit.collider.gameObject))
                 {
                     if (!getKey_A) { Debug.Log("Need 'Key_A'"); }
-                    else { 
-                        Debug.Log("Get 'Wire'");
-                        getWire = true;
-                        getItem[0] = true;
+                    else {
+                        this.transform.GetChild(8).gameObject.SetActive(true);
+                        this.transform.GetChild(0).gameObject.SetActive(false);
                     }
                 }
                 if (getItem[1] == false && System.Object.ReferenceEquals(this.transform.GetChild(1).gameObject, upHit.collider.gameObject))
                 {
-                    Debug.Log("Get 'Guitar'");
-                    getItem[1] = true;
+                    this.transform.GetChild(9).gameObject.SetActive(true);
+                    this.transform.GetChild(1).gameObject.SetActive(false);
+                    //Debug.Log("Get 'Guitar'");
+                    //getItem[1] = true;
                 }
                 if (getItem[2] == false && System.Object.ReferenceEquals(this.transform.GetChild(2).gameObject, upHit.collider.gameObject))
                 {
@@ -111,6 +108,16 @@ public class P_ClickObj : MonoBehaviour
                         contectWire = true;
                         getItem[7] = true;
                     }
+                }
+                if (System.Object.ReferenceEquals(this.transform.GetChild(8).gameObject, upHit.collider.gameObject))
+                {
+                    this.transform.GetChild(8).gameObject.SetActive(false);
+                    this.transform.GetChild(0).gameObject.SetActive(true);
+                }
+                if (System.Object.ReferenceEquals(this.transform.GetChild(9).gameObject, upHit.collider.gameObject))
+                {
+                    this.transform.GetChild(9).gameObject.SetActive(false);
+                    this.transform.GetChild(1).gameObject.SetActive(true);
                 }
             }
         }
