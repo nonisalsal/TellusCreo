@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 19979757}
   m_Layer: 20
   m_Name: Curtain
-  m_TagString: Untagged
+  m_TagString: Background2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -862,7 +862,7 @@ GameObject:
   - component: {fileID: 149566597}
   m_Layer: 16
   m_Name: ArcadeConsole
-  m_TagString: Untagged
+  m_TagString: Background2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1055,9 +1055,10 @@ GameObject:
   m_Component:
   - component: {fileID: 270805938}
   - component: {fileID: 270805939}
+  - component: {fileID: 270805940}
   m_Layer: 0
   m_Name: Background2
-  m_TagString: Untagged
+  m_TagString: Background2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1128,6 +1129,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &270805940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270805937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06851cddbc6b6b459067c732272fa08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backGroundSpriteList:
+  - {fileID: 21300000, guid: a34b967e52bcc4245b9436a86a1bb14d, type: 3}
+  - {fileID: 21300000, guid: c50c97b31f0466b41a9739e43b01c364, type: 3}
 --- !u!1 &276980445
 GameObject:
   m_ObjectHideFlags: 0
@@ -2900,7 +2916,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 562199335}
-  - component: {fileID: 562199336}
+  - component: {fileID: 562199337}
   m_Layer: 10
   m_Name: Poster
   m_TagString: Untagged
@@ -2922,8 +2938,8 @@ Transform:
   m_Father: {fileID: 746257649}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &562199336
-BoxCollider2D:
+--- !u!60 &562199337
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2935,7 +2951,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.3800983, y: 0.058526993}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2945,9 +2961,16 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.96097946, y: 4.2775126}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 2.0847664, y: 1.3862349}
+      - {x: 1.887497, y: 2.267549}
+      - {x: 0.2503662, y: 2.2205229}
+      - {x: -2.828784, y: 2.1867452}
+      - {x: -2.872354, y: -2.0921311}
+      - {x: 3.0914207, y: -2.1234267}
+      - {x: 2.846447, y: 0.6416954}
+      - {x: 2.828784, y: 0.8410401}
 --- !u!1 &634613795
 GameObject:
   m_ObjectHideFlags: 0
@@ -3453,9 +3476,10 @@ GameObject:
   m_Component:
   - component: {fileID: 746257649}
   - component: {fileID: 746257650}
+  - component: {fileID: 746257651}
   m_Layer: 0
   m_Name: Background3
-  m_TagString: Untagged
+  m_TagString: Background3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3528,6 +3552,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &746257651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746257648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06851cddbc6b6b459067c732272fa08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backGroundSpriteList:
+  - {fileID: 21300000, guid: 2b9c15bf394e28c4b8884173770d2b7c, type: 3}
+  - {fileID: 21300000, guid: 6453f3f42a0ed18419a9c92d7a29916b, type: 3}
 --- !u!1 &749799356
 GameObject:
   m_ObjectHideFlags: 0
