@@ -93,7 +93,12 @@ public class GameManager : MonoBehaviour
                     break;
 
                 case Puzzle.Curtain:
+                    GameObject hitGameObject = rayHit.collider.gameObject;
                     Debug.Log("커튼 상태 " + (isCurtainOpen = !isCurtainOpen));
+                    if(hitGameObject.CompareTag("Background2"))
+                    {
+                        hitGameObject.transform.parent.GetComponent<BackgroundManager>()?.ChangeBackgroundSprite();
+                    }
                     break;
                 case Puzzle.Lock:
                     Debug.Log("LockPuzzle");
@@ -201,89 +206,5 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
-    //if (hitLayer == (int)Puzzle.LightSwitch)
-    //{
-    //    if (ClearPuzzles[(int)Puzzle.LightSwitch - 10])
-    //        globalLight2D.intensity = globalLight2D.intensity == 0.5f ? 1f : 0.5f;
-    //    else // 테스트용
-    //        Debug.Log("전선 연결 필요");
-    //    return;
-    //}
-
-    //if (hitLayer == (int)Puzzle.ChangeView)
-    //{
-    //    Debug.Log("창밖 변환");
-    //    return;
-    //}
-    //if (hitLayer == (int)Puzzle.Curtain)
-    //{
-    //    Debug.Log("커튼 상태 " + (isCurtainOpen = !isCurtainOpen));
-    //    return;
-    //}
-
-    //if (hitLayer == (int)Puzzle.ArcadeConsole)
-    //{
-    //    if (ClearPuzzles[(int)Puzzle.LightSwitch - 10])
-    //        Puzzles[(int)Puzzle.ArcadeConsole - 10].SetActive(true);
-    //    else
-    //    {
-    //        Debug.Log("전선 연결 필요");
-
-    //        return;
-    //    }
-    //    Debug.Log("ArcadeConsole");
-    //}
-
-    //if (!onPuzzle)
-    //{
-    //    Ui.prevCameraPos = Camera.main.transform.position;
-    //    Camera.main.transform.position = new Vector3(0, -25f, -100f);
-    //    ActiveBackArrow();
-    //    onPuzzle = true;
-    //}
-
-    //if (hitLayer == (int)Puzzle.Poster)
-    //{
-    //    Debug.Log("Poster");
-
-    //    Puzzles[(int)Puzzle.Poster - 10].SetActive(true);
-
-    //}
-    //else if (hitLayer == (int)Puzzle.WetTissue)
-    //{
-
-    //    Puzzles[(int)Puzzle.WetTissue - 10].SetActive(true);
-    //    Debug.Log("WetTissue");
-
-    //}
-    //else if (hitLayer == (int)Puzzle.SignatureCard)
-    //{
-
-    //    Puzzles[(int)Puzzle.SignatureCard - 10].SetActive(true);
-    //    Debug.Log("SignatureCard");
-    //}
-    //else if (hitLayer == (int)Puzzle.Star)
-    //{
-
-    //    Puzzles[(int)Puzzle.Star - 10].SetActive(true);
-    //    LightEnable();
-    //    Debug.Log("Star");
-    //}
-    //else if (hitLayer == (int)Puzzle.Wire)
-    //{
-
-    //    Puzzles[(int)Puzzle.Wire - 10].SetActive(true);
-    //    Debug.Log("Wire");
-    //}
-    //else if (hitLayer == (int)Puzzle.ShadowLight)
-    //{
-
-    //    Puzzles[(int)Puzzle.ShadowLight - 10].SetActive(true);
-    //    Debug.Log("ShadowLight");
-    //}
-
-
-
 
 }
