@@ -3,7 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< Updated upstream
   tags: []
+=======
+  tags:
+  - Interactable
+  - interactable
+  - P_stop
+  - P_move
+  - P_building
+  - FirstPassword
+  - SecondPassword
+  - ThirdPassword
+  - Background2
+  - Background3
+  - box
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
