@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Inventory : MonoBehaviour
 {
@@ -17,13 +18,22 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         InitializeInventory();
+
         
     }
 
     void Update()
     {
-        SelectSlot();
-        HideDisplay();
+        if (Input.GetMouseButtonDown(0))
+        {
+            
+                SelectSlot();
+                HideDisplay();
+            
+        }
+        
+                
+       
     }
 
     void InitializeInventory()
@@ -63,6 +73,7 @@ public class Inventory : MonoBehaviour
 
     void HideDisplay()
     {
+      
         if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
             itemDisplayer.SetActive(false);
@@ -73,5 +84,23 @@ public class Inventory : MonoBehaviour
             }
         }
     }
+
+
+    public bool IsPointerOverUIObject(Vector2 touchPos)
+    {
+        PointerEventData eventDataCurrentPosition
+            = new PointerEventData(EventSystem.current);
+
+        eventDataCurrentPosition.position = touchPos;
+
+        List<RaycastResult> results = new List<RaycastResult>();
+
+
+        EventSystem.current
+        .RaycastAll(eventDataCurrentPosition, results);
+
+        return results.Count > 0;
+    }
+
 }
 
