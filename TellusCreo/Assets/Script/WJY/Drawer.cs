@@ -5,33 +5,41 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Drawer : MonoBehaviour, IInteractable
+public class Drawer : MonoBehaviour
 {
     public string UnlockItem;
-    public string ChangeItem;
-
+    public GameObject respawn;
     private GameObject inventory;
 
     void Start()
     {
+        respawn = GameObject.FindWithTag("box");
         inventory = GameObject.Find("Inventory");
     }
 
- 
-
-
-
-    public void Interact(DisplayImage currentDisplay)
+    void Update()
     {
-        if (inventory.GetComponent<Inventory>().currentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == UnlockItem)
+        if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("unlock");
-            inventory.GetComponent<Inventory>().currentSelectedSlot.GetComponent<Slots>().ItemProperty = Slots.property.empty;
-            inventory.GetComponent<Inventory>().currentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite =
-                Resources.Load<Sprite>("Inventory Items/empty_item");
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                if (inventory.GetComponent<Inventory>().currentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite.name == UnlockItem)
+                {
+
+                    Debug.Log("unlock");
+                    //inventory.GetComponent<Inventory>().currentSelectedSlot.GetComponent<Slots>().ItemProperty = Slots.property.empty;
+                    //inventory.GetComponent<Inventory>().currentSelectedSlot.gameObject.transform.GetChild(0).GetComponent<Image>().sprite =
+                    //    Resources.Load<Sprite>("Inventory Items/empty_item");
+
+                }
+            }
 
         }
+       
+
+
+        }
+
+
     }
 
-    
-}

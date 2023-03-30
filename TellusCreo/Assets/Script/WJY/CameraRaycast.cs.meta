@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:TellusCreo/Assets/Script/LKH/P_Camera.cs.meta
-guid: 2abcf5ee0a65eef46a6e951fd78177c3
-========
 guid: bc79217e4e823a344b3c0bd38710b199
->>>>>>>> 우재영:TellusCreo/Assets/Script/WJY/CameraRaycast.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
