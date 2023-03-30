@@ -14,6 +14,13 @@ TagManager:
   - ThirdPassword
   - Background2
   - Background3
+  - Pass1
+  - Pass3
+  - Book
+  - Pass2
+  - TextFolder
+  - StartFolder
+  - box
   layers:
   - Default
   - TransparentFX

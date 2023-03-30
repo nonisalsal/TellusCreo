@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class PickUpItem : MonoBehaviour
 {
@@ -16,16 +17,32 @@ public class PickUpItem : MonoBehaviour
 
     public string DisplayImage;
 
-    private void OnMouseDown()
-    {
-        ItemPickUp();
-    }
+    //private void OnMouseDown()
+    //{
+    //    if (!EventSystem.current.IsPointerOverGameObject())
+    //    {
+           
+    //    }
+       
+    //}
 
     void Start()
     {
         InventorySlots = GameObject.Find("Slots");
     }
 
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                ItemPickUp();
+            }
+            
+
+        }
+    }
     void ItemPickUp()
     {
         
