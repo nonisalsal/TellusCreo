@@ -18,6 +18,8 @@ public class P_ClickObj : MonoBehaviour
     void Start()
     {
         getItem = new bool[8] { false, false, false, false, false, false, false, false };
+        getKey_A = true; ;
+        getKey_B = false;
         this.transform.GetChild(8).gameObject.SetActive(false);
         this.transform.GetChild(9).gameObject.SetActive(false);
     }
