@@ -14,6 +14,7 @@ public class P_PuzzleObject : MonoBehaviour
 
     public GameObject dollPuzzle1;
     public GameObject dollPuzzle2;
+    public GameObject parentObj;
 
     private int debugTest= 0;
 
@@ -21,17 +22,25 @@ public class P_PuzzleObject : MonoBehaviour
     {
         isActive = false;
         isClear = false;
+        parentObj = transform.parent.gameObject;
+        if (System.Object.ReferenceEquals(puzzleObj, parentObj.transform.GetChild(2)))
+        {
+            Debug.Log(this.name);
+            this.gameObject.SetActive(false);
+        }
     }
 
-    void Update()
+    private void ExitPuzzle()
     {
         if (FindObjectOfType<P_Camera>().playPuzzle == false && isActive == true)
         {
-            if (isClear == false) { 
+            if (isClear == false)
+            {
                 Destroy(puzzleCopy);
                 isActive = false;
             }
-            else { 
+            else
+            {
                 puzzleClear.SetActive(false);
                 isActive = false;
             }
@@ -43,6 +52,11 @@ public class P_PuzzleObject : MonoBehaviour
         }
 
         PlayerInput();
+    }
+
+    void Update()
+    {
+        ExitPuzzle();
     }
 
     private void ClearControl()
@@ -107,6 +121,12 @@ public class P_PuzzleObject : MonoBehaviour
                 Debug.Log("퍼즐 클리어");
                 debugTest = 1;
             }
+            parentObj.transform.GetChild(2).gameObject.SetActive(true);
         }
     }
+
+    //private void ClockPuzzle()
+    //{
+    //    if (puzzleObj == clockPuzzle)
+    //}
 }
