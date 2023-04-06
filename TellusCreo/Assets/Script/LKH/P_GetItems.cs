@@ -70,45 +70,45 @@ public class P_GetItems : MonoBehaviour
                         getKey_A = true;
                         getItem[2] = true;
                     }
-                    if (getItem[3] == false && System.Object.ReferenceEquals(this.gameObject, objList[3]))
-                    {
-                        if (!getPattern) { Debug.Log("Need 'Pattern'"); }
-                        else
-                        {
-                            Debug.Log("Get 'Fianl_Item'");
-                            getItem[3] = true;
-                        }
-                    }
-                    if (getItem[4] == false && System.Object.ReferenceEquals(this.gameObject, objList[4]))
+                    //if (getItem[3] == false && System.Object.ReferenceEquals(this.gameObject, objList[3]))
+                    //{
+                    //    if (!getPattern) { Debug.Log("Need 'Pattern'"); }
+                    //    else
+                    //    {
+                    //        Debug.Log("Get 'Fianl_Item'");
+                    //        getItem[3] = true;
+                    //    }
+                    //}
+                    if (getItem[3] == false && System.Object.ReferenceEquals(this.gameObject, objList[4]))
                     {
                         Debug.Log("Get 'Violin'");
-                        getItem[4] = true;
+                        getItem[3] = true;
                     }
-                    if (getItem[5] == false && System.Object.ReferenceEquals(this.gameObject, objList[5]))
+                    if (getItem[4] == false && System.Object.ReferenceEquals(this.gameObject, objList[5]))
                     {
                         if (!contectWire) { Debug.Log("Need 'Contect Wire'"); }
                         else
                         {
                             Debug.Log("Get 'Top_B'");
-                            getItem[5] = true;
+                            getItem[4] = true;
                         }
                     }
-                    if (getItem[6] == false && System.Object.ReferenceEquals(this.gameObject, objList[6]))
+                    if (getItem[5] == false && System.Object.ReferenceEquals(this.gameObject, objList[6]))
                     {
                         if (!getKey_B) { Debug.Log("Need 'Key_B'"); }
                         else
                         {
                             Debug.Log("Get 'Top_C'");
-                            getItem[6] = true;
+                            getItem[5] = true;
                         }
                     }
-                    if (getItem[7] == false && System.Object.ReferenceEquals(this.gameObject, objList[7]))
+                    if (getItem[6] == false && System.Object.ReferenceEquals(this.gameObject, objList[7]))
                     {
                         if (!getWire) { Debug.Log("Need 'Wire'"); }
                         else
                         {
                             Debug.Log("Use 'Lamp'");
-                            getItem[7] = true;
+                            getItem[6] = true;
                         }
                     }
                 }

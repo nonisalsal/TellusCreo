@@ -23,7 +23,7 @@ public class P_PuzzleObject : MonoBehaviour
         isActive = false;
         isClear = false;
         parentObj = transform.parent.gameObject;
-        if (System.Object.ReferenceEquals(puzzleObj, parentObj.transform.GetChild(2)))
+        if (System.Object.ReferenceEquals(puzzleObj, parentObj.transform.GetChild(2).gameObject))
         {
             Debug.Log(this.name);
             this.gameObject.SetActive(false);
@@ -78,23 +78,19 @@ public class P_PuzzleObject : MonoBehaviour
             {
                 if (System.Object.ReferenceEquals(this.gameObject, upHit.collider.gameObject))
                 {
-                    //Debug.Log(upHit.collider.gameObject.name);
-                    if (System.Object.ReferenceEquals(this.gameObject, upHit.collider.gameObject))
+                    FindObjectOfType<P_Camera>().playPuzzle = true;
+                    FindObjectOfType<P_Camera>().puzzlePos_x = puzzleObj.transform.position.x;
+                    FindObjectOfType<P_Camera>().puzzlePos_y = puzzleObj.transform.position.y;
+                    if (isClear == false)
                     {
-                        FindObjectOfType<P_Camera>().playPuzzle = true;
-                        FindObjectOfType<P_Camera>().puzzlePos_x = puzzleObj.transform.position.x;
-                        FindObjectOfType<P_Camera>().puzzlePos_y = puzzleObj.transform.position.y;
-                        if (isClear == false)
-                        {
-                            puzzleCopy = Instantiate(puzzleObj, puzzleObj.transform.position, puzzleObj.transform.rotation);
-                            puzzleCopy.SetActive(true);
-                        }
-                        if (isClear == true)
-                        {
-                            puzzleClear.SetActive(true);
-                        }
-                        isActive = true;
+                        puzzleCopy = Instantiate(puzzleObj, puzzleObj.transform.position, puzzleObj.transform.rotation);
+                        puzzleCopy.SetActive(true);
                     }
+                    if (isClear == true)
+                    {
+                        puzzleClear.SetActive(true);
+                    }
+                    isActive = true;
                 }
             }
         }
