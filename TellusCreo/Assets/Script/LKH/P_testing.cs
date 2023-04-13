@@ -5,6 +5,20 @@ using UnityEngine;
 public class P_testing : MonoBehaviour
 {
     public GameObject rayControl;
+    private int num = 0;
+
+
+    private void Start()
+    {
+        this.transform.GetChild(0).gameObject.SetActive(true);
+        this.transform.GetChild(1).gameObject.SetActive(false);
+        this.transform.GetChild(2).gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        PlayerInput();
+    }
 
     private void PlayerInput()
     {
@@ -13,9 +27,19 @@ public class P_testing : MonoBehaviour
             RaycastHit2D upHit = rayControl.GetComponent<P_GameManager>().upHit;
             if (upHit)
             {
-                if (System.Object.ReferenceEquals(this.transform.gameObject, upHit.collider.gameObject))
+                Debug.Log(upHit.collider.gameObject.name);
+                if (System.Object.ReferenceEquals(this.transform.gameObject, upHit.collider.gameObject.transform.parent.gameObject))
                 {
-
+                    //Debug.Log("asdf");
+                    num++;
+                    if (num >= 3)
+                        num = 0;
+                    for (int i=0; i<3; i++)
+                    {
+                        this.transform.GetChild(i).gameObject.SetActive(false);
+                        if(i == num)
+                            this.transform.GetChild(i).gameObject.SetActive(true);
+                    }
                 }
             }
         }
