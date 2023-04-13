@@ -21,6 +21,7 @@ TagManager:
   - TextFolder
   - StartFolder
   - box
+  - PosterCorners
   layers:
   - Default
   - TransparentFX
