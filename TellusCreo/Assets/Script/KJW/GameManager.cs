@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.Experimental.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
@@ -68,7 +69,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        HandlePuzzleClick();
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            HandlePuzzleClick();
+        }
+        
     }
 
     void HandlePuzzleClick()
@@ -77,6 +82,7 @@ public class GameManager : MonoBehaviour
         RaycastHit2D rayHit = Physics2D.Raycast(mousePos, transform.forward, 10f); // 레이캐스트
         if (rayHit.collider == null)
             return;
+        
         if (Input.GetMouseButtonDown(0))
         {
             GameObject hitGameObject = rayHit.collider.gameObject;
