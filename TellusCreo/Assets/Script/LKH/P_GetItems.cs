@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+
 public class P_GetItems : MonoBehaviour
 {
     public GameObject rayControl;
@@ -37,10 +37,7 @@ public class P_GetItems : MonoBehaviour
 
     void Update()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            PlayerInput();
-        }
+        PlayerInput();
     }
 
     private void PlayerInput()

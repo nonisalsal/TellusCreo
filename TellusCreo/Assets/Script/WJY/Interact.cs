@@ -14,7 +14,6 @@ public class Interact : MonoBehaviour
 
     void Update()
     {
-
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 rayPostion = Camera.main.ScreenToWorldPoint(Input.mousePosition);

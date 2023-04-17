@@ -28,8 +28,6 @@ public class Slots : MonoBehaviour, IPointerClickHandler
         int currentClickNum = eventData.clickCount;
 
         Debug.Log("Mouse Click Button : Left");
-
-
         if (currentClickNum == 1)
         {
             inventory.GetComponent<Inventory>().previousSelectedSlot = inventory.GetComponent<Inventory>().currentSelectedSlot;
