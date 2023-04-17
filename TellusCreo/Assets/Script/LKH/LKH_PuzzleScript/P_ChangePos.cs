@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class P_ChangePos : MonoBehaviour
 {
     public Vector2 beforePos;
@@ -68,7 +68,10 @@ public class P_ChangePos : MonoBehaviour
         if (this.CompareTag("P_move")) { isMove = true; }
         else { isMove = false; }
 
-        PlayerInput();
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            PlayerInput();
+        }
     }
 
     private void PlayerInput()
