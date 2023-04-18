@@ -1,7 +1,6 @@
-﻿                using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class P_Camera : MonoBehaviour
 {
@@ -31,54 +30,33 @@ public class P_Camera : MonoBehaviour
 
     private void Update()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (playPuzzle == true)
         {
-            if (playPuzzle == true)
+            this.transform.position = new Vector3(puzzlePos_x, puzzlePos_y, thisPos_z);
+            //if (Input.GetKeyUp(KeyCode.UpArrow))
+            //{
+            //    this.transform.position = new Vector3(thisPos_x, thisPos_y, thisPos_z);
+            //    playPuzzle = false;
+            //}
+            if (!destroyButton)
             {
-<<<<<<< Updated upstream
                 GameObject.Find("Button").transform.GetChild(0).gameObject.SetActive(false);
                 GameObject.Find("Button").transform.GetChild(1).gameObject.SetActive(false);
                 GameObject.Find("Button").transform.GetChild(2).gameObject.SetActive(true);
                 //GameObject.Instantiate(button_back, button_back.transform.position, button_back.transform.rotation);
                 //button_back.transform.parent = GameObject.Find("Button").transform;
                 destroyButton = true;
-=======
-
-                this.transform.position = new Vector3(puzzlePos_x, puzzlePos_y, thisPos_z);
-                //if (Input.GetKeyUp(KeyCode.UpArrow))
-                //{
-                //    this.transform.position = new Vector3(thisPos_x, thisPos_y, thisPos_z);
-                //    playPuzzle = false;
-                //}
-                if (!destroyButton)
-                {
-                    GameObject.Find("Button").transform.GetChild(0).gameObject.SetActive(false);
-                    GameObject.Find("Button").transform.GetChild(1).gameObject.SetActive(false);
-                    GameObject.Find("Button").transform.GetChild(2).gameObject.SetActive(true);
-                    //GameObject.Instantiate(button_back, button_back.transform.position, button_back.transform.rotation);
-                    //button_back.transform.parent = GameObject.Find("Button").transform;
-                    destroyButton = true;
-                }
->>>>>>> Stashed changes
             }
-            else
+        }
+        else
+        {
+            if (destroyButton)
             {
-<<<<<<< Updated upstream
                 GameObject.Find("Button").transform.GetChild(0).gameObject.SetActive(true);
                 GameObject.Find("Button").transform.GetChild(1).gameObject.SetActive(true);
                 GameObject.Find("Button").transform.GetChild(2).gameObject.SetActive(false);
                 //Destroy(GameObject.Find("Button").transform.GetChild(4).gameObject);
                 destroyButton = false;
-=======
-                if (destroyButton)
-                {
-                    GameObject.Find("Button").transform.GetChild(0).gameObject.SetActive(true);
-                    GameObject.Find("Button").transform.GetChild(1).gameObject.SetActive(true);
-                    GameObject.Find("Button").transform.GetChild(2).gameObject.SetActive(false);
-                    //Destroy(GameObject.Find("Button").transform.GetChild(4).gameObject);
-                    destroyButton = false;
-                }
->>>>>>> Stashed changes
             }
         }
     }
