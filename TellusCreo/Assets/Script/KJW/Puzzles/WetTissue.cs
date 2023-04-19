@@ -33,7 +33,9 @@ public class WetTissue : MonoBehaviour
             if (!clear)
             {
                 clear = true;
-                Instantiate(mars, transform.position, Quaternion.identity).transform.SetParent(this.transform);
+                GameObject Mars = Instantiate(mars, transform.position, Quaternion.identity);
+                Mars.transform.SetParent(this.transform);
+                Mars.transform.localPosition = new Vector3(0.0f, 0.8f, 0.0f);
             }
 
         }

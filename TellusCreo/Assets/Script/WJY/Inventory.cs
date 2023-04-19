@@ -24,6 +24,7 @@ public class Inventory : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             
