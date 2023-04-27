@@ -5,79 +5,53 @@ using UnityEngine.EventSystems;
 
 public class Joystick : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandler
 {
-
-
-    [SerializeField]
-    KTest test;
-
     [SerializeField]
     RectTransform lever;
     RectTransform rectTransform;
 
-    Vector2 originLeverPos;
-    Vector2 transLeverPos;
-
-    [SerializeField,Range(10,150)]
+    [SerializeField, Range(10f, 150f)]
     float leverRange;
 
-    
-
-    private void Awake()
+    public ArcadeConsole arcadeConsole; 
+    void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
-        originLeverPos=lever.transform.position;
+        arcadeConsole = FindObjectOfType<ArcadeConsole>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Vector2 inputPos = eventData.position - rectTransform.anchoredPosition;
-        Vector2 inputVector = inputPos.magnitude < leverRange ? inputPos : inputPos.normalized * leverRange;
-        lever.anchoredPosition = inputVector;
-      
-        DragDirection(eventData.position);
+        UpdateLeverPosition(eventData.position);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-       
-        Vector2 inputPos = eventData.position - rectTransform.anchoredPosition;
-        Vector2 inputVector = inputPos.magnitude < leverRange ? inputPos : inputPos.normalized * leverRange;
-        lever.anchoredPosition = inputVector;
-     
+        UpdateLeverPosition(eventData.position);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         lever.anchoredPosition = Vector2.zero;
+        Vector2 inputDirection = eventData.position - rectTransform.anchoredPosition;
+        arcadeConsole.SelectAlphabet(inputDirection); // 드래그 끝날때만
     }
 
-    void DragDirection(Vector2 clickPos)
+    void UpdateLeverPosition(Vector2 position)
     {
-        float xDiff = clickPos.x - originLeverPos.x;
-        float yDiff = clickPos.y - originLeverPos.y;
-
-        if (Mathf.Abs(xDiff) >= Mathf.Abs(yDiff))
+        Vector2 inputDir = position - rectTransform.anchoredPosition;
+        Vector2 clampedDir = Vector2.zero;
+        if (Mathf.Abs(inputDir.x) > Mathf.Abs(inputDir.y)) // 절대값이 x가 더 크면 좌우
         {
-            if (xDiff > 0)
-            {
-                test.NextBT();
-            }
-            else
-            {
-                // Left direction
-            }
+            clampedDir = inputDir.normalized * leverRange;
+            clampedDir.y = 0;
         }
         else
         {
-            if (yDiff > 0)
-            {
-                test.UPDOWN(KTest.State.UP);
-            }
-            else
-            {
-                test.UPDOWN(KTest.State.DOWN);
-            }
+            clampedDir = inputDir.normalized * leverRange;
+            clampedDir.x = 0;
         }
+
+        lever.anchoredPosition = clampedDir;
     }
 }
 
