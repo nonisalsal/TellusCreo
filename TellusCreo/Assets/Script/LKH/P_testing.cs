@@ -27,7 +27,7 @@ public class P_testing : MonoBehaviour
             RaycastHit2D upHit = rayControl.GetComponent<P_GameManager>().upHit;
             if (upHit)
             {
-                Debug.Log(upHit.collider.gameObject.name);
+                // Debug.Log(upHit.collider.gameObject.name);
                 if (System.Object.ReferenceEquals(this.transform.gameObject, upHit.collider.gameObject.transform.parent.gameObject))
                 {
                     //Debug.Log("asdf");
