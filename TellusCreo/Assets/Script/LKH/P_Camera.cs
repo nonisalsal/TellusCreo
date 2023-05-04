@@ -13,6 +13,7 @@ public class P_Camera : MonoBehaviour
     public float thisPos_z;
 
     private bool destroyButton;
+    //private GameObject button_back;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class P_Camera : MonoBehaviour
         thisPos_z = this.transform.position.z;
 
         destroyButton = false;
+        //button_back = GameObject.Find("Button").transform.GetChild(2).gameObject;
         GameObject.Find("Button").transform.GetChild(2).gameObject.SetActive(false);
     }
 
@@ -41,6 +43,8 @@ public class P_Camera : MonoBehaviour
                 GameObject.Find("Button").transform.GetChild(0).gameObject.SetActive(false);
                 GameObject.Find("Button").transform.GetChild(1).gameObject.SetActive(false);
                 GameObject.Find("Button").transform.GetChild(2).gameObject.SetActive(true);
+                //GameObject.Instantiate(button_back, button_back.transform.position, button_back.transform.rotation);
+                //button_back.transform.parent = GameObject.Find("Button").transform;
                 destroyButton = true;
             }
         }
@@ -51,6 +55,7 @@ public class P_Camera : MonoBehaviour
                 GameObject.Find("Button").transform.GetChild(0).gameObject.SetActive(true);
                 GameObject.Find("Button").transform.GetChild(1).gameObject.SetActive(true);
                 GameObject.Find("Button").transform.GetChild(2).gameObject.SetActive(false);
+                //Destroy(GameObject.Find("Button").transform.GetChild(4).gameObject);
                 destroyButton = false;
             }
         }

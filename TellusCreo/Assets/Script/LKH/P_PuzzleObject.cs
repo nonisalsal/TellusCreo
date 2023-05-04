@@ -14,6 +14,7 @@ public class P_PuzzleObject : MonoBehaviour
 
     public GameObject dollPuzzle1;
     public GameObject dollPuzzle2;
+    public GameObject parentObj;
 
     private int debugTest= 0;
 
@@ -21,17 +22,25 @@ public class P_PuzzleObject : MonoBehaviour
     {
         isActive = false;
         isClear = false;
+        parentObj = transform.parent.gameObject;
+        if (System.Object.ReferenceEquals(puzzleObj, parentObj.transform.GetChild(2).gameObject))
+        {
+            Debug.Log(this.name);
+            this.gameObject.SetActive(false);
+        }
     }
 
-    void Update()
+    private void ExitPuzzle()
     {
         if (FindObjectOfType<P_Camera>().playPuzzle == false && isActive == true)
         {
-            if (isClear == false) { 
+            if (isClear == false)
+            {
                 Destroy(puzzleCopy);
                 isActive = false;
             }
-            else { 
+            else
+            {
                 puzzleClear.SetActive(false);
                 isActive = false;
             }
@@ -43,6 +52,11 @@ public class P_PuzzleObject : MonoBehaviour
         }
 
         PlayerInput();
+    }
+
+    void Update()
+    {
+        ExitPuzzle();
     }
 
     private void ClearControl()
@@ -64,23 +78,19 @@ public class P_PuzzleObject : MonoBehaviour
             {
                 if (System.Object.ReferenceEquals(this.gameObject, upHit.collider.gameObject))
                 {
-                    //Debug.Log(upHit.collider.gameObject.name);
-                    if (System.Object.ReferenceEquals(this.gameObject, upHit.collider.gameObject))
+                    FindObjectOfType<P_Camera>().playPuzzle = true;
+                    FindObjectOfType<P_Camera>().puzzlePos_x = puzzleObj.transform.position.x;
+                    FindObjectOfType<P_Camera>().puzzlePos_y = puzzleObj.transform.position.y;
+                    if (isClear == false)
                     {
-                        FindObjectOfType<P_Camera>().playPuzzle = true;
-                        FindObjectOfType<P_Camera>().puzzlePos_x = puzzleObj.transform.position.x;
-                        FindObjectOfType<P_Camera>().puzzlePos_y = puzzleObj.transform.position.y;
-                        if (isClear == false)
-                        {
-                            puzzleCopy = Instantiate(puzzleObj, puzzleObj.transform.position, puzzleObj.transform.rotation);
-                            puzzleCopy.SetActive(true);
-                        }
-                        if (isClear == true)
-                        {
-                            puzzleClear.SetActive(true);
-                        }
-                        isActive = true;
+                        puzzleCopy = Instantiate(puzzleObj, puzzleObj.transform.position, puzzleObj.transform.rotation);
+                        puzzleCopy.SetActive(true);
                     }
+                    if (isClear == true)
+                    {
+                        puzzleClear.SetActive(true);
+                    }
+                    isActive = true;
                 }
             }
         }
@@ -107,6 +117,12 @@ public class P_PuzzleObject : MonoBehaviour
                 Debug.Log("퍼즐 클리어");
                 debugTest = 1;
             }
+            parentObj.transform.GetChild(2).gameObject.SetActive(true);
         }
     }
+
+    //private void ClockPuzzle()
+    //{
+    //    if (puzzleObj == clockPuzzle)
+    //}
 }
