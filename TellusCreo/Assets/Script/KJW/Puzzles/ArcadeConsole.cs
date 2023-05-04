@@ -7,68 +7,78 @@ using UnityEngine.UI;
 public class ArcadeConsole : MonoBehaviour
 {
     [SerializeField]
+    GameObject nameObject;
+    [SerializeField]
     List<Text> nickNameList;
     [SerializeField]
     Text Alpahbet;
-    string[] alphArr = {"A ","B ","C ","D ","E ","F ","G ","H ","I ","K ","L ","M \n",
+    string[] alphArr = {"A ","B ","C ","D ","E ","F ","G ","H ","I ","J ","K ","L ","M\n",
                                 "N ","O ","P ","Q ","R ","S ","T ","U ","V ","W ","X ","Y ","Z"};
-    int selectedIndex = 0;
+    int selectedAlphabetIndex = 0;
     int columnCount = 13; // 열 개수
-                          
+    int selectedNameSpaceIndex;
+    const string CORRECT_NAME = "SOL";
+    string inputName = "   ";
+    bool clearArcade = false;
     void Start()
     {
+        selectedNameSpaceIndex = 0;
         Alpahbet.text = string.Join("", alphArr);
         UpdateAlphabetText();
     }
 
     public void ResetButton()
     {
+        selectedNameSpaceIndex = 0;
         foreach (var nickName in nickNameList)
         {
             nickName.text = " ";
         }
     }
 
-    public void SelectAlphabet(Vector2 inputDirection)
+    public void SelectButton()
     {
-        // 입력 방향에 따라 알파벳 선택
-        if (Mathf.Abs(inputDirection.x) > Mathf.Abs(inputDirection.y))
+        char selectedChar = alphArr[selectedAlphabetIndex][0]; // 선택된 문자를 변수로 저장
+        nameObject.transform.GetChild(selectedNameSpaceIndex).GetComponent<Text>().text = selectedChar.ToString(); // 변수를 사용하여 텍스트 변경
+
+        inputName = inputName.Remove(selectedNameSpaceIndex, 1); // 입력된 이름에서 선택된 인덱스의 문자 제거
+        inputName = inputName.Insert(selectedNameSpaceIndex, selectedChar.ToString()); // 입력된 이름에 선택된 문자 삽입
+        selectedNameSpaceIndex++;
+        selectedNameSpaceIndex %= 3;
+        if (selectedNameSpaceIndex == 0)
         {
-            // 좌우 이동
-            if (inputDirection.x > 0)
-            {
-                selectedIndex++;
-                if (selectedIndex >= alphArr.Length) selectedIndex = 0;
-            }
-            else
-            {
-                selectedIndex--;
-                if (selectedIndex < 0) selectedIndex = alphArr.Length - 1;
-            }
+            NameCheck();
         }
-        else
+    }
+
+    public void SelectAlphabet(Direction direction)
+    {
+        int delta = 0;
+        switch (direction)
         {
-            // 상하 이동
-            if (inputDirection.y > 0)
-            {
-                selectedIndex -= columnCount;
-                if (selectedIndex < 0) selectedIndex += alphArr.Length;
-            }
-            else
-            {
-                selectedIndex += columnCount;
-                if (selectedIndex >= alphArr.Length) selectedIndex -= alphArr.Length;
-            }
+            case Direction.LEFT:
+                delta = -1;
+                break;
+            case Direction.RIGHT:
+                delta = 1;
+                break;
+            case Direction.UP:
+                delta = -columnCount;
+                break;
+            case Direction.DOWN:
+                delta = columnCount;
+                break;
         }
+        selectedAlphabetIndex = (selectedAlphabetIndex + delta + alphArr.Length) % alphArr.Length;
         UpdateAlphabetText();
     }
 
-    private void UpdateAlphabetText() // 알파벳 색상 업데이트
+    void UpdateAlphabetText() // 알파벳 색상 업데이트
     {
         StringBuilder tempAlpahbet = new StringBuilder();
         for (int i = 0; i < alphArr.Length; i++)
         {
-            if (i == selectedIndex)
+            if (i == selectedAlphabetIndex)
             {
                 tempAlpahbet.Append("<color=red>");
                 tempAlpahbet.Append(alphArr[i]);
@@ -80,5 +90,14 @@ public class ArcadeConsole : MonoBehaviour
             }
         }
         Alpahbet.text = tempAlpahbet.ToString();
+    }
+
+    void NameCheck()
+    {
+        if(CORRECT_NAME == inputName)
+        {
+            clearArcade = true;
+            GameManager.Instance[(int)GameManager.Puzzle.ArcadeConsole - 10] = true;
+        }    
     }
 }
