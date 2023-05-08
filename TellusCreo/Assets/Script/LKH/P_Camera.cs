@@ -33,16 +33,12 @@ public class P_Camera : MonoBehaviour
         if (playPuzzle == true)
         {
             this.transform.position = new Vector3(puzzlePos_x, puzzlePos_y, thisPos_z);
-            //if (Input.GetKeyUp(KeyCode.UpArrow))
-            //{
-            //    this.transform.position = new Vector3(thisPos_x, thisPos_y, thisPos_z);
-            //    playPuzzle = false;
-            //}
             if (!destroyButton)
             {
                 GameObject.Find("Button").transform.GetChild(0).gameObject.SetActive(false);
                 GameObject.Find("Button").transform.GetChild(1).gameObject.SetActive(false);
                 GameObject.Find("Button").transform.GetChild(2).gameObject.SetActive(true);
+                // 모바일에서 버튼이 생성되지 않는 오류, instantiate하여 생성하는 방식으로 하려 했으나 오류 발생.
                 //GameObject.Instantiate(button_back, button_back.transform.position, button_back.transform.rotation);
                 //button_back.transform.parent = GameObject.Find("Button").transform;
                 destroyButton = true;

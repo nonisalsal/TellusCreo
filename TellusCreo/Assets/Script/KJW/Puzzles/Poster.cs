@@ -5,21 +5,16 @@ using System;
 
 public class Poster : MonoBehaviour
 {
-
     LineRenderer _lr;
-
     int _prevIdx;
     int _curIdx;
     int _lineIdx;
-
     bool isStart;
+    bool clearPuzzle;
     [SerializeField]
     bool correct;
-    bool clearPuzzle;
-
     [SerializeField]
     int cnt;
-
 
     void Start()
     {
@@ -32,6 +27,51 @@ public class Poster : MonoBehaviour
         cnt = 0;
         _lr = GetComponent<LineRenderer>();
     }
+
+    //void Update()
+    //{
+    //    if (clearPuzzle) return;
+
+    //    if (cnt == transform.childCount && !clearPuzzle)
+    //    {
+    //        if (correct)
+    //        {
+    //            Debug.Log("Clear");
+    //            GameManager.Instance[(int)GameManager.Puzzle.Poster - 10] = true;
+    //            clearPuzzle = true;
+    //        }
+    //        else
+    //        {
+    //            Invoke("InitPuzzle", 1f);
+    //            Debug.Log("Fail");
+    //        }
+    //        return;
+    //    }
+
+    //    if (Input.GetMouseButton(0))
+    //    {
+    //        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    //        RaycastHit2D hit = Physics2D.Raycast(mousePos, mousePos, 10f);
+    //        if (hit.collider == null || hit.collider.gameObject.layer != 8 || hit.collider.GetComponent<PosterPoint>().isClicked)
+    //        {
+    //            return;
+    //        }
+    //        cnt++;
+    //        _curIdx = hit.collider.transform.GetSiblingIndex();
+    //        if (_prevIdx != -1 && _curIdx != _prevIdx + 1)
+    //        {
+    //            correct = false;
+    //        }
+    //        _prevIdx = _curIdx;
+    //        _lr.positionCount++;
+    //        _lr.SetPosition(_lineIdx++, hit.collider.transform.position);
+    //        hit.collider.gameObject.GetComponent<PosterPoint>().OnPointClick();
+    //    }
+    //    else if (Input.GetMouseButtonDown(1))
+    //    {
+    //        InitPuzzle();
+    //    }
+    //}
 
     void Update()
     {
@@ -56,12 +96,11 @@ public class Poster : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(mousePos, mousePos, 10f);
+            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero); 
             if (hit.collider == null || hit.collider.gameObject.layer != 8 || hit.collider.GetComponent<PosterPoint>().isClicked)
             {
                 return;
             }
-
             cnt++;
             _curIdx = hit.collider.transform.GetSiblingIndex();
             if (_prevIdx != -1 && _curIdx != _prevIdx + 1)
@@ -71,7 +110,7 @@ public class Poster : MonoBehaviour
             _prevIdx = _curIdx;
             _lr.positionCount++;
             _lr.SetPosition(_lineIdx++, hit.collider.transform.position);
-            hit.collider.gameObject.GetComponent<PosterPoint>().OnPointClick();
+            hit.collider.GetComponent<PosterPoint>().OnPointClick();
         }
         else if (Input.GetMouseButtonDown(1))
         {
@@ -81,15 +120,13 @@ public class Poster : MonoBehaviour
 
     void InitPuzzle()
     {
-
-        foreach (Transform child in transform)
+        foreach (PosterPoint point in GetComponentsInChildren<PosterPoint>()) // PosterPoint 컴포넌트를 가진 자식 객체들을 반복합니다.
         {
-            if (child.GetComponent<PosterPoint>().isClicked)
+            if (point.isClicked)
             {
-                child.GetComponent<PosterPoint>().OnPointClick();
+                point.OnPointClick();
             }
         }
-
         _lr.positionCount = 0;
         _lineIdx = 0;
         _prevIdx = -1;
