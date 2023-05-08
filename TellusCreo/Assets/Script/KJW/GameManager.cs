@@ -30,8 +30,8 @@ public class GameManager : MonoBehaviour
         Curtain,
     }
 
-    UI Ui;
     Action Room;
+    public UI Ui;
     public GameObject[] Puzzles;
     public bool onPuzzle;
     bool[] ClearPuzzles;
@@ -55,15 +55,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Room -= CheckRoomClear; // 더블 체크
         Room += CheckRoomClear;
-
         ClearPuzzles = new bool[10];
         isCurtainOpen = false;
         s_instance = this;
-        Ui = FindObjectOfType<UI>();
         onPuzzle = false;
-
         globalLight2D = globalLight?.GetComponent<Light2D>();
     }
 
@@ -73,7 +69,6 @@ public class GameManager : MonoBehaviour
         {
             HandlePuzzleClick();
         }
-        
     }
 
     void HandlePuzzleClick()
@@ -169,7 +164,7 @@ public class GameManager : MonoBehaviour
 
                 case Puzzle.Star:
                     Puzzles[(int)Puzzle.Star - 10].SetActive(true);
-                    LightEnable();
+                    ToggleLights();
                     Debug.Log("Star");
                     ChangeBackground();
                     break;
@@ -189,20 +184,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void LightEnable()
+    public void ToggleLights()
     {
+        // 라이트가 켜져있으면 끄고, 꺼져있으면 켠다
+        light2D.gameObject.SetActive(!light2D.gameObject.activeSelf);
+        globalLight.gameObject.SetActive(!globalLight.gameObject.activeSelf);
+
         if (light2D.gameObject.activeSelf)
         {
-            light2D.gameObject.SetActive(false);
-            globalLight.gameObject.SetActive(true);
+            float lightY = -25f; // light2D의 y 좌표 값
+            light2D.transform.position = new Vector2(0, lightY);
         }
-        else
-        {
-            light2D.transform.position = new Vector2(0, -25f);
-            light2D.gameObject.SetActive(true);
-            globalLight.gameObject.SetActive(false);
-        }
-
     }
 
     void ChangeBackground()// 뒷 배경 퍼즐 배경으로 변경
