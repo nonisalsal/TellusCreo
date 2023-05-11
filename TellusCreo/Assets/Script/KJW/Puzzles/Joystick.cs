@@ -3,82 +3,74 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Joystick : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandler
+public enum Direction { UP, DOWN, LEFT, RIGHT };
+
+public class Joystick : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
 
-
-    [SerializeField]
-    KTest test;
 
     [SerializeField]
     RectTransform lever;
     RectTransform rectTransform;
 
-    Vector2 originLeverPos;
-    Vector2 transLeverPos;
-
-    [SerializeField,Range(10,150)]
+    [SerializeField, Range(10f, 150f)]
     float leverRange;
 
-    
+    public ArcadeConsole arcadeConsole;
 
-    private void Awake()
+    void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
-        originLeverPos=lever.transform.position;
+        arcadeConsole = FindObjectOfType<ArcadeConsole>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Vector2 inputPos = eventData.position - rectTransform.anchoredPosition;
-        Vector2 inputVector = inputPos.magnitude < leverRange ? inputPos : inputPos.normalized * leverRange;
-        lever.anchoredPosition = inputVector;
-      
-        DragDirection(eventData.position);
+        MoveLeverPosition(eventData.position);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-       
-        Vector2 inputPos = eventData.position - rectTransform.anchoredPosition;
-        Vector2 inputVector = inputPos.magnitude < leverRange ? inputPos : inputPos.normalized * leverRange;
-        lever.anchoredPosition = inputVector;
-     
+        MoveLeverPosition(eventData.position);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         lever.anchoredPosition = Vector2.zero;
+        Direction direction = GetDirection(eventData.position - rectTransform.anchoredPosition);
+        arcadeConsole.SelectAlphabet(direction); // 드래그 끝날때만
     }
 
-    void DragDirection(Vector2 clickPos)
+    void MoveLeverPosition(Vector2 position)
     {
-        float xDiff = clickPos.x - originLeverPos.x;
-        float yDiff = clickPos.y - originLeverPos.y;
-
-        if (Mathf.Abs(xDiff) >= Mathf.Abs(yDiff))
+        Vector2 direction = position - rectTransform.anchoredPosition;
+        Vector2 leverDir = direction.normalized * leverRange;
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) // 절대값이 x가 더 크면 좌우
         {
-            if (xDiff > 0)
-            {
-                test.NextBT();
-            }
-            else
-            {
-                // Left direction
-            }
+            leverDir.y = 0;
         }
         else
         {
-            if (yDiff > 0)
-            {
-                test.UPDOWN(KTest.State.UP);
-            }
-            else
-            {
-                test.UPDOWN(KTest.State.DOWN);
-            }
+            leverDir.x = 0;
+        }
+
+        lever.anchoredPosition = leverDir;
+    }
+
+    Direction GetDirection(Vector2 inputDirection)
+    {
+        bool isHorizontal = Mathf.Abs(inputDirection.x) > Mathf.Abs(inputDirection.y); // 좌우 이동인지
+        bool isPositive = isHorizontal ? inputDirection.x > 0 : inputDirection.y > 0; // 양의 방향인지
+        if (isHorizontal) // 수평
+        {
+            return isPositive ? Direction.RIGHT : Direction.LEFT;
+        }
+        else
+        {
+            return isPositive ? Direction.UP : Direction.DOWN;
         }
     }
 }
+
 
 

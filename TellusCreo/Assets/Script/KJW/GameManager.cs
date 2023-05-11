@@ -57,11 +57,13 @@ public class GameManager : MonoBehaviour
     {
         Room -= CheckRoomClear; // 더블 체크
         Room += CheckRoomClear;
+
         ClearPuzzles = new bool[10];
         isCurtainOpen = false;
         s_instance = this;
         Ui = FindObjectOfType<UI>();
         onPuzzle = false;
+
         globalLight2D = globalLight?.GetComponent<Light2D>();
     }
 
@@ -83,9 +85,9 @@ public class GameManager : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0))
         {
-            int hitLayer = rayHit.collider.gameObject.layer;
+            GameObject hitGameObject = rayHit.collider.gameObject;
 
-            switch ((Puzzle)hitLayer)
+            switch ((Puzzle)((int)hitGameObject.layer))
             {
                 case Puzzle.LightSwitch:
                     if (ClearPuzzles[(int)Puzzle.LightSwitch - 10])
@@ -99,9 +101,12 @@ public class GameManager : MonoBehaviour
                     break;
 
                 case Puzzle.Curtain:
-                    GameObject hitGameObject = rayHit.collider.gameObject;
                     Debug.Log("커튼 상태 " + (isCurtainOpen = !isCurtainOpen));
-                    if(hitGameObject.CompareTag("Background2"))
+                    if(hitGameObject.transform.childCount!=0)
+                    {
+                        hitGameObject.transform.GetChild(0).gameObject.SetActive(true); // 전선 타일 
+                    }
+                    if (hitGameObject.CompareTag("Background2"))
                     {
                         hitGameObject.transform.parent.GetComponent<BackgroundManager>()?.ChangeBackgroundSprite();
                     }
@@ -126,9 +131,28 @@ public class GameManager : MonoBehaviour
                     break;
 
                 case Puzzle.Poster:
-                    Debug.Log("Poster");
-                    Puzzles[(int)Puzzle.Poster - 10].SetActive(true);
-                    ChangeBackground();
+                   
+                    if (hitGameObject.CompareTag("PosterCorners")) // 포스터의 모서리라면
+                    {
+                        Debug.Log("PosterCorners");
+                        BackgroundManager background = hitGameObject.transform.parent.parent.GetComponent<BackgroundManager>();
+                        background?.ChangeBackgroundSprite();
+                        background?.transform.GetChild(1).gameObject.SetActive(true); // AfterPoster
+                        background?.transform.GetChild(0).gameObject.SetActive(false); // BeforePoster
+                    }
+                    else if(hitGameObject.CompareTag("AfterPoster"))
+                    {
+                        BackgroundManager background = hitGameObject.transform.parent.GetComponent<BackgroundManager>();
+                        background?.ChangeBackgroundSprite();
+                        hitGameObject.transform.gameObject.SetActive(false); // AfterPoster
+                        background?.transform.GetChild(0).gameObject.SetActive(true); // BeforePoster
+                    }
+                    else
+                    {
+                        Debug.Log("Poster");
+                        Puzzles[(int)Puzzle.Poster - 10].SetActive(true);
+                        ChangeBackground();
+                    }
                     break;
 
                 case Puzzle.WetTissue:
@@ -165,17 +189,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void ChangeBackground()
-    {
-        if (!onPuzzle)
-        {
-            Ui.prevCameraPos = Camera.main.transform.position;
-            Camera.main.transform.position = new Vector3(0, -25f, -100f);
-            ActiveBackArrow();
-            onPuzzle = true;
-        }
-    }
-
     public void LightEnable()
     {
         if (light2D.gameObject.activeSelf)
@@ -191,6 +204,17 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+    void ChangeBackground()// 뒷 배경 퍼즐 배경으로 변경
+    {
+        if (!onPuzzle)
+        {
+            Ui.prevCameraPos = Camera.main.transform.position;
+            Camera.main.transform.position = new Vector3(0, -25f, -100f);
+            ActiveBackArrow();
+            onPuzzle = true;
+        }
+    } 
 
     void ActiveBackArrow()
     {

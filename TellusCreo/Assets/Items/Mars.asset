@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2befd667d737bdf44bec418727b78ed6, type: 3}
   m_Name: Mars
   m_EditorClassIdentifier: 
-  id: 0
+  id: 2
   itemName: Mars
   value: 10
   icon: {fileID: 21300000, guid: 45dce9426edae624b9ff1fc1c6c1d052, type: 3}

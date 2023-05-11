@@ -21,7 +21,7 @@ TagManager:
   - TextFolder
   - StartFolder
   - box
-  - Item
+  - PosterCorners
   layers:
   - Default
   - TransparentFX
@@ -52,7 +52,7 @@ TagManager:
   - 
   - 
   - 
-  - Item
+  - 
   - P_NotSelectLayer
   - P_SelectLayer
   m_SortingLayers:
