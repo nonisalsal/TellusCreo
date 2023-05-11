@@ -18,7 +18,22 @@ public class P_IsRightPos : MonoBehaviour
         //GetComponent<SpriteRenderer>().sortingLayerID = layer_NS;
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Debug.Log("트리거 접촉");
+        if (System.Object.ReferenceEquals(collision.gameObject, correctObj))
+        {
+            isTrigger = true;
+            //Debug.Log("IsRight 활성화");
+        }
+        else 
+        {
+            isRight = false;
+            isTrigger = false; 
+        }
+    }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
     //{
     //    //Debug.Log("트리거 접촉");
     //    if (System.Object.ReferenceEquals(collision.gameObject, correctObj))
@@ -29,26 +44,15 @@ public class P_IsRightPos : MonoBehaviour
     //    else { isTrigger = false; }
     //}
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        //Debug.Log("트리거 접촉");
-        if (System.Object.ReferenceEquals(collision.gameObject, correctObj))
-        {
-            isTrigger = true;
-            //Debug.Log("IsRight 활성화");
-        }
-        else { isTrigger = false; }
-    }
-
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    isTrigger = false;
-    //}    
-
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         isTrigger = false;
     }
+
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    isTrigger = false;
+    //}
 
     private void LateUpdate()
     {
