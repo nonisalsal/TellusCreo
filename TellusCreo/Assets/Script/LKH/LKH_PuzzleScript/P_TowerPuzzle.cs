@@ -53,13 +53,13 @@ public class P_TowerPuzzle : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("P_building") && this.gameObject.CompareTag("P_building") == false)
-        {
-            if (collision.contacts[0].normal.y < 0.7f)
-            {
-                this.transform.position = beforePos;
-            }
-        }
+        //if (collision.gameObject.CompareTag("P_building") && this.gameObject.CompareTag("P_building") == false)
+        //{
+        //    if (collision.contacts[0].normal.y < 0.7f)
+        //    {
+        //        this.transform.position = beforePos;
+        //    }
+        //}
         if (collision.gameObject.name == "platform" && collision.contacts[0].normal.y >= 1f  && this.gameObject.CompareTag("P_building") == false)
         {
             beforePos = this.transform.position;

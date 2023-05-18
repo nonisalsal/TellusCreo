@@ -24,7 +24,7 @@ public class UI : MonoBehaviour
 
         if (GameManager.Instance.Puzzles[(int)(GameManager.Puzzle.Star) - 10].activeSelf)
         {// 별자리 퍼즐이 켜져 있을때만
-            GameManager.Instance.LightEnable();
+            GameManager.Instance.ToggleLights();
         }
 
         foreach (var puzzle in GameManager.Instance.Puzzles) // 모든 퍼즐 비활성화
