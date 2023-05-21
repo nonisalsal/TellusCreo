@@ -12,6 +12,7 @@ public class P_Camera : MonoBehaviour
     public float thisPos_y;
     public float thisPos_z;
 
+    public GameObject button;
     private bool destroyButton;
     //private GameObject button_back;
 
@@ -25,7 +26,7 @@ public class P_Camera : MonoBehaviour
 
         destroyButton = false;
         //button_back = GameObject.Find("Button").transform.GetChild(2).gameObject;
-        GameObject.Find("Button").transform.GetChild(2).gameObject.SetActive(false);
+        button.transform.GetChild(2).gameObject.SetActive(false);
     }
 
     private void Update()
@@ -35,9 +36,9 @@ public class P_Camera : MonoBehaviour
             this.transform.position = new Vector3(puzzlePos_x, puzzlePos_y, thisPos_z);
             if (!destroyButton)
             {
-                GameObject.Find("Button").transform.GetChild(0).gameObject.SetActive(false);
-                GameObject.Find("Button").transform.GetChild(1).gameObject.SetActive(false);
-                GameObject.Find("Button").transform.GetChild(2).gameObject.SetActive(true);
+                button.transform.GetChild(0).gameObject.SetActive(false);
+                button.transform.GetChild(1).gameObject.SetActive(false);
+                button.transform.GetChild(2).gameObject.SetActive(true);
                 // 모바일에서 버튼이 생성되지 않는 오류, instantiate하여 생성하는 방식으로 하려 했으나 오류 발생.
                 //GameObject.Instantiate(button_back, button_back.transform.position, button_back.transform.rotation);
                 //button_back.transform.parent = GameObject.Find("Button").transform;
@@ -48,9 +49,9 @@ public class P_Camera : MonoBehaviour
         {
             if (destroyButton)
             {
-                GameObject.Find("Button").transform.GetChild(0).gameObject.SetActive(true);
-                GameObject.Find("Button").transform.GetChild(1).gameObject.SetActive(true);
-                GameObject.Find("Button").transform.GetChild(2).gameObject.SetActive(false);
+                button.transform.GetChild(0).gameObject.SetActive(true);
+                button.transform.GetChild(1).gameObject.SetActive(true);
+                button.transform.GetChild(2).gameObject.SetActive(false);
                 //Destroy(GameObject.Find("Button").transform.GetChild(4).gameObject);
                 destroyButton = false;
             }

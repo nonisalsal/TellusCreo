@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class P_testing : MonoBehaviour
+public class P_ToyBox : MonoBehaviour
 {
     public GameObject rayControl;
     private int num = 0;

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class P_TowerPuzzle : MonoBehaviour
 {
+    // 움직이는 도중에는 클릭해서 선택하지 못하도록 > P_move가 되는 조건을 살짝 수정
+
     private Vector2 beforePos;
     public GameObject standard;
     private float standard_x;
