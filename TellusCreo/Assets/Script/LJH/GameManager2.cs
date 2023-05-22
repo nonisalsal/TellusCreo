@@ -5,27 +5,43 @@ using UnityEngine;
 public class GameManager2 : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+   
+    public string targetTag = "Clickable"; // 클릭 가능한 게임 오브젝트의 태그
+    public float moveSpeed = 5f; // 카메라 이동 속도
+
+    private Transform mainCameraTransform;
+    private bool isMovingCamera;
+
+    private void Start()
     {
-        
+        mainCameraTransform = Camera.main.transform;
+        isMovingCamera = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // 마우스 왼쪽 클릭 확인
+        if (Input.GetMouseButtonDown(0))
         {
-            Vector2 clickPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // 마우스 위치를 월드 좌표로 변환
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 
-            RaycastHit2D hit = Physics2D.Raycast(clickPos, Vector2.zero);
-
-            if (hit.collider != null)
+            if (hit.collider != null && hit.collider.CompareTag(targetTag))
             {
-                // 충돌한 객체의 태그 비교
-                if (hit.collider.CompareTag("hiddenpass"))
-                {
+                isMovingCamera = true;
+            }
+        }
 
-                }
+        if (isMovingCamera)
+        {
+            Vector3 targetPosition = mainCameraTransform.position;
+            targetPosition.x = transform.position.x;
+            targetPosition.y = transform.position.y;
+            mainCameraTransform.position = Vector3.MoveTowards(mainCameraTransform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+            if (mainCameraTransform.position == targetPosition)
+            {
+                isMovingCamera = false;
             }
         }
     }
