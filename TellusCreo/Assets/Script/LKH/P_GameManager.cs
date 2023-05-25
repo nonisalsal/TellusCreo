@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class P_GameManager : MonoBehaviour
 {
+
     public Ray2D downRay;
     public Ray2D upRay;
     //public static bool isDown;
