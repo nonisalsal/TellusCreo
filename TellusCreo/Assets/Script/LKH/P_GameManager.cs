@@ -5,10 +5,14 @@ using UnityEngine.EventSystems;
 
 public class P_GameManager : MonoBehaviour
 {
-    public bool isDown;
-    public bool isUp;
     public Ray2D downRay;
     public Ray2D upRay;
+    //public static bool isDown;
+    //public static bool isUp;
+    //public static RaycastHit2D downHit;
+    //public static RaycastHit2D upHit;
+    public bool isDown;
+    public bool isUp;
     public RaycastHit2D downHit;
     public RaycastHit2D upHit;
 
