@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class P_Camera : MonoBehaviour
 {
+    // 다른 클래스에서 위치 변경하지말고 카메라는 그냥 위치 넘겨받으면 실행하는 함수 만들기
     public bool playPuzzle;
     public float puzzlePos_x;
     public float puzzlePos_y;
