@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class P_PuzzleObject : MonoBehaviour
 {
-    // 스크립트 수정(05/18)
-    // puzzleObj&Copy&Clear > P_puzzleInfo의 멤버변수로 옮긴다 + isClear도
-    // P_PuzzleObject는 P_PuzzleObjects 오브젝트에서만 사용하도록
-    // isActive를 꼭 안 사용해도 될듯
-    // 카메라 이동도 P_Camera의 멤버 함수를 만들어서 그걸 실행하는 식으로 수정. >> static 사용해보기?
-    // 퍼즐 보상(아이템) 추가
-    // P_ClickObj랑 비교해가면서 퍼즐&오브젝트 순서 지정
-
     public GameObject puzzleObj;
     public GameObject puzzleCopy;
     public GameObject puzzleClear;
@@ -26,6 +18,9 @@ public class P_PuzzleObject : MonoBehaviour
 
     private int debugTest= 0;
 
+    // 임시
+    public bool isClockPuzzle;
+
     void Start()
     {
         isActive = false;
@@ -36,6 +31,12 @@ public class P_PuzzleObject : MonoBehaviour
             Debug.Log(this.name);
             this.gameObject.SetActive(false);
         }
+
+        // 임시
+        if (puzzleObj.name == "ClockPuzzle")
+            isClockPuzzle = true;
+        else
+            isClockPuzzle = false;
     }
 
     private void ExitPuzzle()
@@ -118,6 +119,14 @@ public class P_PuzzleObject : MonoBehaviour
         }
         else
         {
+            if (isClockPuzzle)
+            {
+                puzzleClear.SetActive(true);
+                Destroy(puzzleCopy);
+                return;
+            }
+
+            // 성공 시, 특수한 화면이 출력되어야하는 퍼즐: doll2 / tower? / clock 
             puzzleClear = puzzleCopy;
             ClearControl();
             if (debugTest == 0)
@@ -128,9 +137,4 @@ public class P_PuzzleObject : MonoBehaviour
             parentObj.transform.GetChild(2).gameObject.SetActive(true);
         }
     }
-
-    //private void ClockPuzzle()
-    //{
-    //    if (puzzleObj == clockPuzzle)
-    //}
 }

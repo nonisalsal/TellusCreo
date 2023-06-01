@@ -12,22 +12,22 @@ public class P_Wire : MonoBehaviour
         Debug.Log("trigger");
         if (System.Object.ReferenceEquals(collision.gameObject, rightItem))
         {
-            Instantiate(connectWire);
             FindObjectOfType<P_ClickObj>().setConnectWire();
+            connectWire.SetActive(true);
             Destroy(collision.gameObject);
             this.gameObject.SetActive(false);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("collision");
-        if (System.Object.ReferenceEquals(collision.gameObject, rightItem))
-        {
-            Instantiate(connectWire);
-            FindObjectOfType<P_ClickObj>().setConnectWire();
-            Destroy(collision.gameObject);
-            this.gameObject.SetActive(false);
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    Debug.Log("collision");
+    //    if (System.Object.ReferenceEquals(collision.gameObject, rightItem))
+    //    {
+    //        Instantiate(connectWire);
+    //        FindObjectOfType<P_ClickObj>().setConnectWire();
+    //        Destroy(collision.gameObject);
+    //        this.gameObject.SetActive(false);
+    //    }
+    //}
 }
