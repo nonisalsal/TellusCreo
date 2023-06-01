@@ -18,13 +18,6 @@ public class P_PuzzleClear : MonoBehaviour
     private void Start()
     {
         length = 0;
-        // 변수에 각각 오브젝트 넣어주기
-        //doll1 = GameObject.Find("DollPuzzle1");
-        //doll2 = GameObject.Find("DollPuzzle2");
-        //picture = GameObject.Find("PicturePuzzle");
-        //clock = GameObject.Find("ClockPuzzle");
-        //tower = GameObject.Find("TowerPuzzle");
-        //top = GameObject.Find("TopPuzzle");
         puzzleObj = GetComponent<P_PuzzleObject>().puzzleObj;
     }
 
@@ -81,6 +74,7 @@ public class P_PuzzleClear : MonoBehaviour
                     {
                         //Debug.Log("last script");
                         GetComponent<P_PuzzleObject>().isClear = true;
+                        Destroy(this.GetComponent<P_PuzzleClear>());
                     }
                 }
             }
