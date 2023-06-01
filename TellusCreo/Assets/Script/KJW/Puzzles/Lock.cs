@@ -6,11 +6,12 @@ using UnityEngine.EventSystems;
 
 public class Lock : MonoBehaviour
 {
-    List<GameObject> passwords = new List<GameObject>();
-    
-    string correctPassword = "456";
-    string changePassword = "000";
 
+    private string correctPassword = "456";
+    private string changePassword = "000";
+    private List<GameObject> passwords = new List<GameObject>();
+    [SerializeField]
+    private LockBox LockBox;
     void Start()
     {
         Init();
@@ -38,12 +39,14 @@ public class Lock : MonoBehaviour
         if (correctPassword != changePassword)
             return;
         GameManager.Instance[(int)GameManager.Puzzle.Lock - 10] = true;
+        LockBox.IsUnlock = true;
+
     }
 
     public void UpButton()
     {
         PasswordController password = EventSystem.current.currentSelectedGameObject.transform.parent.GetComponent<PasswordController>();
-       
+
         password.Password = "1";
 
         ChangePassword(password, passwords.IndexOf(password.gameObject));
@@ -57,7 +60,7 @@ public class Lock : MonoBehaviour
 
         password.Password = "-1";
 
-        ChangePassword(password,passwords.IndexOf(password.gameObject));
+        ChangePassword(password, passwords.IndexOf(password.gameObject));
         ComparePassword();
         Debug.Log(changePassword);
     }
