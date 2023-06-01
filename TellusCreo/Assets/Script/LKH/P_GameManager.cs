@@ -59,14 +59,11 @@ public class P_GameManager : MonoBehaviour
                 downRay = new Ray2D(downPos, Vector2.zero);
                 downHit = Physics2D.Raycast(downRay.origin, downRay.direction, 1 << 30);
             }
-
-          
         }
         else { isDown = false; }
 
         if (Input.GetMouseButtonUp(0))
         {
-
             if (!EventSystem.current.IsPointerOverGameObject())
             {
                 isUp = true;
@@ -74,7 +71,6 @@ public class P_GameManager : MonoBehaviour
                 upRay = new Ray2D(upPos, Vector2.zero);
                 upHit = Physics2D.Raycast(upRay.origin, upRay.direction);
             }
-            
         }
         else { isUp = false; }
     }
