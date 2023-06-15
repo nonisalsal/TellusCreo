@@ -5,14 +5,14 @@ using UnityEngine;
 public class P_ToyBox : MonoBehaviour
 {
     public GameObject rayControl;
-    private int num = 0;
+    private int num = 1;
 
 
     private void Start()
     {
-        this.transform.GetChild(0).gameObject.SetActive(true);
-        this.transform.GetChild(1).gameObject.SetActive(false);
-        this.transform.GetChild(2).gameObject.SetActive(false);
+        //this.transform.GetChild(0).gameObject.SetActive(false);
+        //this.transform.GetChild(1).gameObject.SetActive(true);
+        //this.transform.GetChild(2).gameObject.SetActive(false);
     }
 
     private void Update()
@@ -30,7 +30,7 @@ public class P_ToyBox : MonoBehaviour
                 // Debug.Log(upHit.collider.gameObject.name);
                 if (System.Object.ReferenceEquals(this.transform.gameObject, upHit.collider.gameObject.transform.parent.gameObject))
                 {
-                    //Debug.Log("asdf");
+                    Debug.Log("asdf");
                     num++;
                     if (num >= 3)
                         num = 0;

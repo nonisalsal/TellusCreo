@@ -12,13 +12,17 @@ public class BackgroundManager : MonoBehaviour
     int currentSpriteIndex = 0;
 
     
-    void Start()
+    void Awake()
     {
         backGroundSpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void ChangeBackgroundSprite()
     {
+        if(backGroundSpriteRenderer==null)
+        {
+            backGroundSpriteRenderer = GetComponent<SpriteRenderer>();
+        }
         currentSpriteIndex = (currentSpriteIndex + 1) % backGroundSpriteList.Count;
         backGroundSpriteRenderer.sprite = backGroundSpriteList[currentSpriteIndex]; 
     }

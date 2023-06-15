@@ -46,6 +46,7 @@ public class P_ClickObj : MonoBehaviour
                     rayControl.GetComponent<P_GameManager>().upHit.collider.gameObject))
                 {
                     Debug.Log("Get 'Violin'");
+                    this.transform.GetChild(1).gameObject.SetActive(false);
                     getItem[3] = true;
                 }
                 if (getItem[2] == false && System.Object.ReferenceEquals(this.transform.GetChild(2).gameObject, 
