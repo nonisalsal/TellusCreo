@@ -19,15 +19,7 @@ public class GameManager2 : MonoBehaviour
     }
 
 
-    
-
-    // Start is called before the first frame update
-
-    //public string targetTag = "Clickable"; // 클릭 가능한 게임 오브젝트의 태그
-    //public float moveSpeed = 5f; // 카메라 이동 속도
-
-    //private Transform mainCameraTransform;
-    //private bool isMovingCamera;
+   
 
     private void Start()
     {
@@ -40,7 +32,7 @@ public class GameManager2 : MonoBehaviour
     {
 
         if (!EventSystem.current.IsPointerOverGameObject()){
-
+            HandlePuzzleClick();
         }
 
         void HandlePuzzleClick()
@@ -54,10 +46,16 @@ public class GameManager2 : MonoBehaviour
             {
                 GameObject hitGameObject = rayHit.collider.gameObject;
 
-                //switch ((Puzzle)[(int)hitGameObject.LightSwitch - 10])
-                //{
+                switch ((Puzzle)((int)hitGameObject.layer))
+                {
+                    case Puzzle.HiddenHandWriting:
+                        Debug.Log("숨겨진 글씨 퍼즐");
+                        break;
+                }
+                
+                
 
-                //}
+                
             }
 
 
