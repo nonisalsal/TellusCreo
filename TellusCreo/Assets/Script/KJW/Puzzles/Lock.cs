@@ -41,12 +41,12 @@ public class Lock : MonoBehaviour
     {
         if (CORRECT_PASSWORD != changePassword)
             return;
-        GameManager.Instance[(int)GameManager.Puzzle.Lock - 10] = true;
         LockBox.IsUnlock = true;
         foreach(var passwrod in passwords)
         {
             passwrod.gameObject.SetActive(false);
         }
+        GameManager.Instance[(int)GameManager.Puzzle.Lock - 10] = true;
     }
 
     public void UpButton()
