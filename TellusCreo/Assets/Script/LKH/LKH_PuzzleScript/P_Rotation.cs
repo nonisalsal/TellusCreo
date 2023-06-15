@@ -16,6 +16,7 @@ public class P_Rotation : MonoBehaviour
 
     private Rigidbody2D rig;
 
+    public Sprite rotationImg;
     public GameObject pairTrigger;
     public bool isSet;
     public bool isSetAll;
@@ -24,7 +25,7 @@ public class P_Rotation : MonoBehaviour
 
     private void Start()
     {
-        speed = 500.0f;
+        speed = 250.0f;
         sum_x = 0;
         sum_y = 0;
         road_x = new float[10];
@@ -81,6 +82,8 @@ public class P_Rotation : MonoBehaviour
             ((afterPos.y - beforePos.y) * (afterPos.y - beforePos.y)));
         if (isRotation && distance >= 5)
         {
+            this.GetComponent<SpriteRenderer>().sprite = rotationImg;
+
             for (int i = 0; i < 10; i++)
             {
                 sum_x += (road_x[i] - beforePos.x);
