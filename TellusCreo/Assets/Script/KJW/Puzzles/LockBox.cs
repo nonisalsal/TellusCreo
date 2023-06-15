@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -23,18 +24,12 @@ public class LockBox : MonoBehaviour
     private GameObject _rewardBall;
     private SpriteRenderer _spriteRenderer;
 
+    public Action action;
+
+
     void OnMouseDown()
     {
-        if (!IsUnlock)
-        {
-            _spriteRenderer.sprite = LockBoxBackgrounds[LockBoxType.Padlock];
-            Lock?.SetActive(true);
-        }
-        else
-        {
-            _rewardBall?.SetActive(true);
-            _spriteRenderer.sprite = LockBoxBackgrounds[LockBoxType.Open];
-        }
+        ChangeLockBox();
     }
     private void OnEnable()
     {
@@ -74,5 +69,20 @@ public class LockBox : MonoBehaviour
         Debug.Log(LockBoxBackgrounds.Count);
 #endif
     }
+
+    public void ChangeLockBox()
+    {
+        if (!IsUnlock)
+        {
+            _spriteRenderer.sprite = LockBoxBackgrounds[LockBoxType.Padlock];
+            Lock?.SetActive(true);
+        }
+        else
+        {
+            _rewardBall?.SetActive(true);
+            _spriteRenderer.sprite = LockBoxBackgrounds[LockBoxType.Open];
+        }
+    }
+
 
 }

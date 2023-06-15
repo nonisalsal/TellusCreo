@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
                     break;
 
                 case Puzzle.ChangeView:
+                    Puzzles[(int)Puzzle.Star - 10]?.GetComponent<BackgroundManager>()?.ChangeBackgroundSprite(); // 창밖변환
                     Debug.Log("창밖 변환");
                     break;
 

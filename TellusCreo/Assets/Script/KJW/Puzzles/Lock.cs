@@ -7,8 +7,9 @@ using UnityEngine.EventSystems;
 public class Lock : MonoBehaviour
 {
 
-    private string correctPassword = "456";
-    private string changePassword = "000";
+    private const int PASSWORD_COUNT = 4;
+    private const string CORRECT_PASSWORD = "4567";
+    private string changePassword = "0000";
     private List<GameObject> passwords = new List<GameObject>();
     [SerializeField]
     private LockBox LockBox;
@@ -19,11 +20,13 @@ public class Lock : MonoBehaviour
 
     void Init()
     {
-        if (passwords.Count >= 3)
+        if (passwords.Count >= PASSWORD_COUNT)
             return;
-        if (transform.childCount < 3)
+        if (transform.childCount < PASSWORD_COUNT)
         {
+#if UNINTY_EDITOR
             Debug.LogError("비밀번호 객체가 부족");
+#endif
             return;
         }
 
@@ -36,11 +39,14 @@ public class Lock : MonoBehaviour
 
     void ComparePassword()
     {
-        if (correctPassword != changePassword)
+        if (CORRECT_PASSWORD != changePassword)
             return;
-        GameManager.Instance[(int)GameManager.Puzzle.Lock - 10] = true;
         LockBox.IsUnlock = true;
-
+        foreach(var passwrod in passwords)
+        {
+            passwrod.gameObject.SetActive(false);
+        }
+        GameManager.Instance[(int)GameManager.Puzzle.Lock - 10] = true;
     }
 
     public void UpButton()
@@ -51,7 +57,9 @@ public class Lock : MonoBehaviour
 
         ChangePassword(password, passwords.IndexOf(password.gameObject));
         ComparePassword();
+#if UNINTY_EDITOR
         Debug.Log(changePassword);
+#endif
     }
 
     public void DownButton()
@@ -62,13 +70,17 @@ public class Lock : MonoBehaviour
 
         ChangePassword(password, passwords.IndexOf(password.gameObject));
         ComparePassword();
+#if UNINTY_EDITOR
         Debug.Log(changePassword);
+#endif
     }
 
     void ChangePassword(PasswordController password, int index)
     {
-        var temp = new StringBuilder(changePassword);
-        temp[index] = password.Password[0];
-        changePassword = temp.ToString();
+        changePassword = changePassword.Substring(0, index) + password.Password[0] + changePassword.Substring(index + 1);
+    //}
+    //var temp = new StringBuilder(changePassword);
+    //    temp[index] = password.Password[0];
+    //    changePassword = temp.ToString();
     }
 }
