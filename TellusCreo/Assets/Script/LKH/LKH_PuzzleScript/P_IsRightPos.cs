@@ -61,4 +61,9 @@ public class P_IsRightPos : MonoBehaviour
             isRight = true;
         }
     }
+
+    public void setIsRight()
+    {
+        isRight = true;
+    }
 }

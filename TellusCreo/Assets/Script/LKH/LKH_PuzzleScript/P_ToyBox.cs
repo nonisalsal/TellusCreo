@@ -27,7 +27,8 @@ public class P_ToyBox : MonoBehaviour
             RaycastHit2D upHit = rayControl.GetComponent<P_GameManager>().upHit;
             if (upHit)
             {
-                // Debug.Log(upHit.collider.gameObject.name);
+                Debug.Log(upHit.collider.gameObject.name);
+                // 여기서 오류가 발생. > hierachy창에서 수정하니까 됨. 근데 왜 된거지?
                 if (System.Object.ReferenceEquals(this.transform.gameObject, upHit.collider.gameObject.transform.parent.gameObject))
                 {
                     Debug.Log("asdf");

@@ -19,7 +19,7 @@ public class P_PuzzleObject : MonoBehaviour
     private int debugTest= 0;
 
     // 임시
-    public bool isClockPuzzle;
+    public bool hasClear;
 
     void Start()
     {
@@ -33,10 +33,10 @@ public class P_PuzzleObject : MonoBehaviour
         }
 
         // 임시
-        if (puzzleObj.name == "ClockPuzzle")
-            isClockPuzzle = true;
+        if (puzzleObj.name == "ClockPuzzle" || puzzleObj.name == "ToyBox" || puzzleObj.name == "DollPuzzle1")
+            hasClear = true;
         else
-            isClockPuzzle = false;
+            hasClear = false;
     }
 
     private void ExitPuzzle()
@@ -119,7 +119,7 @@ public class P_PuzzleObject : MonoBehaviour
         }
         else
         {
-            if (isClockPuzzle)
+            if (hasClear)
             {
                 puzzleClear.SetActive(true);
                 Destroy(puzzleCopy);
