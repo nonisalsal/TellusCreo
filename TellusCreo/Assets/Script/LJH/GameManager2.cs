@@ -16,6 +16,8 @@ public class GameManager2 : MonoBehaviour
     {
         HiddenHandWriting = 10,
         ComputerPassword,
+        Symmetrypuzzle,
+
     }
 
 
@@ -49,8 +51,19 @@ public class GameManager2 : MonoBehaviour
                 switch ((Puzzle)((int)hitGameObject.layer))
                 {
                     case Puzzle.HiddenHandWriting:
-                        Debug.Log("숨겨진 글씨 퍼즐");
+                        if (hitGameObject.CompareTag("HiddenHandWriting"))
+                        {
+                            Debug.Log("HandWriting");
+                            BackgroundManager background = hitGameObject.transform.parent.GetComponent<BackgroundManager>();
+
+                        }
+
+
                         break;
+
+
+                    
+                           
                 }
                 
                 
@@ -61,28 +74,6 @@ public class GameManager2 : MonoBehaviour
 
         }
 
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //    RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-
-        //    if (hit.collider != null && hit.collider.CompareTag(targetTag))
-        //    {
-        //        isMovingCamera = true;
-        //    }
-        //}
-
-        //if (isMovingCamera)
-        //{
-        //    Vector3 targetPosition = mainCameraTransform.position;
-        //    targetPosition.x = transform.position.x;
-        //    targetPosition.y = transform.position.y;
-        //    mainCameraTransform.position = Vector3.MoveTowards(mainCameraTransform.position, targetPosition, moveSpeed * Time.deltaTime);
-
-        //    if (mainCameraTransform.position == targetPosition)
-        //    {
-        //        isMovingCamera = false;
-        //    }
-        //}
+        
     }
 }
