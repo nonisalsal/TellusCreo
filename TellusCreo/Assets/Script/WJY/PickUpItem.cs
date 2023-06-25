@@ -51,6 +51,8 @@ public class PickUpItem : MonoBehaviour
                 Vector3 forward = transform.TransformDirection(Vector3.forward) * 5;
                 
             }
+            
+
         }
     }
     void ItemPickUp()
