@@ -23,6 +23,8 @@ TagManager:
   - box
   - PosterCorners
   - AfterPoster
+  - LockBox
+  - Background4
   layers:
   - Default
   - TransparentFX
