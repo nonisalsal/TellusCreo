@@ -15,10 +15,10 @@ public class InventoryManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Update()
-    {
-        ListItems();
-    }
+    //private void Update()
+    //{
+    //    ListItems();
+    //}
     public void Add(Item item)
     {
         Items.Add(item);

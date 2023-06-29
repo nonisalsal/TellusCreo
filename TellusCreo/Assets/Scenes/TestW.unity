@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1017,7 +1017,7 @@ Transform:
   m_LocalScale: {x: 2263.7954, y: 1250.8942, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &531888446
 MonoBehaviour:
@@ -1112,7 +1112,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 934347434}
   m_HandleRect: {fileID: 934347433}
   m_Direction: 0
-  m_Value: 0
+  m_Value: -0.000000130636
   m_Size: 0.5956615
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1274,7 +1274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnlockItem: key_yellow
-  ChangeItem: 
+  respawn: {fileID: 0}
 --- !u!61 &639181438
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1314,7 +1314,7 @@ Transform:
   m_Children:
   - {fileID: 839994253}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &668212437
 GameObject:
@@ -1470,7 +1470,7 @@ SpriteRenderer:
   m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &839994253
@@ -1526,7 +1526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnlockItem: key_yellow
-  ChangeItem: 
+  respawn: {fileID: 0}
 --- !u!1 &867805841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,7 +1684,7 @@ Transform:
   m_LocalScale: {x: 2.0625, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &897113635
 MonoBehaviour:
@@ -1866,7 +1866,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 265697044}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.66666675
+  m_Size: 0.6666667
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2242,7 +2242,7 @@ Transform:
   m_LocalScale: {x: 1.375, y: 1.275, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1298904326
 GameObject:
@@ -2337,7 +2337,7 @@ RectTransform:
   - {fileID: 363087990}
   - {fileID: 472236728}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3204,7 +3204,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1858203360
 GameObject:
