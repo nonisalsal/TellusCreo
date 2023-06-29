@@ -116,6 +116,7 @@ public class P_PuzzleObject : MonoBehaviour
             puzzleCopy = Instantiate(puzzleObj, puzzleObj.transform.position, puzzleObj.transform.rotation);
             puzzleCopy.SetActive(true);
             isClear = false;
+            this.gameObject.AddComponent<P_PuzzleClear>();
         }
         else
         {

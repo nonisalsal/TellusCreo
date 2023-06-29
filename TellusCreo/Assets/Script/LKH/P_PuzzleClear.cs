@@ -12,7 +12,7 @@ public class P_PuzzleClear : MonoBehaviour
     //private GameObject clock;
     public GameObject tower;
     public GameObject top;
-    private GameObject puzzleObj;
+    public GameObject puzzleObj;
     private GameObject puzzleCopy;
 
     private void Start()
