@@ -17,7 +17,7 @@ public class P_ClickObj : MonoBehaviour
     {
         getItem = new bool[8] { false, false, false, false, false, false, false, false };
         getKey_A = true;
-        getKey_B = false;
+        getKey_B = true;
     }
 
     void Update()
@@ -66,7 +66,7 @@ public class P_ClickObj : MonoBehaviour
                     else
                     {
                         Debug.Log("Get 'Top_C'");
-                        getItem[5] = true;
+                        this.transform.GetChild(3).gameObject.GetComponent<P_PuzzleInfo>().moveCamera();
                     }
                 }
                 if (getItem[4] == false && System.Object.ReferenceEquals(this.transform.GetChild(4).gameObject,

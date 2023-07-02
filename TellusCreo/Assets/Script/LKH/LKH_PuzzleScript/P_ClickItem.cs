@@ -41,7 +41,7 @@ public class P_ClickItem : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Get Spin A");
+                    Debug.Log("Get " + this.name);
                     // 인벤토리
                     Destroy(this.gameObject);
                 }
