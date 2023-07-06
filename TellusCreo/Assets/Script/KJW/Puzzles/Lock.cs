@@ -39,13 +39,15 @@ public class Lock : MonoBehaviour
 
     void ComparePassword()
     {
-        if (CORRECT_PASSWORD != changePassword)
+        if (CORRECT_PASSWORD != changePassword) // 비밀번호가 틀렸다면
             return;
-        LockBox.IsUnlock = true;
-        foreach(var passwrod in passwords)
+        LockBox.IsUnlock = true; 
+        foreach(var passwrod in passwords) // 각각의 비밀번호 비활성화
         {
             passwrod.gameObject.SetActive(false);
         }
+
+        LockBox.action(LockBox.LockBoxType.Unlock);
         GameManager.Instance[(int)GameManager.Puzzle.Lock - 10] = true;
     }
 
@@ -78,9 +80,5 @@ public class Lock : MonoBehaviour
     void ChangePassword(PasswordController password, int index)
     {
         changePassword = changePassword.Substring(0, index) + password.Password[0] + changePassword.Substring(index + 1);
-    //}
-    //var temp = new StringBuilder(changePassword);
-    //    temp[index] = password.Password[0];
-    //    changePassword = temp.ToString();
     }
 }

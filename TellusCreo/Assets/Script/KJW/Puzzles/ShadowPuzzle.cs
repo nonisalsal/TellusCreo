@@ -9,16 +9,16 @@ public class ShadowPuzzle : MonoBehaviour
 
     [SerializeField]
     Sprite[] shadowSprite;
-    List<Sprite> standSprites;
-    int idx;
-    const int SHADOW_COUNT = 3;
-    SpriteRenderer spriteRenderer;
+    private const int SHADOW_COUNT = 3;
+    private List<Sprite> standSprites;
+    private int _idx;
+    SpriteRenderer _spriteRenderer;
 
 
     void Start()
     {
-       
-        idx = -1;
+
+        _idx = -1;
     }
 
     void InitStandSprites()
@@ -32,8 +32,8 @@ public class ShadowPuzzle : MonoBehaviour
     {
         if (GameManager.Instance.ShadowPuzzleChaeck() == true)
         {
-            idx = (idx + 1) % SHADOW_COUNT;
-            return shadowSprite[idx];
+            _idx = (_idx + 1) % SHADOW_COUNT;
+            return shadowSprite[_idx];
         }
         return null;
     }
