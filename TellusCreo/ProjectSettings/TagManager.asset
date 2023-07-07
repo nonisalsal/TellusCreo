@@ -25,6 +25,8 @@ TagManager:
   - AfterPoster
   - LockBox
   - Background4
+  - Item
+  - Keybox
   layers:
   - Default
   - TransparentFX
