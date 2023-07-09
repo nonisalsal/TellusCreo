@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class ShadowPuzzle : MonoBehaviour
 {
+    enum StandState
+    {
+        ON,
+        OFF
+    }
+
+    enum Shadow
+    {
+        Cat,
+        Dog,
+        Rabbit
+    }
 
     public bool IsOnStand = false;
 
@@ -13,11 +25,10 @@ public class ShadowPuzzle : MonoBehaviour
     private List<Sprite> standSprites;
     private int _idx;
     SpriteRenderer _spriteRenderer;
-
+    Shadow shadow = Shadow.Cat;
 
     void Start()
     {
-
         _idx = -1;
     }
 
@@ -33,6 +44,7 @@ public class ShadowPuzzle : MonoBehaviour
         if (GameManager.Instance.ShadowPuzzleChaeck() == true)
         {
             _idx = (_idx + 1) % SHADOW_COUNT;
+            shadow = (Shadow)_idx;
             return shadowSprite[_idx];
         }
         return null;
@@ -47,11 +59,11 @@ public class ShadowPuzzle : MonoBehaviour
 
         if(IsOnStand) // 켜져 있을 때
         {
-            return standSprites[0];
+            return standSprites[(int)StandState.ON];
         }
         else
         {
-            return standSprites[1];
+            return standSprites[(int)StandState.OFF];
         }
     }
 

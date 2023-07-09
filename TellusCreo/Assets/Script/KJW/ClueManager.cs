@@ -12,16 +12,27 @@ public class ClueManager : MonoBehaviour
     private void Start()
     {
         index = 0;
-        gameObjects[index].SetActive(true);
+        if (gameObjects.Count > 0)
+        {
+            gameObjects[index].SetActive(true);
+        }
     }
 
     void OnMouseDown()
     {
-       if(gameObjects.Count!=0)
+        if (gameObjects.Count != 0)
         {
-        gameObjects[index++].SetActive(false);
-        index %= gameObjects.Count;
-        gameObjects[index].SetActive(true);
+            //gameObjects[index++].SetActive(false);
+            //index %= gameObjects.Count;
+            if(gameObjects[index].activeSelf)
+            {
+                gameObjects[index].SetActive(false);
+            }
+            else
+            {
+                gameObjects[index].SetActive(true);
+            }
+            
         }
         clue?.SetActive(true);
     }
