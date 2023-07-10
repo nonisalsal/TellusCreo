@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShadowPuzzle : MonoBehaviour
 {
-    enum StandState
+    enum StandStatus
     {
         ON,
         OFF
@@ -39,11 +39,14 @@ public class ShadowPuzzle : MonoBehaviour
         standSprites.Add(Resources.Load<Sprite>("Sprites/KJW/Attic/Shadow/puzzle_shadow_light_off"));
     }
 
-    public Sprite ChangeShadow()
+    public Sprite ChangeShadow(bool change = true) // chagne 할지에 따라 변경 default 는 true
     {
         if (GameManager.Instance.ShadowPuzzleChaeck() == true)
         {
+            if(change)
+            {
             _idx = (_idx + 1) % SHADOW_COUNT;
+            }
             shadow = (Shadow)_idx;
             return shadowSprite[_idx];
         }
@@ -59,11 +62,11 @@ public class ShadowPuzzle : MonoBehaviour
 
         if(IsOnStand) // 켜져 있을 때
         {
-            return standSprites[(int)StandState.ON];
+            return standSprites[(int)StandStatus.ON];
         }
         else
         {
-            return standSprites[(int)StandState.OFF];
+            return standSprites[(int)StandStatus.OFF];
         }
     }
 

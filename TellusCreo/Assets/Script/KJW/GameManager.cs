@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
     }
 
     public UI Ui;
-    public GameObject[] Puzzles;
+    public List<GameObject> Puzzles;
     public bool onPuzzle;
     public int NUMBER_OF_PUZZLES { get => number_of_puzzles;}
     public GameObject Curtain { get => curtain; }
@@ -103,7 +104,24 @@ public class GameManager : MonoBehaviour
             {
                 case Puzzle.LightSwitch: // 스위치 
                     if (ClearPuzzles[(int)Puzzle.LightSwitch - NUMBER_OF_PUZZLES])
+                    {
                         globalLight2D.intensity = globalLight2D.intensity == 0.5f ? 1f : 0.5f; // 조명 밝기 조절
+                       
+                        ShadowPuzzle puzzleObject = FindPuzzleObject<ShadowPuzzle>();
+                        Debug.LogError(FindPuzzleObject<ClueManager>());
+                        if (puzzleObject.IsOnStand)
+                        {
+                            if (ShadowPuzzleChaeck() && !isCurtainOpen && globalLight2D.intensity == 0.5f)
+                            {
+                                curtain.SetActive(false);
+                                GameObject.FindGameObjectWithTag("Background2").GetComponent<SpriteRenderer>().sprite = puzzleObject?.ChangeShadow(false);
+                            }
+                            else
+                            {
+                                curtain.SetActive(true);
+                            }
+                        }
+                    }
                     else 
 #if UNITY_EDITOR
                         Debug.Log("전선 연결 필요");
@@ -118,26 +136,32 @@ public class GameManager : MonoBehaviour
                     break;
 
                 case Puzzle.Curtain: // 커튼
+
+                    isCurtainOpen = !isCurtainOpen;
 #if UNITY_EDITOR
-                    Debug.Log("커튼 상태 " + (isCurtainOpen = !isCurtainOpen));
+                    Debug.Log($"커튼 상태 {(isCurtainOpen == true ?  "열림" : "닫힘")}");
 
 #endif
-                    // 추후 수정 부분( 그림자 퍼즐 켜진 상태에서 커튼 누를 시 뒤에 그림자 스프라이트를 더러운 거울 또는 깨끗한 거울로 바뀌게 만들기)
                     if (!isCurtainOpen) // 커든을 닫았을 때
                     {
-                        ShadowPuzzle shadowPuzzle1 = Puzzles[(int)Puzzle.ShadowLight - NUMBER_OF_PUZZLES].GetComponent<ShadowPuzzle>();
+                        ShadowPuzzle puzzleObject = FindPuzzleObject<ShadowPuzzle>();
 
-                        if (shadowPuzzle1.IsOnStand) // 스탠드가 켜져있다면
+                        if (puzzleObject.IsOnStand) // 스탠드가 켜져있다면
                         {
-                            if (ShadowPuzzleChaeck() && !isCurtainOpen) // 스탠드 켜짐, 어두움, 커튼이 닫힘 
+                            if (ShadowPuzzleChaeck()) // 스탠드 켜짐, 어두움, 커튼이 닫힘 
                             {
                                 curtain.SetActive(false); // 기존 커튼 오브젝트는 비활성화 후 그림자 스프라이트 
-                                GameObject.FindGameObjectWithTag("Background2").GetComponent<SpriteRenderer>().sprite = shadowPuzzle1?.ChangeShadow();
+                                GameObject.FindGameObjectWithTag("Background2").GetComponent<SpriteRenderer>().sprite = puzzleObject?.ChangeShadow(false); // 그림자는 변경하지 않음
                             }
                         }
                     }
+                    else
+                    {
+                        curtain.SetActive(false);
+                        GameObject.FindGameObjectWithTag("Background2").GetComponent<BackgroundManager>().ChangeBackgroundSprite(); // 추후 깨끗한 지 아닌 지에 따라서 변경하도록 수정
+                    }
 
-                    if(hitGameObject.transform.childCount!=0)
+                    if (hitGameObject.transform.childCount!=0)
                     {
                         hitGameObject.transform.GetChild(0).gameObject?.SetActive(true); // 전선 타일 
                     }
@@ -234,14 +258,15 @@ public class GameManager : MonoBehaviour
 #endif
                         break;
                     }
-                    ShadowPuzzle shadowPuzzle = Puzzles[(int)Puzzle.ShadowLight - NUMBER_OF_PUZZLES].GetComponent<ShadowPuzzle>();
+                    
 #if UNITY_EDITOR
                     Debug.Log("ShadowLight");
 #endif    
                     BackgroundManager backGround2 = GameObject.FindGameObjectWithTag("Background2")?.GetComponent<BackgroundManager>();
                     SpriteRenderer backGround4 = GameObject.FindGameObjectWithTag("Background4")?.GetComponent<SpriteRenderer>(); // 조명 상태 변경을 위한 스프라이트
+                    ShadowPuzzle shadowPuzzle = Puzzles[(int)Puzzle.ShadowLight - NUMBER_OF_PUZZLES].GetComponent<ShadowPuzzle>();
 
-                    if(shadowPuzzle != null) 
+                    if (shadowPuzzle != null) 
                     {
                         shadowPuzzle.IsOnStand = !shadowPuzzle.IsOnStand; // 스탠드 boolean 켜고 끄고 변경
                         backGround4.sprite = shadowPuzzle.Retunr2StandSprite(); // 조명 ON/OFF 스프라이트
@@ -254,9 +279,8 @@ public class GameManager : MonoBehaviour
                         // 코드 재사용성 늘리기
                         if (shadowPuzzle.IsOnStand && ShadowPuzzleChaeck() && !isCurtainOpen) // 스탠드 켜짐, 어두움, 커튼이 닫힘 
                         { 
-                            
                             curtain.SetActive(false);
-                            backGround2.GetComponent<SpriteRenderer>().sprite = shadowPuzzle.ChangeShadow();
+                            backGround2.GetComponent<SpriteRenderer>().sprite = shadowPuzzle?.ChangeShadow(false);
                         }
                     }
                     break;
@@ -283,16 +307,10 @@ public class GameManager : MonoBehaviour
         {
             Ui.prevCameraPos = Camera.main.transform.position;
             Camera.main.transform.position = new Vector3(0, -25f, -100f);
-            ActiveBackArrow();
+            Ui.ActiveBackArrow();
             onPuzzle = true;
         }
     } 
-
-    void ActiveBackArrow()
-    {
-        Ui.backArrow.SetActive(true);
-        Ui.DisableArrow();
-    }
 
     void CheckRoomClear()
     {
@@ -318,19 +336,23 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
-    public bool GetCurtainState() // 커튼이 열려있는지 
+    public bool GetCurtainStatus() // 커튼이 열려있는지 
     {
         return isCurtainOpen;
     }
 
-    public void SetActiveCurtainObjects() 
-    { 
-        if(isCurtainOpen)
-        {
-            return;
-        }
-        // 스탠드가 켜지면 기존 커텐 오브젝트들을 모두 false (그림자 퍼즐을 위해서)
-        // 만약 전부 꺼져 있다면 전부 활성화
-    }
+    T FindPuzzleObject<T>()
+    {
+        // T 컴포넌트 찾아서 반환 (Select에서 시퀀스 반환 후 FirstOrDefault에서 순회하면서 그 중 컴포넌트를 찾아서 반환)
+        return Puzzles.Select(obj => obj.GetComponent<T>()).FirstOrDefault(component => component != null);
 
+        ////foreach (var puzzle in Puzzles)
+        ////{
+        ////    if(puzzle.GetComponent<T>() != null)
+        ////    {
+        ////        return puzzle.GetComponent<T>();
+        ////    }
+        ////}
+        //return default(T);
+    }
 }

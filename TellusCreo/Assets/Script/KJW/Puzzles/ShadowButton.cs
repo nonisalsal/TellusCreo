@@ -7,14 +7,16 @@ public class ShadowButton : MonoBehaviour
     [SerializeField]
     private ShadowPuzzle puzzle;
     GameObject _backGround2;
+
     private void Start()
     {
         _backGround2 = GameObject.FindGameObjectWithTag("Background2");
     }
+
     private void OnMouseDown() // 오류 수정하기
     {
         if (puzzle.IsOnStand && GameManager.Instance.ShadowPuzzleChaeck() &&
-            !GameManager.Instance.GetCurtainState()) // 스탠드 켜짐, 어두움, 커튼이 닫힘 
+           !GameManager.Instance.GetCurtainStatus()) // 스탠드 켜짐, 어두움, 커튼이 닫힘 
         {
             _backGround2.GetComponent<SpriteRenderer>().sprite = puzzle.ChangeShadow();
         }

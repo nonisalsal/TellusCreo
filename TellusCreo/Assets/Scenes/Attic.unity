@@ -1146,9 +1146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backGroundSpriteList:
-  - {fileID: 21300000, guid: a34b967e52bcc4245b9436a86a1bb14d, type: 3}
-  - {fileID: 21300000, guid: c50c97b31f0466b41a9739e43b01c364, type: 3}
-  - {fileID: 21300000, guid: c50c97b31f0466b41a9739e43b01c364, type: 3}
+  - {fileID: 21300000, guid: 569d5a703020bec4491c736238b3823f, type: 3}
   shadowPuzzle: {fileID: 0}
 --- !u!1 &297815528
 GameObject:

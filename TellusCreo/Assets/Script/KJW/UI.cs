@@ -52,4 +52,10 @@ public class UI : MonoBehaviour
         }
       
     }
+
+    public void ActiveBackArrow()
+    {
+        backArrow.SetActive(true);
+        DisableArrow();
+    }
 }

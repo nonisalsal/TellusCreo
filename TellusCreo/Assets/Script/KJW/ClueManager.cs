@@ -20,20 +20,18 @@ public class ClueManager : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (gameObjects.Count != 0)
-        {
-            //gameObjects[index++].SetActive(false);
-            //index %= gameObjects.Count;
-            if(gameObjects[index].activeSelf)
-            {
-                gameObjects[index].SetActive(false);
-            }
-            else
-            {
-                gameObjects[index].SetActive(true);
-            }
+        //if (gameObjects.Count != 0)
+        //{
+        //    if(gameObjects[index].activeSelf)
+        //    {
+        //        gameObjects[index].SetActive(false);
+        //    }
+        //    else
+        //    {
+        //        gameObjects[index].SetActive(true);
+        //    }
             
-        }
+        //}
         clue?.SetActive(true);
     }
 }

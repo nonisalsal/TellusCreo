@@ -28,17 +28,17 @@ public class BackgroundManager : MonoBehaviour
         backGroundSpriteRenderer.sprite = backGroundSpriteList[currentSpriteIndex]; 
     }
 
-    public void ChagneBackgroundsForShadow() // 그림자 변경
-    {
-        if(shadowPuzzle==null)
-        {
-            shadowPuzzle = FindObjectOfType<ShadowPuzzle>();
-        }
+    //public void ChagneBackgroundsForShadow() // 그림자 변경
+    //{
+    //    if(shadowPuzzle==null)
+    //    {
+    //        shadowPuzzle = FindObjectOfType<ShadowPuzzle>();
+    //    }
 
-        Sprite shadowSprite = shadowPuzzle.ChangeShadow();
-        if (shadowSprite != null)
-        {
-            backGroundSpriteRenderer.sprite = shadowSprite;
-        }    
-    }
+    //    Sprite shadowSprite = shadowPuzzle.ChangeShadow();
+    //    if (shadowSprite != null)
+    //    {
+    //        backGroundSpriteRenderer.sprite = shadowSprite;
+    //    }    
+    //}
 }
