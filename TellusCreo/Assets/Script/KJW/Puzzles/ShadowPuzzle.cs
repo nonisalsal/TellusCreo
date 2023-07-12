@@ -10,7 +10,7 @@ public class ShadowPuzzle : MonoBehaviour
         OFF
     }
 
-    enum Shadow
+    public enum Shadow
     {
         Cat,
         Dog,
@@ -18,16 +18,20 @@ public class ShadowPuzzle : MonoBehaviour
     }
 
     public bool IsOnStand = false;
+    public Shadow CurrentShadow { get => shadow; }
 
     [SerializeField]
-    Sprite[] shadowSprite;
+    List<Sprite> shadowSprites;
+    [SerializeField]
+    List<Sprite> dogShadowSprites;
     private const int SHADOW_COUNT = 3;
+    private const float DogShadowAnimInterval = 1.5f;
     private List<Sprite> standSprites;
     private int _idx;
-    SpriteRenderer _spriteRenderer;
-    Shadow shadow = Shadow.Cat;
+    private SpriteRenderer _spriteRenderer;
+    private Shadow shadow = Shadow.Cat;
 
-    void Start()
+    private void Start()
     {
         _idx = -1;
     }
@@ -41,26 +45,22 @@ public class ShadowPuzzle : MonoBehaviour
 
     public Sprite ChangeShadow(bool change = true) // chagne 할지에 따라 변경 default 는 true
     {
-        if (GameManager.Instance.ShadowPuzzleChaeck() == true)
+        if (change)
         {
-            if(change)
-            {
             _idx = (_idx + 1) % SHADOW_COUNT;
-            }
-            shadow = (Shadow)_idx;
-            return shadowSprite[_idx];
         }
-        return null;
+        shadow = (Shadow)_idx;
+        return shadowSprites[_idx];
     }
 
-    public Sprite Retunr2StandSprite()
+    public Sprite Return2StandSprite()
     {
-        if(standSprites==null)
+        if (standSprites == null)
         {
             InitStandSprites();
         }
 
-        if(IsOnStand) // 켜져 있을 때
+        if (IsOnStand) // 켜져 있을 때
         {
             return standSprites[(int)StandStatus.ON];
         }
@@ -70,5 +70,12 @@ public class ShadowPuzzle : MonoBehaviour
         }
     }
 
-
+    public IEnumerator DogShadowCatchBall() // 강아지가 공을 가져오는 퍼즐
+    {
+        for (int i = 0; i < dogShadowSprites.Count; i++)
+        {
+            GameManager.Instance.Curtain.GetComponent<SpriteRenderer>().sprite = dogShadowSprites[i];
+            yield return new WaitForSeconds(DogShadowAnimInterval);
+        }
+    }
 }
