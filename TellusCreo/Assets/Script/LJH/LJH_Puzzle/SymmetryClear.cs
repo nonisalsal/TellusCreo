@@ -9,7 +9,7 @@ public class SymmetryClear : MonoBehaviour
     //public GameObject stove;
     //public GameObject Stove1;
     Trophy can;
-    SymmetrySlot can1;
+    snowball clear1;
     Clock clear3;
     basket clear4;
     sand clear5;
@@ -19,12 +19,12 @@ public class SymmetryClear : MonoBehaviour
     private void Awake()
     {
        //gameObject.SetActive(false);
-       can = GameObject.Find("trophyslot").GetComponent<Trophy>();
-       can1 = GameObject.Find("bottleslot").GetComponent<SymmetrySlot>();
-        clear3 = GameObject.Find("clockslot").GetComponent<Clock>();
-        clear4 = GameObject.Find("basketslot").GetComponent<basket>();
-        clear5 = GameObject.Find("sandslot").GetComponent<sand>();
-        clear6 = GameObject.Find("lyingbook").GetComponent<lyingbook>();
+       can = GameObject.Find("trophy_slot").GetComponent<Trophy>();
+        clear1 = GameObject.Find("snowball_slot").GetComponent<snowball>();
+        clear3 = GameObject.Find("clock_slot").GetComponent<Clock>();
+        clear4 = GameObject.Find("basket_slot").GetComponent<basket>();
+        clear5 = GameObject.Find("sand_slot").GetComponent<sand>();
+        clear6 = GameObject.Find("lyingbook_slot").GetComponent<lyingbook>();
 
     }
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class SymmetryClear : MonoBehaviour
     }
     private void SymmetryClear1()
     {
-        if(can1.check == true && can.check1 == true && clear3.check3 == true && clear4.check4 == true && clear5.check5 == true && clear6.check6 == true)
+        if(clear1.check7 == true && can.check1 == true && clear3.check3 == true && clear4.check4 == true && clear5.check5 == true && clear6.check6 == true)
         {
             //gameObject.SetActive(true);
             Debug.Log(555555);
