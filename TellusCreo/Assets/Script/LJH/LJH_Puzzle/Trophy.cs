@@ -20,7 +20,7 @@ public class Trophy : MonoBehaviour
         if (collider.gameObject.name == "trophy")
         {
             check1 = true;
-            //Debug.Log(1);
+            Debug.Log("trophy");
         }
     }
 

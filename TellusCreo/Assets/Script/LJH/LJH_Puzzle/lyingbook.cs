@@ -20,7 +20,7 @@ public class lyingbook : MonoBehaviour
         if (collider.gameObject.name == "lyingbook")
         {
             check6 = true;
-            //Debug.Log(1);
+            Debug.Log(1);
         }
     }
 
@@ -31,7 +31,7 @@ public class lyingbook : MonoBehaviour
         {
 
             check6 = false;
-            //Debug.Log(0);
+            Debug.Log("book");
 
         }
     }
