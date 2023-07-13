@@ -7,30 +7,31 @@ using UnityEngine.EventSystems;
 public class LockBox : MonoBehaviour
 {
 
-    enum LockBoxType
+    public enum LockBoxType
     {
         Open,
-        Close,
+        Lock,
         Unlock,
         Padlock
     }
 
+    public LockBoxType LockBoxState = LockBoxType.Lock;
+    public Dictionary<LockBoxType, Sprite> LockBoxBackgrounds;
     public bool IsUnlock = false;
     [SerializeField]
     private GameObject Lock;
     [SerializeField]
-    private Dictionary<LockBoxType, Sprite> LockBoxBackgrounds;
-    [SerializeField]
     private GameObject _rewardBall;
     private SpriteRenderer _spriteRenderer;
+    
 
-    public Action action;
-
+    public Action<LockBoxType> action;
 
     void OnMouseDown()
     {
         ChangeLockBox();
     }
+
     private void OnEnable()
     {
         if (_spriteRenderer == null|| LockBoxBackgrounds ==null)
@@ -43,9 +44,9 @@ public class LockBox : MonoBehaviour
             Lock.SetActive(false);
         }
 
-        if (!IsUnlock && LockBoxBackgrounds.ContainsKey(LockBoxType.Close))
+        if (!IsUnlock && LockBoxBackgrounds.ContainsKey(LockBoxType.Lock))
         {
-            _spriteRenderer.sprite = LockBoxBackgrounds[LockBoxType.Close];
+            _spriteRenderer.sprite = LockBoxBackgrounds[LockBoxType.Lock];
         }
         else if (IsUnlock && LockBoxBackgrounds.ContainsKey(LockBoxType.Unlock))
         {
@@ -56,15 +57,16 @@ public class LockBox : MonoBehaviour
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        action += ChangeLockBoxSprite;
     }
 
     void Start()
     {
         LockBoxBackgrounds = new Dictionary<LockBoxType, Sprite>();
-        LockBoxBackgrounds.Add(LockBoxType.Open, Resources.Load<Sprite>("Sprites/KJW/puzzle_Box_Open"));
-        LockBoxBackgrounds.Add(LockBoxType.Close, Resources.Load<Sprite>("Sprites/KJW/puzzle_Box_Lock"));
-        LockBoxBackgrounds.Add(LockBoxType.Unlock, Resources.Load<Sprite>("Sprites/KJW/puzzle_Box_Unlock"));
-        LockBoxBackgrounds.Add(LockBoxType.Padlock, Resources.Load<Sprite>("Sprites/KJW/Padlock"));
+        LockBoxBackgrounds.Add(LockBoxType.Open, Resources.Load<Sprite>("Sprites/KJW/puzzle_Box_Open")); // 열려 있는 상태
+        LockBoxBackgrounds.Add(LockBoxType.Lock, Resources.Load<Sprite>("Sprites/KJW/puzzle_Box_Lock")); // 잠겨 있는 상태
+        LockBoxBackgrounds.Add(LockBoxType.Unlock, Resources.Load<Sprite>("Sprites/KJW/puzzle_Box_Unlock")); // 풀려서 닫혀 있는 상태 
+        LockBoxBackgrounds.Add(LockBoxType.Padlock, Resources.Load<Sprite>("Sprites/KJW/Padlock")); // 자물쇠
 #if UNITY_EDITOR
         Debug.Log(LockBoxBackgrounds.Count);
 #endif
@@ -72,17 +74,33 @@ public class LockBox : MonoBehaviour
 
     public void ChangeLockBox()
     {
-        if (!IsUnlock)
+        if (!IsUnlock) // 풀리지 않았다면
         {
             _spriteRenderer.sprite = LockBoxBackgrounds[LockBoxType.Padlock];
             Lock?.SetActive(true);
         }
         else
         {
-            _rewardBall?.SetActive(true);
-            _spriteRenderer.sprite = LockBoxBackgrounds[LockBoxType.Open];
+            if(LockBoxState == LockBoxType.Open)
+            {
+                action(LockBoxType.Unlock);
+                _rewardBall?.SetActive(false);
+            }
+            else
+            {
+                action(LockBoxType.Open);
+                _rewardBall?.SetActive(true);
+            }
         }
     }
 
+    void ChangeLockBoxSprite(LockBoxType type) 
+    {
+        if(_spriteRenderer!=null)
+        {
+            LockBoxState = type;
+            _spriteRenderer.sprite = LockBoxBackgrounds[type];
+        }
+    }
 
 }

@@ -4,21 +4,36 @@ using UnityEngine;
 
 public class ShadowPuzzle : MonoBehaviour
 {
+    enum StandStatus
+    {
+        ON,
+        OFF
+    }
+
+    public enum Shadow
+    {
+        Cat,
+        Dog,
+        Rabbit
+    }
 
     public bool IsOnStand = false;
+    public Shadow CurrentShadow { get => shadow; }
 
     [SerializeField]
-    Sprite[] shadowSprite;
-    List<Sprite> standSprites;
-    int idx;
-    const int SHADOW_COUNT = 3;
-    SpriteRenderer spriteRenderer;
+    List<Sprite> shadowSprites;
+    [SerializeField]
+    List<Sprite> dogShadowSprites;
+    private const int SHADOW_COUNT = 3;
+    private const float DogShadowAnimInterval = 1.5f;
+    private List<Sprite> standSprites;
+    private int _idx;
+    private SpriteRenderer _spriteRenderer;
+    private Shadow shadow = Shadow.Cat;
 
-
-    void Start()
+    private void Start()
     {
-       
-        idx = -1;
+        _idx = -1;
     }
 
     void InitStandSprites()
@@ -28,32 +43,39 @@ public class ShadowPuzzle : MonoBehaviour
         standSprites.Add(Resources.Load<Sprite>("Sprites/KJW/Attic/Shadow/puzzle_shadow_light_off"));
     }
 
-    public Sprite ChangeShadow()
+    public Sprite ChangeShadow(bool change = true) // chagne 할지에 따라 변경 default 는 true
     {
-        if (GameManager.Instance.ShadowPuzzleChaeck() == true)
+        if (change)
         {
-            idx = (idx + 1) % SHADOW_COUNT;
-            return shadowSprite[idx];
+            _idx = (_idx + 1) % SHADOW_COUNT;
         }
-        return null;
+        shadow = (Shadow)_idx;
+        return shadowSprites[_idx];
     }
 
-    public Sprite Retunr2StandSprite()
+    public Sprite Return2StandSprite()
     {
-        if(standSprites==null)
+        if (standSprites == null)
         {
             InitStandSprites();
         }
 
-        if(IsOnStand) // 켜져 있을 때
+        if (IsOnStand) // 켜져 있을 때
         {
-            return standSprites[0];
+            return standSprites[(int)StandStatus.ON];
         }
         else
         {
-            return standSprites[1];
+            return standSprites[(int)StandStatus.OFF];
         }
     }
 
-
+    public IEnumerator DogShadowCatchBall() // 강아지가 공을 가져오는 퍼즐
+    {
+        for (int i = 0; i < dogShadowSprites.Count; i++)
+        {
+            GameManager.Instance.Curtain.GetComponent<SpriteRenderer>().sprite = dogShadowSprites[i];
+            yield return new WaitForSeconds(DogShadowAnimInterval);
+        }
+    }
 }

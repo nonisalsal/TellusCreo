@@ -4,16 +4,31 @@ using UnityEngine;
 
 public class ShadowButton : MonoBehaviour
 {
-    ShadowPuzzle puzzle;
-
-    private void Start()
-    {
-        puzzle = transform.parent.GetComponent<ShadowPuzzle>();
-    }
+    [SerializeField]
+    private ShadowPuzzle puzzle;
 
     private void OnMouseDown()
     {
-        puzzle.ChangeShadow();
+        if (puzzle.IsOnStand)
+        {
+            UpdateShadowSprite();
+        }
+        else
+        {
+
+#if UNITY_EDITOR
+            Debug.LogError("스탠드 ON or 밝음 or 커튼 열림");
+#endif
+        }
+    }
+
+    void UpdateShadowSprite()
+    {
+        Sprite shadowSprite = puzzle?.ChangeShadow(); // 그림자만 변경 sprite 변경은 x
+        if (GameManager.Instance.ShadowPuzzleChaeck()) // 전선 연결, 스탠드 켜짐, 어두움, 커튼이 닫힘 
+        {
+            GameManager.Instance.Curtain.GetComponent<SpriteRenderer>().sprite = shadowSprite;
+        }
     }
 
 }

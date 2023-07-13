@@ -20,6 +20,7 @@ public class sand : MonoBehaviour
         {
             check5 = true;
             //Debug.Log(1);
+            Debug.Log("sand");
         }
     }
 
@@ -29,7 +30,7 @@ public class sand : MonoBehaviour
         if (collider.gameObject.name == "sand")
         {
             check5 = false;
-            //Debug.Log(0);
+            
         }
     }
     // Update is called once per frame

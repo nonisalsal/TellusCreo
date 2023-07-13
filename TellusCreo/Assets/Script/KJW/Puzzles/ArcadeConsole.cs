@@ -97,7 +97,7 @@ public class ArcadeConsole : MonoBehaviour
         if(CORRECT_NAME == inputName)
         {
             clearArcade = true;
-            GameManager.Instance[(int)GameManager.Puzzle.ArcadeConsole - 10] = true;
+            GameManager.Instance[(int)GameManager.Puzzle.ArcadeConsole - GameManager.Instance.NUMBER_OF_PUZZLES] = true;
         }    
     }
 }

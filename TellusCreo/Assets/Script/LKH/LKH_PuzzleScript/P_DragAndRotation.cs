@@ -18,6 +18,11 @@ public class P_DragAndRotation : MonoBehaviour
         layer_S = SortingLayer.NameToID("P_Select");
         layer_NS = SortingLayer.NameToID("P_NotSelect");
         ChangeLayer(30);
+
+        if (!(rayControl.GetComponent<P_GameManager>().Get_dollClear()))
+        {
+            this.transform.GetComponentInChildren<Collider2D>().enabled = false;
+        }
     }
 
     private void ChangeLayer(int layerNum)

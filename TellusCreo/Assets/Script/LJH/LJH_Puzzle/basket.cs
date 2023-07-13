@@ -20,7 +20,7 @@ public class basket : MonoBehaviour
         if (collider.gameObject.name == "basket")
         {
             check4 = true;
-            //Debug.Log(1);
+            Debug.Log("bas");
         }
     }
 
