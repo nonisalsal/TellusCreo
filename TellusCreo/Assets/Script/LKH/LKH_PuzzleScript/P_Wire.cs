@@ -12,7 +12,7 @@ public class P_Wire : MonoBehaviour
         Debug.Log("trigger");
         if (System.Object.ReferenceEquals(collision.gameObject, rightItem))
         {
-            FindObjectOfType<P_ClickObj>().setConnectWire();
+            FindObjectOfType<P_GameManager>().Set_wireConnect();
             connectWire.SetActive(true);
             Destroy(collision.gameObject);
             this.gameObject.SetActive(false);

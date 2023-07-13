@@ -15,7 +15,7 @@ public class P_ClickItem : MonoBehaviour
         {
             toybox = true;
             toy_obj = GameObject.Find("toy_box").GetComponent<P_PuzzleObject>();
-            toy_after = GameObject.Find("P_Interaction").transform.GetChild(2).gameObject;
+            toy_after = GameObject.Find("Clear").transform.GetChild(2).gameObject;
         }
         else
             toybox = false;
@@ -43,7 +43,9 @@ public class P_ClickItem : MonoBehaviour
                 {
                     Debug.Log("Get " + this.name);
                     // 인벤토리
-                    Destroy(this.gameObject);
+                    this.GetComponent<AudioSource>().Play();
+                    Destroy(this.GetComponent<SpriteRenderer>()) ;
+                    Destroy(this.GetComponent<Collider2D>()) ;
                 }
             }
         }

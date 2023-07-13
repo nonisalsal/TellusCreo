@@ -8,26 +8,16 @@ public class P_ClickObj : MonoBehaviour
 
     private bool[] getItem;
     private bool getKey_A;
-    private bool getKey_B;
-    private bool getPattern;
-    private bool connectWire;
-    private bool getWire;
 
     void Start()
     {
         getItem = new bool[8] { false, false, false, false, false, false, false, false };
-        getKey_A = true;
-        getKey_B = true;
+        getKey_A = false;
     }
 
     void Update()
     {
         PlayerInput();
-    }
-
-    public void setConnectWire()
-    {
-        connectWire = true;
     }
 
     private void PlayerInput()
@@ -39,8 +29,11 @@ public class P_ClickObj : MonoBehaviour
                 if (getItem[0] == false && System.Object.ReferenceEquals(this.transform.GetChild(0).gameObject, rayControl.GetComponent<P_GameManager>().upHit.collider.gameObject))
                 {
                     Debug.Log("Get 'Key_A'");
+                    rayControl.GetComponent<P_GameManager>().Set_isGetKeyA();
                     getKey_A = true;
                     getItem[2] = true;
+                    this.GetComponent<AudioSource>().Play();
+                    Destroy(this.transform.GetChild(0).gameObject.GetComponent<Collider2D>());
                 }
                 if (getItem[1] == false && System.Object.ReferenceEquals(this.transform.GetChild(1).gameObject, 
                     rayControl.GetComponent<P_GameManager>().upHit.collider.gameObject))
@@ -52,22 +45,21 @@ public class P_ClickObj : MonoBehaviour
                 if (getItem[2] == false && System.Object.ReferenceEquals(this.transform.GetChild(2).gameObject, 
                     rayControl.GetComponent<P_GameManager>().upHit.collider.gameObject))
                 {
-                    if (!connectWire) { Debug.Log("Need 'Connect Wire'"); }
+                    if (rayControl.GetComponent<P_GameManager>().Get_wireConnect())
+                    {
+                        Debug.Log("click");
+                        this.transform.GetChild(2).gameObject.GetComponent<P_PuzzleInfo>().moveCamera();
+                    }
                     else
                     {
-                        Debug.Log("Get 'Top_B'");
-                        getItem[4] = true;
+                        Debug.Log("Need 'Connect Wire'");
                     }
                 }
                 if (getItem[3] == false && System.Object.ReferenceEquals(this.transform.GetChild(3).gameObject, 
                     rayControl.GetComponent<P_GameManager>().upHit.collider.gameObject))
                 {
-                    if (!getKey_B) { Debug.Log("Need 'Key_B'"); }
-                    else
-                    {
-                        Debug.Log("Get 'Top_C'");
-                        this.transform.GetChild(3).gameObject.GetComponent<P_PuzzleInfo>().moveCamera();
-                    }
+                    Debug.Log("click");
+                    this.transform.GetChild(3).gameObject.GetComponent<P_PuzzleInfo>().moveCamera();
                 }
                 if (getItem[4] == false && System.Object.ReferenceEquals(this.transform.GetChild(4).gameObject,
                     rayControl.GetComponent<P_GameManager>().upHit.collider.gameObject))
@@ -81,10 +73,6 @@ public class P_ClickObj : MonoBehaviour
                     Debug.Log("click");
                     this.transform.GetChild(5).gameObject.GetComponent<P_PuzzleInfo>().moveCamera();
                 }
-                //if (getItem[6] == false && System.Object.ReferenceEquals(this.transform.GetChild(6).gameObject, upHit.collider.gameObject))
-                //{
-
-                //}
             }
         }
     }

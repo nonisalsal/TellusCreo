@@ -5,20 +5,20 @@ using UnityEngine;
 public class P_PuzzleClear : MonoBehaviour
 {
     private int length;
-    // 퍼즐 오브젝트 변수 정의 
-    //private GameObject doll1;
-    //private GameObject doll2;
-    //private GameObject picture;
-    //private GameObject clock;
+
     public GameObject tower;
     public GameObject top;
     public GameObject puzzleObj;
     private GameObject puzzleCopy;
 
+    private bool isDollPuzzle;
+
     private void Start()
     {
         length = 0;
         puzzleObj = GetComponent<P_PuzzleObject>().puzzleObj;
+        if (puzzleObj.name == "DollPuzzle2") { isDollPuzzle = true; }
+        else { isDollPuzzle = false; }
     }
 
     private void Update()
@@ -38,11 +38,14 @@ public class P_PuzzleClear : MonoBehaviour
             if (puzzleCopy.transform.Find("clearZone").GetComponent<P_TowerClearZone>().isRight == true)
             {
                 GetComponent<P_PuzzleObject>().isClear = true;
+                FindObjectOfType<P_GameManager>().Set_isGetKeyB();
                 Rigidbody2D[] rigs = GetComponent<P_PuzzleObject>().puzzleClear.GetComponentsInChildren<Rigidbody2D>();
                 foreach (Rigidbody2D rig in rigs)
                 {
                     Destroy(rig);
                 }
+                Destroy(this.GetComponent<P_PuzzleClear>());
+                this.GetComponent<AudioSource>().Play();
             }
         }
         else if (System.Object.ReferenceEquals(puzzleObj, top))
@@ -57,6 +60,9 @@ public class P_PuzzleClear : MonoBehaviour
                     if (script == scripts[length - 1])
                     {
                         GetComponent<P_PuzzleObject>().isClear = true;
+                        FindObjectOfType<P_GameManager>().Set_topClear();
+                        Destroy(this.GetComponent<P_PuzzleClear>());
+                        this.GetComponent<AudioSource>().Play();
                     }
                 }
             }
@@ -74,7 +80,9 @@ public class P_PuzzleClear : MonoBehaviour
                     {
                         //Debug.Log("last script");
                         GetComponent<P_PuzzleObject>().isClear = true;
+                        if (isDollPuzzle) { FindObjectOfType<P_GameManager>().Set_dollClear(); }
                         Destroy(this.GetComponent<P_PuzzleClear>());
+                        this.GetComponent<AudioSource>().Play();
                     }
                 }
             }

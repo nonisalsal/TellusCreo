@@ -7,10 +7,13 @@ public class P_test : MonoBehaviour
     public GameObject pair;
     public GameObject rayControl;
 
-    //void Start()
-    //{
-        
-    //}
+    private bool isDrawer;
+
+    void Start()
+    {
+        if (this.name == "drawer") { isDrawer = true; }
+        else { isDrawer = false; }
+    }
 
     void Update()
     {
@@ -25,6 +28,16 @@ public class P_test : MonoBehaviour
             {
                 if (System.Object.ReferenceEquals(this.gameObject, rayControl.GetComponent<P_GameManager>().upHit.collider.gameObject))
                 {
+                    if (isDrawer)
+                    {
+                        if (!(rayControl.GetComponent<P_GameManager>().Get_isGetKeyB()))
+                        {
+                            Debug.Log("need keyB");
+                            this.GetComponent<AudioSource>().Play();
+                            return;
+                        }
+                    }
+
                     pair.SetActive(true);
                     this.gameObject.SetActive(false);
                 }
