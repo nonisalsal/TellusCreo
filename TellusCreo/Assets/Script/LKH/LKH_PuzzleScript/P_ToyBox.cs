@@ -10,9 +10,10 @@ public class P_ToyBox : MonoBehaviour
 
     private void Start()
     {
-        //this.transform.GetChild(0).gameObject.SetActive(false);
-        //this.transform.GetChild(1).gameObject.SetActive(true);
-        //this.transform.GetChild(2).gameObject.SetActive(false);
+        if (!(rayControl.GetComponent<P_GameManager>().Get_topClear()))
+        {
+            this.transform.GetComponentInChildren<Collider2D>().enabled = false;
+        }
     }
 
     private void Update()

@@ -7,6 +7,8 @@ public class P_Bed : MonoBehaviour
     private bool[] getItem;
 
     public GameObject rayControl;
+    public AudioClip locked;
+    public AudioClip item;
 
     void Start()
     {
@@ -29,9 +31,17 @@ public class P_Bed : MonoBehaviour
             {
                 if (System.Object.ReferenceEquals(this.transform.GetChild(0).gameObject, rayControl.GetComponent<P_GameManager>().upHit.collider.gameObject))
                 {
-                    Debug.Log("open left");
-                    this.transform.GetChild(0).gameObject.SetActive(false);
-                    this.transform.GetChild(2).gameObject.SetActive(true);
+                    if (rayControl.GetComponent<P_GameManager>().Get_isGetKeyA())
+                    {
+                        Debug.Log("open left");
+                        this.transform.GetChild(0).gameObject.SetActive(false);
+                        this.transform.GetChild(2).gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        this.GetComponent<AudioSource>().clip = locked;
+                        this.GetComponent<AudioSource>().Play();
+                    }
                 }
                 if (System.Object.ReferenceEquals(this.transform.GetChild(1).gameObject, rayControl.GetComponent<P_GameManager>().upHit.collider.gameObject))
                 {
@@ -46,6 +56,8 @@ public class P_Bed : MonoBehaviour
                         Debug.Log("get concent");
                         // 인벤토리 적용 후 인벤토리로 보내는 코드 추가 필요.
                         getItem[0] = true;
+                        this.GetComponent<AudioSource>().clip = item;
+                        this.GetComponent<AudioSource>().Play();
                         this.transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.SetActive(false);
                     }
                     else
@@ -62,6 +74,8 @@ public class P_Bed : MonoBehaviour
                         Debug.Log("get guitar");
                         // 인벤토리 적용 후 인벤토리로 보내는 코드 추가 필요.
                         getItem[1] = true;
+                        this.GetComponent<AudioSource>().clip = item;
+                        this.GetComponent<AudioSource>().Play();
                         this.transform.GetChild(3).gameObject.transform.GetChild(0).gameObject.SetActive(false);
                     }
                     else

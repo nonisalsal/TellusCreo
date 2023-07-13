@@ -5,47 +5,37 @@ using UnityEngine.EventSystems;
 
 public class P_GameManager : MonoBehaviour
 {
-
     public Ray2D downRay;
     public Ray2D upRay;
-    //public static bool isDown;
-    //public static bool isUp;
-    //public static RaycastHit2D downHit;
-    //public static RaycastHit2D upHit;
     public bool isDown;
     public bool isUp;
     public RaycastHit2D downHit;
     public RaycastHit2D upHit;
 
-    //public GameObject down;
-    //public GameObject up;
-
-    //private GameObject dollObj;
-    //private GameObject dollPuzzle1;
-    //private GameObject dollPuzzle2;
+    private bool isGetKeyA;
+    private bool isGetKeyB;
+    private bool wireConnect;
+    private bool dollClear;
+    private bool topClear;
 
     void Start()
     {
         isDown = false;
         isUp = false;
 
-        //dollObj = GameObject.Find("doll_object");
-        //dollPuzzle1 = transform.Find("DollPuzzle1").gameObject;
-        //dollPuzzle2 = transform.Find("DollPuzzle2").gameObject;
+        isGetKeyA = false;
+        isGetKeyB = false;
+        wireConnect = false;
+        dollClear = false;
+        topClear = false;
     }
 
     void Update()
     {
-
         if (!EventSystem.current.IsPointerOverGameObject())
         {
             ShootRay();
         }
-       
-        //ClearSeq();
-
-        //if (upHit) { up = upHit.collider.gameObject; }
-        //if (downHit) { down = downHit.collider.gameObject; }
     }
 
     private void ShootRay()
@@ -75,23 +65,54 @@ public class P_GameManager : MonoBehaviour
         else { isUp = false; }
     }
 
-    //private void ClearSeq()
-    //{
-    //    if (GameObject.Find("doll_object").GetComponent<P_PuzzleObject>().isClear == true && GameObject.Find("doll_object").GetComponent<P_PuzzleObject>().puzzleObj == dollPuzzle1)
-    //    {
-    //        if (GameObject.Find("doll_object").GetComponent<P_PuzzleObject>().isActive == false)
-    //        {
-    //            GameObject.Find("doll_object").GetComponent<P_PuzzleObject>().puzzleObj = dollPuzzle2;
-    //            GameObject.Find("doll_object").GetComponent<P_PuzzleObject>().isClear = false;
-    //        }
-    //        else
-    //        {
-    //            GameObject.Find("doll_object").GetComponent<P_PuzzleObject>().puzzleObj = dollPuzzle2;
-    //            GameObject.Find("doll_object").GetComponent<P_PuzzleObject>().puzzleCopy = 
-    //                Instantiate(GameObject.Find("doll_object"), GameObject.Find("doll_object").transform.position, GameObject.Find("doll_object").transform.rotation);
-    //            GameObject.Find("doll_object").GetComponent<P_PuzzleObject>().puzzleCopy.SetActive(true);
-    //            GameObject.Find("doll_object").GetComponent<P_PuzzleObject>().isClear = false;
-    //        }
-    //    }
-    //}
+    public void Set_isGetKeyA()
+    {
+        isGetKeyA = true;
+    }
+
+    public bool Get_isGetKeyA()
+    {
+        return isGetKeyA;
+    }
+
+    public void Set_isGetKeyB()
+    {
+        isGetKeyB = true;
+        Debug.Log("get keyB");
+    }
+
+    public bool Get_isGetKeyB()
+    {
+        return isGetKeyB;
+    }
+
+    public void Set_wireConnect()
+    {
+        wireConnect = true;
+    }
+
+    public bool Get_wireConnect()
+    {
+        return wireConnect;
+    }
+
+    public void Set_dollClear()
+    {
+        dollClear = true;
+    }
+
+    public bool Get_dollClear()
+    {
+        return dollClear;
+    }
+
+    public void Set_topClear()
+    {
+        topClear = true;
+    }
+
+    public bool Get_topClear()
+    {
+        return topClear;
+    }
 }
