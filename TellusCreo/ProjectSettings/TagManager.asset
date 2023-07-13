@@ -27,6 +27,7 @@ TagManager:
   - Background4
   - Item
   - Keybox
+  - Item_guitar
   layers:
   - Default
   - TransparentFX
