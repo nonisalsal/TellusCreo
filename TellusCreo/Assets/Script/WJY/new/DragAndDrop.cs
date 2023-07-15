@@ -50,6 +50,14 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
        
                 break;
             }
+
+            if (collider.CompareTag("Item_guitar"))
+            {
+
+                Debug.Log("기타");
+
+                break;
+            }
         }
 
         
