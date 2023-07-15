@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3902641285892014821}
   - component: {fileID: -5255244845071806118}
   - component: {fileID: -6522169397926877608}
+  - component: {fileID: 4914416875810331659}
   m_Layer: 0
   m_Name: Mars
   m_TagString: Untagged
@@ -97,7 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplaySprite: Mars
   itemProperty: 0
+  InventorySlots: {fileID: 0}
   DisplayImage: 
+  sprites: []
+  i: 0
 --- !u!58 &-6522169397926877608
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -114,3 +118,16 @@ CircleCollider2D:
   m_Offset: {x: 0.028687716, y: -0.042224288}
   serializedVersion: 2
   m_Radius: 1.6226223
+--- !u!114 &4914416875810331659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37266861717157914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177a349674143a94abd8d08467c17b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: {fileID: 11400000, guid: 0794eaaac3262394cb6a0e7ca6ced4cf, type: 2}
