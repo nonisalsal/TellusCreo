@@ -8,18 +8,25 @@ public class ClueManager : MonoBehaviour
     private List<Sprite> spritesForChange;
     [SerializeField]
     private GameObject clue;
+    [SerializeField]
+    private bool isChangeCameraViewObject;
     private int _index;
     private SpriteRenderer spriteRenderer;
 
+
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>() ?? gameObject.AddComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
+        }
         _index = 0;
-
     }
 
     void OnMouseDown()
     {
+
         if (spritesForChange.Count > 0)
         {
             Sprite sprite = spritesForChange[_index];
@@ -31,9 +38,10 @@ public class ClueManager : MonoBehaviour
 
     public void ShowClue()
     {
-        if(clue != null)
+        if (clue != null)
         {
             clue.SetActive(true);
         }
     }
+
 }

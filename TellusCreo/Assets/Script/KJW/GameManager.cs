@@ -26,9 +26,11 @@ public class GameManager : MonoBehaviour
         ShadowLight, // 15
         ArcadeConsole,
         Lock,
+        Mirror,
         LightSwitch,
         ChangeView,
         Curtain,
+        
     }
 
     public UI Ui;
@@ -161,6 +163,7 @@ public class GameManager : MonoBehaviour
                     {
                         curtain_open?.SetActive(true);
                         curtain?.SetActive(false);
+                        hitGameObject.transform.parent.Find("Mirror").gameObject.SetActive(true);
                     }
                     else
                     {
@@ -178,6 +181,7 @@ public class GameManager : MonoBehaviour
                         }
                         curtain?.SetActive(true);
                         curtain_open?.SetActive(false);
+                        hitGameObject.transform.parent.Find("Mirror").gameObject.SetActive(false);
                     }
 
                     ClueManager clue = curtain.transform.parent.GetComponent<ClueManager>();
@@ -315,6 +319,13 @@ public class GameManager : MonoBehaviour
                                 curtainSprRen.sprite = shadowPuzzle.ChangeShadow(false);
                             }
                         }
+                    }
+                    break;
+                case Puzzle.Mirror:
+                    if(isCurtainOpen)
+                    {
+                        Puzzles[(int)Puzzle.Mirror - NUMBER_OF_PUZZLES].SetActive(true);
+                        ChangeBackground();
                     }
                     break;
             }
