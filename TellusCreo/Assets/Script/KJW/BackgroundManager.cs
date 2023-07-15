@@ -7,8 +7,6 @@ public class BackgroundManager : MonoBehaviour
 
     [SerializeField]
     List<Sprite> backGroundSpriteList;
-    [SerializeField]
-    ShadowPuzzle shadowPuzzle;
     SpriteRenderer backGroundSpriteRenderer;
     int currentSpriteIndex = 0;
 
