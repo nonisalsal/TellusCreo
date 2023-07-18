@@ -6,6 +6,7 @@ public class P_PuzzleClear : MonoBehaviour
 {
     private int length;
 
+    public GameObject keyB;
     public GameObject tower;
     public GameObject top;
     public GameObject puzzleObj;
@@ -38,12 +39,12 @@ public class P_PuzzleClear : MonoBehaviour
             if (puzzleCopy.transform.Find("clearZone").GetComponent<P_TowerClearZone>().isRight == true)
             {
                 GetComponent<P_PuzzleObject>().isClear = true;
-                FindObjectOfType<P_GameManager>().Set_isGetKeyB();
                 Rigidbody2D[] rigs = GetComponent<P_PuzzleObject>().puzzleClear.GetComponentsInChildren<Rigidbody2D>();
                 foreach (Rigidbody2D rig in rigs)
                 {
                     Destroy(rig);
                 }
+                keyB.SetActive(true);
                 Destroy(this.GetComponent<P_PuzzleClear>());
                 this.GetComponent<AudioSource>().Play();
             }

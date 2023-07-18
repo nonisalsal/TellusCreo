@@ -33,7 +33,9 @@ public class P_PuzzleObject : MonoBehaviour
         }
 
         // 임시
-        if (puzzleObj.name == "ClockPuzzle" || puzzleObj.name == "ToyBox" || puzzleObj.name == "DollPuzzle1")
+        //if (puzzleObj.name == "ClockPuzzle" || puzzleObj.name == "ToyBox" || puzzleObj.name == "DollPuzzle1" || puzzleObj.name == "PicturePuzzle")
+        //    hasClear = true;
+        if (puzzleClear != null)
             hasClear = true;
         else
             hasClear = false;
