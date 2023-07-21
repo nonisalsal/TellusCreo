@@ -8,11 +8,15 @@ public class P_test : MonoBehaviour
     public GameObject rayControl;
 
     private bool isDrawer;
+    private bool isBedLeft;
 
     void Start()
     {
-        if (this.name == "drawer") { isDrawer = true; }
+        if (this.gameObject.name == "drawer") { isDrawer = true; }
         else { isDrawer = false; }
+
+        if (this.gameObject.name == "bed_left") { isBedLeft = true; }
+        else { isBedLeft = false; }
     }
 
     void Update()
@@ -31,6 +35,15 @@ public class P_test : MonoBehaviour
                     if (isDrawer)
                     {
                         if (!(rayControl.GetComponent<P_GameManager>().Get_isGetKeyB()))
+                        {
+                            Debug.Log("need keyB");
+                            this.GetComponent<AudioSource>().Play();
+                            return;
+                        }
+                    }
+                    if (isBedLeft)
+                    {
+                        if (!(rayControl.GetComponent<P_GameManager>().Get_isGetKeyA()))
                         {
                             Debug.Log("need keyB");
                             this.GetComponent<AudioSource>().Play();
