@@ -28,6 +28,8 @@ TagManager:
   - Item
   - Keybox
   - Item_guitar
+  - Item_Guitar
+  - Item_violin
   layers:
   - Default
   - TransparentFX
