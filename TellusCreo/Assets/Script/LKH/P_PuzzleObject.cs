@@ -20,6 +20,7 @@ public class P_PuzzleObject : MonoBehaviour
 
     // 임시
     public bool hasClear;
+    private bool isDoll2;
 
     void Start()
     {
@@ -39,6 +40,11 @@ public class P_PuzzleObject : MonoBehaviour
             hasClear = true;
         else
             hasClear = false;
+
+        if (puzzleObj.name == "DollPuzzle2")
+            isDoll2 = true;
+        else
+            isDoll2 = false;
     }
 
     private void ExitPuzzle()
@@ -92,6 +98,13 @@ public class P_PuzzleObject : MonoBehaviour
                     FindObjectOfType<P_Camera>().playPuzzle = true;
                     FindObjectOfType<P_Camera>().puzzlePos_x = puzzleObj.transform.position.x;
                     FindObjectOfType<P_Camera>().puzzlePos_y = puzzleObj.transform.position.y;
+                    //임시(2023.07/22)
+                    if (isDoll2)
+                    {
+                        puzzleObj.SetActive(true);
+                        isActive = true;
+                        return;
+                    }
                     if (isClear == false)
                     {
                         puzzleCopy = Instantiate(puzzleObj, puzzleObj.transform.position, puzzleObj.transform.rotation);
@@ -113,10 +126,11 @@ public class P_PuzzleObject : MonoBehaviour
         {
             Destroy(puzzleCopy);
             puzzleObj = dollPuzzle2;
-            FindObjectOfType<P_Camera>().puzzlePos_x = puzzleObj.transform.position.x;
-            FindObjectOfType<P_Camera>().puzzlePos_y = puzzleObj.transform.position.y;
-            puzzleCopy = Instantiate(puzzleObj, puzzleObj.transform.position, puzzleObj.transform.rotation);
-            puzzleCopy.SetActive(true);
+            //FindObjectOfType<P_Camera>().puzzlePos_x = puzzleObj.transform.position.x;
+            //FindObjectOfType<P_Camera>().puzzlePos_y = puzzleObj.transform.position.y;
+            //puzzleCopy = Instantiate(puzzleObj, puzzleObj.transform.position, puzzleObj.transform.rotation);
+            //puzzleCopy.SetActive(true);
+            puzzleObj.SetActive(true);
             isClear = false;
             this.gameObject.AddComponent<P_PuzzleClear>();
         }
@@ -139,5 +153,22 @@ public class P_PuzzleObject : MonoBehaviour
             }
             parentObj.transform.GetChild(2).gameObject.SetActive(true);
         }
+
+        //if (hasClear)
+        //{
+        //    puzzleClear.SetActive(true);
+        //    Destroy(puzzleCopy);
+        //    return;
+        //}
+
+        //// 성공 시, 특수한 화면이 출력되어야하는 퍼즐: doll2 / tower? / clock 
+        //puzzleClear = puzzleCopy;
+        //ClearControl();
+        //if (debugTest == 0)
+        //{
+        //    Debug.Log("퍼즐 클리어");
+        //    debugTest = 1;
+        //}
+        //parentObj.transform.GetChild(2).gameObject.SetActive(true);
     }
 }
