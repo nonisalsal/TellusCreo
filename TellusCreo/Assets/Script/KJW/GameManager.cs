@@ -138,9 +138,11 @@ public class GameManager : MonoBehaviour
                         }
                     }
                     else
+                    {
 #if UNITY_EDITOR
                         Debug.Log("전선 연결 필요");
 #endif
+                    }
                     break;
 
                 case Puzzle.ChangeView: // 창 밖
