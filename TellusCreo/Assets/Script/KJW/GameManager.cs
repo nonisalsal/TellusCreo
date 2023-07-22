@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get { if (s_instance == null) return null; return s_instance; } }
 
-
     public enum Puzzle
     {
         Poster = 10,
@@ -80,7 +79,6 @@ public class GameManager : MonoBehaviour
         switchStatus = false;
         globalLight2D = globalLight?.GetComponent<Light2D>();
         ShadowPuzzleSetup();
-        ClearPuzzles[9] = true;
     }
 
     void Update()
@@ -169,8 +167,8 @@ public class GameManager : MonoBehaviour
                     {
                         if (ShadowPuzzleChaeck())
                         {
-                           // ShadowPuzzle puzzleObject = FindPuzzleObject<ShadowPuzzle>();
-                            ShadowPuzzle puzzleObject = Puzzles[(int)Puzzle.ShadowLight-NUMBER_OF_PUZZLES].GetComponent<ShadowPuzzle>();
+                            // ShadowPuzzle puzzleObject = FindPuzzleObject<ShadowPuzzle>();
+                            ShadowPuzzle puzzleObject = Puzzles[(int)Puzzle.ShadowLight - NUMBER_OF_PUZZLES].GetComponent<ShadowPuzzle>();
                             if (puzzleObject != null)
                             {
                                 SpriteRenderer curtainSprRend = curtain.GetComponent<SpriteRenderer>();
@@ -186,7 +184,7 @@ public class GameManager : MonoBehaviour
                     }
 
                     ClueManager clue = curtain.transform.parent.GetComponent<ClueManager>();
-                    if(clue != null)
+                    if (clue != null)
                     {
                         clue.ShowClue();
                     }
@@ -316,9 +314,11 @@ public class GameManager : MonoBehaviour
                     }
                     break;
                 case Puzzle.Mirror:
-                    if(isCurtainOpen)
+                    if (isCurtainOpen)
                     {
-                        Puzzles[(int)Puzzle.Mirror - NUMBER_OF_PUZZLES].SetActive(true);
+                        BackgroundManager mirrorBM = Puzzles[(int)Puzzle.Mirror - NUMBER_OF_PUZZLES].GetComponent<BackgroundManager>();
+                        //mirrorBM.
+                        Puzzles[(int)Puzzle.Mirror - NUMBER_OF_PUZZLES]?.SetActive(true);
                         ChangeBackground();
                     }
                     break;

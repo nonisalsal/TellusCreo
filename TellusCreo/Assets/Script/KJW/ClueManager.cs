@@ -9,7 +9,7 @@ public class ClueManager : MonoBehaviour
     [SerializeField]
     private GameObject clue;
     [SerializeField]
-    private bool isChangeCameraViewObject;
+    private bool isChild;
     private int _index;
     private SpriteRenderer spriteRenderer;
 
@@ -26,14 +26,22 @@ public class ClueManager : MonoBehaviour
 
     void OnMouseDown()
     {
+        Sprite sprite = spritesForChange[_index];
 
         if (spritesForChange.Count > 0)
         {
-            Sprite sprite = spritesForChange[_index];
             _index = (_index + 1) % spritesForChange.Count;
-            spriteRenderer.sprite = sprite;
+
         }
-        ShowClue();
+        if (isChild)
+        {
+            transform.parent.GetComponent<BackgroundManager>().ChangeBackgroundSprite(sprite);
+        }
+        else
+        {
+            spriteRenderer.sprite = sprite;
+            ShowClue();
+        }
     }
 
     public void ShowClue()
