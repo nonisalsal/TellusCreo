@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2befd667d737bdf44bec418727b78ed6, type: 3}
-  m_Name: Spin(C)
+  m_Name: New Item
   m_EditorClassIdentifier: 
-  itemName: Spin(C)
-  icon: {fileID: 21300000, guid: 7898abd2928117446af81bdef15b4cad, type: 3}
+  itemName: 
+  icon: {fileID: 0}

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
@@ -11,22 +10,15 @@ public class InventoryManager : MonoBehaviour
 
     public Transform ItemContent;
     public GameObject InventoryItem;
-    private Dictionary<string, Item> itemDictionary = new Dictionary<string, Item>(); // 아이템 이름과 아이템을 연결하는 Dictionary
-
     private void Awake()
     {
         Instance = this;
-        // Dictionary에 아이템 이름과 아이템을 연결합니다.
-        foreach (Item item in Items)
-        {
-            if (item != null)
-            {
-                itemDictionary[item.itemName] = item;
-            }
-        }
     }
 
-
+    //private void Update()
+    //{
+    //    ListItems();
+    //}
     public void Add(Item item)
     {
         Items.Add(item);
