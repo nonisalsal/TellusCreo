@@ -28,12 +28,8 @@ public class P_ClickObj : MonoBehaviour
             {
                 if (getItem[0] == false && System.Object.ReferenceEquals(this.transform.GetChild(0).gameObject, rayControl.GetComponent<P_GameManager>().upHit.collider.gameObject))
                 {
-                    Debug.Log("Get 'Key_A'");
-                    rayControl.GetComponent<P_GameManager>().Set_isGetKeyA();
-                    getKey_A = true;
-                    getItem[2] = true;
-                    this.GetComponent<AudioSource>().Play();
-                    Destroy(this.transform.GetChild(0).gameObject.GetComponent<Collider2D>());
+                    Debug.Log("click");
+                    this.transform.GetChild(0).gameObject.GetComponent<P_PuzzleInfo>().moveCamera();
                 }
                 if (getItem[1] == false && System.Object.ReferenceEquals(this.transform.GetChild(1).gameObject, 
                     rayControl.GetComponent<P_GameManager>().upHit.collider.gameObject))
@@ -45,15 +41,17 @@ public class P_ClickObj : MonoBehaviour
                 if (getItem[2] == false && System.Object.ReferenceEquals(this.transform.GetChild(2).gameObject, 
                     rayControl.GetComponent<P_GameManager>().upHit.collider.gameObject))
                 {
-                    if (rayControl.GetComponent<P_GameManager>().Get_wireConnect())
-                    {
-                        Debug.Log("click");
-                        this.transform.GetChild(2).gameObject.GetComponent<P_PuzzleInfo>().moveCamera();
-                    }
-                    else
-                    {
-                        Debug.Log("Need 'Connect Wire'");
-                    }
+                    //if (rayControl.GetComponent<P_GameManager>().Get_wireConnect())
+                    //{
+                    //    Debug.Log("click");
+                    //    this.transform.GetChild(2).gameObject.GetComponent<P_PuzzleInfo>().moveCamera();
+                    //}
+                    //else
+                    //{
+                    //    Debug.Log("Need 'Connect Wire'");
+                    //}
+                    Debug.Log("click");
+                    this.transform.GetChild(2).gameObject.GetComponent<P_PuzzleInfo>().moveCamera();
                 }
                 if (getItem[3] == false && System.Object.ReferenceEquals(this.transform.GetChild(3).gameObject, 
                     rayControl.GetComponent<P_GameManager>().upHit.collider.gameObject))
