@@ -47,18 +47,7 @@ public class BookOrdering : MonoBehaviour
                 //Debug.Log(Book);
                 ClearBookCheck(collider);
             }
-            //else
-            //{
-            //    Instantiate(collider.gameObject, new Vector3(X1, Y1, 0), Quaternion.identity);
-            //    Destroy(collider.gameObject);
-
-            //}
-           //if(Book == 1)
-           // {
-           //     collider.gameObject.GetComponent<Book>();
-           //     collider.transform.position = new Vector2(trans.trans.x,trans.trans.y);
-
-           // }
+          
         }
 
     

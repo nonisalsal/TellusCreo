@@ -57,6 +57,8 @@ public class _testing : MonoBehaviour
         Vector2 objectPosition = Camera.main.ScreenToWorldPoint(mousePosition);
         //오브젝트의 위치를 objectPosition로 변경.
         this.transform.position = objectPosition;
+
+
     }
 
     //PlayerInput함수로 수정.
@@ -80,6 +82,7 @@ public class _testing : MonoBehaviour
                 if (System.Object.ReferenceEquals(this.gameObject, downHit.collider.gameObject))
                 {
                     this.tag = "P_move";
+                    Debug.Log("true");
                     //ChangeLayer(31);
                 }
             }
@@ -94,6 +97,7 @@ public class _testing : MonoBehaviour
                 if (System.Object.ReferenceEquals(this.gameObject, upHit.collider.gameObject))
                 {
                     this.tag = "P_stop";
+                    Debug.Log("false");
                     //ChangeLayer(30);
                 }
             }
@@ -103,5 +107,6 @@ public class _testing : MonoBehaviour
     private void Update()
     {
         PlayerInput();
+        
     }
 }
