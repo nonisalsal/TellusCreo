@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get { if (s_instance == null) return null; return s_instance; } }
 
-
     public enum Puzzle
     {
         Poster = 10,
@@ -26,6 +25,7 @@ public class GameManager : MonoBehaviour
         ShadowLight, // 15
         ArcadeConsole,
         Lock,
+        Mirror,
         LightSwitch,
         ChangeView,
         Curtain,
@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
                         {
                             switchStatus = true;
                         }
-                        ShadowPuzzle puzzleObject = FindPuzzleObject<ShadowPuzzle>();
+                        ShadowPuzzle puzzleObject = Puzzles[(int)Puzzle.ShadowLight - NUMBER_OF_PUZZLES].GetComponent<ShadowPuzzle>();
                         SpriteRenderer curtainSprRend = curtain.GetComponent<SpriteRenderer>();
                         if (curtainSprRend != null)
                         {
@@ -138,9 +138,11 @@ public class GameManager : MonoBehaviour
                         }
                     }
                     else
+                    {
 #if UNITY_EDITOR
                         Debug.Log("전선 연결 필요");
 #endif
+                    }
                     break;
 
                 case Puzzle.ChangeView: // 창 밖
@@ -161,12 +163,14 @@ public class GameManager : MonoBehaviour
                     {
                         curtain_open?.SetActive(true);
                         curtain?.SetActive(false);
+                        hitGameObject.transform.parent.Find("Mirror").gameObject.SetActive(true);
                     }
                     else
                     {
                         if (ShadowPuzzleChaeck())
                         {
-                            ShadowPuzzle puzzleObject = FindPuzzleObject<ShadowPuzzle>();
+                            // ShadowPuzzle puzzleObject = FindPuzzleObject<ShadowPuzzle>();
+                            ShadowPuzzle puzzleObject = Puzzles[(int)Puzzle.ShadowLight - NUMBER_OF_PUZZLES].GetComponent<ShadowPuzzle>();
                             if (puzzleObject != null)
                             {
                                 SpriteRenderer curtainSprRend = curtain.GetComponent<SpriteRenderer>();
@@ -178,10 +182,11 @@ public class GameManager : MonoBehaviour
                         }
                         curtain?.SetActive(true);
                         curtain_open?.SetActive(false);
+                        hitGameObject.transform.parent.Find("Mirror").gameObject.SetActive(false);
                     }
 
                     ClueManager clue = curtain.transform.parent.GetComponent<ClueManager>();
-                    if(clue != null)
+                    if (clue != null)
                     {
                         clue.ShowClue();
                     }
@@ -271,7 +276,7 @@ public class GameManager : MonoBehaviour
                     ChangeBackground();
                     break;
 
-                case Puzzle.ShadowLight: // 그림자 조명
+                case Puzzle.ShadowLight: // 스탠드(그림자 퍼즐)
                     if (!ClearPuzzles[(int)Puzzle.LightSwitch - NUMBER_OF_PUZZLES])
                     {
 #if UNITY_EDITOR
@@ -291,16 +296,9 @@ public class GameManager : MonoBehaviour
                         shadowPuzzle.IsOnStand = !shadowPuzzle.IsOnStand; // 스탠드 boolean 켜고 끄고 변경
                         backGround4.sprite = shadowPuzzle.Return2StandSprite(); // 조명 ON/OFF 스프라이트
 
-                        if (!shadowPuzzle.IsOnStand && !isCurtainOpen) // 조명 켜져있고 커튼은 닫혀있을 때 
+                        if (!shadowPuzzle.IsOnStand) // 스탠드 켜져있고 커튼은 닫혀있을 때 
                         {
-                            SpriteRenderer curtainSprRend = curtain.GetComponent<SpriteRenderer>();
-                            if (curtainSprRend != null)
-                            {
-                                if (defaultCurtainSprtie != null)
-                                {
-                                    curtainSprRend.sprite = defaultCurtainSprtie;
-                                }
-                            }
+                            ChangCurtainSprite2Default();
                         }
 
                         if (ShadowPuzzleChaeck()) // 스탠드 켜짐, 어두움, 커튼이 닫힘 , 전선 연결
@@ -315,6 +313,15 @@ public class GameManager : MonoBehaviour
                                 curtainSprRen.sprite = shadowPuzzle.ChangeShadow(false);
                             }
                         }
+                    }
+                    break;
+                case Puzzle.Mirror:
+                    if (isCurtainOpen)
+                    {
+                        BackgroundManager mirrorBM = Puzzles[(int)Puzzle.Mirror - NUMBER_OF_PUZZLES].GetComponent<BackgroundManager>();
+                        //mirrorBM.
+                        Puzzles[(int)Puzzle.Mirror - NUMBER_OF_PUZZLES]?.SetActive(true);
+                        ChangeBackground();
                     }
                     break;
             }
@@ -334,7 +341,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void ChangeBackground()// 뒷 배경 퍼즐 배경으로 변경
+    void ChangeBackground()// 카메라 이동
     {
         if (!onPuzzle)
         {
@@ -347,12 +354,22 @@ public class GameManager : MonoBehaviour
 
     void CheckRoomClear()
     {
-        foreach (var puzzle in ClearPuzzles)
+        if (ClearPuzzles.Any(puzzle => puzzle == false))
         {
-            if (!puzzle)
+#if UNITY_EDITOR
+            Debug.Log("풀 퍼즐이 남았음");
+#endif
+        }
+    }
+
+    void ChangCurtainSprite2Default()
+    {
+        SpriteRenderer curtainSprRend = curtain.GetComponent<SpriteRenderer>();
+        if (curtainSprRend != null)
+        {
+            if (defaultCurtainSprtie != null)
             {
-                Debug.Log("풀 퍼즐이 남았음");
-                return;
+                curtainSprRend.sprite = defaultCurtainSprtie;
             }
         }
     }
@@ -374,7 +391,7 @@ public class GameManager : MonoBehaviour
         return isCurtainOpen;
     }
 
-    public T FindPuzzleObject<T>()
+    public T FindPuzzleObject<T>() where T : Component
     {
         // T 컴포넌트 찾아서 반환 (Select에서 시퀀스 반환 후 FirstOrDefault에서 순회하면서 그 중 컴포넌트를 찾아서 반환)
         return Puzzles.Select(obj => obj.GetComponent<T>()).FirstOrDefault(component => component != null);

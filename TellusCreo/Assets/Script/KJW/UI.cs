@@ -27,6 +27,14 @@ public class UI : MonoBehaviour
             GameManager.Instance.ToggleLights();
         }
 
+        ChangeSpriteObject mirror = GameManager.Instance.Puzzles[(int)(GameManager.Puzzle.Mirror) - 
+            GameManager.Instance.NUMBER_OF_PUZZLES].GetComponent<ChangeSpriteObject>();
+
+        //if(mirror != null) // 뒤돌리기 시에 변경 된 스프라이트를 기본 스프라이트로 변경
+        //{
+        //    mirror.ChangeDefaultSprite();
+        //}
+
         foreach (var puzzle in GameManager.Instance.Puzzles) // 모든 퍼즐 비활성화
         {
             puzzle.SetActive(false);

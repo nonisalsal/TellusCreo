@@ -39,14 +39,14 @@ public class SymmetryClear : MonoBehaviour
         if(clear1.check7 == true && can.check1 == true && clear3.check3 == true && clear4.check4 == true && clear5.check5 == true && clear6.check6 == true)
         {
             //gameObject.SetActive(true);
-            //Debug.Log(555555);
+            Debug.Log("clear");
         }
 
 
         //if (stove.GetComponent<Trophy>().check1 == true && Stove1.GetComponent<SymmetrySlot>().check == true)
         //{
         //    gameObject.SetActive(true);
-        //    Debug.Log(555555);
+           // Debug.Log("clear");
         //}
     }
    
