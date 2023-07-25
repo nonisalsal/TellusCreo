@@ -28,8 +28,7 @@ TagManager:
   - Item
   - Keybox
   - Item_guitar
-  - Item_Guitar
-  - Item_violin
+  - P_item
   layers:
   - Default
   - TransparentFX
@@ -49,10 +48,10 @@ TagManager:
   - ShadowLight
   - ArcadeConsole
   - Lock
+  - Mirror
   - LightSwitch
   - ChangeView
   - Curtain
-  - 
   - 
   - 
   - 
