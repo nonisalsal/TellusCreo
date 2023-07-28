@@ -47,6 +47,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public void OnDrag(PointerEventData eventData)
     {
         rectTransform.anchoredPosition += eventData.delta / transform.root.localScale.x;
+        
     }
     public void OnEndDrag(PointerEventData eventData)
     {
@@ -62,42 +63,48 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
         foreach (Collider2D collider in colliders)
         {
-
-            if (collider.CompareTag("Keybox"))
+            if (item != null && collider.CompareTag(item.interactTag))
             {
-
-                Debug.Log("알맞는 사물을 찾았습니다");
-
+                // 아이템과 오브젝트의 태그를 비교하여 상호작용
+                Debug.Log(item.itemName + "와(과) " + collider.tag + " 상호작용");
+                puzzleGuitarRenderer.enabled = !puzzleGuitarRenderer.enabled;
                 break;
             }
+            //if (collider.CompareTag("Keybox"))
+            //{
 
-            if (collider.CompareTag("Item_Guitar"))
-            {
-                Debug.Log("기타 찾았습니다");
+            //    Debug.Log("알맞는 사물을 찾았습니다");
 
+            //    break;
+            //}
 
-                if (puzzleGuitarRenderer != null)
-                {
-
-                    puzzleGuitarRenderer.enabled = !puzzleGuitarRenderer.enabled;
-                }
-
-                break;
-            }
-
-            if (collider.CompareTag("Item_violin"))
-            {
-                Debug.Log("바이올린 찾았습니다");
+            //if (collider.CompareTag("Item_Guitar"))
+            //{
+            //    Debug.Log("기타 찾았습니다");
 
 
-                if (puzzleviolinRenderer != null)
-                {
+            //    if (puzzleGuitarRenderer != null && inventoryManager.HasItem("Guitar"))
+            //    {
 
-                    puzzleviolinRenderer.enabled = !puzzleviolinRenderer.enabled;
-                }
+            //        puzzleGuitarRenderer.enabled = !puzzleGuitarRenderer.enabled;
+            //    }
 
-                break;
-            }
+            //    break;
+            //}
+
+            //if (collider.CompareTag("Item_violin"))
+            //{
+            //    Debug.Log("바이올린 찾았습니다");
+
+
+            //    if (puzzleviolinRenderer != null)
+            //    {
+
+            //        puzzleviolinRenderer.enabled = !puzzleviolinRenderer.enabled;
+            //    }
+
+            //    break;
+            //}
         }
 
 
