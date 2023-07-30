@@ -8,7 +8,7 @@ public class Lock : MonoBehaviour
 {
 
     private const int PASSWORD_COUNT = 4;
-    private const string CORRECT_PASSWORD = "4567";
+    private const string CORRECT_PASSWORD = "2473";
     private string changePassword = "0000";
     private List<GameObject> passwords = new List<GameObject>();
     [SerializeField]

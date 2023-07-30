@@ -7,6 +7,7 @@ public class ComputerPassButton : MonoBehaviour
     public Vector3 position1 = new Vector3(0, 0, 0);
     public Vector3 position2 = new Vector3(0, 0, 1);
     public Vector3 position3 = new Vector3(1, 0, 0);
+
    
     public GameObject objectToCreate;
 
