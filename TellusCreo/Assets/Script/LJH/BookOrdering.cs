@@ -44,24 +44,24 @@ public class BookOrdering : MonoBehaviour
                 
 
                 Book = 1;
-                //Debug.Log(Book);
+                Debug.Log(Book);
                 ClearBookCheck(collider);
             }
           
         }
 
-    
 
 
-        //if (collider.transform.CompareTag("P_stop"))
-        //{
-        //    collider.transform.SetParent(transform);
-        //    if (transform.childCount < 1)
-        //    {
-        //        collider.transform.SetParent(transform);
-        //    }
 
-        //}
+        if (collider.transform.CompareTag("P_stop"))
+        {
+            collider.transform.SetParent(transform);
+            if (transform.childCount < 1)
+            {
+                collider.transform.SetParent(transform);
+            }
+
+        }
     }
     public void OnTriggerExit2D(Collider2D collider)
     {
