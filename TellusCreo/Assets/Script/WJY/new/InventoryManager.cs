@@ -66,14 +66,14 @@ public class InventoryManager : MonoBehaviour
 
     public Transform ItemContent;
     public GameObject InventoryItem;
-    private Dictionary<string, Item> itemDictionary = new Dictionary<string, Item>(); // 아이템 이름과 아이템을 연결하는 Dictionary
+    private Dictionary<string, Item> itemDictionary = new Dictionary<string, Item>();
 
     public DragAndDrop dragAndDropScript;
 
     private void Awake()
     {
         Instance = this;
-        // Dictionary에 아이템 이름과 아이템을 연결합니다.
+     
         foreach (Item item in Items)
         {
             if (item != null)
@@ -84,7 +84,7 @@ public class InventoryManager : MonoBehaviour
     }
     public void InstantiateItemAndSetToDragAndDrop(Item itemPrefab)
     {
-        // 인스턴스화된 아이템을 생성하고, DragAndDrop 스크립트에 할당합니다.
+
         Item newItem = Instantiate(itemPrefab);
         dragAndDropScript.item = newItem;
     }
@@ -94,7 +94,7 @@ public class InventoryManager : MonoBehaviour
         if (!Items.Contains(item))
         {
             Items.Add(item);
-            itemDictionary[item.itemName] = item; // itemDictionary에도 추가
+            itemDictionary[item.itemName] = item; 
         }
     }
 
@@ -115,6 +115,10 @@ public class InventoryManager : MonoBehaviour
             Item itemToRemove = itemDictionary[itemName];
             Items.Remove(itemToRemove);
         }
+    }
+    public List<Item> GetItems()
+    {
+        return Items;
     }
 
     public void ListItems()
