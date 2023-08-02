@@ -49,13 +49,17 @@ public class GameManager : MonoBehaviour
     bool[] ClearPuzzles;
     bool isCurtainOpen;
     bool switchStatus;
-
+    
     public bool this[int idx] // 인덱서 사용
     {
         get => ClearPuzzles[idx];
         set
         {
             ClearPuzzles[idx] = value;
+            if(value == true)  // 클리어 시
+            {
+                SoundManager.Instance.Play("puzzle_clear");
+            }
             Room?.Invoke(); // Room이 null이 아닐때만
         }
     }
@@ -139,6 +143,7 @@ public class GameManager : MonoBehaviour
                     }
                     else
                     {
+                        SoundManager.Instance.Play("door_locked");
 #if UNITY_EDITOR
                         Debug.Log("전선 연결 필요");
 #endif
@@ -207,6 +212,7 @@ public class GameManager : MonoBehaviour
                     }
                     else
                     {
+                        SoundManager.Instance.Play("door_locked");
 #if UNITY_EDITOR
                         Debug.Log("전선 연결 필요");
 #endif
@@ -279,6 +285,7 @@ public class GameManager : MonoBehaviour
                 case Puzzle.ShadowLight: // 스탠드(그림자 퍼즐)
                     if (!ClearPuzzles[(int)Puzzle.LightSwitch - NUMBER_OF_PUZZLES])
                     {
+                        SoundManager.Instance.Play("door_locked");
 #if UNITY_EDITOR
                         Debug.LogError("전선 연결 필요");
 #endif
@@ -360,6 +367,8 @@ public class GameManager : MonoBehaviour
             Debug.Log("풀 퍼즐이 남았음");
 #endif
         }
+
+        // TODO: 최종 아이템 생성 처리
     }
 
     void ChangCurtainSprite2Default()
