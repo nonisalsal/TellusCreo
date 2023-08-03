@@ -1012,7 +1012,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!61 &49131929
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4910,7 +4909,7 @@ Transform:
   - {fileID: 53586160}
   - {fileID: 1484548541}
   m_Father: {fileID: 451459457}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &262698243
 PrefabInstance:
@@ -7550,7 +7549,7 @@ Transform:
   m_Children:
   - {fileID: 1731808458}
   m_Father: {fileID: 451459457}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &358114492 stripped
 RectTransform:
@@ -9276,8 +9275,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 698941705}
-  - {fileID: 1838741750}
   - {fileID: 257802049}
+  - {fileID: 1840772108}
+  - {fileID: 1838741750}
   - {fileID: 357266726}
   - {fileID: 1781679370}
   m_Father: {fileID: 0}
@@ -13510,7 +13510,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!61 &659795167
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17180,7 +17179,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!61 &785363980
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17829,7 +17827,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!61 &818107530
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18218,8 +18215,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1840772108}
+  m_Children: []
   m_Father: {fileID: 698941705}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18266,7 +18262,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 1316203754}
-  rb: {fileID: 0}
 --- !u!1001 &850909937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19362,7 +19357,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!61 &916840340
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21269,7 +21263,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!61 &999340440
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21867,7 +21860,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!61 &1041030450
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23065,8 +23057,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114311085}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.5716414}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1781679370}
@@ -23089,7 +23081,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 1316203754}
-  rb: {fileID: 0}
 --- !u!61 &1114311088
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23533,7 +23524,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!61 &1146738367
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26202,7 +26192,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!61 &1264187643
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26776,7 +26765,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!1 &1316203754
 GameObject:
   m_ObjectHideFlags: 0
@@ -30323,7 +30311,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!61 &1509943526
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34711,7 +34698,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 1316203754}
-  rb: {fileID: 0}
 --- !u!61 &1731808460
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35790,7 +35776,7 @@ Transform:
   m_Children:
   - {fileID: 1114311086}
   m_Father: {fileID: 451459457}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1781679371
 SpriteRenderer:
@@ -36818,7 +36804,7 @@ GameObject:
   - component: {fileID: 1838741751}
   m_Layer: 0
   m_Name: Book2 (1)
-  m_TagString: Book
+  m_TagString: P_stop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36831,11 +36817,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838741749}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.78, y: -0.35, z: 0}
+  m_LocalPosition: {x: 0.78, y: -0.35000002, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 451459457}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1838741751
 MonoBehaviour:
@@ -36862,10 +36848,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.024960935, y: -0.54918385}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -36876,7 +36862,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 2.57378, y: 4.021632}
   m_EdgeRadius: 0
 --- !u!50 &1838741753
 Rigidbody2D:
@@ -36977,7 +36963,7 @@ GameObject:
   - component: {fileID: 1840772103}
   m_Layer: 0
   m_Name: Book2
-  m_TagString: Book
+  m_TagString: P_stop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37010,7 +36996,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.049925804, y: -0.27459335}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -37021,7 +37007,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 2.124443, y: 4.570813}
   m_EdgeRadius: 0
 --- !u!50 &1840772105
 Rigidbody2D:
@@ -37114,11 +37100,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1840772102}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2916075, y: -0.07627599, z: 0}
-  m_LocalScale: {x: 0.7518086, y: 0.52243817, z: 1}
+  m_LocalPosition: {x: -4.039653, y: -0.63, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 850127812}
-  m_RootOrder: 0
+  m_Father: {fileID: 451459457}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1847003294
 GameObject:
@@ -37834,7 +37820,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!61 &1876259218
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38463,7 +38448,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!61 &1936215975
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39324,7 +39308,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!61 &1980261663
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40300,7 +40283,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!61 &2001197691
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40750,7 +40732,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!61 &2008188655
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42757,7 +42738,6 @@ MonoBehaviour:
   Book: 0
   ClearCheck: 0
   ClearBook: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!61 &2093860981
 BoxCollider2D:
   m_ObjectHideFlags: 0
