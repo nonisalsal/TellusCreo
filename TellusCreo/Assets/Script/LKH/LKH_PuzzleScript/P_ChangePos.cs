@@ -24,7 +24,6 @@ public class P_ChangePos : MonoBehaviour
     {
         if (startOnTrig)
         {
-            //Debug.Log("FixedUpdate");
             StartCoroutine(StartSet());
         }
     }
@@ -32,9 +31,7 @@ public class P_ChangePos : MonoBehaviour
     IEnumerator StartSet()
     {
         yield return null;
-        //Debug.Log("StartSet");
         SetObj();
-        //Debug.Log("SetObj 실행");
     }
 
     public void SetObj()
@@ -46,7 +43,6 @@ public class P_ChangePos : MonoBehaviour
             isSet = true;
             startOnTrig = false;
             checkLayer = 0;
-            //Debug.Log("위치초기화");
         }
     }
 
@@ -101,35 +97,6 @@ public class P_ChangePos : MonoBehaviour
                 if (checkLayer == 1 && !isMove) { checkLayer = 2; }
             }
         }
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    Vector2 downPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //    Ray2D downRay = new Ray2D(downPos, Vector2.zero);
-        //    RaycastHit2D downHit = Physics2D.Raycast(downRay.origin, downRay.direction, 1 << 30);
-        //    if (downHit)
-        //    {
-        //        if (System.Object.ReferenceEquals(this.gameObject, downHit.collider.gameObject))
-        //        {
-        //            isSet = false;
-        //            beforePos = this.transform.localPosition;
-        //            checkLayer = 1;
-        //        }
-        //    }
-        //}
-
-        //if (Input.GetMouseButtonUp(0))
-        //{
-        //    Vector2 upPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //    Ray2D upRay = new Ray2D(upPos, Vector2.zero);
-        //    RaycastHit2D upHit = Physics2D.Raycast(upRay.origin, upRay.direction);
-        //    if (upHit)
-        //    {
-        //        if (System.Object.ReferenceEquals(this.gameObject, upHit.collider.gameObject))
-        //        {
-        //            if (checkLayer == 1 && !isMove) { checkLayer = 2; }
-        //        }
-        //    }
-        //}
     }
 
     public void LateUpdate()

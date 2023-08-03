@@ -52,7 +52,7 @@ public class P_DragAndDrop : MonoBehaviour
             {
                 if (System.Object.ReferenceEquals(this.gameObject, downHit.collider.gameObject))
                 {
-                    //Debug.Log("dragAndDrop Down start");
+                    Debug.Log("dragAndDrop Down start");
                     this.tag = "P_move";
                     ChangeLayer(31);
                 }
