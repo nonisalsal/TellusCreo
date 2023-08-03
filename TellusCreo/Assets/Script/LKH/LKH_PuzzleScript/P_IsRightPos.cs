@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class P_IsRightPos : MonoBehaviour
 {
-    //private int layer_NS;
     public GameObject correctObj;
 
     public bool isTrigger;
@@ -14,52 +13,24 @@ public class P_IsRightPos : MonoBehaviour
     {
         isRight = false;
         this.gameObject.layer = 30;
-        //layer_NS = SortingLayer.NameToID("P_NotSelect");
-        //GetComponent<SpriteRenderer>().sortingLayerID = layer_NS;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log("트리거 접촉");
-        if (System.Object.ReferenceEquals(collision.gameObject, correctObj))
-        {
-            isTrigger = true;
-            //Debug.Log("IsRight 활성화");
-        }
-        else 
-        {
-            isRight = false;
-            isTrigger = false; 
-        }
-    }
+        isTrigger = true;
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    //Debug.Log("트리거 접촉");
-    //    if (System.Object.ReferenceEquals(collision.gameObject, correctObj))
-    //    {
-    //        isTrigger = true;
-    //        //Debug.Log("IsRight 활성화");
-    //    }
-    //    else { isTrigger = false; }
-    //}
+        if (System.Object.ReferenceEquals(collision.gameObject, correctObj))
+            isRight = true;
+        else 
+            isRight = false;
+    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isTrigger = false;
-    }
+         isTrigger = false;
 
-    //private void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    isTrigger = false;
-    //}
-
-    private void LateUpdate()
-    {
-        if (isTrigger)
-        {
-            isRight = true;
-        }
+        if (System.Object.ReferenceEquals(collision.gameObject, correctObj))
+            isRight = false;
     }
 
     public void setIsRight()
