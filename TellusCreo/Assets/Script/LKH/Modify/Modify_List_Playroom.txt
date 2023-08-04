@@ -1,0 +1,10 @@
+Window > Analysis > Profiler / 스냅드래곤, Android Studio
+
+1. instantiate로 초기화했던거 줄이기 -> 복제하는 방식 대신 onEnable 사용하여 활성화 할 때 초기화
+
+2. 되도록이면 코드 시작 전에 인스턴스 생성해놓기
+
+3. Update() 줄이는 방향
++ GameManager에 싱글톤 패턴 적용?
++ drumStick 회전 코드 > GameManager 말고 DollPuzzle2로 코드 옮겨주기
++ P_GetItem 스크립트 필요 없음 (아마도?)

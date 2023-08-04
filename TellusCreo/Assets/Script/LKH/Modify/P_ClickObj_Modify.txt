@@ -1,0 +1,46 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class P_ClickObj : MonoBehaviour
+{
+	public int num = 6;
+	public int violinNum = 1;
+
+	private P_GameManager rayControl;
+	private P_Camera camera;
+
+	private void Awake()
+	{
+		rayControl = P_GameManager.instance;
+		camera = FindObjectOfType<P_Camera>();
+	}
+
+	private void Update()
+	{
+		if (rayControl.isUp)
+		{
+			RaycastHit2D hit = rayControl.upHit;
+			if (hit != null)
+			{
+				P_PuzzleInfo clickObj = CheckObj(hit);
+				clickObj.IsActive_true();
+			}
+		}
+	}
+
+	private P_PuzzleInfo CheckObj(RaycastHit2D hit)
+	{
+		GameObject clickObj = hit.collider.gameObject
+		for (int i = 0; i < num; i++)
+		{
+			if (i == violinNum) { continue; }
+
+			GameObject childObj = transform.GetChild(i).gameObject
+			if (System.Object.ReferenceEquals(childObj, clickObj))
+			{
+				return childObj.GetComponent<P_PuzzleInfo>();
+			}
+		}
+	}
+}
