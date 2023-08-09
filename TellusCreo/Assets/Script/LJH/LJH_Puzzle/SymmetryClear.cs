@@ -8,7 +8,7 @@ public class SymmetryClear : MonoBehaviour
 
     //public GameObject stove;
     //public GameObject Stove1;
-    Trophy can;
+    Trophy can; 
     snowball clear1;
     Clock clear3;
     basket clear4;
@@ -34,7 +34,7 @@ public class SymmetryClear : MonoBehaviour
         //Debug.Log(can.check1);
         SymmetryClear1();
     }
-    private void SymmetryClear1()
+    private void SymmetryClear1()// 클리어 판정 함수
     {
         if(clear1.check7 == true && can.check1 == true && clear3.check3 == true && clear4.check4 == true && clear5.check5 == true && clear6.check6 == true)
         {

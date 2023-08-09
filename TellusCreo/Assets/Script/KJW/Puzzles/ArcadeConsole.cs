@@ -27,8 +27,9 @@ public class ArcadeConsole : MonoBehaviour
         UpdateAlphabetText();
     }
 
-    public void ResetButton()
+    public void OnResetButton()
     {
+        SoundManager.Instance.Play("puzzle_Arcade_button");
         selectedNameSpaceIndex = 0;
         foreach (var nickName in nickNameList)
         {
@@ -36,8 +37,9 @@ public class ArcadeConsole : MonoBehaviour
         }
     }
 
-    public void SelectButton()
+    public void OnSelectButton()
     {
+        SoundManager.Instance.Play("puzzle_Arcade_button");
         char selectedChar = alphArr[selectedAlphabetIndex][0]; // 선택된 문자를 변수로 저장
         nameObject.transform.GetChild(selectedNameSpaceIndex).GetComponent<Text>().text = selectedChar.ToString(); // 변수를 사용하여 텍스트 변경
 

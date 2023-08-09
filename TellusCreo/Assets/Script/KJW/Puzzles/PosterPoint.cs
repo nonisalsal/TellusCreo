@@ -23,21 +23,5 @@ public class PosterPoint : MonoBehaviour
     public void OnPointClick()
     {
         isClicked = !isClicked;
-        spriteRenderer.color = isClicked ? Color.blue : Color.red;
     }
-
-    //public void PointEnabled() // 클릭시 색깔 변경
-    //{
-    //    if (isClick == false)
-    //    {
-    //        isClick = true;
-    //        render.color = new Color(0, 0, 1);
-
-    //    }
-    //    else
-    //    {
-    //        isClick = false;
-    //        render.color = new Color(1, 0, 0);
-    //    }
-    //}
 }

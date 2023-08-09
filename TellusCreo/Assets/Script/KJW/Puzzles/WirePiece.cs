@@ -32,6 +32,7 @@ public class WirePiece : MonoBehaviour
                 transform.SetParent(pos.transform);
                 transform.localPosition = Vector2.zero;
                 wirePuzzle.cnt++;
+                SoundManager.Instance.Play("puzzle_wire_connect"); // 와이어 연결음
             }
         }
     }

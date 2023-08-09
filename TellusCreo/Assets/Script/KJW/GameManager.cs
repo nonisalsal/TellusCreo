@@ -58,7 +58,14 @@ public class GameManager : MonoBehaviour
             ClearPuzzles[idx] = value;
             if(value == true)  // 클리어 시
             {
-                SoundManager.Instance.Play("puzzle_clear");
+                if (ClearPuzzles[idx] == ClearPuzzles[(int)GameManager.Puzzle.ArcadeConsole - GameManager.Instance.NUMBER_OF_PUZZLES]) // 아케이드 완료시에
+                {
+                    SoundManager.Instance.Play("puzzle_Arcade_clear");
+                }
+                else
+                {
+                    SoundManager.Instance.Play("puzzle_clear");
+                }
             }
             Room?.Invoke(); // Room이 null이 아닐때만
         }
@@ -75,6 +82,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        SoundManager.Instance.Play("Attic_bgm", Sound.Bgm);
         Room += CheckRoomClear;
         ClearPuzzles = new bool[NUMBER_OF_PUZZLES];
         isCurtainOpen = false;
@@ -116,6 +124,7 @@ public class GameManager : MonoBehaviour
             switch ((Puzzle)((int)hitGameObject.layer))
             {
                 case Puzzle.LightSwitch: // 스위치 
+                    SoundManager.Instance.Play("light_switch");
                     if (ClearPuzzles[(int)Puzzle.LightSwitch - NUMBER_OF_PUZZLES]) // 전선 연결이 됐는지
                     {
                         globalLight2D.intensity = globalLight2D.intensity == DimIntensity ? BrightIntensity : DimIntensity; // 조명 밝기 조절
@@ -143,7 +152,7 @@ public class GameManager : MonoBehaviour
                     }
                     else
                     {
-                        SoundManager.Instance.Play("door_locked");
+                       
 #if UNITY_EDITOR
                         Debug.Log("전선 연결 필요");
 #endif
@@ -169,9 +178,11 @@ public class GameManager : MonoBehaviour
                         curtain_open?.SetActive(true);
                         curtain?.SetActive(false);
                         hitGameObject.transform.parent.Find("Mirror").gameObject.SetActive(true);
+                        SoundManager.Instance.Play("curtain_open"); // 열림 사운드
                     }
                     else
                     {
+                        SoundManager.Instance.Play("curtain_close"); // 닫힘 사운드
                         if (ShadowPuzzleChaeck())
                         {
                             // ShadowPuzzle puzzleObject = FindPuzzleObject<ShadowPuzzle>();
@@ -212,7 +223,7 @@ public class GameManager : MonoBehaviour
                     }
                     else
                     {
-                        SoundManager.Instance.Play("door_locked");
+                        SoundManager.Instance.Play("puzzle_Arcade_cant_use");
 #if UNITY_EDITOR
                         Debug.Log("전선 연결 필요");
 #endif
@@ -283,9 +294,9 @@ public class GameManager : MonoBehaviour
                     break;
 
                 case Puzzle.ShadowLight: // 스탠드(그림자 퍼즐)
+                    SoundManager.Instance.Play("light_switch");
                     if (!ClearPuzzles[(int)Puzzle.LightSwitch - NUMBER_OF_PUZZLES])
                     {
-                        SoundManager.Instance.Play("door_locked");
 #if UNITY_EDITOR
                         Debug.LogError("전선 연결 필요");
 #endif

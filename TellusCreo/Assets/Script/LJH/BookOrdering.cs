@@ -10,7 +10,7 @@ public class BookOrdering : MonoBehaviour
     public bool ClearCheck;
 
     public GameObject ClearBook;
-    public GameObject rb;
+   // public GameObject rb;
     Book trans;
 
 
@@ -41,11 +41,12 @@ public class BookOrdering : MonoBehaviour
             {
                 Instantiate(collider.gameObject, new Vector3(X1, Y1, 0), Quaternion.identity);
                 Destroy(collider.gameObject);
-                
+
 
                 Book = 1;
                 Debug.Log(Book);
                 ClearBookCheck(collider);
+
             }
           
         }
@@ -53,15 +54,15 @@ public class BookOrdering : MonoBehaviour
 
 
 
-        if (collider.transform.CompareTag("P_stop"))
-        {
-            collider.transform.SetParent(transform);
-            if (transform.childCount < 1)
-            {
-                collider.transform.SetParent(transform);
-            }
+        //if (collider.transform.CompareTag("P_stop"))
+        //{
+        //    collider.transform.SetParent(transform);
+        //    if (transform.childCount < 1)
+        //    {
+        //        collider.transform.SetParent(transform);
+        //    }
 
-        }
+        //}
     }
     public void OnTriggerExit2D(Collider2D collider)
     {
