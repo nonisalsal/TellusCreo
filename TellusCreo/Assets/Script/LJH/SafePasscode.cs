@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SafePasscode : MonoBehaviour
 {
-    public int CheckPass;
+    public int CheckPass; //금고 클리어 판정
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +18,7 @@ public class SafePasscode : MonoBehaviour
         Clear();
     }
 
-    public void OnTriggerEnter2D(Collider2D collider)
+    public void OnTriggerEnter2D(Collider2D collider) //해당 태그의 오브젝트가 걸릴 시 플러스
     {
         if (collider.CompareTag("Pass1"))
         {
@@ -31,6 +31,11 @@ public class SafePasscode : MonoBehaviour
             Debug.Log(CheckPass);
         }
         if (collider.CompareTag("Pass3"))
+        {
+            CheckPass++;
+            Debug.Log(CheckPass);
+        }
+        if (collider.CompareTag("Pass4"))
         {
             CheckPass++;
             Debug.Log(CheckPass);
@@ -54,13 +59,18 @@ public class SafePasscode : MonoBehaviour
             CheckPass--;
             Debug.Log(CheckPass);
         }
+        if (collider.CompareTag("Pass4"))
+        {
+            CheckPass--;
+            Debug.Log(CheckPass);
+        }
     }
 
     private void Clear()
     {
-        if(CheckPass == 3)
+        if(CheckPass == 4)
         {
-            Debug.Log("!!CLEAR!!");
+            Debug.Log("CLEAR");
         }
     }
 

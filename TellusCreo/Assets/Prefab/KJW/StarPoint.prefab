@@ -10,10 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2427611032068609165}
   - component: {fileID: 2427611032068609164}
-  - component: {fileID: 2427611032068609163}
   - component: {fileID: 2427611032068609160}
   - component: {fileID: 2427611032068609162}
-  - component: {fileID: -4505122457800380503}
   m_Layer: 8
   m_Name: StarPoint
   m_TagString: Untagged
@@ -85,19 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2427611032068609163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2427611032068609167}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 576c99d083dc93447a88505c0428598f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startPos: {fileID: 2427611032068609165}
 --- !u!120 &2427611032068609160
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -210,17 +195,3 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.2, y: 0.2}
   m_Direction: 0
---- !u!114 &-4505122457800380503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2427611032068609167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 142f199c76c1f5944942a526b3f167a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isClick: 0
-  _startPos: {fileID: 0}

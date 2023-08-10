@@ -9,7 +9,7 @@ public class ChildrenTextFolder : MonoBehaviour
     {
         
     }
-    public bool ChildrenState=false;
+    public bool ChildrenState=false;  //접촉중인 텍스트 폴더가 있을 때 true
     // Update is called once per frame
     void Update()
     {

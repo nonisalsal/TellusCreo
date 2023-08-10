@@ -19,13 +19,14 @@ public class SoundManager : MonoBehaviour
 
     void Awake()
     {
+        Init();
         instance = this;
     }
 
-    void Start()
-    {
-        Init();
-    }
+    //void Start()
+    //{
+        
+    //}
 
     public void Init()
     {

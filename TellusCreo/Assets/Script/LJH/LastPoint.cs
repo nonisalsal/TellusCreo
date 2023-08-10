@@ -22,7 +22,7 @@ public class LastPoint : MonoBehaviour
     // Update is called once per frame
      
 
-private void OnTriggerEnter2D(Collider2D collision)
+private void OnTriggerEnter2D(Collider2D collision) //오작교 퍼즐의 텍스트 폴더가 스타트 폴더와 접촉하고 있을 경우 클리어 판정
     {
         if (collision.CompareTag("TextFolder"))
         {

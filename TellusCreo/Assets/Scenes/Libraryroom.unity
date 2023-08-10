@@ -445,8 +445,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000014305, y: 947.8}
-  m_SizeDelta: {x: 173.86536, y: 1323.1047}
+  m_AnchoredPosition: {x: 0.0000014305, y: 480.4}
+  m_SizeDelta: {x: 173.86536, y: 1417.3853}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &26127452
 MonoBehaviour:
@@ -892,7 +892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 44790972}
-  Enemy: {fileID: 569968782}
+  candle: {fileID: 0}
 --- !u!212 &44790974
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1472,7 +1472,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -301.75}
+  m_AnchoredPosition: {x: 4, y: -460}
   m_SizeDelta: {x: 100, y: 100.38577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &63275197
@@ -1494,7 +1494,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ba84ecd4f4c35ce48a1c21236e0ca1a0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1525,7 +1525,7 @@ GameObject:
   - component: {fileID: 67395030}
   - component: {fileID: 67395029}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: ojakgyo_Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1707,7 +1707,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -100.97}
+  m_AnchoredPosition: {x: 4, y: -259.22}
   m_SizeDelta: {x: 100, y: 100.38577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &72898006
@@ -1729,7 +1729,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 36bb66ab97ac415489e2491034120ed7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2398,7 +2398,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137720339}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7700005, y: -3, z: 0.2000122}
+  m_LocalPosition: {x: 1.38, y: -1.94, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2049326562}
@@ -2417,7 +2417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 137720339}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &137720342
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4541,7 +4541,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238790583}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.45, y: -0.95, z: 0.2000122}
+  m_LocalPosition: {x: -2.16, y: -0.54, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1452079583}
@@ -4560,7 +4560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 238790583}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &238790586
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4637,7 +4637,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 239941662}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.76, y: -4.4, z: 0.2000122}
+  m_LocalPosition: {x: -2.2, y: -3.27, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1927685805}
@@ -4656,7 +4656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 239941662}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &239941665
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5220,7 +5220,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 270094801}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.1500015, y: -3, z: 0.2000122}
+  m_LocalPosition: {x: 2.79, y: -1.98, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2049326562}
@@ -5239,7 +5239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 270094801}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &270094804
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5316,7 +5316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273249552}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.83, y: -4.4, z: 0.2000122}
+  m_LocalPosition: {x: -0.66, y: -3.21, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1927685805}
@@ -5335,7 +5335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 273249552}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &273249555
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6807,7 +6807,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320253273}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.455, y: -0.89, z: 0.2000122}
+  m_LocalPosition: {x: 2.21, y: -0.19, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1452079583}
@@ -6826,7 +6826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 320253273}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &320253276
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7429,7 +7429,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 400}
+  m_AnchoredPosition: {x: 4, y: 241.75}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &356753401
@@ -7445,13 +7445,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.990566, g: 0.014017418, b: 0.014017418, a: 1}
+  m_Color: {r: 0.9716981, g: 0.9579477, b: 0.9579477, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c7b18659a00ec2e46987ad6850803b78, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8348,7 +8348,7 @@ GameObject:
   - component: {fileID: 395564265}
   - component: {fileID: 395564266}
   m_Layer: 0
-  m_Name: "\uC11C\uC7AC 1 (2)"
+  m_Name: Ojakgyo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9127,7 +9127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 100.19}
+  m_AnchoredPosition: {x: 4, y: -58.059998}
   m_SizeDelta: {x: 100, y: 100.38577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &431223557
@@ -9149,7 +9149,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: df563a70cf7970941ab47c2ff8988fd6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9262,7 +9262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &451459457
 Transform:
   m_ObjectHideFlags: 0
@@ -10360,7 +10360,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 537557527}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.7, y: 0.91, z: 612}
+  m_LocalPosition: {x: 3.61, y: 0.81, z: 612}
   m_LocalScale: {x: 0.97263306, y: 0.9399249, z: 1}
   m_Children: []
   m_Father: {fileID: 403305575}
@@ -10627,7 +10627,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 540382869}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.66, y: -1.35, z: 612}
+  m_LocalPosition: {x: -5, y: -0.62, z: 612}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 403305575}
@@ -11269,8 +11269,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 559601571}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.378, y: 2.043, z: -549.96344}
-  m_LocalScale: {x: 0.26802897, y: 0.27234486, z: 1}
+  m_LocalPosition: {x: -5.45, y: 1.91, z: -549.96344}
+  m_LocalScale: {x: 0.39220095, y: 0.4145299, z: 1}
   m_Children: []
   m_Father: {fileID: 804412696}
   m_RootOrder: 1
@@ -11342,7 +11342,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.63, y: 12.47}
+    oldSize: {x: 6.8785715, y: 8.907143}
     newSize: {x: 25.6, y: 14.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -12505,7 +12505,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 612459324}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.36, y: -4.4, z: 0.2000122}
+  m_LocalPosition: {x: 2.52, y: -3.27, z: 0.2000122}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 1927685805}
@@ -12524,7 +12524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 612459324}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &612459327
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12825,7 +12825,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620201450}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.358, y: -0.93, z: 0.2000122}
+  m_LocalPosition: {x: 0.32, y: -0.42, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1452079583}
@@ -12844,7 +12844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 620201450}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &620201453
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12905,12 +12905,12 @@ GameObject:
   m_Component:
   - component: {fileID: 625947974}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Libraryroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &625947974
 Transform:
   m_ObjectHideFlags: 0
@@ -13267,7 +13267,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 646855177}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.16, y: -4.4, z: 0.2000122}
+  m_LocalPosition: {x: 1.54, y: -3.27, z: 0.2000122}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 1927685805}
@@ -13286,7 +13286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 646855177}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &646855180
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13727,7 +13727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666534056}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1, y: -4.4, z: 0.2000122}
+  m_LocalPosition: {x: 0.02, y: -3.2, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1927685805}
@@ -13746,7 +13746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 666534056}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &666534059
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14714,7 +14714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -201.36}
+  m_AnchoredPosition: {x: 4, y: -359.61}
   m_SizeDelta: {x: 100, y: 100.38577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &701040416
@@ -14736,7 +14736,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7fa24a632eafa944b8d35173a47713af, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17690,7 +17690,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810426741}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.24, y: -4.4, z: 0.2000122}
+  m_LocalPosition: {x: 0.9, y: -3.25, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1927685805}
@@ -17709,7 +17709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 810426741}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &810426744
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18399,7 +18399,7 @@ GameObject:
   - component: {fileID: 852256877}
   - component: {fileID: 852256876}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Safe_Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21749,7 +21749,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024544075}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.17276382, y: 0.7572212, z: 0.2000122}
+  m_LocalPosition: {x: -0.17276382, y: 0.46, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 373053699}
@@ -22137,7 +22137,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.53929526, y: 0.5}
-  m_AnchoredPosition: {x: -7.6284, y: 300}
+  m_AnchoredPosition: {x: -3.6283998, y: 141.75}
   m_SizeDelta: {x: 84.743286, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1055829187
@@ -22159,7 +22159,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 815bfaeca39ae6443a9901f6a22db0c2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22606,7 +22606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1071352135}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &1071352138
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22818,7 +22818,7 @@ GameObject:
   - component: {fileID: 1086223831}
   - component: {fileID: 1086223832}
   m_Layer: 0
-  m_Name: "\uC11C\uC7AC 1 (1)"
+  m_Name: Safe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22920,7 +22920,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108043656}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.7400017, y: -3, z: 0.2000122}
+  m_LocalPosition: {x: -2.89, y: -2.12, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2049326562}
@@ -22939,7 +22939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1108043656}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &1108043659
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23405,7 +23405,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144851591}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.6599998, y: 0.8499985, z: 0.2000122}
+  m_LocalPosition: {x: 1.47, y: 0.83, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 373053699}
@@ -23424,7 +23424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1144851591}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &1144851594
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -24643,7 +24643,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1188557241}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.24, y: 1.23, z: 612}
+  m_LocalPosition: {x: -3.9, y: 0.78, z: 612}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 403305575}
@@ -24784,7 +24784,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200171502}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.459999, y: -3, z: 0.2000122}
+  m_LocalPosition: {x: 2.1, y: -1.96, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2049326562}
@@ -24803,7 +24803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1200171502}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &1200171505
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -24880,7 +24880,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215145677}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.4300003, y: 0.84000015, z: 0.2000122}
+  m_LocalPosition: {x: -2.18, y: 0.76, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 373053699}
@@ -24899,7 +24899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1215145677}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &1215145680
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -25480,7 +25480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247758036}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.03, y: 3.49, z: 612}
+  m_LocalPosition: {x: 3.71, y: 2.58, z: 612}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 403305575}
@@ -25635,7 +25635,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000061035, y: 0}
+  m_AnchoredPosition: {x: 3.999939, y: -158.25}
   m_SizeDelta: {x: 100, y: 100.38577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1256445713
@@ -25657,7 +25657,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1680398f133cb00448a3d18931901d56, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -26320,7 +26320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1282228392}
-  Enemy: {fileID: 569968782}
+  candle: {fileID: 0}
 --- !u!224 &1282228396
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26963,7 +26963,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319882831}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.7700005, y: -0.89, z: 0.2000122}
+  m_LocalPosition: {x: -2.96, y: -0.49, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1452079583}
@@ -26982,7 +26982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1319882831}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &1319882834
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27188,7 +27188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335778035}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.45000076, y: -3, z: 0.2000122}
+  m_LocalPosition: {x: 0.32, y: -2.02, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2049326562}
@@ -27207,7 +27207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1335778035}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &1335778038
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27284,7 +27284,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1337787577}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.7700005, y: 0.79999924, z: 0.2000122}
+  m_LocalPosition: {x: -2.92, y: 0.76, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 373053699}
@@ -27303,7 +27303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1337787577}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &1337787580
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27795,7 +27795,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350703000}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.78, y: -4.4, z: 0.2000122}
+  m_LocalPosition: {x: 2.06, y: -3.27, z: 0.2000122}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 1927685805}
@@ -27814,7 +27814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1350703000}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &1350703003
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28610,8 +28610,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 192.1}
-  m_SizeDelta: {x: 388.25967, y: 827.9265}
+  m_AnchoredPosition: {x: -4, y: 202.7}
+  m_SizeDelta: {x: 388.25967, y: 833.72205}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1422375435 stripped
 RectTransform:
@@ -29764,7 +29764,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489372026}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.701, y: -0.89, z: 0.2000122}
+  m_LocalPosition: {x: 1.43, y: -0.21, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1452079583}
@@ -29783,7 +29783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1489372026}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &1489372029
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30920,7 +30920,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554036172}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.56, y: 0.79, z: 612}
+  m_LocalPosition: {x: -3.75, y: 2.4, z: 612}
   m_LocalScale: {x: 0.9422637, y: 0.8577044, z: 1}
   m_Children: []
   m_Father: {fileID: 403305575}
@@ -32925,7 +32925,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1667585562}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1200027, y: 0.829998, z: 0.2000122}
+  m_LocalPosition: {x: -1.01, y: 0.829998, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 373053699}
@@ -32944,7 +32944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1667585562}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &1667585565
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -34857,7 +34857,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744018597}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.89, y: -4.4, z: 0.2000122}
+  m_LocalPosition: {x: 2.98, y: -3.27, z: 0.2000122}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 1927685805}
@@ -34876,7 +34876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1744018597}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &1744018600
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -35033,7 +35033,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763206072}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.83, y: -4.4, z: 0.2000122}
+  m_LocalPosition: {x: -1.33, y: -3.18, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1927685805}
@@ -35052,7 +35052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1763206072}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &1763206075
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -36164,7 +36164,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805635838}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.4900017, y: -2.9700012, z: 0.2000122}
+  m_LocalPosition: {x: -2.13, y: -2.1, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2049326562}
@@ -36183,7 +36183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1805635838}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &1805635841
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -38141,7 +38141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918166600}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0400009, y: -3, z: 0.2000122}
+  m_LocalPosition: {x: -1.05, y: -2.11, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2049326562}
@@ -38160,7 +38160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1918166600}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &1918166603
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -38245,8 +38245,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.11253147}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -294.05}
-  m_SizeDelta: {x: 100, y: -115.78088}
+  m_AnchoredPosition: {x: 5, y: -378.99997}
+  m_SizeDelta: {x: 100, y: -231.68387}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1922072611
 MonoBehaviour:
@@ -38261,13 +38261,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.9764151, b: 0.9764151, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f08b04531ce414046b5a9edd0add5e97, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -40489,8 +40489,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -187.8, y: 0}
-  m_SizeDelta: {x: -861.1455, y: 0}
+  m_AnchoredPosition: {x: -204.18, y: 279.7}
+  m_SizeDelta: {x: -861.1455, y: 215.315}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2006421381
 MonoBehaviour:
@@ -41040,7 +41040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 200}
+  m_AnchoredPosition: {x: 4, y: 41.75}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2019480197
@@ -41062,7 +41062,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: d6ea20a98ce2be14e995c385ddb512c9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -41230,7 +41230,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027743835}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.12, y: -0.95, z: 0.2000122}
+  m_LocalPosition: {x: -1.14, y: -0.46, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1452079583}
@@ -41249,7 +41249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 2027743835}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &2027743838
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -41479,7 +41479,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034407206}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.709999, y: -4.4, z: 0.2000122}
+  m_LocalPosition: {x: -2.97, y: -3.22, z: 0.2000122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1927685805}
@@ -41498,7 +41498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 2034407206}
-  Enemy: {fileID: 1912758617}
+  candle: {fileID: 1912758617}
 --- !u!212 &2034407209
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -42928,7 +42928,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 500}
+  m_AnchoredPosition: {x: 4, y: 341.75}
   m_SizeDelta: {x: 100, y: 100.38577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2109296297
@@ -42950,7 +42950,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 96f9a80e25fe8014291f3078431f068c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

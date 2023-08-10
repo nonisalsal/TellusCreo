@@ -7,7 +7,7 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 {
     private Transform canvas;
     private RectTransform rect;
-    private Transform previousParent;
+    private Transform previousParent; //이전 부모 오브젝트
     private CanvasGroup canvasGroup;
     // Start is called before the first frame update
     private void Awake()
@@ -75,17 +75,6 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         //    }
 
-        //else
-        //    {
-        //            if (eventData.pointerDrag != null)
-        //            {
-
-        //                eventData.pointerDrag.transform.SetParent(transform);
-        //                eventData.pointerDrag.GetComponent<RectTransform>().position = rect.position;
-
-
-        //            }
-        //    }
         if (eventData.pointerDrag != null)
         {
 

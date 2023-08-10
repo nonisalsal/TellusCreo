@@ -26,6 +26,7 @@ public class WetTissue : MonoBehaviour
             if (tissueList.Count > 0)
             {
                 tissueList[0].SetActive(true);
+                SoundManager.Instance.Play("puzzle_tissue");
             }
         }
         else

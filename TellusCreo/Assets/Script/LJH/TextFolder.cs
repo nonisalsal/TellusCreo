@@ -5,21 +5,14 @@ using UnityEngine;
 public class TextFolder : MonoBehaviour
 {
     // Start is called before the first frame update
-    public bool state = false;
-   
+    public bool state = false; 
+
     void Start()
     {
         
         
     }
 
-    // Update is called once per frame
-    //void Update()
-    //{
-        
-
-
-    //}
 
     
 
@@ -49,7 +42,7 @@ public class TextFolder : MonoBehaviour
         if(collision.CompareTag("StartFolder"))
         {
             state = true;
-            //Debug.Log("우왕");
+           
            
         }
         

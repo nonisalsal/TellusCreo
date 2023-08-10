@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class DistanceObj : MonoBehaviour
 {
-    public GameObject Player;
-    private float Dist;
-    public GameObject Enemy;
-    
+    public GameObject Player; //거리에 따라 투명도가 조절 될 오브젝트
+    private float Dist; //양초 오브젝트와의 거리
+    public GameObject candle; //양초 오브젝트
+
     SpriteRenderer sr;
 
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class DistanceObj : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Dist = Vector2.Distance(Enemy.transform.position, Player.transform.position);
+        Dist = Vector2.Distance(candle.transform.position, Player.transform.position);
 
         ObjDist();
     }
@@ -30,7 +30,7 @@ public class DistanceObj : MonoBehaviour
   
 
 
-    private void ObjDist()
+    private void ObjDist()// 오브젝트의 거리에 따라 숨겨진 글씨의 투명도가 조절되는 함수
     {
         if(Dist > 9)
         {

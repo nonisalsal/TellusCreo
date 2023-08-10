@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ClickObject : MonoBehaviour
 {
@@ -12,7 +10,7 @@ public class ClickObject : MonoBehaviour
     Sprite sprite;
     [Header("활성화 할 오브젝트")]
     [SerializeField]
-    GameObject activeObject;
+    protected GameObject activeObject;
 
     virtual protected void Start()
     {
