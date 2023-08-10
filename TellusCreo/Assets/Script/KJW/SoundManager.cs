@@ -114,6 +114,7 @@ public class SoundManager : MonoBehaviour
         bgmSource.Stop();
         bgmSource.pitch = pitch;
         bgmSource.clip = audioClip;
+        bgmSource.volume = 0.5f;
         bgmSource.Play();
     }
 
