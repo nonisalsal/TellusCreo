@@ -23,6 +23,6 @@ public class P_UI : MonoBehaviour
 
 	public void ClickBackArrow()
 	{
-		
+		cameraController.ExitPuzzle();
 	}
 }

@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using UnityEngine;
 
 public class Poster : MonoBehaviour
 {
@@ -9,7 +6,6 @@ public class Poster : MonoBehaviour
     int _prevIdx;
     int _curIdx;
     int _lineIdx;
-    bool isStart;
     bool clearPuzzle;
     [SerializeField]
     bool correct;
@@ -20,7 +16,6 @@ public class Poster : MonoBehaviour
     {
         clearPuzzle = false;
         correct = true;
-        isStart = false;
         _lineIdx = 0;
         _prevIdx = -1;
         _curIdx = -1;
@@ -52,7 +47,7 @@ public class Poster : MonoBehaviour
             return;
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
@@ -70,6 +65,7 @@ public class Poster : MonoBehaviour
             _lr.positionCount++;
             _lr.SetPosition(_lineIdx++, hit.collider.transform.position);
             hit.collider.GetComponent<PosterPoint>().OnPointClick();
+            SoundManager.Instance.Play("puzzle_poster_line");
         }
         else if (Input.GetMouseButtonDown(1))
         {

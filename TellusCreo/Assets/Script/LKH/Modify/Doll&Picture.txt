@@ -1,0 +1,113 @@
+사용되는 스크립트 > P_ChangePos & P_DragAndDrop & P_IsRigthPos
+
+순서
+
+Reset
+
+Awake
+
+OnEnable
+
+*Start
+>changePos: isTrigger를 true로
+>DrageAndDrop: tag & layer를 기본 상태로 변경
+>IsRightPos: isRight초기화
+
+*FixedUpdate
+>changePos: startOnTrig가 true면 코루틴으로 StartSet 실행
+
+*OnTrigger
+>changePos: isSet false일 때, collision의 태그가 P_stop이면 afterPos에 collision의 위치를 저장하고, collision의 위치를 beforePos로 변경 > beforePos에 afterPos를 저장
+>IsRightPos: 오브젝트와 충돌 시, 충돌한 오브젝트가 correctObj와 같을 경우 isTrigger를 true, 아니면 isTrigger와 isRight를 false로 초기화 / 오브젝트와 충돌에서 벗어나면 isTrigger를 false로 초기화
+
+OnCollision
+
+yield WaitForFixedUpdate
+
+*OnMouse
+>DragAndDrop: 오브젝트가 드래그를 따라오게 하는 코드
+
+*Update
+>changePos: 태그를 통해 움직이고있는 상태인지를 판단 >> 삭제하고 필요할 때 태그를 받아오는 방법은?
+오브젝트를 터치한 순간, isSet을 false로 바꾸고, beforePos에 현재 위치를 저장. checkLayer를 1으로 변경 / 오브젝트에서 터치를 떼는 순간, checkLayer가 1이고 isMove가 false면 checkLayer를 2로 변경
+>DragAndDrop: 오브젝트를 터치한 순간 태그를 P_move로 바꾸고 레이어를 31로 변경 / 오브젝트에서 터치를 떼는 순간, 태그를 P_stop으로 바꾸고 레이어를 30으로 변경
+
+*yield null -> 일반적인 코루틴 업데이트는 Update가 반환된 후 실행된다.
+>changePos: SetObj실행 > isSet이 false고 isMove가 false면 예전 위치로 돌아간다 > isSet true, startOnTrig false, checkLayer 0으로 초기화
+
+*LateUpdate
+>changePos: checkLayer가 2면 startOnTrig를 true로 설정 >> LateUpdate에 안둬도 될듯
+>isRightPos: isTrigger가 true면 isRight를 true로 설정 >> isTrigger를 사용할 필요가 없을듯
+
+OnWill
+
+..
+
+
+1. 플레이어가 오브젝트를 클릭한다.
+> FixedUpdate 비활
+> OnTrigger 비활
+> OnMouse 비활
+> Update
+	- C: isSet=false. beforePos. checkLayer=1
+	- D: P_move. Layer(31) > 이 때 isMove가 true가 되거나 아니면 다음 프레임에서 isMove=true
+> yield 비활
+> LateUpdate 비활
+
+2. 플레이어가 오브젝트를 드래그하여 움직인다
+> FixedUpdate 비활
+> OnTrigger
+	- I: isTrigger=false
+> OnMouse
+	- D: OnMouseDrag
+> Update 비활
+> yield 비활
+> LateUpdate 비활
+
+3. 플레이어가 오브젝트를 놓는다. 
+> FixedUpdate 비활
+> OnTrigger 비활
+> OnMouse 비활
+> Update
+	- C: checkLayer==1&&isMove==false면 checkLayer=2
+		*checkLayer: 이동중이었던게 이 오브젝트가 맞는지 판단
+		*isMove: 해당 오브젝트가 움직이고 있는 상태인지를 판단
+	- D: P_stop. Layer(30) > 이 때 isMove가 false가 되거나 아니면 다음 프레임에서 isMove=false
+> yield 비활
+> LateUpdate
+	- C: checkLayer==2면 startOnTrig=true
+
+4-1-1. 오브젝트가 다른 오브젝트와 겹쳐있는 경우
+> FixedUpdate
+	- C: startOnTrig==true면 코루틴으로 StartSet실행
+> OnTrigger
+	- C: 충돌판정 만족. 충돌한 오브젝트는 위치를 변경시켜주고 이 오브젝트는 변경해줄 세팅 완료
+		*충돌한 오브젝트는 isSet이 true이기 때문에 OnTrigger 내의 기능이 실행되지 않음
+	- I: currentObj면 isTrigger=true가 됐다가(this enter) 다시 false가 됨(collision exit) / 아닐 경우 그냥 false가 됨.
+> OnMouse 비활
+> Update 비활
+> yield null
+	- C: isSet==false&&isMove==false면 beforePos로 돌아감 / isSet=true. startOnTrig=false. checkLayer=0
+> LateUpdate 비활
+
+4-1-2.
+> FixedUpdate 비활
+> OnTrigger
+	- I: 충돌한 오브젝트가 correctObj면 isTrigger=true / 아닐 때는 isTrigger=false. isRight=false.
+		*코드가 안정적으로 작동하려면 충돌에서 벗어났을 때도 isRight=false해주는게 좋을 듯함.
+> OnMouse 비활
+> Update 비활
+> yield null 비활
+> LateUpdate
+	- isRightPos: isTrigger가 true면 isRight를 true로
+
+4-2. 오브젝트가 다른 오브젝트와 겹쳐있지 않은 경우
+> FixedUpdate
+	- C: startOnTrig==true면 코루틴으로 StartSet실행
+> OnTrigger 비활
+> OnMouse 비활
+> Update 비활
+> yield null
+	- C: isSet==false&&isMove==false면 beforePos로 돌아감 / isSet=true. startOnTrig=false. checkLayer=0
+> LateUpdate 비활
+

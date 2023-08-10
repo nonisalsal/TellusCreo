@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2befd667d737bdf44bec418727b78ed6, type: 3}
   m_Name: Violin
   m_EditorClassIdentifier: 
-  itemName: Violin
+  itemName: puzzle_violin
   icon: {fileID: 21300000, guid: dfd5d10a68265c54f94fb775e96b0947, type: 3}
+  interactTag: Item_Violin

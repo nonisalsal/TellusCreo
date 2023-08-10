@@ -13,6 +13,8 @@ public class P_Camera : MonoBehaviour
 	public float puzzlePos_y = 20f;
 	private Vector3 puzzlePos;
 
+	private P_PuzzleInfo nowPuzzle;
+
 	private void Start()
 	{
 		sidePos_x = -30f;
@@ -20,13 +22,20 @@ public class P_Camera : MonoBehaviour
 
 		puzzlePos = new Vector3(puzzlePos_x, puzzlePos_y, -10f);
 
+		nowPuzzle = null;
+
 		nonPuzzleCanvas.SetActive(true);
 		puzzleCanvas.SetActvie(false);
 	}
 
-	public void PlayPuzzle()
+	public void PlayPuzzle(P_PuzzleInfo clickPuzzle)
 	{
-		transform.position = puzzlePos;
+		if (nowPuzzle == null)
+		{
+			transform.position = puzzlePos;
+			nowPuzzle = clickPuzzle;
+			nowPuzzle.IsActive_true();
+		}
 		
 		nonPuzzleCanvas.SetActive(false);
 		puzzleCanvas.SetActive(true);
@@ -34,7 +43,12 @@ public class P_Camera : MonoBehaviour
 
 	public void ExitPuzzle()
 	{
-		transform.position = new Vector3(sidePos_x, 0f, -10f);
+		if (nowPuzzle != null)
+		{
+			transform.position = new Vector3(sidePos_x, 0f, -10f);
+			nowPuzzle.IsActive_false();
+			nowPuzzle = null;
+		}
 
 		nonPuzzleCanvas.SetActive(true);
 		puzzleCanvas.SetActive(false);

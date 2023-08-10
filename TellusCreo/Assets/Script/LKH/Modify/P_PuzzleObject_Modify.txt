@@ -27,8 +27,7 @@ public class P_PuzzleObject : MonoBehaviour
 			if (hit != null)
 			{
 				P_PuzzleInfo clickPuzzle = CheckObj(hit);
-				clickPuzzle.IsActive_true();
-				cameraController.PlayPuzzle();
+				cameraController.PlayPuzzle(clickPuzzle);
 			}
 		}
 	}

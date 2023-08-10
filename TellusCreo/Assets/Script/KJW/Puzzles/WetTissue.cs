@@ -26,6 +26,7 @@ public class WetTissue : MonoBehaviour
             if (tissueList.Count > 0)
             {
                 tissueList[0].SetActive(true);
+                SoundManager.Instance.Play("puzzle_tissue");
             }
         }
         else
@@ -33,6 +34,7 @@ public class WetTissue : MonoBehaviour
             if (!clear)
             {
                 clear = true;
+                SoundManager.Instance.Play("puzzle_clear");
                 GameObject Mars = Instantiate(mars, transform.position, Quaternion.identity);
                 Mars.transform.SetParent(this.transform);
                 Mars.transform.localPosition = new Vector3(0.0f, 0.8f, 0.0f);

@@ -9,6 +9,7 @@ public class ShadowButton : MonoBehaviour
 
     private void OnMouseDown()
     {
+        SoundManager.Instance.Play("light_switch");
         if (puzzle.IsOnStand)
         {
             UpdateShadowSprite();
