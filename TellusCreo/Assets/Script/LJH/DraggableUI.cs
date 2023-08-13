@@ -65,14 +65,7 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     {
 
 
-        ///pointerDrag는 현재 드래그하고 있는 대상(= 아이템)
-        //if(transform.parent.transform.childCount >= 1)     //이미 슬롯에 자식이 1개이상 있을 때 
-        //    {
-
-        //            transform.SetParent(previousParent);
-        //            rect.position = previousParent.GetComponent<RectTransform>().position;    //이전 부모 슬롯으로 돌아가는 코드  
-
-
+  
         //    }
 
         if (eventData.pointerDrag != null)
@@ -81,14 +74,6 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             eventData.pointerDrag.transform.SetParent(transform);
             eventData.pointerDrag.GetComponent<RectTransform>().position = rect.position;
 
-
-
-
-
-            //    // 드래그하고 있는 대상의 부모를 현재 오브젝트로 설정하고, 위치를 현재 오브젝트 위치와 동일하게 설정
-            //    //eventData.pointerDrag.transform.SetParent(transform);
-            //    //eventData.pointerDrag.GetComponent<RectTransform>().position = rect.position;
-            //}
         }
 
 

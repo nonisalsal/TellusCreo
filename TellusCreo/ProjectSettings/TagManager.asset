@@ -29,6 +29,15 @@ TagManager:
   - Keybox
   - Item_guitar
   - P_item
+  - Item_Guitar
+  - Item_violin
+  - Item_drum
+  - Item_KeyB
+  - Item_SpinC
+  - Item_TopSpinA
+  - Item_TopSpinB
+  - Item_TopSpinC
+  - Item_KeyA
   layers:
   - Default
   - TransparentFX
