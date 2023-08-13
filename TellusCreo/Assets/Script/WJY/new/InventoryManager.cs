@@ -42,13 +42,34 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    public void AddItemByName(string itemName)
+    {
+        if (itemDictionary.TryGetValue(itemName, out Item itemToAdd))
+        {
+            if (!Items.Contains(itemToAdd))
+            {
+                Items.Add(itemToAdd);
+                UpdateInventoryUI(); // 아이템이 추가되었으므로 인벤토리를 갱신
+            }
+        }
+    }
+
     public void Remove(Item item)
     {
         Items.Remove(item);
+       
         UpdateInventoryUI(); // 아이템이 삭제되었으므로 인벤토리를 갱신
     }
-
-    private void UpdateInventoryUI()
+    public void RemoveItemFromInventory(string itemName)
+    {
+        if (HasItem(itemName))
+        {
+            Item itemToRemove = itemDictionary[itemName];
+            Remove(itemToRemove); // Items 리스트에서 아이템 삭제
+            UpdateInventoryUI(); // 인벤토리 UI 갱신
+        }
+    }
+    public void UpdateInventoryUI()
     {
         foreach (Transform item in ItemContent)
         {
@@ -58,10 +79,9 @@ public class InventoryManager : MonoBehaviour
         foreach (var item in Items)
         {
             GameObject obj = Instantiate(InventoryItem, ItemContent);
-            var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
+            var itemIcon = obj.transform.Find("Border/ItemIcon").GetComponent<Image>();
             itemIcon.sprite = item.icon;
-            // InstantiateItemAndSetToDragAndDrop(item); // 제거
-            // Add(item); // 제거
+            
         }
     }
 

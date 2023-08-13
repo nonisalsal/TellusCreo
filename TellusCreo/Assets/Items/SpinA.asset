@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2befd667d737bdf44bec418727b78ed6, type: 3}
-  m_Name: Ball
+  m_Name: SpinA
   m_EditorClassIdentifier: 
-  itemName: Ball
-  icon: {fileID: 21300000, guid: fa2bfb11a593601449c51784532e8b2f, type: 3}
+  itemName: SpinA
+  icon: {fileID: 21300000, guid: 089c707b8fd62d847956616ecf9c00e8, type: 3}
   interactTag: 
