@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class WetTissue : MonoBehaviour
 {
-
+    bool isFirstClick = true;
     bool clear;
     public GameObject mars;
+    public Item Item;
 
     [SerializeField]
     Transform spwanPos;
@@ -22,6 +23,11 @@ public class WetTissue : MonoBehaviour
         if (tissueList.Count > 0)
         {
             tissueList[0].GetComponent<Tissue>().PullTissue((order = !order));
+            var itemPickupComponent = tissueList[0].GetComponent<ItemPickup>();
+            if (itemPickupComponent != null)
+            {
+                InventoryManager.Instance.Add(itemPickupComponent.Item);
+            }
             tissueList.RemoveAt(0);
             if (tissueList.Count > 0)
             {
@@ -39,7 +45,6 @@ public class WetTissue : MonoBehaviour
                 Mars.transform.SetParent(this.transform);
                 Mars.transform.localPosition = new Vector3(0.0f, 0.8f, 0.0f);
             }
-
         }
     }
 
@@ -54,6 +59,10 @@ public class WetTissue : MonoBehaviour
             tissueList.Add(tempGamObj);
         }
         tissueList[0].SetActive(true);
+        tissueList[0].AddComponent<ItemPickup>();
+        tissueList[0].GetComponent<ItemPickup>().Item = Item;
+
+
         order = false;
         clear = false;
     }

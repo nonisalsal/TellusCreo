@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2befd667d737bdf44bec418727b78ed6, type: 3}
-  m_Name: Ball
+  m_Name: Drum
   m_EditorClassIdentifier: 
-  itemName: Ball
-  icon: {fileID: 21300000, guid: fa2bfb11a593601449c51784532e8b2f, type: 3}
-  interactTag: 
+  itemName: Drum
+  icon: {fileID: 21300000, guid: fad43eca98012bb4e8fcafda60a48344, type: 3}
+  interactTag: Item_Drum

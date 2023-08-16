@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2befd667d737bdf44bec418727b78ed6, type: 3}
-  m_Name: Ball
+  m_Name: ClueWire3
   m_EditorClassIdentifier: 
-  itemName: Ball
-  icon: {fileID: 21300000, guid: fa2bfb11a593601449c51784532e8b2f, type: 3}
+  itemName: Wire3
+  icon: {fileID: 21300000, guid: 1c5031d773cf37e4587f69014ea7684e, type: 3}
   interactTag: 

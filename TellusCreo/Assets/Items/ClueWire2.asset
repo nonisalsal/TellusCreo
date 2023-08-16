@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2befd667d737bdf44bec418727b78ed6, type: 3}
-  m_Name: Wire2
+  m_Name: ClueWire2
   m_EditorClassIdentifier: 
   itemName: Wire2
-  icon: {fileID: 21300000, guid: 1939fb3b69421fe499b069216f78b938, type: 3}
+  icon: {fileID: 21300000, guid: bc1581eab7bb6fc4d8e7a039f7fe607b, type: 3}
+  interactTag: 

@@ -14,7 +14,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public Itemmanager itemManager;
     public Itemmanager ViolinitemManager;
 
-    private SpriteRenderer puzzleGuitarRenderer;
+    
     private SpriteRenderer puzzleviolinRenderer;
     public GameObject pair;
     public GameObject clear;
@@ -25,37 +25,12 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
-        InitializeObjects();
     }
 
-    private void Update()
-    {
-        
-          InitializeObjects();
-       
-    }
 
-    public void InitializeObjects()
-    {
-        GameObject itemManagerObject = GameObject.Find("Guitar_manager");
-        itemManager = itemManagerObject.GetComponent<Itemmanager>();
-        GameObject Violin_managerObject = GameObject.Find("Violin_manager");
-        ViolinitemManager = Violin_managerObject.GetComponent<Itemmanager>();
-        puzzleGuitarRenderer = GameObject.FindGameObjectWithTag("Item_Guitar")?.GetComponent<SpriteRenderer>();
-        puzzleviolinRenderer = GameObject.FindGameObjectWithTag("Item_violin")?.GetComponent<SpriteRenderer>();
-        if (puzzleGuitarRenderer == null)
-        {
-            Debug.LogWarning("puzzle_guitar 오브젝트를 찾지 못하거나 SpriteRenderer 컴포넌트를 찾지 못했습니다.");
-        }
 
-        puzzleviolinRenderer = GameObject.FindGameObjectWithTag("Item_violin")?.GetComponent<SpriteRenderer>();
 
-        if (puzzleviolinRenderer == null)
-        {
-            Debug.LogWarning("puzzle_violin 오브젝트를 찾지 못하거나 SpriteRenderer 컴포넌트를 찾지 못했습니다.");
-        }
-    }
-   
+
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -64,13 +39,10 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         transform.SetAsLastSibling();
         canvasGroup.blocksRaycasts = false;
 
-        // 드래그 중인 아이템을 currentItem에 할당
-        currentItem = itemManager.item.interactTag;
-        Debug.Log(currentItem);
-        // currentItem이 유효한지 확인
-      
+
+
     }
-    
+
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -83,52 +55,76 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
         Vector3 dropPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         dropPosition.z = 0f;
-
+        List<Item> Items = InventoryManager.Instance.GetItems();
         Collider2D[] colliders = Physics2D.OverlapPointAll(dropPosition);
-
-        InventoryManager inventoryManager = FindObjectOfType<InventoryManager>();
-        List<Item> itemsInInventory = inventoryManager.GetItems();
 
         foreach (Collider2D collider in colliders)
         {
-            foreach (Item inventoryItem in itemsInInventory)
+            // 다른 오브젝트와의 충돌 판정을 수행하고 원하는 동작을 수행합니다.
+            if (collider.CompareTag("Item_Guitar"))
             {
-                if (collider.CompareTag(inventoryItem.interactTag))
-                {
-                    Debug.Log(collider.gameObject.name);
-                    Debug.Log(inventoryItem.itemName);
-
-                    // 각 아이템에 맞게 동작 수행
-                    if (collider.gameObject.name == itemManager.item.name)
-                    {
-                   
-
-                        if (puzzleGuitarRenderer != null)
-                        {
-                            puzzleGuitarRenderer.enabled = !puzzleGuitarRenderer.enabled;
-                            Destroy(gameObject); // 해당 게임 오브젝트를 삭제
-                        }
-
-
-                        else if (collider.gameObject.name == ViolinitemManager.item.name) // 여기에 바이올린 이름의 오브젝트의 이름을 넣어주세요.
-                        {
-                            Debug.Log(inventoryItem.itemName + "와(과) " + collider.tag + " 상호작용");
-
-                    
-                            if (puzzleviolinRenderer != null)
-                            {
-                                puzzleviolinRenderer.enabled = !puzzleviolinRenderer.enabled;
-                                Destroy(gameObject); // 해당 게임 오브젝트를 삭제
-                            }
-                            
-                        }
-
-                    }
-
-                    break;
-                }
+                on.Instance.SpriteOn();
+                string itemNameToRemove = "Guitar"; // 제거할 아이템의 이름
+                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
+                Destroy(gameObject);
             }
+
+            else if(collider.CompareTag("Item_violin"))
+            {
+                on.Instance.SpriteOn1();
+                string itemNameToRemove = "puzzle_violin"; // 제거할 아이템의 이름
+                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
+                Destroy(gameObject);
+            }
+
+            else if (collider.CompareTag("Item_drum"))
+            {
+                on.Instance.SpriteOn2();
+                string itemNameToRemove = "Drum"; // 제거할 아이템의 이름
+                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
+                Destroy(gameObject);
+            }
+
+            else if (collider.CompareTag("Item_KeyA"))
+            {
+                on.Instance.SpriteOn3();
+                string itemNameToRemove = "KeyA"; // 제거할 아이템의 이름
+                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
+                Destroy(gameObject);
+            }
+
+            else if (collider.CompareTag("Item_KeyB"))
+            {
+                on.Instance.SpriteOn4();
+                string itemNameToRemove = "KeyB"; // 제거할 아이템의 이름
+                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
+                Destroy(gameObject);
+            }
+
+            else if (collider.CompareTag("Item_TopSpinA"))
+            {
+                on.Instance.SpriteOn5();
+                string itemNameToRemove = "SpinA"; // 제거할 아이템의 이름
+                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
+                Destroy(gameObject);
+            }
+            else if (collider.CompareTag("Item_TopSpinB"))
+            {
+                on.Instance.SpriteOn6();
+                string itemNameToRemove = "SpinB"; // 제거할 아이템의 이름
+                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
+                Destroy(gameObject);
+            }
+            else if (collider.CompareTag("Item_TopSpinC"))
+            {
+                on.Instance.SpriteOn7();
+                string itemNameToRemove = "SpinC"; // 제거할 아이템의 이름
+                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
+                Destroy(gameObject);
+            }
+
         }
+
 
         transform.SetParent(parentAfterDrag);
     }
