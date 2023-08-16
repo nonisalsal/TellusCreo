@@ -29,6 +29,10 @@ public class LockBox : MonoBehaviour
 
     void OnMouseDown()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
         ChangeLockBox();
     }
 
@@ -84,12 +88,18 @@ public class LockBox : MonoBehaviour
             if(LockBoxState == LockBoxType.Open)
             {
                 action(LockBoxType.Unlock);
-                _rewardBall?.SetActive(false);
+                if (_rewardBall != null)
+                {
+                    _rewardBall?.SetActive(false);
+                }
             }
             else
             {
                 action(LockBoxType.Open);
+                if(_rewardBall != null)
+                { 
                 _rewardBall?.SetActive(true);
+                }
             }
         }
     }
