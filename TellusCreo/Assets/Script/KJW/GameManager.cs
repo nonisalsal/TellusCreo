@@ -241,14 +241,18 @@ public class GameManager : MonoBehaviour
                         Debug.Log("PosterCorners");
 #endif
                         BackgroundManager background = hitGameObject.transform.parent.parent.GetComponent<BackgroundManager>();
-                        background?.transform.GetChild(1).gameObject.SetActive(true); // AfterPoster
-                        background?.transform.GetChild(0).gameObject.SetActive(false); // BeforePoster
+                        background?.transform.Find("AfterPoster")?.gameObject.SetActive(true); // AfterPoster
+                        background?.transform.Find("BeforePoster")?.gameObject.SetActive(false); // BeforePoster
+                                                                                                 // background?.transform.GetChild(0).gameObject.SetActive(false); // BeforePoster
                     }
                     else if (hitGameObject.CompareTag("AfterPoster"))
                     {
                         BackgroundManager background = hitGameObject.transform.parent.GetComponent<BackgroundManager>();
-                        hitGameObject.transform.gameObject.SetActive(false); // AfterPoster
-                        background?.transform.GetChild(0).gameObject.SetActive(true); // BeforePoster
+
+                        background?.transform.Find("AfterPoster")?.gameObject.SetActive(false); // AfterPoster
+                        background?.transform.Find("BeforePoster")?.gameObject.SetActive(true); // BeforePoster
+                        //hitGameObject.transform.gameObject.SetActive(false); // AfterPoster
+                        //background?.transform.GetChild(0).gameObject.SetActive(true); // BeforePoster
                     }
                     else
                     {

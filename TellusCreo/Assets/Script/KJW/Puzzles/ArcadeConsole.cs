@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class ArcadeConsole : MonoBehaviour
 {
     [SerializeField]
+    Item launcher;
+    [SerializeField]
     GameObject nameObject;
     [SerializeField]
     List<Text> nickNameList;
@@ -100,6 +102,10 @@ public class ArcadeConsole : MonoBehaviour
         {
             clearArcade = true;
             GameManager.Instance[(int)GameManager.Puzzle.ArcadeConsole - GameManager.Instance.NUMBER_OF_PUZZLES] = true;
+            if(InventoryManager.Instance!=null)
+            {
+                InventoryManager.Instance.Add(launcher);
+            }
         }    
     }
 }
