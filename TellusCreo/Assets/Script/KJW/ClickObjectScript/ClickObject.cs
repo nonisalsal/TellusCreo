@@ -16,8 +16,14 @@ public class ClickObject : MonoBehaviour
     {
         if (activeObject != null && cSpriteObject != null)
         {
-            cSpriteObject.Subscribe(() => activeObject?.SetActive(false));
+            cSpriteObject.Subscribe(() => DisableObject());
         }
+    }
+
+    void DisableObject()
+    {
+        if (activeObject != null)
+            activeObject?.SetActive(false);
     }
 
     void OnMouseDown()
