@@ -60,9 +60,15 @@ public class ChangeSpriteObject : MonoBehaviour
     /// </summary>
     private void NotifySubscribers()
     {
+        
         foreach (var subscriber in _subscribers)
         {
+            if(subscriber != null)
             subscriber?.Invoke();
+            else
+            {
+                _subscribers.Remove(subscriber);
+            }
         }
     }
 }

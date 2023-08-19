@@ -26,13 +26,12 @@ public class ClueManager : MonoBehaviour
 
     void OnMouseDown()
     {
+        ShowClue();
+        if (spritesForChange.Count <= 0)
+            return;
         Sprite sprite = spritesForChange[_index];
+        _index = (_index + 1) % spritesForChange.Count;
 
-        if (spritesForChange.Count > 0)
-        {
-            _index = (_index + 1) % spritesForChange.Count;
-
-        }
         if (isChild)
         {
             transform.parent.GetComponent<BackgroundManager>().ChangeBackgroundSprite(sprite);
@@ -40,7 +39,6 @@ public class ClueManager : MonoBehaviour
         else
         {
             spriteRenderer.sprite = sprite;
-            ShowClue();
         }
     }
 
