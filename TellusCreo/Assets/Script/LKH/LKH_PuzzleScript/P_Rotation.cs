@@ -10,18 +10,52 @@ public class P_Rotation : MonoBehaviour
     private int count;
 
     private bool isDrag = false;
-    public bool isRotation = false;
 
     private Vector2 beforePos, afterPos;
 
     private Rigidbody2D rig;
 
-    public Sprite rotationImg;
-    public GameObject pairTrigger;
-    public bool isSet;
-    public bool isSetAll;
+    [SerializeField] private Sprite rotationImg;
+    [SerializeField] private GameObject pairTrigger;
+    private bool isSet;
+    private bool isSetAll;
 
-    public GameObject rayControl;
+    private bool isRotation;
+    private bool rotateRight = false;
+    private bool rotateLeft = false;
+
+    private P_PuzzleClear clearController;
+    private Sprite originImg;
+    private Quaternion originRotation;
+
+    private void Awake()
+    {
+        isSet = false;
+        isSetAll = false;
+
+        rig = GetComponent<Rigidbody2D>();
+        clearController = transform.GetComponentInParent<P_PuzzleClear>();
+
+        originImg = GetComponent<SpriteRenderer>().sprite;
+        originRotation = transform.rotation;
+    }
+
+    private void OnEnable()
+    {
+        if (P_Camera.instance.nowPuzzle.Get_isClear())
+            return;
+
+        if (!isSetAll)
+            return;
+
+        GetComponent<SpriteRenderer>().sprite = originImg;
+        isDrag = false;
+        transform.rotation = originRotation;
+
+        isRotation = false;
+        rotateRight = false;
+        rotateLeft = false;
+    }
 
     private void Start()
     {
@@ -31,9 +65,6 @@ public class P_Rotation : MonoBehaviour
         road_x = new float[10];
         road_y = new float[10];
         count = 0;
-
-        isSet = false;
-        isSetAll = false;
 
         this.GetComponent<SpriteRenderer>().enabled = false;
     }
@@ -45,30 +76,47 @@ public class P_Rotation : MonoBehaviour
             isSet = true;
             this.GetComponent<SpriteRenderer>().enabled = true;
             collision.gameObject.SetActive(false);
+
+            CheckTrigger();
         }
     }
 
     private void Update()
     {
-        if (isSetAll == false) { CheckTrigger(); }
-        if (isSetAll == true) {
-            PlayerInput();
-            RotateObj();
+        if (!isSetAll)
+            return;
+
+        if (rotateRight) 
+        {
+            turnRight();
+            return;
         }
+
+        if (rotateLeft)
+        {
+            turnLeft();
+            return;
+        }
+
+        PlayerInput();
     }
 
     private void CheckTrigger()
     {
-        MonoBehaviour[] scripts = transform.parent.GetComponentsInChildren<P_Rotation>();
+        P_Rotation[] scripts = transform.parent.GetComponentsInChildren<P_Rotation>();
         int length = scripts.Length;
-        foreach (MonoBehaviour script in scripts)
+
+        foreach (P_Rotation script in scripts)
         {
-            if (script.GetComponent<P_Rotation>().isSet == false) { break; }
+            if (!script.Get_isSet())
+                break;
+
             else
             {
                 if (script == scripts[length - 1])
                 {
-                    GetComponent<P_Rotation>().isSetAll = true;
+                    foreach (P_Rotation script2 in scripts)
+                        script2.Set_isSetAll();
                 }
             }
         }
@@ -76,11 +124,10 @@ public class P_Rotation : MonoBehaviour
 
     private void RotateObj()
     {
-        //saveRoad(count);
-        //count += 1;
         distance = Mathf.Sqrt(((afterPos.x - beforePos.x) * (afterPos.x - beforePos.x)) +
             ((afterPos.y - beforePos.y) * (afterPos.y - beforePos.y)));
-        if (isRotation && distance >= 5)
+
+        if (distance >= 5)
         {
             this.GetComponent<SpriteRenderer>().sprite = rotationImg;
 
@@ -91,48 +138,42 @@ public class P_Rotation : MonoBehaviour
             }
             if (sum_x >= 0)
             {
-                if (sum_y <= 0) { turnRight(); }
-                else { turnLeft(); }
+                if (sum_y <= 0)
+                    rotateRight = true;
+                else
+                    rotateLeft = true;
             }
             else
             {
-                if (sum_y <= 0) { turnLeft(); }
-                else { turnRight(); }
+                if (sum_y <= 0)
+                    rotateLeft = true;
+                else
+                    rotateRight = true;
             }
         }
+
+        isRotation = true;
+        clearController.CheckClear_TopPuzzle();
     }
 
     private void PlayerInput()
     {
-        if (rayControl.GetComponent<P_GameManager>().isDown == true)
+        if (P_GameManager.instance.isDown)
         {
-            RaycastHit2D downHit = rayControl.GetComponent<P_GameManager>().downHit;
-            if (downHit)
+            GameObject downHit = P_GameManager.instance.downHit.collider.gameObject;
+            if (System.Object.ReferenceEquals(gameObject, downHit))
             {
-                if (System.Object.ReferenceEquals(this.gameObject, downHit.collider.gameObject))
-                {
-                    isDrag = true;
-                    beforePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                }
+                isDrag = true;
+                beforePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
         }
-        if (Input.GetMouseButtonUp(0))
+        if (P_GameManager.instance.isUp_nonCollider)
         {
             if (isDrag)
             {
                 afterPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                isRotation = true;
+                RotateObj();
             }
-        }
-    }
-
-    private void saveRoad(int count)
-    {
-        if (count < 10)
-        {
-            Vector2 thisPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            road_x[count] = thisPos.x;
-            road_y[count] = thisPos.y;
         }
     }
 
@@ -148,15 +189,17 @@ public class P_Rotation : MonoBehaviour
         }
     }
 
-    private void turnRight()
+    private void turnRight() { rig.angularVelocity = -speed; }
+
+    private void turnLeft() { rig.angularVelocity = speed; }
+
+    public bool Get_isSet() { return isSet; }
+
+    public void Set_isSetAll()
     {
-        rig = GetComponent<Rigidbody2D>();
-        rig.angularVelocity = -speed;
+        isSetAll = true;
+        Debug.Log("Set all tops");
     }
 
-    private void turnLeft()
-    {
-        rig = GetComponent<Rigidbody2D>();
-        rig.angularVelocity = speed;
-    }
+    public bool Get_isRotation() { return isRotation; }
 }

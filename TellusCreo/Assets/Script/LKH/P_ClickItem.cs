@@ -6,7 +6,7 @@ public class P_ClickItem : MonoBehaviour
 {
     public GameObject rayControl;
     private bool toybox;
-    private P_PuzzleObject toy_obj;
+    // private P_PuzzleObject toy_obj;
     private GameObject toy_after;
 
     private bool keyA = false;
@@ -17,7 +17,7 @@ public class P_ClickItem : MonoBehaviour
         if (this.name == "puzzle_toybox_cover")
         {
             toybox = true;
-            toy_obj = GameObject.Find("toy_box").GetComponent<P_PuzzleObject>();
+            // toy_obj = GameObject.Find("toy_box").GetComponent<P_PuzzleObject>();
             toy_after = GameObject.Find("Clear").transform.GetChild(2).gameObject;
         }
         if (this.name == "item_keyA") { keyA = true; }
@@ -43,7 +43,7 @@ public class P_ClickItem : MonoBehaviour
                     if (toybox)
                     {
                         toy_after.SetActive(true);
-                        toy_obj.puzzleClear = toy_after;
+                        // toy_obj.puzzleClear = toy_after;
                         Destroy(GameObject.Find("ToyBoxClear"));
                     }
                     else
@@ -53,8 +53,8 @@ public class P_ClickItem : MonoBehaviour
                             Debug.Log("Get " + this.name);
                             // 인벤토리
                             this.GetComponent<AudioSource>().Play();
-                            if (keyA) { rayControl.GetComponent<P_GameManager>().Set_isGetKeyA(); }
-                            if (keyB) { rayControl.GetComponent<P_GameManager>().Set_isGetKeyB(); }
+                            // if (keyA) { rayControl.GetComponent<P_GameManager>().Set_isGetKeyA(); }
+                            // if (keyB) { rayControl.GetComponent<P_GameManager>().Set_isGetKeyB(); }
                             Destroy(this.GetComponent<SpriteRenderer>());
                             Destroy(this.GetComponent<Collider2D>());
                         }

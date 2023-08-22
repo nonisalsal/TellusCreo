@@ -38,21 +38,21 @@ public class P_test : MonoBehaviour
                 {
                     if (isDrawer)
                     {
-                        if (!(rayControl.GetComponent<P_GameManager>().Get_isGetKeyB()))
-                        {
-                            Debug.Log("need keyB");
-                            this.GetComponent<AudioSource>().Play();
-                            return;
-                        }
+                        //if (!(rayControl.GetComponent<P_GameManager>().Get_isGetKeyB()))
+                        //{
+                        //    Debug.Log("need keyB");
+                        //    this.GetComponent<AudioSource>().Play();
+                        //    return;
+                        //}
                     }
                     if (isBedLeft)
                     {
-                        if (!(rayControl.GetComponent<P_GameManager>().Get_isGetKeyA()))
-                        {
-                            Debug.Log("need keyB");
-                            this.GetComponent<AudioSource>().Play();
-                            return;
-                        }
+                        //if (!(rayControl.GetComponent<P_GameManager>().Get_isGetKeyA()))
+                        //{
+                        //    Debug.Log("need keyB");
+                        //    this.GetComponent<AudioSource>().Play();
+                        //    return;
+                        //}
                     }
                     if (isConnected)
                     {

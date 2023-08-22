@@ -4,96 +4,87 @@ using UnityEngine;
 
 public class P_PuzzleClear : MonoBehaviour
 {
-    private int length;
+    [SerializeField] private GameObject puzzleObj;
+    private P_PuzzleInfo puzzleInfo;
 
-    public GameObject keyB;
-    public GameObject tower;
-    public GameObject top;
-    public GameObject puzzleObj;
-    private GameObject puzzleCopy;
+    private bool isDollPuzzle2;
 
-    private bool isDollPuzzle;
-    private P_GameManager gameManager;
+    [SerializeField] private GameObject keyB;
+
+    private void Awake()
+    {
+        puzzleInfo = puzzleObj.GetComponent<P_PuzzleInfo>();
+    }
 
     private void Start()
     {
-        length = 0;
-        puzzleObj = GetComponent<P_PuzzleObject>().puzzleObj;
-        if (puzzleObj.name == "DollPuzzle2") { isDollPuzzle = true; }
-        else { isDollPuzzle = false; }
-
-        gameManager = FindObjectOfType<P_GameManager>();
+        if (gameObject.name == "DollPuzzle2")
+            isDollPuzzle2 = true;
+        else
+            isDollPuzzle2 = false;
     }
 
-    private void Update()
+    public void CheckClear_IsRightPos()
     {
-        if (GetComponent<P_PuzzleObject>().isActive == true)
+        P_IsRightPos[] scripts = GetComponentsInChildren<P_IsRightPos>();
+        int length = scripts.Length;
+
+        foreach(P_IsRightPos script in scripts)
         {
-            ClearCondition();
+            if (!script.Get_isRight())
+                return;
+
+            if (script == scripts[length - 1])
+            {
+                if (isDollPuzzle2 == true)
+                    P_GameManager.instance.Set_dollClear();
+
+                ClearCondition();
+            }
         }
+    }
+
+    public void CheckClear_TopPuzzle()
+    {
+        P_Rotation[] scripts = transform.GetComponentsInChildren<P_Rotation>();
+        int length = scripts.Length;
+
+        foreach(P_Rotation script in scripts)
+        {
+            if (!script.Get_isRotation())
+                return;
+
+            else
+            {
+                if(script == scripts[length - 1])
+                {
+                    P_GameManager.instance.Set_topClear();
+
+                    ClearCondition();
+                }
+            }
+        }
+    }
+
+    public void CheckClear_TowerPuzzle()
+    {
+        Rigidbody2D[] rigs = GetComponentsInChildren<Rigidbody2D>();
+        foreach (Rigidbody2D rig in rigs)
+            Destroy(rig);
+
+        keyB.SetActive(true);
+
+        ClearCondition();
     }
 
     private void ClearCondition()
     {
-        if (isDollPuzzle) { puzzleCopy = puzzleObj; }
-        else { puzzleCopy = GetComponent<P_PuzzleObject>().puzzleCopy; }
-        // 오브젝트 비교해서 각각 퍼즐 클리어 조건 넣어주기 
-        if (System.Object.ReferenceEquals(puzzleObj, tower))
-        {
-            if (puzzleCopy.transform.Find("clearZone").GetComponent<P_TowerClearZone>().isRight == true)
-            {
-                GetComponent<P_PuzzleObject>().isClear = true;
-                Rigidbody2D[] rigs = GetComponent<P_PuzzleObject>().puzzleClear.GetComponentsInChildren<Rigidbody2D>();
-                foreach (Rigidbody2D rig in rigs)
-                {
-                    Destroy(rig);
-                }
-                keyB.SetActive(true);
-                Destroy(this.GetComponent<P_PuzzleClear>());
-                this.GetComponent<AudioSource>().Play();
-            }
-        }
-        else if (System.Object.ReferenceEquals(puzzleObj, top))
-        {
-            MonoBehaviour[] scripts = puzzleCopy.GetComponentsInChildren<P_Rotation>();
-            length = scripts.Length;
-            foreach (MonoBehaviour script in scripts)
-            {
-                if (script.GetComponent<P_Rotation>().isRotation == false) { break; }
-                else
-                {
-                    if (script == scripts[length - 1])
-                    {
-                        GetComponent<P_PuzzleObject>().isClear = true;
-                        FindObjectOfType<P_GameManager>().Set_topClear();
-                        Destroy(this.GetComponent<P_PuzzleClear>());
-                        this.GetComponent<AudioSource>().Play();
-                    }
-                }
-            }
-        }
-        else
-        {
-            MonoBehaviour[] scripts = puzzleCopy.GetComponentsInChildren<P_IsRightPos>();
-            length = scripts.Length;
-            foreach (MonoBehaviour script in scripts)
-            {
-                if (script.GetComponent<P_IsRightPos>().isRight == false) { break; }
-                else
-                {
-                    if (script == scripts[length - 1])
-                    {
-                        //Debug.Log("last script");
-                        GetComponent<P_PuzzleObject>().isClear = true;
-                        if (isDollPuzzle) {
-                            gameManager.RotateStick();
-                            gameManager.Set_dollClear();
-                        }
-                        Destroy(this.GetComponent<P_PuzzleClear>());
-                        this.GetComponent<AudioSource>().Play();
-                    }
-                }
-            }
-        }
+        puzzleInfo.IsClear_true();
+
+        Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
+        foreach (Collider2D collider in colliders)
+            collider.enabled = false;
+
+        Destroy(this);
     }
 }
