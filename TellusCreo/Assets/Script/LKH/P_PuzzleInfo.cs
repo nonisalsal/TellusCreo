@@ -16,8 +16,8 @@ public class P_PuzzleInfo : MonoBehaviour
 
     private void Start()
     {
-        puzzleWindow.SetActive(false);
         puzzleWindow = puzzleObj;
+        puzzleWindow.SetActive(false);
 
         isClear = false;
         if (puzzleClear != null)
