@@ -7,77 +7,90 @@ public class P_DragAndRotation : MonoBehaviour
     private float angle;
     private Vector2 clockHand, mouse;
 
+    private Quaternion originAngle;
+
+    private SpriteRenderer objectRenderer;
     private int layer_S;
     private int layer_NS;
 
-    public GameObject rayControl;
-
-    private void Start()
+    private void Awake()
     {
-        this.tag = "P_stop";
+        originAngle = transform.rotation;
+
+        objectRenderer = GetComponent<SpriteRenderer>();
         layer_S = SortingLayer.NameToID("P_Select");
         layer_NS = SortingLayer.NameToID("P_NotSelect");
-        ChangeLayer(30);
-
-        if (!(rayControl.GetComponent<P_GameManager>().Get_dollClear()))
-        {
-            this.transform.GetComponentInChildren<Collider2D>().enabled = false;
-        }
     }
 
     private void ChangeLayer(int layerNum)
     {
-        if (layerNum == 30)
+        switch (layerNum)
         {
-            this.gameObject.layer = 30;
-            GetComponent<SpriteRenderer>().sortingLayerID = layer_NS;
+            case 30:
+                gameObject.layer = 30;
+                objectRenderer.sortingLayerID = layer_NS;
+                break;
+            case 31:
+                gameObject.layer = 31;
+                objectRenderer.sortingLayerID = layer_S;
+                break;
         }
-        else if (layerNum == 31)
-        {
-            this.gameObject.layer = 31;
-            GetComponent<SpriteRenderer>().sortingLayerID = layer_S;
-        }
+    }
+
+    private void OnEnable()
+    {
+        if (P_Camera.instance.nowPuzzle.Get_isClear())
+            return;
+
+        if (!P_GameManager.instance.Get_dollClear())
+            return;
+
+        Collider2D[] colliders = transform.GetComponentsInChildren<Collider2D>();
+        foreach (Collider2D collider in colliders)
+            collider.enabled = true;
+
+        transform.rotation = originAngle;
+    }
+
+    private void Start()
+    {
+        tag = "P_stop";
+        ChangeLayer(30);
     }
 
     private void OnMouseDrag()
     {
         mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         angle = Mathf.Atan2(mouse.y - clockHand.y, mouse.x - clockHand.x) * Mathf.Rad2Deg;
-        this.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+    }
+
+    private void PlayerInput()
+    {
+        if (P_GameManager.instance.isDown)
+        {
+            GameObject downHit = P_GameManager.instance.downHit.collider.gameObject;
+            if (System.Object.ReferenceEquals(gameObject, downHit))
+            {
+                tag = "P_move";
+                clockHand = transform.position;
+                ChangeLayer(31);
+            }
+        }        
+        
+        if (P_GameManager.instance.isUp)
+        {
+            GameObject upHit = P_GameManager.instance.upHit.collider.gameObject;
+            if (System.Object.ReferenceEquals(gameObject, upHit))
+            {
+                tag = "P_stop";
+                ChangeLayer(30);
+            }
+        }
     }
 
     private void Update()
     {
         PlayerInput();
-    }
-
-    private void PlayerInput()
-    {
-        if (rayControl.GetComponent<P_GameManager>().isDown == true)
-        {
-            RaycastHit2D downHit = rayControl.GetComponent<P_GameManager>().downHit;
-            if (downHit)
-            {
-                if (System.Object.ReferenceEquals(this.gameObject, downHit.collider.gameObject))
-                {
-                    this.tag = "P_move";
-                    clockHand = transform.position;
-                    ChangeLayer(31);
-                }
-            }
-        }
-
-        if (rayControl.GetComponent<P_GameManager>().isUp == true)
-        {
-            RaycastHit2D upHit = rayControl.GetComponent<P_GameManager>().upHit;
-            if (upHit)
-            {
-                if (System.Object.ReferenceEquals(this.gameObject, upHit.collider.gameObject))
-                {
-                    this.tag = "P_stop";
-                    ChangeLayer(30);
-                }
-            }
-        }
     }
 }

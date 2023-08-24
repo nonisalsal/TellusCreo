@@ -5,57 +5,44 @@ using UnityEngine.EventSystems;
 
 public class P_GameManager : MonoBehaviour
 {
-    public Ray2D downRay;
-    public Ray2D upRay;
+    public static P_GameManager instance;
+
     public bool isDown;
     public bool isUp;
+    public bool isUp_nonCollider;
     public RaycastHit2D downHit;
     public RaycastHit2D upHit;
 
-    private bool isGetKeyA;
-    private bool isGetKeyB;
     private bool wireConnect;
     private bool dollClear;
     private bool topClear;
 
-    public GameObject drumPivot;
-    private bool startRotate;
-    private float angle;
+    private bool isGetFinalItem;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     void Start()
     {
         isDown = false;
         isUp = false;
+        isUp_nonCollider = false;
 
-        isGetKeyA = false;
-        isGetKeyB = false;
         wireConnect = false;
         dollClear = false;
         topClear = false;
 
-        startRotate = false;
-        angle = 0f;
+        isGetFinalItem = false;
     }
 
     void Update()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            ShootRay();
-        }
-
-        if (startRotate)
-        {
-            angle += 80 * Time.deltaTime;
-
-            if (angle >= 80f)
-            {
-                drumPivot.transform.rotation = Quaternion.Euler(0, 0, 80);
-                startRotate = false;
-            }
-
-            drumPivot.transform.rotation = Quaternion.Euler(0, 0, angle);
-        }
+        ShootRay();
     }
 
     private void ShootRay()
@@ -64,80 +51,73 @@ public class P_GameManager : MonoBehaviour
         {
             if (!EventSystem.current.IsPointerOverGameObject())
             {
-                isDown = true;
                 Vector2 downPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                downRay = new Ray2D(downPos, Vector2.zero);
+                Ray2D downRay = new Ray2D(downPos, Vector2.zero);
                 downHit = Physics2D.Raycast(downRay.origin, downRay.direction, 1 << 30);
+
+                if (downHit.collider != null)
+                    isDown = true;
             }
         }
-        else { isDown = false; }
+        else
+            isDown = false;
 
         if (Input.GetMouseButtonUp(0))
         {
             if (!EventSystem.current.IsPointerOverGameObject())
             {
-                isUp = true;
                 Vector2 upPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                upRay = new Ray2D(upPos, Vector2.zero);
+                Ray2D upRay = new Ray2D(upPos, Vector2.zero);
                 upHit = Physics2D.Raycast(upRay.origin, upRay.direction);
+
+                if (upHit.collider != null)
+                {
+                    isUp = true;
+                    isUp_nonCollider = false;
+                }
+                else
+                {
+                    isUp = false;
+                    isUp_nonCollider = true;
+                }
             }
         }
-        else { isUp = false; }
-    }
-
-    public void Set_isGetKeyA()
-    {
-        isGetKeyA = true;
-    }
-
-    public bool Get_isGetKeyA()
-    {
-        return isGetKeyA;
-    }
-
-    public void Set_isGetKeyB()
-    {
-        isGetKeyB = true;
-        Debug.Log("get keyB");
-    }
-
-    public bool Get_isGetKeyB()
-    {
-        return isGetKeyB;
+        else 
+        {
+            isUp = false;
+            isUp_nonCollider = true;
+        }
     }
 
     public void Set_wireConnect()
     {
         wireConnect = true;
+        Debug.Log("connect wire");
     }
 
-    public bool Get_wireConnect()
-    {
-        return wireConnect;
-    }
+    public bool Get_wireConnect() { return wireConnect; }
 
     public void Set_dollClear()
     {
         dollClear = true;
+        Debug.Log("clear doll puzzle");
     }
 
-    public bool Get_dollClear()
-    {
-        return dollClear;
-    }
+    public bool Get_dollClear() { return dollClear; }
 
     public void Set_topClear()
     {
         topClear = true;
+        Debug.Log("clear top puzzle");
     }
 
-    public bool Get_topClear()
+    public bool Get_topClear() { return topClear; }
+
+    public void Set_isGetFinalItem()
     {
-        return topClear;
+        isGetFinalItem = true;
+        Debug.Log("get final item");
     }
 
-    public void RotateStick()
-    {
-        startRotate = true;
-    }
+    public bool Get_isGetFinalItem() { return isGetFinalItem; }
 }
