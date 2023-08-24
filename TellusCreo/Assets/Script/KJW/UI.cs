@@ -11,6 +11,9 @@ public class UI : MonoBehaviour
 
     public GameObject[] lrArrow;
 
+    public GameObject specificUI;
+
+
 
     public void BackArrow()
     {
@@ -44,12 +47,17 @@ public class UI : MonoBehaviour
     public void LeftArrow()
     {
         Camera.main.transform.position = new Vector3((Camera.main.transform.position.x + 60) % 80, 0f, -10f);
+
+        HandleSpecificUI();
+
     }
 
     public void RightArrow()
     {
 
         Camera.main.transform.position = new Vector3((Camera.main.transform.position.x + 20) % 80, 0f, -10f);
+        HandleSpecificUI();
+
     }
 
     public void DisableArrow()
@@ -66,4 +74,20 @@ public class UI : MonoBehaviour
         backArrow.SetActive(true);
         DisableArrow();
     }
-}
+
+    private void HandleSpecificUI()
+    {
+
+            if (Camera.main.transform.position.x == 0f) 
+            {
+                specificUI.SetActive(true);
+            }
+            else
+            {
+                specificUI.SetActive(false); 
+            }
+        }
+
+ 
+    }
+

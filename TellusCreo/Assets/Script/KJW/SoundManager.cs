@@ -14,6 +14,8 @@ public class SoundManager : MonoBehaviour
     static SoundManager instance = null;
     public static SoundManager Instance => instance;
 
+    private float bgmVolume = 0.5f; 
+
     AudioSource[] _audioSources = new AudioSource[(int)Sound.MaxCount]; // 사운드 재생 수 관련
     Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>();
 
@@ -126,6 +128,25 @@ public class SoundManager : MonoBehaviour
         AudioSource effectSource = _audioSources[(int)Sound.Effect];
         effectSource.pitch = pitch;
         effectSource.PlayOneShot(audioClip);
+    }
+
+    public float GetBGMVolume()
+    {
+        return bgmVolume;
+    }
+
+
+    public void SetBGMVolume(float volume)
+    {
+        bgmVolume = volume;
+        UpdateBGMVolume();
+    }
+
+  
+    private void UpdateBGMVolume()
+    {
+        AudioSource bgmSource = _audioSources[(int)Sound.Bgm];
+        bgmSource.volume = bgmVolume;
     }
 
 }
