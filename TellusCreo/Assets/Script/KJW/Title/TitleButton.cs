@@ -7,6 +7,6 @@ public class TitleButton : MonoBehaviour
     [SerializeField] private Button gameStartButton;
     private void Awake()
     {
-        gameStartButton.onClick.AddListener(() => SceneManager.LoadScene("Attic"));
+        gameStartButton.onClick.AddListener(() => SceneManager.LoadScene("livingroom"));
     }
 }

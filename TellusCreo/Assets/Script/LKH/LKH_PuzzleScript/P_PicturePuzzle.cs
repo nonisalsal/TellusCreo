@@ -2,73 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class P_PicturePuzzle : MonoBehaviour
+public class P_PicturePuzzle : P_DragAndDrop
 {
-    private int layer_S;
-    private int layer_NS;
+    private Vector3 originPos;
 
-    public float before_x;
+    public float pos_x;
 
-    public GameObject rayControl;
-
-    private void ChangeLayer(int layerNum)
+    protected override void Awake()
     {
-        if (layerNum == 30)
-        {
-            this.gameObject.layer = 30;
-            GetComponent<SpriteRenderer>().sortingLayerID = layer_NS;
-        }
-        else if (layerNum == 31)
-        {
-            this.gameObject.layer = 31;
-            GetComponent<SpriteRenderer>().sortingLayerID = layer_S;
-        }
+        base.Awake();
+
+        originPos = transform.position;
     }
 
-    void Start()
+    private void OnEnable()
     {
-        this.tag = "P_stop";
-        layer_S = SortingLayer.NameToID("P_Select");
-        layer_NS = SortingLayer.NameToID("P_NotSelect");
-        ChangeLayer(30);
+        if (P_Camera.instance.nowPuzzle.Get_isClear())
+            return;
 
-        before_x = this.transform.position.x;
+        transform.position = originPos;
+        pos_x = transform.position.x;
     }
 
-    private void OnMouseDrag()
+    protected override void OnMouseDrag()
     {
         Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         Vector2 objectPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        this.transform.position = new Vector2(before_x, objectPosition.y);
-    }
-
-    private void PlayerInput()
-    {
-        if (rayControl.GetComponent<P_GameManager>().isDown == true)
-        {
-            RaycastHit2D downHit = rayControl.GetComponent<P_GameManager>().downHit;
-            if (downHit)
-            {
-                if (System.Object.ReferenceEquals(this.gameObject, downHit.collider.gameObject))
-                {
-                    this.tag = "P_move";
-                    ChangeLayer(31);
-                }
-            }
-        }
-        if (rayControl.GetComponent<P_GameManager>().isUp == true)
-        {
-            RaycastHit2D upHit = rayControl.GetComponent<P_GameManager>().upHit;
-            if (upHit)
-            {
-                this.tag = "P_stop";
-                ChangeLayer(30);
-            }
-        }
-    }
-
-    void Update()
-    {
-        PlayerInput();
+        transform.position = new Vector2(pos_x, objectPosition.y);
     }
 }

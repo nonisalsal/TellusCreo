@@ -38,6 +38,13 @@ TagManager:
   - Item_TopSpinB
   - Item_TopSpinC
   - Item_KeyA
+  - item_final_soil
+  - item_final_sun
+  - item_final_water
+  - item_final_soil_puzzle
+  - item_final_water_puzzle
+  - item_final_sun_puzzle
+  - EarthManager
   layers:
   - Default
   - TransparentFX

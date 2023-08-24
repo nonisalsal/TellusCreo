@@ -4,51 +4,89 @@ using UnityEngine;
 
 public class P_Camera : MonoBehaviour
 {
-    public bool playPuzzle;
-    public float puzzlePos_x;
-    public float puzzlePos_y;
+    public static P_Camera instance;
 
-    public float thisPos_x;
-    public float thisPos_y;
-    public float thisPos_z;
+    // 카메라 이동 및 UI 설정하는 스크립트
+    [SerializeField] private GameObject nonPuzzleCanvas;
+    [SerializeField] private GameObject puzzleCanvas;
 
-    public GameObject button;
-    private bool destroyButton;
+    [SerializeField] private float sidePos_x = -30f;
+
+    [SerializeField] private float puzzlePos_x = -30f;
+    [SerializeField] private float puzzlePos_y = 20f;
+
+    public P_PuzzleInfo nowPuzzle;
+
+    public bool isPlayPuzzle;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     private void Start()
     {
-        playPuzzle = false;
+        nonPuzzleCanvas.SetActive(true);
+        puzzleCanvas.SetActive(false);
 
-        thisPos_x = this.transform.position.x;
-        thisPos_y = this.transform.position.y;
-        thisPos_z = this.transform.position.z;
+        transform.position = new Vector3(sidePos_x, 0f, -10f);
 
-        destroyButton = false;
-        button.transform.GetChild(2).gameObject.SetActive(false);
+        nowPuzzle = null;
+
+        isPlayPuzzle = false;
     }
 
-    private void Update()
+    public void MoveSide(int direction)
     {
-        if (playPuzzle == true)
+        switch (direction)
         {
-            this.transform.position = new Vector3(puzzlePos_x, puzzlePos_y, thisPos_z);
-            if (!destroyButton)
-            {
-                button.transform.GetChild(0).gameObject.SetActive(false);
-                button.transform.GetChild(1).gameObject.SetActive(false);
-                button.transform.GetChild(2).gameObject.SetActive(true);
-                destroyButton = true;
-            }
+            case 0:
+                // move left
+                sidePos_x -= 20f;
+                if (sidePos_x < -30f)
+                    sidePos_x = 30f;
+                break;
+            case 1:
+                // move right
+                sidePos_x += 20f;
+                if (sidePos_x > 30f)
+                    sidePos_x = -30f;
+                break;
         }
-        else
+
+        transform.position = new Vector3(sidePos_x, 0f, -10f);
+    }
+
+    public void PlayPuzzle(P_PuzzleInfo clickPuzzle)
+    {
+        if (nowPuzzle == null)
         {
-            if (destroyButton)
-            {
-                button.transform.GetChild(0).gameObject.SetActive(true);
-                button.transform.GetChild(1).gameObject.SetActive(true);
-                button.transform.GetChild(2).gameObject.SetActive(false);
-                destroyButton = false;
-            }
+            transform.position = new Vector3(puzzlePos_x, puzzlePos_y, -10f);
+            nowPuzzle = clickPuzzle;
+            nowPuzzle.IsActive_true();
         }
+
+        nonPuzzleCanvas.SetActive(false);
+        puzzleCanvas.SetActive(true);
+
+        isPlayPuzzle = true;
+    }
+
+    public void ExtiPuzzle()
+    {
+        if (nowPuzzle != null)
+        {
+            transform.position = new Vector3(sidePos_x, 0f, -10f);
+            nowPuzzle.IsActive_false();
+            nowPuzzle = null;
+        }
+
+        nonPuzzleCanvas.SetActive(true);
+        puzzleCanvas.SetActive(false);
+
+        isPlayPuzzle = false;
     }
 }

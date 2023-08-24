@@ -4,52 +4,44 @@ using UnityEngine;
 
 public class P_TowerClearZone : MonoBehaviour
 {
-    public bool isRight;
-    public bool isContect;
-    public bool isColliderMove;
-    public GameObject contectObj;
+    private bool isContect;
+    private bool isColliderMove;
+    private GameObject contectObj;
 
-    public float time;
-    public Vector3 colliderLastPos;
+    private float time;
+    private Vector3 colliderLastPos;
+
+    private P_PuzzleClear clearController;
+
+    private void Awake()
+    {
+        clearController = transform.GetComponentInParent<P_PuzzleClear>();
+    }
+
+    private void OnEnable()
+    {
+        if (P_Camera.instance.nowPuzzle.Get_isClear())
+            return;
+
+        isContect = false;
+
+        time = 0;
+    }
 
     private void Start()
     {
-        isRight = false;
-        isContect = false;
-        //isColliderMove = false;
-
-        time = 0;
-
         this.gameObject.layer = 30;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isContect == false)
+        if (!isContect)
         {
             colliderLastPos = collision.gameObject.transform.localPosition;
             isContect = true;
             contectObj = collision.gameObject;
         }
     }
-
-    //private void OnTriggerStay2D(Collider2D collision)
-    //{
-    //    if (isRight == false && collision.gameObject.CompareTag("P_building"))
-    //    {
-    //        //Debug.Log("asdf");
-    //        CheckPosition(collision);
-    //        if (isColliderMove == false)
-    //        {
-    //            time += Time.deltaTime;
-    //            if (time >= 3)
-    //            {
-    //                isRight = true;
-    //            }
-    //            else { time = 0; }
-    //        }
-    //    }
-    //}
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -62,11 +54,12 @@ public class P_TowerClearZone : MonoBehaviour
 
     private void Update()
     {
-        if (!isRight && isColliderMove && contectObj.CompareTag("P_building") && time > 1.5f)
+        if (isColliderMove && contectObj.CompareTag("P_building") && time > 1.5f)
         {
             if(colliderLastPos == contectObj.transform.position)
             {
-                isRight = true;
+                clearController.CheckClear_TowerPuzzle();
+                Destroy(this);
             }
             else
             {

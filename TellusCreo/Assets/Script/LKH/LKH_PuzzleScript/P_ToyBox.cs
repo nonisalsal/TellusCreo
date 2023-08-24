@@ -4,46 +4,48 @@ using UnityEngine;
 
 public class P_ToyBox : MonoBehaviour
 {
-    public GameObject rayControl;
     private int num = 1;
 
-
-    private void Start()
+    private void OnEnable()
     {
-        if (!(rayControl.GetComponent<P_GameManager>().Get_topClear()))
+        if (P_Camera.instance.nowPuzzle.Get_isClear())
+            return;
+
+        if (!P_GameManager.instance.Get_topClear())
+            return;
+
+        Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
+        foreach (Collider2D collider in colliders)
+            collider.enabled = true;
+
+        transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(true);
+        transform.GetChild(2).gameObject.SetActive(false);
+    }
+
+    private void PlayerInput()
+    {
+        if (P_GameManager.instance.isUp)
         {
-            this.transform.GetComponentInChildren<Collider2D>().enabled = false;
+            GameObject upHit = P_GameManager.instance.upHit.collider.gameObject;
+            if (System.Object.ReferenceEquals(gameObject, upHit.transform.parent.gameObject))
+            {
+                num++;
+                if (num >= 3)
+                    num = 0;
+
+                for (int i = 0; i < 3; i++)
+                {
+                    transform.GetChild(i).gameObject.SetActive(false);
+                    if (i == num)
+                        transform.GetChild(i).gameObject.SetActive(true);
+                }
+            }
         }
     }
 
     private void Update()
     {
         PlayerInput();
-    }
-
-    private void PlayerInput()
-    {
-        if (rayControl.GetComponent<P_GameManager>().isUp == true)
-        {
-            RaycastHit2D upHit = rayControl.GetComponent<P_GameManager>().upHit;
-            if (upHit)
-            {
-                Debug.Log(upHit.collider.gameObject.name);
-                // 여기서 오류가 발생. > hierachy창에서 수정하니까 됨. 근데 왜 된거지?
-                if (System.Object.ReferenceEquals(this.transform.gameObject, upHit.collider.gameObject.transform.parent.gameObject))
-                {
-                    Debug.Log("asdf");
-                    num++;
-                    if (num >= 3)
-                        num = 0;
-                    for (int i=0; i<3; i++)
-                    {
-                        this.transform.GetChild(i).gameObject.SetActive(false);
-                        if(i == num)
-                            this.transform.GetChild(i).gameObject.SetActive(true);
-                    }
-                }
-            }
-        }
     }
 }

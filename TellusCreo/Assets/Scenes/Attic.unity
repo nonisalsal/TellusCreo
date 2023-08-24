@@ -4558,6 +4558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsOnStand: 0
+  Jupiter: {fileID: 11400000, guid: 5693903eeeef0404cbf6505fde73f8d4, type: 2}
   shadowSprites:
   - {fileID: 21300000, guid: fba6f3a739e72684aafb513ab7ad38ce, type: 3}
   - {fileID: 21300000, guid: 028c754c4159d204ebfd99be78693076, type: 3}
@@ -7675,6 +7676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correct: 0
   cnt: 0
+  uranus: {fileID: 11400000, guid: 662547d6a399db74a8657c531b9a5685, type: 2}
 --- !u!120 &1511293679
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -8360,6 +8362,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 690541142}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1623853286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623853283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177a349674143a94abd8d08467c17b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: {fileID: 11400000, guid: 268505de4ca7f7c488fdc7c2ab9d787a, type: 2}
 --- !u!1 &1623889712
 GameObject:
   m_ObjectHideFlags: 0
