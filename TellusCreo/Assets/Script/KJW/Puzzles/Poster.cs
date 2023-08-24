@@ -11,6 +11,7 @@ public class Poster : MonoBehaviour
     bool correct;
     [SerializeField]
     int cnt;
+    [SerializeField] Item uranus;
 
     void Start()
     {
@@ -36,6 +37,10 @@ public class Poster : MonoBehaviour
 #endif
                 GameManager.Instance[(int)GameManager.Puzzle.Poster - GameManager.Instance.NUMBER_OF_PUZZLES] = true;
                 clearPuzzle = true;
+                if(uranus != null) 
+                {
+                InventoryManager.Instance.Add(uranus); // 천왕성 
+                }
             }
             else
             {
