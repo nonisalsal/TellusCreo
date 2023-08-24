@@ -49,14 +49,14 @@ public class GameManager : MonoBehaviour
     bool[] ClearPuzzles;
     bool isCurtainOpen;
     bool switchStatus;
-    
+
     public bool this[int idx] // 인덱서 사용
     {
         get => ClearPuzzles[idx];
         set
         {
             ClearPuzzles[idx] = value;
-            if(value == true)  // 클리어 시
+            if (value == true)  // 클리어 시
             {
                 if (ClearPuzzles[idx] == ClearPuzzles[(int)GameManager.Puzzle.ArcadeConsole - GameManager.Instance.NUMBER_OF_PUZZLES]) // 아케이드 완료시에
                 {
@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviour
                     }
                     else
                     {
-                       
+
 #if UNITY_EDITOR
                         Debug.Log("전선 연결 필요");
 #endif
@@ -325,10 +325,11 @@ public class GameManager : MonoBehaviour
 
                         if (ShadowPuzzleChaeck()) // 스탠드 켜짐, 어두움, 커튼이 닫힘 , 전선 연결
                         {
-                            //if (shadowPuzzle.CurrentShadow == ShadowPuzzle.Shadow.Dog) // 테스트 용 코드
-                            //{
-                            //    StartCoroutine(shadowPuzzle.DogShadowCatchBall()); // 공 물어오기
-                            //}
+                            Item ball = InventoryManager.Instance.Items.FirstOrDefault(item => item.name == "Ball");
+                            if (ball != null && shadowPuzzle.CurrentShadow == ShadowPuzzle.Shadow.Dog) // 테스트 용 코드
+                            {
+                                StartCoroutine(shadowPuzzle.DogShadowCatchBall()); // 공 물어오기
+                            }
                             SpriteRenderer curtainSprRen = curtain.GetComponent<SpriteRenderer>();
                             if (curtainSprRen != null)
                             {

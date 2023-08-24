@@ -19,6 +19,7 @@ public class ShadowPuzzle : MonoBehaviour
 
     public bool IsOnStand = false;
     public Shadow CurrentShadow { get => shadow; }
+    public Item Jupiter;
 
     [SerializeField]
     List<Sprite> shadowSprites;
@@ -76,6 +77,12 @@ public class ShadowPuzzle : MonoBehaviour
         {
             GameManager.Instance.Curtain.GetComponent<SpriteRenderer>().sprite = dogShadowSprites[i];
             yield return new WaitForSeconds(DogShadowAnimInterval);
+        }
+        GameManager instance = GameManager.Instance;
+        Item jupiter = instance.Puzzles[(int)GameManager.Puzzle.ShadowLight - instance.NUMBER_OF_PUZZLES].GetComponent<ShadowPuzzle>().Jupiter;
+        if(jupiter!= null)
+        {
+            InventoryManager.Instance.Add(jupiter);
         }
     }
 }
