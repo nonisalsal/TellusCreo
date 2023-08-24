@@ -15,7 +15,6 @@ public class P_ClickObject : MonoBehaviour
     private bool isLockedBedLeft = false;
     private bool isLockedLamp = false;
 
-    private bool isFinalItem = false;
     private bool isFinalDoor = false;
 
     private void Awake()
@@ -39,8 +38,6 @@ public class P_ClickObject : MonoBehaviour
             isLockedBedLeft = true;
         else if (name == "switch_before")
             isLockedLamp = true;
-        else if (name == "item_final_soil")
-            isFinalItem = true;
         else if (name == "finalDoor_object")
             isFinalDoor = true;
     }
@@ -71,7 +68,10 @@ public class P_ClickObject : MonoBehaviour
                     return;
 
                 if (isLockedLamp)
-                    return;
+                {
+                    if (!P_GameManager.instance.Get_wireConnect())
+                        return;
+                }
 
                 if (hasPair)
                     pair.SetActive(true);
