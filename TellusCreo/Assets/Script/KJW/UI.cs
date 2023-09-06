@@ -30,7 +30,7 @@ public class UI : MonoBehaviour
             GameManager.Instance.ToggleLights();
         }
 
-        ChangeSpriteObject mirror = GameManager.Instance.Puzzles[(int)(GameManager.Puzzle.Mirror) - 
+        ChangeSpriteObject mirror = GameManager.Instance.Puzzles[(int)(GameManager.Puzzle.Mirror) -
             GameManager.Instance.NUMBER_OF_PUZZLES].GetComponent<ChangeSpriteObject>();
 
         //if(mirror != null) // 뒤돌리기 시에 변경 된 스프라이트를 기본 스프라이트로 변경
@@ -48,7 +48,7 @@ public class UI : MonoBehaviour
     {
         Camera.main.transform.position = new Vector3((Camera.main.transform.position.x + 60) % 80, 0f, -10f);
 
-        HandleSpecificUI();
+    //    HandleSpecificUI();
 
     }
 
@@ -56,7 +56,7 @@ public class UI : MonoBehaviour
     {
 
         Camera.main.transform.position = new Vector3((Camera.main.transform.position.x + 20) % 80, 0f, -10f);
-        HandleSpecificUI();
+     //   HandleSpecificUI();
 
     }
 
@@ -66,7 +66,7 @@ public class UI : MonoBehaviour
         {
             arrow.SetActive(false);
         }
-      
+
     }
 
     public void ActiveBackArrow()
@@ -75,19 +75,19 @@ public class UI : MonoBehaviour
         DisableArrow();
     }
 
-    private void HandleSpecificUI()
-    {
+    //private void HandleSpecificUI()
+    //{
 
-            if (Camera.main.transform.position.x == 0f) 
-            {
-                specificUI.SetActive(true);
-            }
-            else
-            {
-                specificUI.SetActive(false); 
-            }
-        }
+    //    if (Camera.main.transform.position.x == 0f)
+    //    {
+    //        specificUI.SetActive(true);
+    //    }
+    //    else
+    //    {
+    //        specificUI.SetActive(false);
+    //    }
+    //}
 
- 
-    }
+
+}
 

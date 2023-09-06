@@ -66,7 +66,7 @@ public class InventoryManager : MonoBehaviour
         {
             Item itemToRemove = itemDictionary[itemName];
             Remove(itemToRemove); // Items 리스트에서 아이템 삭제
-            UpdateInventoryUI(); // 인벤토리 UI 갱신
+           // UpdateInventoryUI(); // 인벤토리 UI 갱신
         }
     }
     public void UpdateInventoryUI()

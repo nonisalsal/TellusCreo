@@ -45,6 +45,7 @@ TagManager:
   - item_final_water_puzzle
   - item_final_sun_puzzle
   - EarthManager
+  - Curtain
   layers:
   - Default
   - TransparentFX
