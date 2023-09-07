@@ -16,7 +16,6 @@ public class P_Rotation : MonoBehaviour
     private Rigidbody2D rig;
 
     [SerializeField] private Sprite rotationImg;
-    [SerializeField] private GameObject pairTrigger;
     private bool isSet;
     private bool isSetAll;
 
@@ -66,19 +65,7 @@ public class P_Rotation : MonoBehaviour
         road_y = new float[10];
         count = 0;
 
-        this.GetComponent<SpriteRenderer>().enabled = false;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(System.Object.ReferenceEquals(collision.gameObject, pairTrigger))
-        {
-            isSet = true;
-            this.GetComponent<SpriteRenderer>().enabled = true;
-            collision.gameObject.SetActive(false);
-
-            CheckTrigger();
-        }
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 
     private void Update()
@@ -101,8 +88,13 @@ public class P_Rotation : MonoBehaviour
         PlayerInput();
     }
 
-    private void CheckTrigger()
+    public void CheckTrigger()
     {
+        isSet = true;
+        Collider2D collider = GetComponent<Collider2D>();
+        collider.offset = Vector2.zero;
+        ((CapsuleCollider2D)collider).size = new Vector2(2.5f, 2.5f);
+
         P_Rotation[] scripts = transform.parent.GetComponentsInChildren<P_Rotation>();
         int length = scripts.Length;
 
