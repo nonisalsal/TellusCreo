@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
+
     public List<Item> Items = new List<Item>();
 
     public Transform ItemContent;
@@ -13,6 +14,9 @@ public class InventoryManager : MonoBehaviour
     private Dictionary<string, Item> itemDictionary = new Dictionary<string, Item>();
 
     public DragAndDrop dragAndDropScript;
+
+
+
 
     private void Awake()
     {
@@ -66,9 +70,11 @@ public class InventoryManager : MonoBehaviour
         {
             Item itemToRemove = itemDictionary[itemName];
             Remove(itemToRemove); // Items 리스트에서 아이템 삭제
-            UpdateInventoryUI(); // 인벤토리 UI 갱신
+           // UpdateInventoryUI(); // 인벤토리 UI 갱신
         }
     }
+
+
     public void UpdateInventoryUI()
     {
         foreach (Transform item in ItemContent)
@@ -81,6 +87,7 @@ public class InventoryManager : MonoBehaviour
             GameObject obj = Instantiate(InventoryItem, ItemContent);
             var itemIcon = obj.transform.Find("Border/ItemIcon").GetComponent<Image>();
             itemIcon.sprite = item.icon;
+
         }
     }
 

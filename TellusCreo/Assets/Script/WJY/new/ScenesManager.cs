@@ -7,7 +7,7 @@ public class ScenesManager : MonoBehaviour
 {
     public string sceneName; 
 
-    private void OnMouseDown()
+    public void Movescene()
     {
         SceneManager.LoadScene(sceneName);
     }
