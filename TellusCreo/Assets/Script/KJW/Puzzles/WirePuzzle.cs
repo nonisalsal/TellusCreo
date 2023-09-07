@@ -5,7 +5,7 @@ using UnityEngine;
 public class WirePuzzle : MonoBehaviour
 {
     bool isClear;
-
+    
     public bool WireClear { get { return isClear; } }
     public int cnt;
     public GameObject[] objs;
@@ -13,9 +13,8 @@ public class WirePuzzle : MonoBehaviour
     {
         isClear = false;
         cnt = 0;
-
     }
-
+    [SerializeField] private List<Item> wires = new List<Item>();
     void Update()
     {
         if (cnt == objs.Length)
@@ -49,9 +48,14 @@ public class WirePuzzle : MonoBehaviour
         foreach (var obj in objs)
         {
             var child = obj.transform.GetChild(0);
-            child.transform.parent = null;
+            Destroy(child.gameObject);
         }
         cnt = 0;
         isClear = false;
+
+        foreach(Item wire in wires)
+        {
+            InventoryManager.Instance.Add(wire);
+        }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static Data.Util.ActiveFields;
 
-public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     public Transform parentAfterDrag;
 
@@ -14,7 +16,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public Itemmanager itemManager;
     public Itemmanager ViolinitemManager;
 
-    
+
     private SpriteRenderer puzzleviolinRenderer;
     public GameObject pair;
     public GameObject clear;
@@ -27,28 +29,20 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
-
-
-
-
-
     public void OnBeginDrag(PointerEventData eventData)
     {
         parentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
         canvasGroup.blocksRaycasts = false;
-
-
-
     }
-
 
     public void OnDrag(PointerEventData eventData)
     {
         rectTransform.anchoredPosition += eventData.delta / transform.root.localScale.x;
 
     }
+
     public void OnEndDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = true;
@@ -69,7 +63,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
                 Destroy(gameObject);
             }
 
-            else if(collider.CompareTag("Item_violin"))
+            else if (collider.CompareTag("Item_violin"))
             {
                 on.Instance.SpriteOn1();
                 string itemNameToRemove = "puzzle_violin"; // 제거할 아이템의 이름
@@ -122,17 +116,37 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
                 InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
                 Destroy(gameObject);
             }
+            else if (collider.CompareTag("Interactable"))
+            {
+                if (collider.transform.childCount != 0) continue; // 자식이 0개일때만
+                string itemNameToRemove = transform.GetChild(0).GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite.name;
+                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
+                GameObject wire = Resources.Load<GameObject>($"Prefabs/KJW/{itemNameToRemove}");
 
-
-
+                if (wire != null)
+                {
+                    GameObject gm = Instantiate<GameObject>(wire, transform.position, Quaternion.identity);
+                    gm.transform.SetParent(collider.transform);
+                    gm.name = gm.name.Substring(0, 5);
+                    gm.transform.localPosition = Vector2.zero;
+                }
+                GameManager.Instance.Puzzles[(int)GameManager.Puzzle.Wire - GameManager.Instance.NUMBER_OF_PUZZLES].GetComponent<WirePuzzle>().cnt++;
+                Destroy(this.gameObject);
+            }
+            else if(collider.CompareTag("Curtain"))
+            {
+                string itemNameToRemove = "Ball";
+                ShadowPuzzle shadowPuzzle = GameManager.Instance.Puzzles
+                    [(int)GameManager.Puzzle.ShadowLight - GameManager.Instance.NUMBER_OF_PUZZLES].GetComponent<ShadowPuzzle>();
+                Item ball = InventoryManager.Instance.Items.FirstOrDefault(item => item.name == "Ball");
+                if (ball != null && shadowPuzzle.CurrentShadow == ShadowPuzzle.Shadow.Dog) // 테스트 용 코드
+                {
+                    StartCoroutine(shadowPuzzle.DogShadowCatchBall()); // 공 물어오기
+                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
+                }
+            }
         }
-
-
-        transform.SetParent(parentAfterDrag);
-    }
-
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
+        if (this.gameObject != null)
+            transform.SetParent(parentAfterDrag);
     }
 }
