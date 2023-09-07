@@ -5,9 +5,10 @@ using UnityEngine;
 public class P_IsRightPos : MonoBehaviour
 {
     [SerializeField] private GameObject correctObj;
+    private bool isActiveFromOutside = false;
 
     private bool isTrigger;
-    private bool isRight;
+    [SerializeField] private bool isRight;
 
     private P_PuzzleClear clearController;
 
@@ -24,11 +25,17 @@ public class P_IsRightPos : MonoBehaviour
 
     void Start()
     {
+        if (correctObj == null)
+            isActiveFromOutside = true;
+
         this.gameObject.layer = 30;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isActiveFromOutside)
+            return;
+
         isTrigger = true;
 
         if (System.Object.ReferenceEquals(collision.gameObject, correctObj))
@@ -41,6 +48,9 @@ public class P_IsRightPos : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (isActiveFromOutside)
+            return;
+
          isTrigger = false;
 
         if (System.Object.ReferenceEquals(collision.gameObject, correctObj))

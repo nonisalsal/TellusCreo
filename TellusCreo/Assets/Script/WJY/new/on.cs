@@ -34,11 +34,13 @@ public class on : MonoBehaviour
     public void SpriteOn()
     {
         puzzleGuitarRenderer.enabled = true;
+        puzzleGuitarRenderer.GetComponent<P_IsRightPos>().IsRight_true();
     }
 
     public void SpriteOn1()
     {
         puzzleViolinRenderer.enabled = true;
+        puzzleViolinRenderer.GetComponent<P_IsRightPos>().IsRight_true();
     }
 
     public void SpriteOn2()
@@ -47,6 +49,7 @@ public class on : MonoBehaviour
         {
             renderer.enabled = true;
         }
+        puzzledrumRenderer[0].transform.parent.gameObject.GetComponent<P_IsRightPos>().IsRight_true();
     }
 
     public void SpriteOn3()
@@ -70,18 +73,18 @@ public class on : MonoBehaviour
     public void SpriteOn5()
     {
         puzzleTopSpinRenderer[0].enabled = true;
-        
+        puzzleTopSpinRenderer[0].GetComponent<P_Rotation>().CheckTrigger();
     }
 
     public void SpriteOn6()
     {
         puzzleTopSpinRenderer[1].enabled = true;
-      
+        puzzleTopSpinRenderer[1].GetComponent<P_Rotation>().CheckTrigger();
     }
 
     public void SpriteOn7()
     {
         puzzleTopSpinRenderer[2].enabled = true;
-   
+        puzzleTopSpinRenderer[2].GetComponent<P_Rotation>().CheckTrigger();
     }
 }

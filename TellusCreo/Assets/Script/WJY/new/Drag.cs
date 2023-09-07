@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 public class Drag : MonoBehaviour, IDragHandler, IEndDragHandler
 {
-    public Image Image;
+    public GameObject Image;
     public Transform ItemDropZone;
     public GameObject itemItem;
 
@@ -31,7 +31,7 @@ public class Drag : MonoBehaviour, IDragHandler, IEndDragHandler
 
             
             itemItem.SetActive(true);
-            Destroy(Image);
+            Image.SetActive(false);
 
             isDropped = true;
         }
