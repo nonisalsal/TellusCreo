@@ -40,7 +40,8 @@ public class UI : MonoBehaviour
 
         foreach (var puzzle in GameManager.Instance.Puzzles) // 모든 퍼즐 비활성화
         {
-            puzzle.SetActive(false);
+            if(puzzle!=null)
+            puzzle?.SetActive(false);
         }
     }
 
