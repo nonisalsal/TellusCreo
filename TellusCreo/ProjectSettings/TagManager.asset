@@ -46,6 +46,9 @@ TagManager:
   - item_final_sun_puzzle
   - EarthManager
   - Curtain
+  - Jupiter
+  - Uranus
+  - Mars
   layers:
   - Default
   - TransparentFX
@@ -60,13 +63,13 @@ TagManager:
   - Poster
   - WetTissue
   - Star
-  - SignatureCard
-  - Wire
-  - ShadowLight
   - ArcadeConsole
+  - Wire
   - Lock
-  - Mirror
   - LightSwitch
+  - SignatureCard
+  - ShadowLight
+  - Mirror
   - ChangeView
   - Curtain
   - 
