@@ -2,24 +2,18 @@
 
 public class Planet : MonoBehaviour
 {
-    private bool _triger = false;
-
-    private void OnMouseEnter()
+    bool _triger = false;
+    private void OnEnable()
     {
-        if (_triger) // 인벤토리에 해당 행성이 선택된 건지
+        if (_triger) return;
+        if (GameManager.Instance != null)
         {
-            FirePlanet();
+            _triger = true;
+            GameManager.Instance.SetPlanet++;
+            if (GameManager.Instance?.SetPlanet == 3)
+            {
+                GameManager.Instance[(int)GameManager.Puzzle.Star - GameManager.Instance.NUMBER_OF_PUZZLES] = true;
+            }
         }
-    }
-
-    void FirePlanet()
-    {
-        OnMouseDown();
-    }
-
-    private void OnMouseDown()
-    {
-        //TODO: 발사
-        this.GetComponent<SpriteRenderer>().sprite = null; 
     }
 }

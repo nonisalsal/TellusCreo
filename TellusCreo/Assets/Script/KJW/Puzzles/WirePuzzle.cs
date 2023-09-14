@@ -36,7 +36,8 @@ public class WirePuzzle : MonoBehaviour
 
                 if (isClear)
                 {
-                    GameManager.Instance[(int)GameManager.Puzzle.LightSwitch - GameManager.Instance.NUMBER_OF_PUZZLES] = true;
+                    GameManager.Instance[(int)GameManager.Puzzle.LightSwitch-GameManager.Instance.NUMBER_OF_PUZZLES] = true;
+                    GameManager.Instance[(int)GameManager.Puzzle.Wire-GameManager.Instance.NUMBER_OF_PUZZLES] = true;
                     cnt = 0;
                 }
             }

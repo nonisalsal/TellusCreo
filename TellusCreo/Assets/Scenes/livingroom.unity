@@ -724,7 +724,7 @@ MonoBehaviour:
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 4
+    ModificationVersion: 5
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
@@ -2889,7 +2889,7 @@ MonoBehaviour:
       m_count: 211
       m_lastIndex: 211
       m_freeList: -1
-      m_version: 637
+      m_version: 849
     HashSetObjectsEnabled:
       m_buckets: 0000000000000000000000000000000000000000000000000a000000000000000000000000000000050000001900000016000000180000000000000006000000100000001c000000000000001f00000000000000030000002b0000001e00000007000000130000001d0000000000000000000000000000000000000000000000250000001b000000290000000000000000000000000000002e000000000000000000000000000000000000000f000000000000001500000002000000000000001a0000002800000000000000000000000000000000000000000000000000000026000000240000000000000023000000000000000000000000000000000000002d0000002c000000000000000400000000000000000000000000000000000000270000000b00000000000000010000000000000000000000220000000000000009000000000000000c0000000d0000000000000012000000000000000000000000000000
       m_slots:
@@ -3163,7 +3163,7 @@ MonoBehaviour:
       m_count: 46
       m_lastIndex: 46
       m_freeList: -1
-      m_version: 142
+      m_version: 189
     HashSetComponentsEnabled:
       m_buckets: 00000000000000000000000005000000000000000300000002000000
       m_slots:
@@ -3191,7 +3191,7 @@ MonoBehaviour:
       m_count: 5
       m_lastIndex: 5
       m_freeList: -1
-      m_version: 19
+      m_version: 25
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -3743,7 +3743,7 @@ MonoBehaviour:
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 9
+    ModificationVersion: 10
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
@@ -5908,7 +5908,7 @@ MonoBehaviour:
       m_count: 211
       m_lastIndex: 211
       m_freeList: -1
-      m_version: 856
+      m_version: 1068
     HashSetObjectsEnabled:
       m_buckets: 0000000000000000000000000000000000000000000000000a000000000000000000000000000000050000001900000016000000180000000000000006000000100000001c000000000000001f00000000000000030000002b0000001e00000007000000130000001d0000000000000000000000000000000000000000000000250000001b000000290000000000000000000000000000002e000000000000000000000000000000000000000f000000000000001500000002000000000000001a0000002800000000000000000000000000000000000000000000000000000026000000240000000000000023000000000000000000000000000000000000002d0000002c000000000000000400000000000000000000000000000000000000270000000b00000000000000010000000000000000000000220000000000000009000000000000000c0000000d0000000000000012000000000000000000000000000000
       m_slots:
@@ -6182,7 +6182,7 @@ MonoBehaviour:
       m_count: 46
       m_lastIndex: 46
       m_freeList: -1
-      m_version: 196
+      m_version: 243
     HashSetComponentsEnabled:
       m_buckets: 00000000000000000000000005000000000000000300000002000000
       m_slots:
@@ -6210,7 +6210,7 @@ MonoBehaviour:
       m_count: 5
       m_lastIndex: 5
       m_freeList: -1
-      m_version: 32
+      m_version: 38
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -6301,6 +6301,77 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279080260}
   m_CullTransparentMesh: 0
+--- !u!1 &310531541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 310531542}
+  - component: {fileID: 310531544}
+  - component: {fileID: 310531543}
+  m_Layer: 0
+  m_Name: Playroom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &310531542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310531541}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.97, y: 4.52, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1265275636}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &310531543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310531541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed3b734102eaa8943814c18004e7f83d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Playroom
+--- !u!61 &310531544
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310531541}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &340981992
 GameObject:
   m_ObjectHideFlags: 0
@@ -6347,6 +6418,77 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &443115524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 443115525}
+  - component: {fileID: 443115527}
+  - component: {fileID: 443115526}
+  m_Layer: 0
+  m_Name: Attic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &443115525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443115524}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.25, y: 4.51, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1265275636}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &443115526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443115524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed3b734102eaa8943814c18004e7f83d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Attic
+--- !u!61 &443115527
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443115524}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &452162325
 GameObject:
   m_ObjectHideFlags: 0
@@ -6902,7 +7044,7 @@ MonoBehaviour:
   FieldsEnable:
     Version: 2
     PathsEnabled: []
-    ModificationVersion: 1
+    ModificationVersion: 2
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
@@ -6912,21 +7054,21 @@ MonoBehaviour:
       m_count: 0
       m_lastIndex: 0
       m_freeList: -1
-      m_version: 1
+      m_version: 2
     HashSetObjectsEnabled:
       m_buckets: 
       m_slots: []
       m_count: 0
       m_lastIndex: 0
       m_freeList: -1
-      m_version: 1
+      m_version: 2
     HashSetComponentsEnabled:
       m_buckets: 
       m_slots: []
       m_count: 0
       m_lastIndex: 0
       m_freeList: -1
-      m_version: 1
+      m_version: 2
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -6942,6 +7084,77 @@ MonoBehaviour:
   PrefabSetTime: 1694037837
   CreateInRuntime: 0
   onLoad: 0
+--- !u!1 &555423286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 555423287}
+  - component: {fileID: 555423289}
+  - component: {fileID: 555423288}
+  m_Layer: 0
+  m_Name: Libraryroom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &555423287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555423286}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19.94, y: 4.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1265275636}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &555423288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555423286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed3b734102eaa8943814c18004e7f83d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Libraryroom
+--- !u!61 &555423289
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555423286}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &561758784
 GameObject:
   m_ObjectHideFlags: 0
@@ -7015,7 +7228,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &693067070
 GameObject:
@@ -7862,6 +8075,117 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227555219}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!1 &1265275635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1265275636}
+  m_Layer: 0
+  m_Name: Doorknob
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1265275636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265275635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.25396, y: -4.6475105, z: -4.7719107}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 443115525}
+  - {fileID: 310531542}
+  - {fileID: 555423287}
+  - {fileID: 1298382121}
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1298382120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1298382121}
+  - component: {fileID: 1298382123}
+  - component: {fileID: 1298382122}
+  m_Layer: 0
+  m_Name: Exit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1298382121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298382120}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 33.16, y: 4.48, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1265275636}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1298382122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298382120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d8d008301a6a04b9bc65fd3940e3bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Ending
+  trigger1: 0
+  trigger2: 0
+  trigger3: 0
+  object1: {fileID: 279080260}
+  object2: {fileID: 2104487113}
+  object3: {fileID: 251760300}
+--- !u!61 &1298382123
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298382120}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -13807,7 +14131,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1546284192
 MonoBehaviour:
@@ -17519,7 +17843,7 @@ MonoBehaviour:
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 5
+    ModificationVersion: 6
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
@@ -19684,7 +20008,7 @@ MonoBehaviour:
       m_count: 211
       m_lastIndex: 211
       m_freeList: -1
-      m_version: 638
+      m_version: 850
     HashSetObjectsEnabled:
       m_buckets: 0000000000000000000000000000000000000000000000000a000000000000000000000000000000050000001900000016000000180000000000000006000000100000001c000000000000001f00000000000000030000002b0000001e00000007000000130000001d0000000000000000000000000000000000000000000000250000001b000000290000000000000000000000000000002e000000000000000000000000000000000000000f000000000000001500000002000000000000001a0000002800000000000000000000000000000000000000000000000000000026000000240000000000000023000000000000000000000000000000000000002d0000002c000000000000000400000000000000000000000000000000000000270000000b00000000000000010000000000000000000000220000000000000009000000000000000c0000000d0000000000000012000000000000000000000000000000
       m_slots:
@@ -19958,7 +20282,7 @@ MonoBehaviour:
       m_count: 46
       m_lastIndex: 46
       m_freeList: -1
-      m_version: 143
+      m_version: 190
     HashSetComponentsEnabled:
       m_buckets: 00000000000000000000000005000000000000000300000002000000
       m_slots:
@@ -19986,7 +20310,7 @@ MonoBehaviour:
       m_count: 5
       m_lastIndex: 5
       m_freeList: -1
-      m_version: 20
+      m_version: 26
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0

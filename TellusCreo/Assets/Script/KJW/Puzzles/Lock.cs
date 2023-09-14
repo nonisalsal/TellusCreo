@@ -48,7 +48,7 @@ public class Lock : MonoBehaviour
         }
 
         LockBox.action(LockBox.LockBoxType.Unlock);
-        GameManager.Instance[(int)GameManager.Puzzle.Lock - GameManager.Instance.NUMBER_OF_PUZZLES] = true;
+        GameManager.Instance[(int)GameManager.Puzzle.Lock-GameManager.Instance.NUMBER_OF_PUZZLES] = true;
     }
 
     public void UpButton()
