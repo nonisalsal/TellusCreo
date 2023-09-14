@@ -85,6 +85,7 @@ public class P_PuzzleClear : MonoBehaviour
         foreach (Collider2D collider in colliders)
             collider.enabled = false;
 
+        SoundManager.Instance.Play("puzzle_clear");
         Destroy(this);
     }
 }
