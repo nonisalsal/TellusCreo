@@ -42,6 +42,7 @@ public class WetTissue : MonoBehaviour
                 clear = true;
                 SoundManager.Instance.Play("puzzle_clear");
                 GameObject Mars = Instantiate(mars, transform.position, Quaternion.identity);
+                GameManager.Instance[(int)GameManager.Puzzle.WetTissue - GameManager.Instance.NUMBER_OF_PUZZLES] = true;
                 Mars.transform.SetParent(this.transform);
                 Mars.transform.localPosition = new Vector3(0.0f, 0.8f, 0.0f);
             }

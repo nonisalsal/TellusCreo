@@ -27,7 +27,8 @@ public class Poster : MonoBehaviour
     void Update()
     {
         if (clearPuzzle) return;
-
+        if (InventoryManager.Instance == null|| InventoryManager.Instance.HasItem("Marker") == false) return;
+       
         if (cnt == transform.childCount && !clearPuzzle)
         {
             if (correct)
@@ -35,7 +36,7 @@ public class Poster : MonoBehaviour
 #if UNITY_EDITOR
                 Debug.Log("Clear");
 #endif
-                GameManager.Instance[(int)GameManager.Puzzle.Poster - GameManager.Instance.NUMBER_OF_PUZZLES] = true;
+                GameManager.Instance[(int)GameManager.Puzzle.Poster-GameManager.Instance.NUMBER_OF_PUZZLES] = true;
                 clearPuzzle = true;
                 if(uranus != null) 
                 {

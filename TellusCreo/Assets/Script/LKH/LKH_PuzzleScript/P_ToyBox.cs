@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class P_ToyBox : MonoBehaviour
 {
-    private int num = 1;
+    [SerializeField] private int num = 1;
 
     private void OnEnable()
     {
@@ -31,7 +31,7 @@ public class P_ToyBox : MonoBehaviour
             if (System.Object.ReferenceEquals(gameObject, upHit.transform.parent.gameObject))
             {
                 num++;
-                if (num >= 3)
+                if (num == 3)
                     num = 0;
 
                 for (int i = 0; i < 3; i++)
@@ -40,6 +40,7 @@ public class P_ToyBox : MonoBehaviour
                     if (i == num)
                         transform.GetChild(i).gameObject.SetActive(true);
                 }
+                Debug.Log("adsf");
             }
         }
     }

@@ -9,14 +9,16 @@ public class on : MonoBehaviour
     public SpriteRenderer puzzleGuitarRenderer;
     public SpriteRenderer puzzleViolinRenderer;
     public SpriteRenderer[] puzzledrumRenderer;
-    public SpriteRenderer[] puzzleKeyARenderer;
-    public SpriteRenderer[] puzzleKeyBRenderer;
+    public SpriteRenderer[] puzzleConcentRenderer;
+    // public SpriteRenderer[] puzzleKeyARenderer;
+    public P_ClickObject puzzleKeyAScript;
+    public P_ClickObject puzzleKeyBScript;
+    //public SpriteRenderer[] puzzleKeyBRenderer;
 
     public SpriteRenderer[] puzzleTopSpinRenderer;
 
-
     public Collider2D myCollider;
-    public Collider2D myCollider2;
+    //public Collider2D myCollider2;
 
 
     private void Awake()
@@ -54,20 +56,12 @@ public class on : MonoBehaviour
 
     public void SpriteOn3()
     {
-        foreach (SpriteRenderer renderer in puzzleKeyARenderer)
-        {
-            renderer.enabled = true;
-        }
-        myCollider.enabled = true;
+        puzzleKeyAScript.Open_lockedBedLeft();
     }
 
     public void SpriteOn4()
     {
-        foreach (SpriteRenderer renderer in puzzleKeyBRenderer)
-        {
-            renderer.enabled = true;
-        }
-        myCollider2.enabled = true;
+        puzzleKeyBScript.Open_lockedDrawer();
     }
 
     public void SpriteOn5()
@@ -86,5 +80,12 @@ public class on : MonoBehaviour
     {
         puzzleTopSpinRenderer[2].enabled = true;
         puzzleTopSpinRenderer[2].GetComponent<P_Rotation>().CheckTrigger();
+    }
+
+    public void SpriteOn8()
+    {
+        puzzleConcentRenderer[0].enabled = false;
+        puzzleConcentRenderer[1].enabled = true;
+        P_GameManager.instance.Set_wireConnect();
     }
 }

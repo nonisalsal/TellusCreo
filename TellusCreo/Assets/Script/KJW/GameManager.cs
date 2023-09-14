@@ -20,24 +20,26 @@ public class GameManager : MonoBehaviour
         Poster = 10,
         WetTissue,
         Star,
-        SignatureCard, // 13
-        Wire,
-        ShadowLight, // 15
         ArcadeConsole,
-        Lock,
+        Wire,
+        Lock,//5
+        LightSwitch,//6
+        SignatureCard, // 7
+        ShadowLight, // 8
         Mirror,
-        LightSwitch,
         ChangeView,
-        Curtain,
+        Curtain
     }
 
     public UI Ui;
     public List<GameObject> Puzzles;
     public bool onPuzzle;
-    public int NUMBER_OF_PUZZLES { get => number_of_puzzles; }
+    public int NUMBER_OF_PUZZLES { get => 10; }
     public GameObject Curtain { get => curtain; }
     public bool SwitchStatus { get => switchStatus; }
+    public int SetPlanet = 0;
 
+    [SerializeField] Item sun;
     [SerializeField]
     Sprite defaultCurtainSprtie;
     [SerializeField]
@@ -58,7 +60,7 @@ public class GameManager : MonoBehaviour
             ClearPuzzles[idx] = value;
             if (value == true)  // 클리어 시
             {
-                if (ClearPuzzles[idx] == ClearPuzzles[(int)GameManager.Puzzle.ArcadeConsole - GameManager.Instance.NUMBER_OF_PUZZLES]) // 아케이드 완료시에
+                if (idx+NUMBER_OF_PUZZLES == (int)GameManager.Puzzle.ArcadeConsole) // 아케이드 완료시에
                 {
                     SoundManager.Instance.Play("puzzle_Arcade_clear");
                 }
@@ -76,15 +78,17 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject globalLight;
     Light2D globalLight2D;
-    const int number_of_puzzles = 10;
+    const int CLEAR_PUZZLE = 7;
     const float DimIntensity = 0.5f;
     const float BrightIntensity = 1f;
+    Func<bool> _allClear;
+
 
     void Start()
     {
         SoundManager.Instance.Play("Attic_bgm", Sound.Bgm);
         Room += CheckRoomClear;
-        ClearPuzzles = new bool[NUMBER_OF_PUZZLES];
+        ClearPuzzles = new bool[CLEAR_PUZZLE];
         isCurtainOpen = false;
         s_instance = this;
         onPuzzle = false;
@@ -184,8 +188,7 @@ public class GameManager : MonoBehaviour
                     {
                         SoundManager.Instance.Play("curtain_close"); // 닫힘 사운드
                         if (ShadowPuzzleChaeck())
-                        {
-                            // ShadowPuzzle puzzleObject = FindPuzzleObject<ShadowPuzzle>();
+                        {    
                             ShadowPuzzle puzzleObject = Puzzles[(int)Puzzle.ShadowLight - NUMBER_OF_PUZZLES].GetComponent<ShadowPuzzle>();
                             if (puzzleObject != null)
                             {
@@ -242,8 +245,7 @@ public class GameManager : MonoBehaviour
 #endif
                         BackgroundManager background = hitGameObject.transform.parent.parent.GetComponent<BackgroundManager>();
                         background?.transform.Find("AfterPoster")?.gameObject.SetActive(true); // AfterPoster
-                        background?.transform.Find("BeforePoster")?.gameObject.SetActive(false); // BeforePoster
-                                                                                                 // background?.transform.GetChild(0).gameObject.SetActive(false); // BeforePoster
+                        background?.transform.Find("BeforePoster")?.gameObject.SetActive(false); // BeforePoster       
                     }
                     else if (hitGameObject.CompareTag("AfterPoster"))
                     {
@@ -251,8 +253,6 @@ public class GameManager : MonoBehaviour
 
                         background?.transform.Find("AfterPoster")?.gameObject.SetActive(false); // AfterPoster
                         background?.transform.Find("BeforePoster")?.gameObject.SetActive(true); // BeforePoster
-                        //hitGameObject.transform.gameObject.SetActive(false); // AfterPoster
-                        //background?.transform.GetChild(0).gameObject.SetActive(true); // BeforePoster
                     }
                     else
                     {
@@ -342,7 +342,6 @@ public class GameManager : MonoBehaviour
                     if (isCurtainOpen)
                     {
                         BackgroundManager mirrorBM = Puzzles[(int)Puzzle.Mirror - NUMBER_OF_PUZZLES].GetComponent<BackgroundManager>();
-                        //mirrorBM.
                         Puzzles[(int)Puzzle.Mirror - NUMBER_OF_PUZZLES]?.SetActive(true);
                         ChangeBackground();
                     }
@@ -383,8 +382,16 @@ public class GameManager : MonoBehaviour
             Debug.Log("풀 퍼즐이 남았음");
 #endif
         }
-
-        // TODO: 최종 아이템 생성 처리
+        else
+        {
+#if UNITY_EDITOR
+            Debug.Log("다락방 완료");
+#endif
+            if(InventoryManager.Instance!=null)
+            {
+                InventoryManager.Instance.Add(sun);
+            }
+        }
     }
 
     void ChangCurtainSprite2Default()
