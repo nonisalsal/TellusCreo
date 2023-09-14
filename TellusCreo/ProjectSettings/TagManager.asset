@@ -46,6 +46,7 @@ TagManager:
   - item_final_sun_puzzle
   - EarthManager
   - Curtain
+  - Item_Concent
   layers:
   - Default
   - TransparentFX

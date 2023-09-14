@@ -17,6 +17,8 @@ public class P_ClickObject : MonoBehaviour
 
     private bool isFinalDoor = false;
 
+    private bool isPicturePuzzle = false;
+
     private void Awake()
     {
         if (pair != null)
@@ -40,6 +42,8 @@ public class P_ClickObject : MonoBehaviour
             isLockedLamp = true;
         else if (name == "finalDoor_object")
             isFinalDoor = true;
+        else if (name == "pieces")
+            isPicturePuzzle = true;
     }
 
     private void PlayerInput()
@@ -62,27 +66,46 @@ public class P_ClickObject : MonoBehaviour
                 }
 
                 if (isLockedDrawer)
+                {
+                    SoundManager.Instance.Play("Door_locked");
                     return;
+                }
 
                 if (isLockedBedLeft)
+                {
+                    SoundManager.Instance.Play("door_locked");
                     return;
+                }
 
                 if (isLockedLamp)
                 {
                     if (!P_GameManager.instance.Get_wireConnect())
                         return;
+
+                    SoundManager.Instance.Play("light_switch");
                 }
 
                 if (hasPair)
                     pair.SetActive(true);
 
                 gameObject.SetActive(false);
+
+                if (isLockedLamp) return;
+
+                if (isPicturePuzzle)
+                {
+                    SoundManager.Instance.Play("open_lockedDoor");
+                    return;
+                }
+
+                SoundManager.Instance.Play("door_sliding");
             }
         }
     }
 
     private void Click_toyboxCover()
     {
+        SoundManager.Instance.Play("open_lockedDoor");
         toyInfo.IsActive_false();
         toyInfo.puzzleWindow = pair;
         toyInfo.IsActive_true();
@@ -94,11 +117,23 @@ public class P_ClickObject : MonoBehaviour
         if (isPlayroomClear)
             SceneManager.LoadScene("livingroom");
         else
-            Debug.Log("Need final item");
+            P_SoundManager.instance.Play_lockedDoor();
     }
 
     void Update()
     {
         PlayerInput();
+    }
+
+    public void Open_lockedBedLeft()
+    {
+        SoundManager.Instance.Play("open_lockedDoor");
+        isLockedBedLeft = false;
+    }
+
+    public void Open_lockedDrawer()
+    {
+        SoundManager.Instance.Play("open_lockedDoor");
+        isLockedDrawer = false;
     }
 }
