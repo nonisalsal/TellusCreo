@@ -182,6 +182,20 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
                 InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
                 Destroy(gameObject);
             }
+            else if (collider.CompareTag("Item_Concent"))
+            {
+                on.Instance.SpriteOn8();
+                string itemNameToRemove = "Concent";
+                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
+                Destroy(gameObject);
+            }
+            else if (collider.CompareTag("Item_TopSpinC"))
+            {
+                on.Instance.SpriteOn7();
+                string itemNameToRemove = "SpinC"; // 제거할 아이템의 이름
+                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
+                Destroy(gameObject);
+            }
         }
         if (this.gameObject != null)
             transform.SetParent(parentAfterDrag);
