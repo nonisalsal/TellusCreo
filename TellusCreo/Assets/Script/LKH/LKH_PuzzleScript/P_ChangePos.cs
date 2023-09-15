@@ -12,12 +12,7 @@ public class P_ChangePos : MonoBehaviour
     private bool startOnTrig;
     private int checkLayer;
 
-    private void Start()
-    {
-        GetComponent<Collider2D>().isTrigger = true;
-    }
-
-    public void SetObj()
+    private void SetObj()
     {
         if (!isSet && !isMove)
         {
@@ -25,6 +20,7 @@ public class P_ChangePos : MonoBehaviour
             isSet = true;
             startOnTrig = false;
             checkLayer = 0;
+            //Debug.Log("set object");
         }
     }
 
@@ -47,6 +43,7 @@ public class P_ChangePos : MonoBehaviour
             afterPos = collision.transform.localPosition;
             collision.transform.localPosition = beforePos;
             beforePos = afterPos;
+            //Debug.Log("change position");
         }
     }
 
@@ -69,10 +66,10 @@ public class P_ChangePos : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void LateUpdate()
     {
-        if (this.CompareTag("P_move")) 
-            isMove = true; 
+        if (this.CompareTag("P_move"))
+            isMove = true;
         else
             isMove = false;
 
@@ -80,11 +77,8 @@ public class P_ChangePos : MonoBehaviour
 
         if (checkLayer == 1 && !isMove)
             startOnTrig = true;
-    }
 
-    public void LateUpdate()
-    {
-        if (checkLayer == 2)
-            startOnTrig = true;
+        //if (checkLayer == 2)
+        //    startOnTrig = true;
     }
 }

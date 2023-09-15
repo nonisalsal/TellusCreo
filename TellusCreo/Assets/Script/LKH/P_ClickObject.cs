@@ -117,7 +117,7 @@ public class P_ClickObject : MonoBehaviour
         if (isPlayroomClear)
             SceneManager.LoadScene("livingroom");
         else
-            P_SoundManager.instance.Play_lockedDoor();
+            SoundManager.Instance.Play("door_locked");
     }
 
     void Update()

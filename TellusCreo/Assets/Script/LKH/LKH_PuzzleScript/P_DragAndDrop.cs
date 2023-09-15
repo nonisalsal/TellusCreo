@@ -57,6 +57,7 @@ public class P_DragAndDrop : MonoBehaviour
             {
                 tag = "P_move";
                 ChangeLayer(31);
+                Debug.Log("is down");
             }
         }
         if (P_GameManager.instance.isUp)
