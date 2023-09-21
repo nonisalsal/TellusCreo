@@ -6670,7 +6670,7 @@ GameObject:
   - component: {fileID: 757984246}
   m_Layer: 30
   m_Name: puzzle_spin_B
-  m_TagString: Item_TopSpinB
+  m_TagString: SpinB
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8533,6 +8533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Items: []
+  itemdata: []
   ItemContent: {fileID: 71225647}
   InventoryItem: {fileID: 1858927645883025317, guid: a78669716d05a67488e2fbcabcadde94,
     type: 3}
@@ -8700,7 +8701,7 @@ GameObject:
   - component: {fileID: 979419110}
   m_Layer: 30
   m_Name: puzzle_spin_C
-  m_TagString: Item_TopSpinC
+  m_TagString: SpinC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11238,7 +11239,7 @@ GameObject:
   - component: {fileID: 1289667085}
   m_Layer: 30
   m_Name: puzzle_spin_A
-  m_TagString: Item_TopSpinA
+  m_TagString: SpinA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11660,7 +11661,7 @@ GameObject:
   - component: {fileID: 1330645616}
   m_Layer: 0
   m_Name: puzzle_violin
-  m_TagString: Item_violin
+  m_TagString: puzzle_violin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11973,6 +11974,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1351876285}
   m_CullTransparentMesh: 0
+--- !u!1 &1354115708
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1354115709}
+  - component: {fileID: 1354115710}
+  m_Layer: 0
+  m_Name: ItemDataBase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1354115709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354115708}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.295322, y: 0.44778246, z: -357.98056}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1354115710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354115708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf3de112d8c3724f8020b312436bba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDB: []
+  ItemPrefab: {fileID: 0}
 --- !u!1 &1360525078
 GameObject:
   m_ObjectHideFlags: 0
@@ -11986,7 +12032,7 @@ GameObject:
   - component: {fileID: 1360525081}
   m_Layer: 0
   m_Name: drum_clear
-  m_TagString: Item_drum
+  m_TagString: Drum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12621,7 +12667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1500427225
 Transform:
   m_ObjectHideFlags: 0
@@ -15615,6 +15661,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719797395028711213, guid: 230743ca11054aa4490d5758dde870a4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Guitar
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -6576473884942678278, guid: 230743ca11054aa4490d5758dde870a4, type: 3}
