@@ -17,11 +17,11 @@ public class P_IsRightPos : MonoBehaviour
         clearController = transform.GetComponentInParent<P_PuzzleClear>();
     }
 
-    private void OnEnable()
-    {
-        isTrigger = false;
-        isRight = false;
-    }
+    //private void OnEnable()
+    //{
+    //    isTrigger = false;
+    //    isRight = false;
+    //}
 
     void Start()
     {

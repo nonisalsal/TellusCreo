@@ -8,13 +8,12 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
 
     public List<Item> Items = new List<Item>();
-
+    public List<ItemData> itemdata = new List<ItemData>();
     public Transform ItemContent;
     public GameObject InventoryItem;
     private Dictionary<string, Item> itemDictionary = new Dictionary<string, Item>();
 
     public DragAndDrop dragAndDropScript;
-
 
 
 
@@ -41,6 +40,14 @@ public class InventoryManager : MonoBehaviour
         if (!Items.Contains(item))
         {
             Items.Add(item);
+
+            // 아이템 정보를 ItemData 클래스로 변환하여 itemdata 리스트에 추가
+            ItemData itemData = new ItemData(item);
+            ItemDataBase.instance.itemDB.Add(itemData);
+            
+
+
+
             itemDictionary[item.itemName] = item;
             UpdateInventoryUI(); // 아이템이 추가되었으므로 인벤토리를 갱신
         }
@@ -87,6 +94,10 @@ public class InventoryManager : MonoBehaviour
             GameObject obj = Instantiate(InventoryItem, ItemContent);
             var itemIcon = obj.transform.Find("Border/ItemIcon").GetComponent<Image>();
             itemIcon.sprite = item.icon;
+
+            var itemNameText = obj.transform.Find("Border/ItemName").GetComponent<Text>();
+            itemNameText.text = item.itemName; // 아이템 이름 설정
+
 
         }
     }

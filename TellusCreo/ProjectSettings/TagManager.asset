@@ -29,14 +29,8 @@ TagManager:
   - Keybox
   - Item_guitar
   - P_item
-  - Item_Guitar
-  - Item_violin
-  - Item_drum
   - Item_KeyB
   - Item_SpinC
-  - Item_TopSpinA
-  - Item_TopSpinB
-  - Item_TopSpinC
   - Item_KeyA
   - item_final_soil
   - item_final_sun
@@ -50,6 +44,17 @@ TagManager:
   - Uranus
   - Mars
   - Item_Concent
+  - itemitem
+  - Guitar
+  - puzzle_violin
+  - Drum
+  - SpinA
+  - SpinB
+  - SpinC
+  - Wire1
+  - Wire2
+  - Wire3
+  - Wire4
   layers:
   - Default
   - TransparentFX
