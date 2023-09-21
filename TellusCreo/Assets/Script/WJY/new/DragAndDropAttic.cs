@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using UnityEngine.WSA;
 using static Data.Util.ActiveFields;
 
-public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class DragAndDropAttic : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     public Transform parentAfterDrag;
     private string draggedItemName;
@@ -20,7 +20,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
     public List<ItemData> inventoryItems = new List<ItemData>();
 
-    public static DragAndDrop instance;
+    public static DragAndDropAttic instance;
 
 
     private SpriteRenderer puzzleviolinRenderer;
@@ -90,69 +90,10 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         {
             // 다른 오브젝트와의 충돌 판정을 수행하고 원하는 동작을 수행합니다.
 
+
+
+
             if (collider.CompareTag(textContent))
-            {
-                on.Instance.SpriteOn();
-                string itemNameToRemove = "Guitar"; // 제거할 아이템의 이름
-                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
-                Destroy(gameObject);
-
-            }
-
-            else if (collider.CompareTag(textContent))
-            {
-                on.Instance.SpriteOn1();
-                string itemNameToRemove = "puzzle_violin"; // 제거할 아이템의 이름
-                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
-                Destroy(gameObject);
-            }
-
-            else if (collider.CompareTag(textContent))
-            {
-                on.Instance.SpriteOn2();
-                string itemNameToRemove = "Drum"; // 제거할 아이템의 이름
-                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
-                Destroy(gameObject);
-            }
-
-            else if (collider.CompareTag(textContent))
-            {
-                on.Instance.SpriteOn3();
-                string itemNameToRemove = "KeyA"; // 제거할 아이템의 이름
-                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
-                Destroy(gameObject);
-            }
-
-            else if (collider.CompareTag(textContent))
-            {
-                on.Instance.SpriteOn4();
-                string itemNameToRemove = "KeyB"; // 제거할 아이템의 이름
-                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
-                Destroy(gameObject);
-            }
-
-            else if (collider.CompareTag(textContent))
-            {
-                on.Instance.SpriteOn5();
-                string itemNameToRemove = "SpinA"; // 제거할 아이템의 이름
-                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
-                Destroy(gameObject);
-            }
-            else if (collider.CompareTag(textContent))
-            {
-                on.Instance.SpriteOn6();
-                string itemNameToRemove = "SpinB"; // 제거할 아이템의 이름
-                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
-                Destroy(gameObject);
-            }
-            else if (collider.CompareTag(textContent))
-            {
-                on.Instance.SpriteOn7();
-                string itemNameToRemove = "SpinC"; // 제거할 아이템의 이름
-                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
-                Destroy(gameObject);
-            }
-            else if (collider.CompareTag(textContent))
             {
                 if (collider.transform.childCount != 0) continue; // 자식이 0개일때만
                 string itemNameToRemove = transform.GetChild(0).GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite.name;
@@ -217,20 +158,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
                 InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
                 Destroy(gameObject);
             }
-            else if (collider.CompareTag(textContent))
-            {
-                on.Instance.SpriteOn8();
-                string itemNameToRemove = "Concent";
-                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
-                Destroy(gameObject);
-            }
-            else if (collider.CompareTag(textContent))
-            {
-                on.Instance.SpriteOn7();
-                string itemNameToRemove = "SpinC"; // 제거할 아이템의 이름
-                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
-                Destroy(gameObject);
-            }
+            
         }
         if (this.gameObject != null)
             transform.SetParent(parentAfterDrag);
