@@ -38,8 +38,10 @@ public class P_GameManager : MonoBehaviour
         topClear = false;
 
         isGetFinalItem = false;
-    }
 
+        SoundManager.Instance.Play("playroom_background", Sound.Bgm);
+    }
+    
     void Update()
     {
         ShootRay();

@@ -32,6 +32,8 @@ public class L_GameManager : MonoBehaviour
         isGetFinalItem = false;
         bookClear = false;
         symmetryClear = true;
+
+        SoundManager.Instance.Play("library_bgm", Sound.Bgm);
     }
 
     void Update()
