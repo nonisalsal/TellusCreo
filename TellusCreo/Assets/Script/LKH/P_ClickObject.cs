@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class P_ClickObject : MonoBehaviour
 {
@@ -50,6 +51,9 @@ public class P_ClickObject : MonoBehaviour
     {
         if (P_GameManager.instance.isUp)
         {
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
+
             GameObject upHit = P_GameManager.instance.upHit.collider.gameObject;
             if (System.Object.ReferenceEquals(gameObject, upHit))
             {
@@ -115,7 +119,8 @@ public class P_ClickObject : MonoBehaviour
     {
         bool isPlayroomClear = P_GameManager.instance.Get_isGetFinalItem();
         if (isPlayroomClear)
-            SceneManager.LoadScene("livingroom");
+            return;
+        //SceneManager.LoadScene("livingroom");
         else
             SoundManager.Instance.Play("door_locked");
     }

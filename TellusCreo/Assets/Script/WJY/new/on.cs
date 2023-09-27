@@ -10,16 +10,12 @@ public class on : MonoBehaviour
     public SpriteRenderer puzzleViolinRenderer;
     public SpriteRenderer[] puzzledrumRenderer;
     public SpriteRenderer[] puzzleConcentRenderer;
-    // public SpriteRenderer[] puzzleKeyARenderer;
-    public P_ClickObject puzzleKeyAScript;
-    public P_ClickObject puzzleKeyBScript;
-    //public SpriteRenderer[] puzzleKeyBRenderer;
-
     public SpriteRenderer[] puzzleTopSpinRenderer;
 
-    public Collider2D myCollider;
-    //public Collider2D myCollider2;
+    public P_ClickObject puzzleKeyAScript;
+    public P_ClickObject puzzleKeyBScript;
 
+    public Collider2D myCollider;
 
     private void Awake()
     {
@@ -68,18 +64,21 @@ public class on : MonoBehaviour
     {
         puzzleTopSpinRenderer[0].enabled = true;
         puzzleTopSpinRenderer[0].GetComponent<P_Rotation>().CheckTrigger();
+        SoundManager.Instance.Play("p_drop");
     }
 
     public void SpriteOn6()
     {
         puzzleTopSpinRenderer[1].enabled = true;
         puzzleTopSpinRenderer[1].GetComponent<P_Rotation>().CheckTrigger();
+        SoundManager.Instance.Play("p_drop");
     }
 
     public void SpriteOn7()
     {
         puzzleTopSpinRenderer[2].enabled = true;
         puzzleTopSpinRenderer[2].GetComponent<P_Rotation>().CheckTrigger();
+        SoundManager.Instance.Play("p_drop");
     }
 
     public void SpriteOn8()
@@ -87,5 +86,6 @@ public class on : MonoBehaviour
         puzzleConcentRenderer[0].enabled = false;
         puzzleConcentRenderer[1].enabled = true;
         P_GameManager.instance.Set_wireConnect();
+        SoundManager.Instance.Play("light_switch");
     }
 }
