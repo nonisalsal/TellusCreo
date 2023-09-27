@@ -51,37 +51,37 @@ public class P_GameManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (!EventSystem.current.IsPointerOverGameObject())
-            {
-                Vector2 downPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Ray2D downRay = new Ray2D(downPos, Vector2.zero);
-                downHit = Physics2D.Raycast(downRay.origin, downRay.direction, 1 << 30);
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
 
-                if (downHit.collider != null)
-                    isDown = true;
-            }
+            Vector2 downPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Ray2D downRay = new Ray2D(downPos, Vector2.zero);
+            downHit = Physics2D.Raycast(downRay.origin, downRay.direction, 1 << 30);
+
+            if (downHit.collider != null)
+                isDown = true;
         }
         else
             isDown = false;
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (!EventSystem.current.IsPointerOverGameObject())
-            {
-                Vector2 upPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Ray2D upRay = new Ray2D(upPos, Vector2.zero);
-                upHit = Physics2D.Raycast(upRay.origin, upRay.direction);
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
 
-                if (upHit.collider != null)
-                {
-                    isUp = true;
-                    isUp_nonCollider = false;
-                }
-                else
-                {
-                    isUp = false;
-                    isUp_nonCollider = true;
-                }
+            Vector2 upPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Ray2D upRay = new Ray2D(upPos, Vector2.zero);
+            upHit = Physics2D.Raycast(upRay.origin, upRay.direction);
+
+            if (upHit.collider != null)
+            {
+                isUp = true;
+                isUp_nonCollider = false;
+            }
+            else
+            {
+                isUp = false;
+                isUp_nonCollider = true;
             }
         }
         else 

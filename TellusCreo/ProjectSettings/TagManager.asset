@@ -55,6 +55,11 @@ TagManager:
   - Wire2
   - Wire3
   - Wire4
+  - Item_drum
+  - Item_Guitar
+  - KeyA
+  - KeyB
+  - Concent
   layers:
   - Default
   - TransparentFX
