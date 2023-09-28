@@ -181,9 +181,15 @@ public class P_Rotation : MonoBehaviour
         }
     }
 
-    private void turnRight() { rig.angularVelocity = -speed; }
+    private void turnRight() 
+    { 
+        rig.angularVelocity = -speed;
+    }
 
-    private void turnLeft() { rig.angularVelocity = speed; }
+    private void turnLeft() 
+    { 
+        rig.angularVelocity = speed;
+    }
 
     public bool Get_isSet() { return isSet; }
 

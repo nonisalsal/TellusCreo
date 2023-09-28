@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using UnityEngine.WSA;
-using static Data.Util.ActiveFields;
 
 public class DragAndDropAttic : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {

@@ -6,6 +6,10 @@ public class P_GetItem : MonoBehaviour
 {
     private void OnDestroy()
     {
-        SoundManager.Instance.Play("item_get");
+        if (SoundManager.Instance != null)
+            SoundManager.Instance.Play("item_get");
+
+        if (this.CompareTag("item_final_soil_puzzle"))
+            P_GameManager.instance.Set_isGetFinalItem();
     }
 }

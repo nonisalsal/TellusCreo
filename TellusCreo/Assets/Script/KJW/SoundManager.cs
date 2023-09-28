@@ -75,7 +75,8 @@ public class SoundManager : MonoBehaviour
         Play(audioClip, type, pitch);
     }
 
-    AudioClip GetOrAddAudioClip(string path, Sound type = Sound.Effect)
+
+     AudioClip GetOrAddAudioClip(string path, Sound type = Sound.Effect)
     {
         if (path.Contains("Sound/") == false)
             path = $"Sound/{path}"; // Sound 폴더 안에 저장될 수 있도록
@@ -96,9 +97,11 @@ public class SoundManager : MonoBehaviour
         }
 
         if (audioClip == null)
+        { 
 #if UNITY_EDITOR
             Debug.LogWarning($"AudioClip 없음. {path}");
 #endif
+        }
 
         return audioClip;
     }

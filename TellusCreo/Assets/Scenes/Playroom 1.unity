@@ -1211,7 +1211,7 @@ GameObject:
   - component: {fileID: 140412352}
   - component: {fileID: 140412351}
   m_Layer: 0
-  m_Name: wire_object
+  m_Name: concent_object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2490,7 +2490,7 @@ GameObject:
   - component: {fileID: 233445894}
   m_Layer: 0
   m_Name: item_final_soil
-  m_TagString: P_item
+  m_TagString: item_final_soil_puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2719,7 +2719,7 @@ GameObject:
   - component: {fileID: 235249448}
   m_Layer: 30
   m_Name: concent_pos
-  m_TagString: Item_Concent
+  m_TagString: Concent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11173,7 +11173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1316871226}
   m_Layer: 0
-  m_Name: Wire
+  m_Name: Concent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12351,7 +12351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1500427225
 Transform:
   m_ObjectHideFlags: 0
@@ -15730,7 +15730,7 @@ GameObject:
   - component: {fileID: 1890637383}
   m_Layer: 0
   m_Name: drawer
-  m_TagString: Item_KeyB
+  m_TagString: KeyB
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16432,7 +16432,7 @@ GameObject:
   - component: {fileID: 1926373151}
   m_Layer: 0
   m_Name: bed_left
-  m_TagString: Item_KeyA
+  m_TagString: KeyA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17503,12 +17503,12 @@ MonoBehaviour:
   puzzleConcentRenderer:
   - {fileID: 235249445}
   - {fileID: 1672078086}
-  puzzleKeyAScript: {fileID: 1926373151}
-  puzzleKeyBScript: {fileID: 1890637383}
   puzzleTopSpinRenderer:
   - {fileID: 1289667082}
   - {fileID: 757984243}
   - {fileID: 979419107}
+  puzzleKeyAScript: {fileID: 1926373151}
+  puzzleKeyBScript: {fileID: 1890637383}
   myCollider: {fileID: 2129852188}
 --- !u!4 &2049445466
 Transform:
