@@ -9,6 +9,7 @@ public class L_ClickItem : MonoBehaviour
     private void OnDestroy()
     {
         Debug.Log("asdf");
+        if(SoundManager.Instance != null)
         SoundManager.Instance.Play("item_get");
 
         if (hasPair)

@@ -26,10 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/save.unity
     guid: d7ffe418ba442d94f9a655bc1f67eb65
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/TitleCutscene.unity
     guid: 1f81db09492d08d438957838381e8617
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Ending.unity
     guid: 69cf390b8125171449a9243297e89dd5
   m_configObjects: {}
