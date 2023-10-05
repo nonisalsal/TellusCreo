@@ -18,7 +18,7 @@ public class MoveScenes : MonoBehaviour
 
     public void ScenesTitle2()
     {
-        SceneManager.LoadScene("Playroom");
+        SceneManager.LoadScene("Playroom 1");
     }
 
    public void ScenesTitle3()

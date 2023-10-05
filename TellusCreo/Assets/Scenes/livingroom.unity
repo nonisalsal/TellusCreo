@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 789520}
   - component: {fileID: 789521}
   m_Layer: 0
-  m_Name: PlayRoom
+  m_Name: Libraryroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeee731f7e0994d40af73c4d98ca3f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Playroom
+  sceneName: Libraryroom
 --- !u!1 &32735596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,15 +1791,15 @@ RectTransform:
   m_GameObject: {fileID: 251760300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 11.349035, y: 9.035908, z: 1}
+  m_LocalScale: {x: 7.240214, y: 8.031918, z: 1}
   m_Children: []
   m_Father: {fileID: 520603239}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: -19}
-  m_SizeDelta: {x: 70, y: 70}
+  m_AnchoredPosition: {x: -273.5, y: -26.1}
+  m_SizeDelta: {x: 207.17783, y: 167.95686}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &251760302
 MonoBehaviour:
@@ -2027,7 +2027,7 @@ MonoBehaviour:
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 9
+    ModificationVersion: 21
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
@@ -4192,7 +4192,7 @@ MonoBehaviour:
       m_count: 211
       m_lastIndex: 211
       m_freeList: -1
-      m_version: 1697
+      m_version: 4241
     HashSetObjectsEnabled:
       m_buckets: 0000000000000000000000000000000000000000000000000a000000000000000000000000000000050000001900000016000000180000000000000006000000100000001c000000000000001f00000000000000030000002b0000001e00000007000000130000001d0000000000000000000000000000000000000000000000250000001b000000290000000000000000000000000000002e000000000000000000000000000000000000000f000000000000001500000002000000000000001a0000002800000000000000000000000000000000000000000000000000000026000000240000000000000023000000000000000000000000000000000000002d0000002c000000000000000400000000000000000000000000000000000000270000000b00000000000000010000000000000000000000220000000000000009000000000000000c0000000d0000000000000012000000000000000000000000000000
       m_slots:
@@ -4466,7 +4466,7 @@ MonoBehaviour:
       m_count: 46
       m_lastIndex: 46
       m_freeList: -1
-      m_version: 377
+      m_version: 941
     HashSetComponentsEnabled:
       m_buckets: 00000000000000000000000005000000000000000300000002000000
       m_slots:
@@ -4494,7 +4494,7 @@ MonoBehaviour:
       m_count: 5
       m_lastIndex: 5
       m_freeList: -1
-      m_version: 49
+      m_version: 121
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -4688,31 +4688,536 @@ MonoBehaviour:
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 1
+    ModificationVersion: 2
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
     HashSetFieldsEnabled:
-      m_buckets: 
-      m_slots: []
-      m_count: 0
-      m_lastIndex: 0
+      m_buckets: 00000000200000002c00000015000000000000000000000014000000250000002e00000000000000000000001b0000000000000028000000000000001600000034000000000000002d0000002200000011000000000000000100000000000000000000001e00000000000000170000000000000000000000290000002700000018000000000000000200000000000000000000001f000000350000000000000000000000000000002a00000024000000130000000000000003000000310000000000000000000000040000000000000000000000000000002b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002f0000000000000000000000000000003200000030000000000000001c0000001900000000000000000000000000000000000000000000003300000000000000000000000e00000000000000000000001a000000
+      m_slots:
+      - hashCode: 407537608
+        next: -1
+        value:
+          HashCodePath: -559544797
+          HashCodeMember: -2094178328
+      - hashCode: 407981819
+        next: -1
+        value:
+          HashCodePath: -559544797
+          HashCodeMember: -2093734117
+      - hashCode: 408426030
+        next: -1
+        value:
+          HashCodePath: -559544797
+          HashCodeMember: -2093289906
+      - hashCode: 1587938851
+        next: -1
+        value:
+          HashCodePath: 289311300
+          HashCodeMember: -789838941
+      - hashCode: 1411678312
+        next: -1
+        value:
+          HashCodePath: -1346007692
+          HashCodeMember: -2094178328
+      - hashCode: 1412122523
+        next: -1
+        value:
+          HashCodePath: -1346007692
+          HashCodeMember: -2093734117
+      - hashCode: 1412566734
+        next: -1
+        value:
+          HashCodePath: -1346007692
+          HashCodeMember: -2093289906
+      - hashCode: 801475956
+        next: -1
+        value:
+          HashCodePath: 289311300
+          HashCodeMember: -1576301836
+      - hashCode: 1920823368
+        next: -1
+        value:
+          HashCodePath: -784908073
+          HashCodeMember: -2094178328
+      - hashCode: 1921267579
+        next: -1
+        value:
+          HashCodePath: -784908073
+          HashCodeMember: -2093734117
+      - hashCode: 1921711790
+        next: -1
+        value:
+          HashCodePath: -784908073
+          HashCodeMember: -2093289906
+      - hashCode: 1362575575
+        next: -1
+        value:
+          HashCodePath: 289311300
+          HashCodeMember: -1015202217
+      - hashCode: 875041576
+        next: 7
+        value:
+          HashCodePath: -781611406
+          HashCodeMember: -2094178328
+      - hashCode: 875485787
+        next: -1
+        value:
+          HashCodePath: -781611406
+          HashCodeMember: -2093734117
+      - hashCode: 875929998
+        next: -1
+        value:
+          HashCodePath: -781611406
+          HashCodeMember: -2093289906
+      - hashCode: 1365872242
+        next: -1
+        value:
+          HashCodePath: 289311300
+          HashCodeMember: -1011905550
+      - hashCode: 1114592232
+        next: -1
+        value:
+          HashCodePath: -1690467040
+          HashCodeMember: -2094178328
+      - hashCode: 1115036443
+        next: -1
+        value:
+          HashCodePath: -1690467040
+          HashCodeMember: -2093734117
+      - hashCode: 1115480654
+        next: -1
+        value:
+          HashCodePath: -1690467040
+          HashCodeMember: -2093289906
+      - hashCode: 457016608
+        next: 4
+        value:
+          HashCodePath: 289311300
+          HashCodeMember: -1920761184
+      - hashCode: 1870784008
+        next: 8
+        value:
+          HashCodePath: -477388915
+          HashCodeMember: -2094178328
+      - hashCode: 1871228219
+        next: 9
+        value:
+          HashCodePath: -477388915
+          HashCodeMember: -2093734117
+      - hashCode: 1871672430
+        next: 10
+        value:
+          HashCodePath: -477388915
+          HashCodeMember: -2093289906
+      - hashCode: 1670094733
+        next: 17
+        value:
+          HashCodePath: 289311300
+          HashCodeMember: -707683059
+      - hashCode: 66879304
+        next: -1
+        value:
+          HashCodePath: -1451870609
+          HashCodeMember: -2094178328
+      - hashCode: 67323515
+        next: -1
+        value:
+          HashCodePath: -1451870609
+          HashCodeMember: -2093734117
+      - hashCode: 67767726
+        next: 15
+        value:
+          HashCodePath: -1451870609
+          HashCodeMember: -2093289906
+      - hashCode: 695613039
+        next: -1
+        value:
+          HashCodePath: 289311300
+          HashCodeMember: -1682164753
+      - hashCode: 1958172584
+        next: -1
+        value:
+          HashCodePath: -533480314
+          HashCodeMember: -2094178328
+      - hashCode: 1958616795
+        next: -1
+        value:
+          HashCodePath: -533480314
+          HashCodeMember: -2093734117
+      - hashCode: 1959061006
+        next: -1
+        value:
+          HashCodePath: -533480314
+          HashCodeMember: -2093289906
+      - hashCode: 1957728373
+        next: -1
+        value:
+          HashCodePath: -533480314
+          HashCodeMember: -2094622539
+      - hashCode: 1614003334
+        next: 11
+        value:
+          HashCodePath: 289311300
+          HashCodeMember: -763774458
+      - hashCode: 814829640
+        next: -1
+        value:
+          HashCodePath: -1319943209
+          HashCodeMember: -2094178328
+      - hashCode: 815273851
+        next: -1
+        value:
+          HashCodePath: -1319943209
+          HashCodeMember: -2093734117
+      - hashCode: 815718062
+        next: -1
+        value:
+          HashCodePath: -1319943209
+          HashCodeMember: -2093289906
+      - hashCode: 814385429
+        next: -1
+        value:
+          HashCodePath: -1319943209
+          HashCodeMember: -2094622539
+      - hashCode: 827540439
+        next: -1
+        value:
+          HashCodePath: 289311300
+          HashCodeMember: -1550237353
+      - hashCode: 1279186351
+        next: 34
+        value:
+          HashCodePath: -702128352
+          HashCodeMember: -10968657
+      - hashCode: 1445355296
+        next: 28
+        value:
+          HashCodePath: 289311300
+          HashCodeMember: -932422496
+      - hashCode: 1695698696
+        next: 6
+        value:
+          HashCodePath: -1843319115
+          HashCodeMember: -2094178328
+      - hashCode: 1696142907
+        next: -1
+        value:
+          HashCodePath: -1843319115
+          HashCodeMember: -2093734117
+      - hashCode: 1696587118
+        next: -1
+        value:
+          HashCodePath: -1843319115
+          HashCodeMember: -2093289906
+      - hashCode: 304164533
+        next: -1
+        value:
+          HashCodePath: 289311300
+          HashCodeMember: -2073613259
+      - hashCode: 1399490486
+        next: 5
+        value:
+          HashCodePath: 289311300
+          HashCodeMember: -978287306
+      - hashCode: 1667908958
+        next: 14
+        value:
+          HashCodePath: 289311300
+          HashCodeMember: -709868834
+      - hashCode: 289311300
+        next: -1
+        value:
+          HashCodePath: 0
+          HashCodeMember: 289311300
+      - hashCode: 1829995467
+        next: 12
+        value:
+          HashCodePath: 991929691
+          HashCodeMember: -1016887061
+      - hashCode: 96753816
+        next: -1
+        value:
+          HashCodePath: 991929691
+          HashCodeMember: 1544838584
+      - hashCode: 844100458
+        next: -1
+        value:
+          HashCodePath: 991929691
+          HashCodeMember: 144701578
+      - hashCode: 1741864205
+        next: 32
+        value:
+          HashCodePath: 991929691
+          HashCodeMember: 1042465325
+      - hashCode: 1189677078
+        next: 37
+        value:
+          HashCodePath: 991929691
+          HashCodeMember: -1657205450
+      - hashCode: 991929691
+        next: -1
+        value:
+          HashCodePath: 0
+          HashCodeMember: 991929691
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      m_count: 53
+      m_lastIndex: 53
       m_freeList: -1
-      m_version: 1
+      m_version: 55
     HashSetObjectsEnabled:
-      m_buckets: 
-      m_slots: []
-      m_count: 0
-      m_lastIndex: 0
+      m_buckets: 0500000008000000000000000000000000000000000000000d0000000400000003000000000000000900000007000000020000000b000000000000000600000000000000
+      m_slots:
+      - hashCode: 289311300
+        next: -1
+        value: 289311300
+      - hashCode: 1587938851
+        next: -1
+        value: -559544797
+      - hashCode: 801475956
+        next: -1
+        value: -1346007692
+      - hashCode: 1362575575
+        next: -1
+        value: -784908073
+      - hashCode: 1365872242
+        next: -1
+        value: -781611406
+      - hashCode: 457016608
+        next: -1
+        value: -1690467040
+      - hashCode: 1670094733
+        next: -1
+        value: -477388915
+      - hashCode: 695613039
+        next: -1
+        value: -1451870609
+      - hashCode: 1614003334
+        next: -1
+        value: -533480314
+      - hashCode: 827540439
+        next: -1
+        value: -1319943209
+      - hashCode: 1445355296
+        next: 0
+        value: -702128352
+      - hashCode: 304164533
+        next: 9
+        value: -1843319115
+      - hashCode: 991929691
+        next: 11
+        value: 991929691
+      - hashCode: 0
+        next: 0
+        value: 0
+      - hashCode: 0
+        next: 0
+        value: 0
+      - hashCode: 0
+        next: 0
+        value: 0
+      - hashCode: 0
+        next: 0
+        value: 0
+      m_count: 13
+      m_lastIndex: 13
       m_freeList: -1
-      m_version: 1
+      m_version: 15
     HashSetComponentsEnabled:
-      m_buckets: 
-      m_slots: []
-      m_count: 0
-      m_lastIndex: 0
+      m_buckets: 010000000000000000000000
+      m_slots:
+      - hashCode: 1321165359
+        next: -1
+        value: UnityEngine.Transform
+      - hashCode: 0
+        next: 0
+        value: 
+      - hashCode: 0
+        next: 0
+        value: 
+      m_count: 1
+      m_lastIndex: 1
       m_freeList: -1
-      m_version: 1
+      m_version: 3
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -4757,12 +5262,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 520603239}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 8.9, y: 0.6}
+  m_SizeDelta: {x: 772.03906, y: 558.5679}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &262058505
 BoxCollider2D:
@@ -4922,12 +5427,12 @@ RectTransform:
   m_LocalScale: {x: 7.240214, y: 8.031918, z: 1}
   m_Children: []
   m_Father: {fileID: 520603239}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: -53}
-  m_SizeDelta: {x: 70, y: 70}
+  m_AnchoredPosition: {x: 13, y: -112}
+  m_SizeDelta: {x: 128.03677, y: 146.55482}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &279080262
 MonoBehaviour:
@@ -5155,7 +5660,7 @@ MonoBehaviour:
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 18
+    ModificationVersion: 30
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
@@ -7320,7 +7825,7 @@ MonoBehaviour:
       m_count: 211
       m_lastIndex: 211
       m_freeList: -1
-      m_version: 2764
+      m_version: 5308
     HashSetObjectsEnabled:
       m_buckets: 0000000000000000000000000000000000000000000000000a000000000000000000000000000000050000001900000016000000180000000000000006000000100000001c000000000000001f00000000000000030000002b0000001e00000007000000130000001d0000000000000000000000000000000000000000000000250000001b000000290000000000000000000000000000002e000000000000000000000000000000000000000f000000000000001500000002000000000000001a0000002800000000000000000000000000000000000000000000000000000026000000240000000000000023000000000000000000000000000000000000002d0000002c000000000000000400000000000000000000000000000000000000270000000b00000000000000010000000000000000000000220000000000000009000000000000000c0000000d0000000000000012000000000000000000000000000000
       m_slots:
@@ -7594,7 +8099,7 @@ MonoBehaviour:
       m_count: 46
       m_lastIndex: 46
       m_freeList: -1
-      m_version: 619
+      m_version: 1183
     HashSetComponentsEnabled:
       m_buckets: 00000000000000000000000005000000000000000300000002000000
       m_slots:
@@ -7622,7 +8127,7 @@ MonoBehaviour:
       m_count: 5
       m_lastIndex: 5
       m_freeList: -1
-      m_version: 86
+      m_version: 158
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -7757,7 +8262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2da6f3e4107e864486393bd2b92360d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: Playroom 1
 --- !u!61 &310531544
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14483,13 +14988,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1501448606}
-  - {fileID: 1906486439}
-  - {fileID: 1319851359}
   - {fileID: 262058504}
   - {fileID: 279080261}
   - {fileID: 2104487114}
   - {fileID: 251760301}
+  - {fileID: 1501448606}
+  - {fileID: 1906486439}
+  - {fileID: 1319851359}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14667,7 +15172,7 @@ MonoBehaviour:
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 11
+    ModificationVersion: 13
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
@@ -15662,7 +16167,7 @@ MonoBehaviour:
       m_count: 154
       m_lastIndex: 154
       m_freeList: -1
-      m_version: 935
+      m_version: 1245
     HashSetObjectsEnabled:
       m_buckets: 00000000230000001b0000001a0000001e000000000000000a000000000000000000000000000000050000002600000024000000000000000000000022000000100000000000000000000000000000001d00000003000000000000000000000007000000130000001400000000000000000000001c000000000000000000000000000000000000001800000000000000170000000000000027000000000000000000000021000000000000002000000000000000150000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001100000000000000000000000400000000000000000000002500000000000000000000000b00000000000000010000000000000000000000000000000000000009000000000000000c0000000d0000000000000019000000000000000000000000000000
       m_slots:
@@ -15936,7 +16441,7 @@ MonoBehaviour:
       m_count: 39
       m_lastIndex: 39
       m_freeList: -1
-      m_version: 245
+      m_version: 325
     HashSetComponentsEnabled:
       m_buckets: 04000000020000000000000003000000000000000000000001000000
       m_slots:
@@ -15964,7 +16469,7 @@ MonoBehaviour:
       m_count: 4
       m_lastIndex: 4
       m_freeList: -1
-      m_version: 35
+      m_version: 45
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -15995,7 +16500,7 @@ MonoBehaviour:
   FieldsEnable:
     Version: 2
     PathsEnabled: []
-    ModificationVersion: 6
+    ModificationVersion: 8
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
@@ -16005,21 +16510,21 @@ MonoBehaviour:
       m_count: 0
       m_lastIndex: 0
       m_freeList: -1
-      m_version: 6
+      m_version: 8
     HashSetObjectsEnabled:
       m_buckets: 
       m_slots: []
       m_count: 0
       m_lastIndex: 0
       m_freeList: -1
-      m_version: 6
+      m_version: 8
     HashSetComponentsEnabled:
       m_buckets: 
       m_slots: []
       m_count: 0
       m_lastIndex: 0
       m_freeList: -1
-      m_version: 6
+      m_version: 8
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -16087,7 +16592,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555423286}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -16580,7 +17085,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1059859992
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16840,6 +17345,12 @@ MonoBehaviour:
   FieldsEnable:
     Version: 2
     PathsEnabled:
+    - GameObject/layer
+    - GameObject/isStatic
+    - GameObject/tag
+    - GameObject/name
+    - GameObject/activeSelf
+    - GameObject
     - Transform/position/x
     - Transform/position/y
     - Transform/position/z
@@ -16887,19 +17398,43 @@ MonoBehaviour:
     - Transform/parent
     - Transform/hasChanged
     - Transform
-    - GameObject/layer
-    - GameObject/isStatic
-    - GameObject/tag
-    - GameObject/name
-    - GameObject/activeSelf
-    - GameObject
-    ModificationVersion: 6
+    ModificationVersion: 9
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
     HashSetFieldsEnabled:
-      m_buckets: 00000000200000002c00000015000000000000000000000014000000250000002e00000000000000000000001b0000000000000028000000000000001600000034000000000000002d0000002200000011000000000000000100000000000000000000001e00000000000000170000000000000000000000290000002700000018000000000000000200000000000000000000001f000000350000000000000000000000000000002a00000024000000130000000000000003000000310000000000000000000000040000000000000000000000000000002b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002f0000000000000000000000000000003200000030000000000000001c0000001900000000000000000000000000000000000000000000003300000000000000000000000e00000000000000000000001a000000
+      m_buckets: 0000000026000000320000001b00000000000000000000001a0000002b00000034000000000000000000000021000000000000002e000000000000001c0000002c000000000000003300000028000000170000000000000007000000000000000000000024000000000000001d00000000000000000000002f0000002d0000001e000000000000000800000000000000000000002500000006000000000000000000000000000000300000002a0000001900000000000000090000000200000000000000000000000a000000000000000000000000000000310000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000035000000000000000000000000000000030000001300000000000000220000001f000000000000000000000000000000000000000000000027000000000000000000000014000000000000000000000020000000
       m_slots:
+      - hashCode: 1829995467
+        next: -1
+        value:
+          HashCodePath: 991929691
+          HashCodeMember: -1016887061
+      - hashCode: 96753816
+        next: -1
+        value:
+          HashCodePath: 991929691
+          HashCodeMember: 1544838584
+      - hashCode: 844100458
+        next: -1
+        value:
+          HashCodePath: 991929691
+          HashCodeMember: 144701578
+      - hashCode: 1741864205
+        next: -1
+        value:
+          HashCodePath: 991929691
+          HashCodeMember: 1042465325
+      - hashCode: 1189677078
+        next: -1
+        value:
+          HashCodePath: 991929691
+          HashCodeMember: -1657205450
+      - hashCode: 991929691
+        next: -1
+        value:
+          HashCodePath: 0
+          HashCodeMember: 991929691
       - hashCode: 407537608
         next: -1
         value:
@@ -16936,7 +17471,7 @@ MonoBehaviour:
           HashCodePath: -1346007692
           HashCodeMember: -2093289906
       - hashCode: 801475956
-        next: -1
+        next: 0
         value:
           HashCodePath: 289311300
           HashCodeMember: -1576301836
@@ -16956,12 +17491,12 @@ MonoBehaviour:
           HashCodePath: -784908073
           HashCodeMember: -2093289906
       - hashCode: 1362575575
-        next: -1
+        next: 3
         value:
           HashCodePath: 289311300
           HashCodeMember: -1015202217
       - hashCode: 875041576
-        next: 7
+        next: 13
         value:
           HashCodePath: -781611406
           HashCodeMember: -2094178328
@@ -16996,27 +17531,27 @@ MonoBehaviour:
           HashCodePath: -1690467040
           HashCodeMember: -2093289906
       - hashCode: 457016608
-        next: 4
+        next: 10
         value:
           HashCodePath: 289311300
           HashCodeMember: -1920761184
       - hashCode: 1870784008
-        next: 8
+        next: 14
         value:
           HashCodePath: -477388915
           HashCodeMember: -2094178328
       - hashCode: 1871228219
-        next: 9
+        next: 15
         value:
           HashCodePath: -477388915
           HashCodeMember: -2093734117
       - hashCode: 1871672430
-        next: 10
+        next: 16
         value:
           HashCodePath: -477388915
           HashCodeMember: -2093289906
       - hashCode: 1670094733
-        next: 17
+        next: 23
         value:
           HashCodePath: 289311300
           HashCodeMember: -707683059
@@ -17031,7 +17566,7 @@ MonoBehaviour:
           HashCodePath: -1451870609
           HashCodeMember: -2093734117
       - hashCode: 67767726
-        next: 15
+        next: 21
         value:
           HashCodePath: -1451870609
           HashCodeMember: -2093289906
@@ -17061,7 +17596,7 @@ MonoBehaviour:
           HashCodePath: -533480314
           HashCodeMember: -2094622539
       - hashCode: 1614003334
-        next: 11
+        next: 17
         value:
           HashCodePath: 289311300
           HashCodeMember: -763774458
@@ -17086,22 +17621,22 @@ MonoBehaviour:
           HashCodePath: -1319943209
           HashCodeMember: -2094622539
       - hashCode: 827540439
-        next: -1
+        next: 4
         value:
           HashCodePath: 289311300
           HashCodeMember: -1550237353
       - hashCode: 1279186351
-        next: 34
+        next: 40
         value:
           HashCodePath: -702128352
           HashCodeMember: -10968657
       - hashCode: 1445355296
-        next: 28
+        next: 34
         value:
           HashCodePath: 289311300
           HashCodeMember: -932422496
       - hashCode: 1695698696
-        next: 6
+        next: 12
         value:
           HashCodePath: -1843319115
           HashCodeMember: -2094178328
@@ -17121,12 +17656,12 @@ MonoBehaviour:
           HashCodePath: 289311300
           HashCodeMember: -2073613259
       - hashCode: 1399490486
-        next: 5
+        next: 11
         value:
           HashCodePath: 289311300
           HashCodeMember: -978287306
       - hashCode: 1667908958
-        next: 14
+        next: 20
         value:
           HashCodePath: 289311300
           HashCodeMember: -709868834
@@ -17135,36 +17670,6 @@ MonoBehaviour:
         value:
           HashCodePath: 0
           HashCodeMember: 289311300
-      - hashCode: 1829995467
-        next: 12
-        value:
-          HashCodePath: 991929691
-          HashCodeMember: -1016887061
-      - hashCode: 96753816
-        next: -1
-        value:
-          HashCodePath: 991929691
-          HashCodeMember: 1544838584
-      - hashCode: 844100458
-        next: -1
-        value:
-          HashCodePath: 991929691
-          HashCodeMember: 144701578
-      - hashCode: 1741864205
-        next: 32
-        value:
-          HashCodePath: 991929691
-          HashCodeMember: 1042465325
-      - hashCode: 1189677078
-        next: 37
-        value:
-          HashCodePath: 991929691
-          HashCodeMember: -1657205450
-      - hashCode: 991929691
-        next: -1
-        value:
-          HashCodePath: 0
-          HashCodeMember: 991929691
       - hashCode: 0
         next: 0
         value:
@@ -17348,10 +17853,13 @@ MonoBehaviour:
       m_count: 53
       m_lastIndex: 53
       m_freeList: -1
-      m_version: 218
+      m_version: 333
     HashSetObjectsEnabled:
-      m_buckets: 0500000008000000000000000000000000000000000000000d0000000400000003000000000000000900000007000000020000000b000000000000000600000000000000
+      m_buckets: 0600000009000000000000000000000000000000000000000d0000000500000004000000000000000a00000008000000030000000c000000000000000700000000000000
       m_slots:
+      - hashCode: 991929691
+        next: -1
+        value: 991929691
       - hashCode: 289311300
         next: -1
         value: 289311300
@@ -17380,17 +17888,14 @@ MonoBehaviour:
         next: -1
         value: -533480314
       - hashCode: 827540439
-        next: -1
+        next: 0
         value: -1319943209
       - hashCode: 1445355296
-        next: 0
+        next: 1
         value: -702128352
       - hashCode: 304164533
-        next: 9
+        next: 10
         value: -1843319115
-      - hashCode: 991929691
-        next: 11
-        value: 991929691
       - hashCode: 0
         next: 0
         value: 0
@@ -17406,7 +17911,7 @@ MonoBehaviour:
       m_count: 13
       m_lastIndex: 13
       m_freeList: -1
-      m_version: 58
+      m_version: 88
     HashSetComponentsEnabled:
       m_buckets: 010000000000000000000000
       m_slots:
@@ -17422,7 +17927,7 @@ MonoBehaviour:
       m_count: 1
       m_lastIndex: 1
       m_freeList: -1
-      m_version: 10
+      m_version: 15
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -17527,7 +18032,7 @@ GameObject:
   - component: {fileID: 1299702250}
   - component: {fileID: 1299702251}
   m_Layer: 0
-  m_Name: LibraryRoom
+  m_Name: AtticRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17585,7 +18090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeee731f7e0994d40af73c4d98ca3f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Libraryroom
+  sceneName: Attic
 --- !u!1 &1306003638
 GameObject:
   m_ObjectHideFlags: 0
@@ -17598,7 +18103,7 @@ GameObject:
   - component: {fileID: 1306003640}
   - component: {fileID: 1306003641}
   m_Layer: 0
-  m_Name: AtticRoom
+  m_Name: PlayRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17656,7 +18161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeee731f7e0994d40af73c4d98ca3f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Attic
+  sceneName: Playroom 1
 --- !u!1 &1319851358
 GameObject:
   m_ObjectHideFlags: 0
@@ -17691,7 +18196,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 520603239}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18015,19 +18520,18 @@ MonoBehaviour:
     - Drag/isDragging
     - Drag/isDropped
     - Drag/enabled
-    - Drag
     - GameObject/layer
     - GameObject/isStatic
     - GameObject/tag
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 19
+    ModificationVersion: 40
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
     HashSetFieldsEnabled:
-      m_buckets: da000000000000005f00000000000000000000007c000000000000002a00000006000000000000000000000000000000000000005d000000b70000001c00000000000000000000009e00000000000000000000000000000000000000710000000000000000000000000000000000000000000000190000006e00000088000000000000000400000000000000d20000000000000096000000000000008a0000000000000000000000430000004c00000000000000240000007d000000000000000000000048000000000000000000000000000000a6000000c900000000000000930000000000000000000000000000004d0000000000000000000000000000007e00000000000000ce00000069000000d5000000be00000000000000000000000000000000000000d4000000c60000000000000000000000a3000000590000000000000035000000000000005e0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000cf0000000000000000000000000000000000000000000000000000000000000000000000a50000000000000000000000bc000000000000003c000000300000000000000000000000000000000000000000000000a7000000d800000000000000000000000000000000000000ba00000000000000200000000000000000000000650000001d00000000000000900000000000000000000000b00000000000000000000000000000001000000077000000000000000000000083000000510000000000000046000000000000000000000000000000000000001e000000000000000000000000000000000000001b0000007b000000ac0000006c000000000000000000000000000000000000006f000000000000000000000000000000d30000000000000098000000000000008c00000000000000000000004100000000000000c80000001a00000000000000000000004f00000000000000870000000000000000000000a800000061000000000000009500000000000000000000000000000070000000000000000f000000000000009b000000b200000000000000b30000004b00000000000000000000008e000000000000000000000000000000000000000000000000000000000000002700000054000000000000000000000000000000b50000000000000000000000a0000000bd000000670000000000000000000000bf00000000000000000000001300000000000000cd00000000000000000000003400000050000000000000004e000000000000000000000000000000a400000018000000000000000000000000000000d000000000000000af000000000000005c00000000000000a20000000000000000000000000000007500000000000000000000009c000000ca000000000000003b000000d100000000000000000000004a00000000000000570000009d000000000000001200000000000000000000000000000000000000000000001f0000000000000000000000d90000006a000000220000000000000000000000c0000000b10000000000000000000000000000000000000076000000000000000000000082000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007a000000000000000000000000000000000000000000000062000000000000006b0000000500000000000000660000000000000097000000d70000008b00000000000000000000009f0000000000000001000000250000000000000000000000000000004900000086000000000000000000000052000000000000000000000094000000000000000000000000000000380000000000000032000000000000007f0000003a000000000000000000000091000000d600000000000000000000000000000000000000c5000000c700000000000000000000008500000000000000000000000000000000000000000000000000000000000000c20000009a0000005500000044000000b800000000000000000000005800000000000000000000000000000081000000000000000000000033000000cb000000c400000000000000000000002e0000000000000015000000170000003d000000b4000000000000000a000000000000007200000092000000890000000000000007000000ab0000000000000000000000c10000000000000021000000000000008d000000000000003e00000000000000000000000000000000000000000000005600000000000000000000001100000078000000000000000000000084000000cc0000000000000000000000a900000000000000000000005a00000000000000
+      m_buckets: d9000000000000005f00000000000000000000007c000000000000002a00000006000000000000000000000000000000000000005d000000b70000001c00000000000000000000009e00000000000000000000000000000000000000710000000000000000000000000000000000000000000000190000006e00000088000000000000000400000000000000d20000000000000096000000000000008a0000000000000000000000430000004c00000000000000240000007d000000000000000000000048000000000000000000000000000000a6000000c900000000000000930000000000000000000000000000004d0000000000000000000000000000007e00000000000000ce00000069000000d4000000be0000000000000000000000000000000000000000000000c60000000000000000000000a3000000590000000000000035000000000000005e0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000cf0000000000000000000000000000000000000000000000000000000000000000000000a50000000000000000000000bc000000000000003c000000300000000000000000000000000000000000000000000000a7000000d700000000000000000000000000000000000000ba00000000000000200000000000000000000000650000001d00000000000000900000000000000000000000b00000000000000000000000000000001000000077000000000000000000000083000000510000000000000046000000000000000000000000000000000000001e000000000000000000000000000000000000001b0000007b000000ac0000006c000000000000000000000000000000000000006f000000000000000000000000000000d30000000000000098000000000000008c00000000000000000000004100000000000000c80000001a00000000000000000000004f00000000000000870000000000000000000000a800000061000000000000009500000000000000000000000000000070000000000000000f000000000000009b000000b200000000000000b30000004b00000000000000000000008e000000000000000000000000000000000000000000000000000000000000002700000054000000000000000000000000000000b50000000000000000000000a0000000bd000000670000000000000000000000bf00000000000000000000001300000000000000cd00000000000000000000003400000050000000000000004e000000000000000000000000000000a400000018000000000000000000000000000000d000000000000000af000000000000005c00000000000000a20000000000000000000000000000007500000000000000000000009c000000ca000000000000003b000000d100000000000000000000004a00000000000000570000009d000000000000001200000000000000000000000000000000000000000000001f0000000000000000000000d80000006a000000220000000000000000000000c0000000b10000000000000000000000000000000000000076000000000000000000000082000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007a000000000000000000000000000000000000000000000062000000000000006b0000000500000000000000660000000000000097000000d60000008b00000000000000000000009f0000000000000001000000250000000000000000000000000000004900000086000000000000000000000052000000000000000000000094000000000000000000000000000000380000000000000032000000000000007f0000003a000000000000000000000091000000d500000000000000000000000000000000000000c5000000c700000000000000000000008500000000000000000000000000000000000000000000000000000000000000c20000009a0000005500000044000000b800000000000000000000005800000000000000000000000000000081000000000000000000000033000000cb000000c400000000000000000000002e0000000000000015000000170000003d000000b4000000000000000a000000000000007200000092000000890000000000000007000000ab0000000000000000000000c10000000000000021000000000000008d000000000000003e00000000000000000000000000000000000000000000005600000000000000000000001100000078000000000000000000000084000000cc0000000000000000000000a900000000000000000000005a00000000000000
       m_slots:
       - hashCode: 610095048
         next: -1
@@ -19084,11 +19588,6 @@ MonoBehaviour:
         value:
           HashCodePath: -1855319880
           HashCodeMember: 14619687
-      - hashCode: 292163768
-        next: -1
-        value:
-          HashCodePath: 0
-          HashCodeMember: -1855319880
       - hashCode: 1829995467
         next: -1
         value:
@@ -20184,10 +20683,15 @@ MonoBehaviour:
         value:
           HashCodePath: 0
           HashCodeMember: 0
-      m_count: 218
-      m_lastIndex: 218
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      m_count: 217
+      m_lastIndex: 217
       m_freeList: -1
-      m_version: 3943
+      m_version: 8521
     HashSetObjectsEnabled:
       m_buckets: 0000000000000000000000000000000000000000000000000a000000000000000000000000000000050000001900000016000000180000000000000006000000100000001c000000000000001f00000000000000030000002b0000001e00000007000000130000001d0000000000000000000000000000000000000000000000250000001b000000290000000000000000000000000000002f000000000000000000000000000000000000000f000000000000001500000002000000000000001a0000002800000000000000000000000000000000000000000000000000000026000000240000000000000023000000000000000000000000000000000000002d0000002c000000000000000400000000000000000000000000000000000000270000000b00000000000000010000000000000000000000220000000000000009000000000000000c0000000d00000000000000120000002e0000000000000000000000
       m_slots:
@@ -20461,7 +20965,7 @@ MonoBehaviour:
       m_count: 47
       m_lastIndex: 47
       m_freeList: -1
-      m_version: 865
+      m_version: 1873
     HashSetComponentsEnabled:
       m_buckets: 00000000060000000000000005000000000000000300000002000000
       m_slots:
@@ -20489,7 +20993,7 @@ MonoBehaviour:
       m_count: 6
       m_lastIndex: 6
       m_freeList: -1
-      m_version: 127
+      m_version: 274
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -21208,7 +21712,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 520603239}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21506,19 +22010,18 @@ MonoBehaviour:
     - Drag/isDragging
     - Drag/isDropped
     - Drag/enabled
-    - Drag
     - GameObject/layer
     - GameObject/isStatic
     - GameObject/tag
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 7
+    ModificationVersion: 16
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
     HashSetFieldsEnabled:
-      m_buckets: da000000000000005f00000000000000000000007c000000000000002a00000006000000000000000000000000000000000000005d000000b70000001c00000000000000000000009e00000000000000000000000000000000000000710000000000000000000000000000000000000000000000190000006e00000088000000000000000400000000000000d20000000000000096000000000000008a0000000000000000000000430000004c00000000000000240000007d000000000000000000000048000000000000000000000000000000a6000000c900000000000000930000000000000000000000000000004d0000000000000000000000000000007e00000000000000ce00000069000000d5000000be00000000000000000000000000000000000000d4000000c60000000000000000000000a3000000590000000000000035000000000000005e0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000cf0000000000000000000000000000000000000000000000000000000000000000000000a50000000000000000000000bc000000000000003c000000300000000000000000000000000000000000000000000000a7000000d800000000000000000000000000000000000000ba00000000000000200000000000000000000000650000001d00000000000000900000000000000000000000b00000000000000000000000000000001000000077000000000000000000000083000000510000000000000046000000000000000000000000000000000000001e000000000000000000000000000000000000001b0000007b000000ac0000006c000000000000000000000000000000000000006f000000000000000000000000000000d30000000000000098000000000000008c00000000000000000000004100000000000000c80000001a00000000000000000000004f00000000000000870000000000000000000000a800000061000000000000009500000000000000000000000000000070000000000000000f000000000000009b000000b200000000000000b30000004b00000000000000000000008e000000000000000000000000000000000000000000000000000000000000002700000054000000000000000000000000000000b50000000000000000000000a0000000bd000000670000000000000000000000bf00000000000000000000001300000000000000cd00000000000000000000003400000050000000000000004e000000000000000000000000000000a400000018000000000000000000000000000000d000000000000000af000000000000005c00000000000000a20000000000000000000000000000007500000000000000000000009c000000ca000000000000003b000000d100000000000000000000004a00000000000000570000009d000000000000001200000000000000000000000000000000000000000000001f0000000000000000000000d90000006a000000220000000000000000000000c0000000b10000000000000000000000000000000000000076000000000000000000000082000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007a000000000000000000000000000000000000000000000062000000000000006b0000000500000000000000660000000000000097000000d70000008b00000000000000000000009f0000000000000001000000250000000000000000000000000000004900000086000000000000000000000052000000000000000000000094000000000000000000000000000000380000000000000032000000000000007f0000003a000000000000000000000091000000d600000000000000000000000000000000000000c5000000c700000000000000000000008500000000000000000000000000000000000000000000000000000000000000c20000009a0000005500000044000000b800000000000000000000005800000000000000000000000000000081000000000000000000000033000000cb000000c400000000000000000000002e0000000000000015000000170000003d000000b4000000000000000a000000000000007200000092000000890000000000000007000000ab0000000000000000000000c10000000000000021000000000000008d000000000000003e00000000000000000000000000000000000000000000005600000000000000000000001100000078000000000000000000000084000000cc0000000000000000000000a900000000000000000000005a00000000000000
+      m_buckets: d9000000000000005f00000000000000000000007c000000000000002a00000006000000000000000000000000000000000000005d000000b70000001c00000000000000000000009e00000000000000000000000000000000000000710000000000000000000000000000000000000000000000190000006e00000088000000000000000400000000000000d20000000000000096000000000000008a0000000000000000000000430000004c00000000000000240000007d000000000000000000000048000000000000000000000000000000a6000000c900000000000000930000000000000000000000000000004d0000000000000000000000000000007e00000000000000ce00000069000000d4000000be0000000000000000000000000000000000000000000000c60000000000000000000000a3000000590000000000000035000000000000005e0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000cf0000000000000000000000000000000000000000000000000000000000000000000000a50000000000000000000000bc000000000000003c000000300000000000000000000000000000000000000000000000a7000000d700000000000000000000000000000000000000ba00000000000000200000000000000000000000650000001d00000000000000900000000000000000000000b00000000000000000000000000000001000000077000000000000000000000083000000510000000000000046000000000000000000000000000000000000001e000000000000000000000000000000000000001b0000007b000000ac0000006c000000000000000000000000000000000000006f000000000000000000000000000000d30000000000000098000000000000008c00000000000000000000004100000000000000c80000001a00000000000000000000004f00000000000000870000000000000000000000a800000061000000000000009500000000000000000000000000000070000000000000000f000000000000009b000000b200000000000000b30000004b00000000000000000000008e000000000000000000000000000000000000000000000000000000000000002700000054000000000000000000000000000000b50000000000000000000000a0000000bd000000670000000000000000000000bf00000000000000000000001300000000000000cd00000000000000000000003400000050000000000000004e000000000000000000000000000000a400000018000000000000000000000000000000d000000000000000af000000000000005c00000000000000a20000000000000000000000000000007500000000000000000000009c000000ca000000000000003b000000d100000000000000000000004a00000000000000570000009d000000000000001200000000000000000000000000000000000000000000001f0000000000000000000000d80000006a000000220000000000000000000000c0000000b10000000000000000000000000000000000000076000000000000000000000082000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007a000000000000000000000000000000000000000000000062000000000000006b0000000500000000000000660000000000000097000000d60000008b00000000000000000000009f0000000000000001000000250000000000000000000000000000004900000086000000000000000000000052000000000000000000000094000000000000000000000000000000380000000000000032000000000000007f0000003a000000000000000000000091000000d500000000000000000000000000000000000000c5000000c700000000000000000000008500000000000000000000000000000000000000000000000000000000000000c20000009a0000005500000044000000b800000000000000000000005800000000000000000000000000000081000000000000000000000033000000cb000000c400000000000000000000002e0000000000000015000000170000003d000000b4000000000000000a000000000000007200000092000000890000000000000007000000ab0000000000000000000000c10000000000000021000000000000008d000000000000003e00000000000000000000000000000000000000000000005600000000000000000000001100000078000000000000000000000084000000cc0000000000000000000000a900000000000000000000005a00000000000000
       m_slots:
       - hashCode: 610095048
         next: -1
@@ -22575,11 +23078,6 @@ MonoBehaviour:
         value:
           HashCodePath: -1855319880
           HashCodeMember: 14619687
-      - hashCode: 292163768
-        next: -1
-        value:
-          HashCodePath: 0
-          HashCodeMember: -1855319880
       - hashCode: 1829995467
         next: -1
         value:
@@ -23675,10 +24173,15 @@ MonoBehaviour:
         value:
           HashCodePath: 0
           HashCodeMember: 0
-      m_count: 218
-      m_lastIndex: 218
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      m_count: 217
+      m_lastIndex: 217
       m_freeList: -1
-      m_version: 1315
+      m_version: 3277
     HashSetObjectsEnabled:
       m_buckets: 0000000000000000000000000000000000000000000000000a000000000000000000000000000000050000001900000016000000180000000000000006000000100000001c000000000000001f00000000000000030000002b0000001e00000007000000130000001d0000000000000000000000000000000000000000000000250000001b000000290000000000000000000000000000002f000000000000000000000000000000000000000f000000000000001500000002000000000000001a0000002800000000000000000000000000000000000000000000000000000026000000240000000000000023000000000000000000000000000000000000002d0000002c000000000000000400000000000000000000000000000000000000270000000b00000000000000010000000000000000000000220000000000000009000000000000000c0000000d00000000000000120000002e0000000000000000000000
       m_slots:
@@ -23952,7 +24455,7 @@ MonoBehaviour:
       m_count: 47
       m_lastIndex: 47
       m_freeList: -1
-      m_version: 289
+      m_version: 721
     HashSetComponentsEnabled:
       m_buckets: 00000000060000000000000005000000000000000300000002000000
       m_slots:
@@ -23980,7 +24483,7 @@ MonoBehaviour:
       m_count: 6
       m_lastIndex: 6
       m_freeList: -1
-      m_version: 43
+      m_version: 106
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -24107,9 +24610,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e698d46e551e8d941b44c4ecbedaa540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sunobj: {fileID: 1501448605}
-  Soilobj: {fileID: 1906486438}
-  Waterobj: {fileID: 1319851358}
+  Sunobj: {fileID: 1319851358}
+  Soilobj: {fileID: 1501448605}
+  Waterobj: {fileID: 1906486438}
 --- !u!4 &1610037829
 Transform:
   m_ObjectHideFlags: 0
@@ -25971,7 +26474,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 520603239}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -26295,19 +26798,18 @@ MonoBehaviour:
     - Drag/isDragging
     - Drag/isDropped
     - Drag/enabled
-    - Drag
     - GameObject/layer
     - GameObject/isStatic
     - GameObject/tag
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 4
+    ModificationVersion: 7
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
     HashSetFieldsEnabled:
-      m_buckets: da000000000000005f00000000000000000000007c000000000000002a00000006000000000000000000000000000000000000005d000000b70000001c00000000000000000000009e00000000000000000000000000000000000000710000000000000000000000000000000000000000000000190000006e00000088000000000000000400000000000000d20000000000000096000000000000008a0000000000000000000000430000004c00000000000000240000007d000000000000000000000048000000000000000000000000000000a6000000c900000000000000930000000000000000000000000000004d0000000000000000000000000000007e00000000000000ce00000069000000d5000000be00000000000000000000000000000000000000d4000000c60000000000000000000000a3000000590000000000000035000000000000005e0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000cf0000000000000000000000000000000000000000000000000000000000000000000000a50000000000000000000000bc000000000000003c000000300000000000000000000000000000000000000000000000a7000000d800000000000000000000000000000000000000ba00000000000000200000000000000000000000650000001d00000000000000900000000000000000000000b00000000000000000000000000000001000000077000000000000000000000083000000510000000000000046000000000000000000000000000000000000001e000000000000000000000000000000000000001b0000007b000000ac0000006c000000000000000000000000000000000000006f000000000000000000000000000000d30000000000000098000000000000008c00000000000000000000004100000000000000c80000001a00000000000000000000004f00000000000000870000000000000000000000a800000061000000000000009500000000000000000000000000000070000000000000000f000000000000009b000000b200000000000000b30000004b00000000000000000000008e000000000000000000000000000000000000000000000000000000000000002700000054000000000000000000000000000000b50000000000000000000000a0000000bd000000670000000000000000000000bf00000000000000000000001300000000000000cd00000000000000000000003400000050000000000000004e000000000000000000000000000000a400000018000000000000000000000000000000d000000000000000af000000000000005c00000000000000a20000000000000000000000000000007500000000000000000000009c000000ca000000000000003b000000d100000000000000000000004a00000000000000570000009d000000000000001200000000000000000000000000000000000000000000001f0000000000000000000000d90000006a000000220000000000000000000000c0000000b10000000000000000000000000000000000000076000000000000000000000082000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007a000000000000000000000000000000000000000000000062000000000000006b0000000500000000000000660000000000000097000000d70000008b00000000000000000000009f0000000000000001000000250000000000000000000000000000004900000086000000000000000000000052000000000000000000000094000000000000000000000000000000380000000000000032000000000000007f0000003a000000000000000000000091000000d600000000000000000000000000000000000000c5000000c700000000000000000000008500000000000000000000000000000000000000000000000000000000000000c20000009a0000005500000044000000b800000000000000000000005800000000000000000000000000000081000000000000000000000033000000cb000000c400000000000000000000002e0000000000000015000000170000003d000000b4000000000000000a000000000000007200000092000000890000000000000007000000ab0000000000000000000000c10000000000000021000000000000008d000000000000003e00000000000000000000000000000000000000000000005600000000000000000000001100000078000000000000000000000084000000cc0000000000000000000000a900000000000000000000005a00000000000000
+      m_buckets: d9000000000000005f00000000000000000000007c000000000000002a00000006000000000000000000000000000000000000005d000000b70000001c00000000000000000000009e00000000000000000000000000000000000000710000000000000000000000000000000000000000000000190000006e00000088000000000000000400000000000000d20000000000000096000000000000008a0000000000000000000000430000004c00000000000000240000007d000000000000000000000048000000000000000000000000000000a6000000c900000000000000930000000000000000000000000000004d0000000000000000000000000000007e00000000000000ce00000069000000d4000000be0000000000000000000000000000000000000000000000c60000000000000000000000a3000000590000000000000035000000000000005e0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000cf0000000000000000000000000000000000000000000000000000000000000000000000a50000000000000000000000bc000000000000003c000000300000000000000000000000000000000000000000000000a7000000d700000000000000000000000000000000000000ba00000000000000200000000000000000000000650000001d00000000000000900000000000000000000000b00000000000000000000000000000001000000077000000000000000000000083000000510000000000000046000000000000000000000000000000000000001e000000000000000000000000000000000000001b0000007b000000ac0000006c000000000000000000000000000000000000006f000000000000000000000000000000d30000000000000098000000000000008c00000000000000000000004100000000000000c80000001a00000000000000000000004f00000000000000870000000000000000000000a800000061000000000000009500000000000000000000000000000070000000000000000f000000000000009b000000b200000000000000b30000004b00000000000000000000008e000000000000000000000000000000000000000000000000000000000000002700000054000000000000000000000000000000b50000000000000000000000a0000000bd000000670000000000000000000000bf00000000000000000000001300000000000000cd00000000000000000000003400000050000000000000004e000000000000000000000000000000a400000018000000000000000000000000000000d000000000000000af000000000000005c00000000000000a20000000000000000000000000000007500000000000000000000009c000000ca000000000000003b000000d100000000000000000000004a00000000000000570000009d000000000000001200000000000000000000000000000000000000000000001f0000000000000000000000d80000006a000000220000000000000000000000c0000000b10000000000000000000000000000000000000076000000000000000000000082000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007a000000000000000000000000000000000000000000000062000000000000006b0000000500000000000000660000000000000097000000d60000008b00000000000000000000009f0000000000000001000000250000000000000000000000000000004900000086000000000000000000000052000000000000000000000094000000000000000000000000000000380000000000000032000000000000007f0000003a000000000000000000000091000000d500000000000000000000000000000000000000c5000000c700000000000000000000008500000000000000000000000000000000000000000000000000000000000000c20000009a0000005500000044000000b800000000000000000000005800000000000000000000000000000081000000000000000000000033000000cb000000c400000000000000000000002e0000000000000015000000170000003d000000b4000000000000000a000000000000007200000092000000890000000000000007000000ab0000000000000000000000c10000000000000021000000000000008d000000000000003e00000000000000000000000000000000000000000000005600000000000000000000001100000078000000000000000000000084000000cc0000000000000000000000a900000000000000000000005a00000000000000
       m_slots:
       - hashCode: 610095048
         next: -1
@@ -27364,11 +27866,6 @@ MonoBehaviour:
         value:
           HashCodePath: -1855319880
           HashCodeMember: 14619687
-      - hashCode: 292163768
-        next: -1
-        value:
-          HashCodePath: 0
-          HashCodeMember: -1855319880
       - hashCode: 1829995467
         next: -1
         value:
@@ -28464,10 +28961,15 @@ MonoBehaviour:
         value:
           HashCodePath: 0
           HashCodeMember: 0
-      m_count: 218
-      m_lastIndex: 218
+      - hashCode: 0
+        next: 0
+        value:
+          HashCodePath: 0
+          HashCodeMember: 0
+      m_count: 217
+      m_lastIndex: 217
       m_freeList: -1
-      m_version: 658
+      m_version: 1312
     HashSetObjectsEnabled:
       m_buckets: 0000000000000000000000000000000000000000000000000a000000000000000000000000000000050000001900000016000000180000000000000006000000100000001c000000000000001f00000000000000030000002b0000001e00000007000000130000001d0000000000000000000000000000000000000000000000250000001b000000290000000000000000000000000000002f000000000000000000000000000000000000000f000000000000001500000002000000000000001a0000002800000000000000000000000000000000000000000000000000000026000000240000000000000023000000000000000000000000000000000000002d0000002c000000000000000400000000000000000000000000000000000000270000000b00000000000000010000000000000000000000220000000000000009000000000000000c0000000d00000000000000120000002e0000000000000000000000
       m_slots:
@@ -28741,7 +29243,7 @@ MonoBehaviour:
       m_count: 47
       m_lastIndex: 47
       m_freeList: -1
-      m_version: 145
+      m_version: 289
     HashSetComponentsEnabled:
       m_buckets: 00000000060000000000000005000000000000000300000002000000
       m_slots:
@@ -28769,7 +29271,7 @@ MonoBehaviour:
       m_count: 6
       m_lastIndex: 6
       m_freeList: -1
-      m_version: 22
+      m_version: 43
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -29167,12 +29669,12 @@ RectTransform:
   m_LocalScale: {x: 7.240214, y: 8.031918, z: 1}
   m_Children: []
   m_Father: {fileID: 520603239}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: -46}
-  m_SizeDelta: {x: 70, y: 70}
+  m_AnchoredPosition: {x: 13, y: -112}
+  m_SizeDelta: {x: 128.03677, y: 146.55482}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2104487115
 MonoBehaviour:
@@ -29400,7 +29902,7 @@ MonoBehaviour:
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 9
+    ModificationVersion: 19
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
@@ -31565,7 +32067,7 @@ MonoBehaviour:
       m_count: 211
       m_lastIndex: 211
       m_freeList: -1
-      m_version: 1486
+      m_version: 3606
     HashSetObjectsEnabled:
       m_buckets: 0000000000000000000000000000000000000000000000000a000000000000000000000000000000050000001900000016000000180000000000000006000000100000001c000000000000001f00000000000000030000002b0000001e00000007000000130000001d0000000000000000000000000000000000000000000000250000001b000000290000000000000000000000000000002e000000000000000000000000000000000000000f000000000000001500000002000000000000001a0000002800000000000000000000000000000000000000000000000000000026000000240000000000000023000000000000000000000000000000000000002d0000002c000000000000000400000000000000000000000000000000000000270000000b00000000000000010000000000000000000000220000000000000009000000000000000c0000000d0000000000000012000000000000000000000000000000
       m_slots:
@@ -31839,7 +32341,7 @@ MonoBehaviour:
       m_count: 46
       m_lastIndex: 46
       m_freeList: -1
-      m_version: 331
+      m_version: 801
     HashSetComponentsEnabled:
       m_buckets: 00000000000000000000000005000000000000000300000002000000
       m_slots:
@@ -31867,7 +32369,7 @@ MonoBehaviour:
       m_count: 5
       m_lastIndex: 5
       m_freeList: -1
-      m_version: 44
+      m_version: 104
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0

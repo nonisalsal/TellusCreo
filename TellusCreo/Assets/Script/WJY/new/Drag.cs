@@ -25,12 +25,13 @@ public class Drag : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         isDragging = false;
 
+
         if (RectTransformUtility.RectangleContainsScreenPoint(ItemDropZone.GetComponent<RectTransform>(), eventData.position))
         {
             Image.transform.SetParent(ItemDropZone);
             Image.transform.position = ItemDropZone.position;
 
-            
+
             itemItem.SetActive(true);
             Image.SetActive(false);
             beforeItem.SetActive(false);
@@ -38,7 +39,7 @@ public class Drag : MonoBehaviour, IDragHandler, IEndDragHandler
         }
         else
         {
-            
+
             Image.transform.SetParent(transform);
             Image.transform.localPosition = Vector3.zero;
         }

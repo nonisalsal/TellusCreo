@@ -83,7 +83,6 @@ public class GameManager : MonoBehaviour
     const int CLEAR_PUZZLE = 7;
     const float DimIntensity = 0.5f;
     const float BrightIntensity = 1f;
-    Func<bool> _allClear;
 
 
     void Start()
@@ -402,6 +401,10 @@ public class GameManager : MonoBehaviour
 #endif
 
             _clearAttic = true;
+            if (EarthMaterial.GetInstance() != null)
+            {
+                EarthMaterial.GetInstance().SetSunValue(_clearAttic);
+            }
             if (InventoryManager.Instance!=null)
             {
                 InventoryManager.Instance.Add(sun);
