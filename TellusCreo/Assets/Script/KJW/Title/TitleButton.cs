@@ -7,6 +7,16 @@ public class TitleButton : MonoBehaviour
     [SerializeField] private Button gameStartButton;
     private void Awake()
     {
-        gameStartButton.onClick.AddListener(() => SceneManager.LoadScene("livingroom"));
+        EarthMaterial earthMaterial = EarthMaterial.GetInstance();
+        if (!earthMaterial.GetcutValue())
+        {
+            gameStartButton.onClick.AddListener(() => SceneManager.LoadScene("TitleCutscene"));
+            earthMaterial.SetcutValue(true);
+        }
+        else
+        {
+            gameStartButton.onClick.AddListener(() => SceneManager.LoadScene("livingroom"));
+        }
+
     }
 }
