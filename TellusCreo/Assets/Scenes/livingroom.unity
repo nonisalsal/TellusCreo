@@ -1794,7 +1794,7 @@ RectTransform:
   m_LocalScale: {x: 6.068867, y: 5.7542105, z: 1}
   m_Children: []
   m_Father: {fileID: 520603239}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2027,7 +2027,7 @@ MonoBehaviour:
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 5
+    ModificationVersion: 8
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
@@ -4192,7 +4192,7 @@ MonoBehaviour:
       m_count: 211
       m_lastIndex: 211
       m_freeList: -1
-      m_version: 849
+      m_version: 1485
     HashSetObjectsEnabled:
       m_buckets: 0000000000000000000000000000000000000000000000000a000000000000000000000000000000050000001900000016000000180000000000000006000000100000001c000000000000001f00000000000000030000002b0000001e00000007000000130000001d0000000000000000000000000000000000000000000000250000001b000000290000000000000000000000000000002e000000000000000000000000000000000000000f000000000000001500000002000000000000001a0000002800000000000000000000000000000000000000000000000000000026000000240000000000000023000000000000000000000000000000000000002d0000002c000000000000000400000000000000000000000000000000000000270000000b00000000000000010000000000000000000000220000000000000009000000000000000c0000000d0000000000000012000000000000000000000000000000
       m_slots:
@@ -4466,7 +4466,7 @@ MonoBehaviour:
       m_count: 46
       m_lastIndex: 46
       m_freeList: -1
-      m_version: 189
+      m_version: 330
     HashSetComponentsEnabled:
       m_buckets: 00000000000000000000000005000000000000000300000002000000
       m_slots:
@@ -4494,7 +4494,7 @@ MonoBehaviour:
       m_count: 5
       m_lastIndex: 5
       m_freeList: -1
-      m_version: 25
+      m_version: 43
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -4757,7 +4757,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 520603239}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4922,7 +4922,7 @@ RectTransform:
   m_LocalScale: {x: 3.6618752, y: 4.795175, z: 1}
   m_Children: []
   m_Father: {fileID: 520603239}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5155,7 +5155,7 @@ MonoBehaviour:
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 11
+    ModificationVersion: 15
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
@@ -7320,7 +7320,7 @@ MonoBehaviour:
       m_count: 211
       m_lastIndex: 211
       m_freeList: -1
-      m_version: 1280
+      m_version: 2128
     HashSetObjectsEnabled:
       m_buckets: 0000000000000000000000000000000000000000000000000a000000000000000000000000000000050000001900000016000000180000000000000006000000100000001c000000000000001f00000000000000030000002b0000001e00000007000000130000001d0000000000000000000000000000000000000000000000250000001b000000290000000000000000000000000000002e000000000000000000000000000000000000000f000000000000001500000002000000000000001a0000002800000000000000000000000000000000000000000000000000000026000000240000000000000023000000000000000000000000000000000000002d0000002c000000000000000400000000000000000000000000000000000000270000000b00000000000000010000000000000000000000220000000000000009000000000000000c0000000d0000000000000012000000000000000000000000000000
       m_slots:
@@ -7594,7 +7594,7 @@ MonoBehaviour:
       m_count: 46
       m_lastIndex: 46
       m_freeList: -1
-      m_version: 290
+      m_version: 478
     HashSetComponentsEnabled:
       m_buckets: 00000000000000000000000005000000000000000300000002000000
       m_slots:
@@ -7622,7 +7622,7 @@ MonoBehaviour:
       m_count: 5
       m_lastIndex: 5
       m_freeList: -1
-      m_version: 44
+      m_version: 68
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -7829,7 +7829,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &340981995
 MonoBehaviour:
@@ -9284,7 +9284,7 @@ MonoBehaviour:
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 13
+    ModificationVersion: 21
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
@@ -10279,7 +10279,7 @@ MonoBehaviour:
       m_count: 162
       m_lastIndex: 162
       m_freeList: -1
-      m_version: 1957
+      m_version: 3261
     HashSetObjectsEnabled:
       m_buckets: 00000000230000001b0000001a0000001e000000000000000a000000000000000000000000000000050000002600000024000000000000000000000022000000100000000000000000000000000000001d00000028000000000000000000000007000000130000001400000000000000000000001c000000000000000000000000000000000000001800000000000000170000000000000029000000000000000000000021000000000000002000000000000000150000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001100000000000000000000000400000000000000000000002500000000000000000000000b00000000000000010000000000000000000000000000000000000009000000000000000c000000270000000000000019000000000000000000000000000000
       m_slots:
@@ -10553,7 +10553,7 @@ MonoBehaviour:
       m_count: 41
       m_lastIndex: 41
       m_freeList: -1
-      m_version: 505
+      m_version: 841
     HashSetComponentsEnabled:
       m_buckets: 04000000020000000500000003000000000000000000000001000000
       m_slots:
@@ -10581,7 +10581,7 @@ MonoBehaviour:
       m_count: 5
       m_lastIndex: 5
       m_freeList: -1
-      m_version: 73
+      m_version: 121
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -10597,6 +10597,20 @@ MonoBehaviour:
   PrefabSetTime: 1695805142
   CreateInRuntime: 0
   onLoad: 0
+--- !u!114 &358932235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358932228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7ad91c245580a4484614cb195f2b41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetXPosition: 0
+  obj: {fileID: 520603235}
 --- !u!1 &443115524
 GameObject:
   m_ObjectHideFlags: 0
@@ -10668,6 +10682,49 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &473894186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 473894188}
+  - component: {fileID: 473894187}
+  m_Layer: 0
+  m_Name: EarthManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &473894187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473894186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c988a0d939988f46a53db1c9bc5a5ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &473894188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473894186}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 343.64062, y: 17.511229, z: -170.16127}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &476655719
 GameObject:
   m_ObjectHideFlags: 0
@@ -11429,7 +11486,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -14429,10 +14486,10 @@ RectTransform:
   - {fileID: 1501448606}
   - {fileID: 1906486439}
   - {fileID: 1319851359}
+  - {fileID: 262058504}
   - {fileID: 279080261}
   - {fileID: 2104487114}
   - {fileID: 251760301}
-  - {fileID: 262058504}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14610,7 +14667,7 @@ MonoBehaviour:
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 6
+    ModificationVersion: 11
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
@@ -15605,7 +15662,7 @@ MonoBehaviour:
       m_count: 154
       m_lastIndex: 154
       m_freeList: -1
-      m_version: 160
+      m_version: 935
     HashSetObjectsEnabled:
       m_buckets: 00000000230000001b0000001a0000001e000000000000000a000000000000000000000000000000050000002600000024000000000000000000000022000000100000000000000000000000000000001d00000003000000000000000000000007000000130000001400000000000000000000001c000000000000000000000000000000000000001800000000000000170000000000000027000000000000000000000021000000000000002000000000000000150000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001100000000000000000000000400000000000000000000002500000000000000000000000b00000000000000010000000000000000000000000000000000000009000000000000000c0000000d0000000000000019000000000000000000000000000000
       m_slots:
@@ -15879,7 +15936,7 @@ MonoBehaviour:
       m_count: 39
       m_lastIndex: 39
       m_freeList: -1
-      m_version: 45
+      m_version: 245
     HashSetComponentsEnabled:
       m_buckets: 04000000020000000000000003000000000000000000000001000000
       m_slots:
@@ -15907,7 +15964,7 @@ MonoBehaviour:
       m_count: 4
       m_lastIndex: 4
       m_freeList: -1
-      m_version: 10
+      m_version: 35
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -15938,7 +15995,7 @@ MonoBehaviour:
   FieldsEnable:
     Version: 2
     PathsEnabled: []
-    ModificationVersion: 2
+    ModificationVersion: 6
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
@@ -15948,21 +16005,21 @@ MonoBehaviour:
       m_count: 0
       m_lastIndex: 0
       m_freeList: -1
-      m_version: 2
+      m_version: 6
     HashSetObjectsEnabled:
       m_buckets: 
       m_slots: []
       m_count: 0
       m_lastIndex: 0
       m_freeList: -1
-      m_version: 2
+      m_version: 6
     HashSetComponentsEnabled:
       m_buckets: 
       m_slots: []
       m_count: 0
       m_lastIndex: 0
       m_freeList: -1
-      m_version: 2
+      m_version: 6
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -16836,7 +16893,7 @@ MonoBehaviour:
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 5
+    ModificationVersion: 6
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
@@ -17291,7 +17348,7 @@ MonoBehaviour:
       m_count: 53
       m_lastIndex: 53
       m_freeList: -1
-      m_version: 164
+      m_version: 218
     HashSetObjectsEnabled:
       m_buckets: 0500000008000000000000000000000000000000000000000d0000000400000003000000000000000900000007000000020000000b000000000000000600000000000000
       m_slots:
@@ -17349,7 +17406,7 @@ MonoBehaviour:
       m_count: 13
       m_lastIndex: 13
       m_freeList: -1
-      m_version: 44
+      m_version: 58
     HashSetComponentsEnabled:
       m_buckets: 010000000000000000000000
       m_slots:
@@ -17365,7 +17422,7 @@ MonoBehaviour:
       m_count: 1
       m_lastIndex: 1
       m_freeList: -1
-      m_version: 8
+      m_version: 10
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -17621,7 +17678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1319851359
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17964,7 +18021,7 @@ MonoBehaviour:
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 14
+    ModificationVersion: 19
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
@@ -20129,7 +20186,7 @@ MonoBehaviour:
       m_count: 218
       m_lastIndex: 218
       m_freeList: -1
-      m_version: 2848
+      m_version: 3943
     HashSetObjectsEnabled:
       m_buckets: 0000000000000000000000000000000000000000000000000a000000000000000000000000000000050000001900000016000000180000000000000006000000100000001c000000000000001f00000000000000030000002b0000001e00000007000000130000001d0000000000000000000000000000000000000000000000250000001b000000290000000000000000000000000000002f000000000000000000000000000000000000000f000000000000001500000002000000000000001a0000002800000000000000000000000000000000000000000000000000000026000000240000000000000023000000000000000000000000000000000000002d0000002c000000000000000400000000000000000000000000000000000000270000000b00000000000000010000000000000000000000220000000000000009000000000000000c0000000d00000000000000120000002e0000000000000000000000
       m_slots:
@@ -20403,7 +20460,7 @@ MonoBehaviour:
       m_count: 47
       m_lastIndex: 47
       m_freeList: -1
-      m_version: 625
+      m_version: 865
     HashSetComponentsEnabled:
       m_buckets: 00000000060000000000000005000000000000000300000002000000
       m_slots:
@@ -20431,7 +20488,7 @@ MonoBehaviour:
       m_count: 6
       m_lastIndex: 6
       m_freeList: -1
-      m_version: 92
+      m_version: 127
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -21137,7 +21194,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1501448606
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21454,7 +21511,7 @@ MonoBehaviour:
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 3
+    ModificationVersion: 7
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
@@ -23619,7 +23676,7 @@ MonoBehaviour:
       m_count: 218
       m_lastIndex: 218
       m_freeList: -1
-      m_version: 439
+      m_version: 1315
     HashSetObjectsEnabled:
       m_buckets: 0000000000000000000000000000000000000000000000000a000000000000000000000000000000050000001900000016000000180000000000000006000000100000001c000000000000001f00000000000000030000002b0000001e00000007000000130000001d0000000000000000000000000000000000000000000000250000001b000000290000000000000000000000000000002f000000000000000000000000000000000000000f000000000000001500000002000000000000001a0000002800000000000000000000000000000000000000000000000000000026000000240000000000000023000000000000000000000000000000000000002d0000002c000000000000000400000000000000000000000000000000000000270000000b00000000000000010000000000000000000000220000000000000009000000000000000c0000000d00000000000000120000002e0000000000000000000000
       m_slots:
@@ -23893,7 +23950,7 @@ MonoBehaviour:
       m_count: 47
       m_lastIndex: 47
       m_freeList: -1
-      m_version: 97
+      m_version: 289
     HashSetComponentsEnabled:
       m_buckets: 00000000060000000000000005000000000000000300000002000000
       m_slots:
@@ -23921,7 +23978,7 @@ MonoBehaviour:
       m_count: 6
       m_lastIndex: 6
       m_freeList: -1
-      m_version: 15
+      m_version: 43
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -24019,6 +24076,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416d6ff38d581f4459abb94049314ae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1610037827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1610037829}
+  - component: {fileID: 1610037828}
+  m_Layer: 0
+  m_Name: SetEarth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1610037828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610037827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e698d46e551e8d941b44c4ecbedaa540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sunobj: {fileID: 1501448605}
+  Soilobj: {fileID: 1906486438}
+  Waterobj: {fileID: 1319851358}
+--- !u!4 &1610037829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610037827}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 343.64062, y: 17.511229, z: -170.16127}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1782666959
 GameObject:
   m_ObjectHideFlags: 0
@@ -25605,20 +25708,85 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 232328442131787056, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 232328442131787056, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 232328442131787056, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3425880578699004422, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506051338946488524, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506051338946488524, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4960391238741728657, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5078547884079948073, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6657065545215123260, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7273714798064781074, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -45.69995
+      value: -23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7373178410687307814, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7373178410687307814, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7373178410687307814, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 416
+      objectReference: {fileID: 0}
+    - target: {fileID: 7373178411471102191, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7373178411471102191, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7373178411471102191, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -421
       objectReference: {fileID: 0}
     - target: {fileID: 7373178411927139889, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
@@ -25740,6 +25908,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 7373178411927139894, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cede6262d25ffa46933df2d3c834958, type: 3}
 --- !u!1 &1906486438
@@ -25763,7 +25936,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1906486439
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26106,7 +26279,7 @@ MonoBehaviour:
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 3
+    ModificationVersion: 4
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
@@ -28271,7 +28444,7 @@ MonoBehaviour:
       m_count: 218
       m_lastIndex: 218
       m_freeList: -1
-      m_version: 439
+      m_version: 658
     HashSetObjectsEnabled:
       m_buckets: 0000000000000000000000000000000000000000000000000a000000000000000000000000000000050000001900000016000000180000000000000006000000100000001c000000000000001f00000000000000030000002b0000001e00000007000000130000001d0000000000000000000000000000000000000000000000250000001b000000290000000000000000000000000000002f000000000000000000000000000000000000000f000000000000001500000002000000000000001a0000002800000000000000000000000000000000000000000000000000000026000000240000000000000023000000000000000000000000000000000000002d0000002c000000000000000400000000000000000000000000000000000000270000000b00000000000000010000000000000000000000220000000000000009000000000000000c0000000d00000000000000120000002e0000000000000000000000
       m_slots:
@@ -28545,7 +28718,7 @@ MonoBehaviour:
       m_count: 47
       m_lastIndex: 47
       m_freeList: -1
-      m_version: 97
+      m_version: 145
     HashSetComponentsEnabled:
       m_buckets: 00000000060000000000000005000000000000000300000002000000
       m_slots:
@@ -28573,7 +28746,7 @@ MonoBehaviour:
       m_count: 6
       m_lastIndex: 6
       m_freeList: -1
-      m_version: 15
+      m_version: 22
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
@@ -28971,7 +29144,7 @@ RectTransform:
   m_LocalScale: {x: 3.661875, y: 4.795175, z: 1}
   m_Children: []
   m_Father: {fileID: 520603239}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -29204,7 +29377,7 @@ MonoBehaviour:
     - GameObject/name
     - GameObject/activeSelf
     - GameObject
-    ModificationVersion: 6
+    ModificationVersion: 9
     ComponentsEnabled: []
     HashFieldsEnabled: []
     ObjectsEnabled: 
@@ -31369,7 +31542,7 @@ MonoBehaviour:
       m_count: 211
       m_lastIndex: 211
       m_freeList: -1
-      m_version: 850
+      m_version: 1486
     HashSetObjectsEnabled:
       m_buckets: 0000000000000000000000000000000000000000000000000a000000000000000000000000000000050000001900000016000000180000000000000006000000100000001c000000000000001f00000000000000030000002b0000001e00000007000000130000001d0000000000000000000000000000000000000000000000250000001b000000290000000000000000000000000000002e000000000000000000000000000000000000000f000000000000001500000002000000000000001a0000002800000000000000000000000000000000000000000000000000000026000000240000000000000023000000000000000000000000000000000000002d0000002c000000000000000400000000000000000000000000000000000000270000000b00000000000000010000000000000000000000220000000000000009000000000000000c0000000d0000000000000012000000000000000000000000000000
       m_slots:
@@ -31643,7 +31816,7 @@ MonoBehaviour:
       m_count: 46
       m_lastIndex: 46
       m_freeList: -1
-      m_version: 190
+      m_version: 331
     HashSetComponentsEnabled:
       m_buckets: 00000000000000000000000005000000000000000300000002000000
       m_slots:
@@ -31671,7 +31844,7 @@ MonoBehaviour:
       m_count: 5
       m_lastIndex: 5
       m_freeList: -1
-      m_version: 26
+      m_version: 44
     AreValidSavedHashs: 1
   Position: 0
   Rotation: 0
