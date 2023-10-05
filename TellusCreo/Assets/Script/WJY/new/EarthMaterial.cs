@@ -8,6 +8,8 @@ public class EarthMaterial : MonoBehaviour
     private bool Water = false;
     private bool Soil = false;
 
+    private bool CutS = false;
+
     private static EarthMaterial instance;
 
     // 싱글톤 인스턴스를 가져오거나 생성하는 메서드
@@ -81,5 +83,17 @@ public class EarthMaterial : MonoBehaviour
         return Soil;
     }
 
-   
+    public void SetcutValue(bool newValue)
+    {
+        CutS = newValue;
+
+    }
+
+
+    public bool GetcutValue()
+    {
+        return CutS;
+    }
+
+
 }
