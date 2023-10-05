@@ -8,7 +8,7 @@ public class ItemPickup : MonoBehaviour
     public Item Item;
 
 
-    void Pickup()
+    public void Pickup()
     {
         InventoryManager.Instance.Add(Item);
         

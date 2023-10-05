@@ -36,7 +36,7 @@ public class BackgroundManager : MonoBehaviour
         if (backGroundSpriteList.Count == 0)
         {
 #if UNITY_EDITOR
-            Debug.LogError("backGroundSpriteList Empty");
+            Debug.Log("backGroundSpriteList Empty");
 #endif
             return;
         }
@@ -51,7 +51,7 @@ public class BackgroundManager : MonoBehaviour
         if (sprite == null)
         {
 #if UNITY_EDITOR
-            Debug.LogError("Sprite is NULL");
+            Debug.Log("Sprite is NULL");
 #endif
         }
 

@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public int NUMBER_OF_PUZZLES { get => 10; }
     public GameObject Curtain { get => curtain; }
     public bool SwitchStatus { get => switchStatus; }
+    public bool ClearAttic { get => _clearAttic; }
     public int SetPlanet = 0;
 
     [SerializeField] Item sun;
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
     bool[] ClearPuzzles;
     bool isCurtainOpen;
     bool switchStatus;
+    bool _clearAttic = false;
 
     public bool this[int idx] // 인덱서 사용
     {
@@ -250,7 +252,12 @@ public class GameManager : MonoBehaviour
                     else if (hitGameObject.CompareTag("AfterPoster"))
                     {
                         BackgroundManager background = hitGameObject.transform.parent.GetComponent<BackgroundManager>();
-
+                        Transform wire1 = hitGameObject.transform.Find("Wire1Clue");
+                        if (wire1 != null)
+                        {
+                            wire1?.GetComponent<ItemPickup>().Pickup();
+                            break;
+                        }
                         background?.transform.Find("AfterPoster")?.gameObject.SetActive(false); // AfterPoster
                         background?.transform.Find("BeforePoster")?.gameObject.SetActive(true); // BeforePoster
                     }
@@ -302,8 +309,9 @@ public class GameManager : MonoBehaviour
                     if (!ClearPuzzles[(int)Puzzle.LightSwitch - NUMBER_OF_PUZZLES])
                     {
 #if UNITY_EDITOR
-                        Debug.LogError("전선 연결 필요");
-#endif
+                        Debug.Log("전선 연결 필요");
+#endif    
+
                         break;
                     }
 
@@ -338,7 +346,12 @@ public class GameManager : MonoBehaviour
                         }
                     }
                     break;
-                case Puzzle.Mirror:
+                case Puzzle.Mirror: // 거울
+                    DustMirror dustMirror = FindObjectOfType<DustMirror>();
+                    if (dustMirror != null)  // 아직 거울을 닦지 않음
+                    {
+                        break;
+                    }
                     if (isCurtainOpen)
                     {
                         BackgroundManager mirrorBM = Puzzles[(int)Puzzle.Mirror - NUMBER_OF_PUZZLES].GetComponent<BackgroundManager>();
@@ -387,7 +400,9 @@ public class GameManager : MonoBehaviour
 #if UNITY_EDITOR
             Debug.Log("다락방 완료");
 #endif
-            if(InventoryManager.Instance!=null)
+
+            _clearAttic = true;
+            if (InventoryManager.Instance!=null)
             {
                 InventoryManager.Instance.Add(sun);
             }

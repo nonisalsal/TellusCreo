@@ -25,7 +25,7 @@ public class Lock : MonoBehaviour
         if (transform.childCount < PASSWORD_COUNT)
         {
 #if UNINTY_EDITOR
-            Debug.LogError("비밀번호 객체가 부족");
+            Debug.Log("비밀번호 객체가 부족");
 #endif
             return;
         }

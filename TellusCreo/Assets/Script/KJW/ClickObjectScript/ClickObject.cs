@@ -31,7 +31,7 @@ public class ClickObject : MonoBehaviour
         if (cSpriteObject == null || sprite == null)
         {
 #if UNITY_EDITOR
-            Debug.LogError("NULL");
+            Debug.Log("NULL");
 #endif
             return;
         }
