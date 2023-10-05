@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2befd667d737bdf44bec418727b78ed6, type: 3}
   m_Name: Wire1
   m_EditorClassIdentifier: 
-  itemName: WIre1
+  itemName: Wire1
   icon: {fileID: 21300000, guid: 1939fb3b69421fe499b069216f78b938, type: 3}
   interactTag: 

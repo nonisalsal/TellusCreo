@@ -36,7 +36,7 @@ public class SoundManager : MonoBehaviour
         if (root == null)
         {
 #if UNITY_EDITOR
-            Debug.LogError("사운드 매니저가 씬에 없습니다.");
+            Debug.Log("사운드 매니저가 씬에 없습니다.");
 #endif
             return;
         }

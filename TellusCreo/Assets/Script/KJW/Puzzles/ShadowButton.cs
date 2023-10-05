@@ -18,7 +18,7 @@ public class ShadowButton : MonoBehaviour
         {
 
 #if UNITY_EDITOR
-            Debug.LogError("스탠드 ON or 밝음 or 커튼 열림");
+            Debug.Log("스탠드 ON or 밝음 or 커튼 열림");
 #endif
         }
     }
