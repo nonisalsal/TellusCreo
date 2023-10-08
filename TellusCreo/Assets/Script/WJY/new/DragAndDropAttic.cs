@@ -38,13 +38,13 @@ public class DragAndDropAttic : MonoBehaviour, IBeginDragHandler, IEndDragHandle
 
         ItemDataBase itemDatabase = GameObject.Find("ItemDataBase").GetComponent<ItemDataBase>();
 
-        
-    foreach (ItemData itemData in itemDatabase.itemDB)
-    {
-        inventoryItems.Add(itemData);
-    }
 
-       
+        foreach (ItemData itemData in itemDatabase.itemDB)
+        {
+            inventoryItems.Add(itemData);
+        }
+
+
         GameObject draggedObject = eventData.pointerDrag;
         if (draggedObject != null)
         {
@@ -53,10 +53,10 @@ public class DragAndDropAttic : MonoBehaviour, IBeginDragHandler, IEndDragHandle
 
             if (textComponent != null)
             {
- 
+
                 textContent = textComponent.text;
                 Debug.Log(textContent);
-            
+
             }
         }
         parentAfterDrag = transform.parent;
@@ -68,8 +68,10 @@ public class DragAndDropAttic : MonoBehaviour, IBeginDragHandler, IEndDragHandle
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / transform.root.localScale.x;
+        //rectTransform.anchoredPosition += eventData.delta*0.1f;// / transform.root.localScale.x;
+        Canvas canvas = GetComponentInParent<Canvas>();
 
+        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
     public void OnEndDrag(PointerEventData eventData)
