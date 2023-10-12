@@ -42,10 +42,14 @@ public class EarthMaterial : MonoBehaviour
         // 씬 이동 시에도 파괴되지 않도록 설정
         DontDestroyOnLoad(gameObject);
 
+
         // 이 오브젝트를 인스턴스로 설정
         instance = this;
     }
-
+    public void Start()
+    {
+        
+    }
     // 원하는 시점에 bool 변수를 변경할 수 있는 메서드를 추가할 수 있습니다.
     public void SetSunValue(bool newValue)
     {
