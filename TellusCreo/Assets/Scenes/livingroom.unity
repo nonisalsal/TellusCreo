@@ -25718,17 +25718,32 @@ PrefabInstance:
     - target: {fileID: 232328442131787056, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 232328442131787056, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 729217188758488588, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.1980898
+      objectReference: {fileID: 0}
+    - target: {fileID: 729217188758488588, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.9695313
+      objectReference: {fileID: 0}
+    - target: {fileID: 729217188758488588, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -547
+      objectReference: {fileID: 0}
     - target: {fileID: 3425880578699004422, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4353486655257603913, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
@@ -25758,7 +25773,7 @@ PrefabInstance:
     - target: {fileID: 4506051338946488524, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4960391238741728657, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
@@ -25768,12 +25783,12 @@ PrefabInstance:
     - target: {fileID: 5078547884079948073, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6657065545215123260, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7273714798064781074, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
