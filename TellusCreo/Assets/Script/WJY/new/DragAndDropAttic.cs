@@ -38,13 +38,13 @@ public class DragAndDropAttic : MonoBehaviour, IBeginDragHandler, IEndDragHandle
 
         ItemDataBase itemDatabase = GameObject.Find("ItemDataBase").GetComponent<ItemDataBase>();
 
-        
-    foreach (ItemData itemData in itemDatabase.itemDB)
-    {
-        inventoryItems.Add(itemData);
-    }
 
-       
+        foreach (ItemData itemData in itemDatabase.itemDB)
+        {
+            inventoryItems.Add(itemData);
+        }
+
+
         GameObject draggedObject = eventData.pointerDrag;
         if (draggedObject != null)
         {
@@ -53,10 +53,10 @@ public class DragAndDropAttic : MonoBehaviour, IBeginDragHandler, IEndDragHandle
 
             if (textComponent != null)
             {
- 
+
                 textContent = textComponent.text;
                 Debug.Log(textContent);
-            
+
             }
         }
         parentAfterDrag = transform.parent;
@@ -68,8 +68,10 @@ public class DragAndDropAttic : MonoBehaviour, IBeginDragHandler, IEndDragHandle
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / transform.root.localScale.x;
+        //rectTransform.anchoredPosition += eventData.delta*0.1f;// / transform.root.localScale.x;
+        Canvas canvas = GetComponentInParent<Canvas>();
 
+        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -81,16 +83,11 @@ public class DragAndDropAttic : MonoBehaviour, IBeginDragHandler, IEndDragHandle
         List<Item> Items = InventoryManager.Instance.GetItems();
         Collider2D[] colliders = Physics2D.OverlapPointAll(dropPosition);
 
-     
-
         foreach (Collider2D collider in colliders)
         {
             // 다른 오브젝트와의 충돌 판정을 수행하고 원하는 동작을 수행합니다.
-
-
-
-
-            if (collider.CompareTag(textContent))
+            const string pos = "Pos";
+            if (collider.name.StartsWith(pos))
             {
                 if (collider.transform.childCount != 0) continue; // 자식이 0개일때만
                 string itemNameToRemove = transform.GetChild(0).GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite.name;
@@ -107,55 +104,68 @@ public class DragAndDropAttic : MonoBehaviour, IBeginDragHandler, IEndDragHandle
                 GameManager.Instance.Puzzles[(int)GameManager.Puzzle.Wire - GameManager.Instance.NUMBER_OF_PUZZLES].GetComponent<WirePuzzle>().cnt++;
                 Destroy(this.gameObject);
             }
-            else if (collider.CompareTag(textContent))
+            else
             {
-                string itemNameToRemove = "Ball";
-                ShadowPuzzle shadowPuzzle = GameManager.Instance.Puzzles
-                    [(int)GameManager.Puzzle.ShadowLight - GameManager.Instance.NUMBER_OF_PUZZLES].GetComponent<ShadowPuzzle>();
-                Item ball = InventoryManager.Instance.Items.FirstOrDefault(item => item.name == "Ball");
-                if (ball != null && shadowPuzzle.CurrentShadow == ShadowPuzzle.Shadow.Dog) // 테스트 용 코드
+                switch (textContent)
                 {
-                    StartCoroutine(shadowPuzzle.DogShadowCatchBall()); // 공 물어오기
-                    InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
+                    case "Mars":
+                        if (collider.CompareTag(textContent))
+                        {
+                            if (InventoryManager.Instance == null || !InventoryManager.Instance.HasItem("Mars") || !InventoryManager.Instance.HasItem("Launcher"))
+                            {
+                                transform.SetParent(parentAfterDrag);
+                                return;
+                            }
+                            collider.transform.GetChild(0)?.gameObject.SetActive(true);
+                            string itemNameToRemove = "Mars"; // 제거할 아이템의 이름
+                            InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
+                            Destroy(gameObject);
+                        }
+                        break;
+                    case "Jupiter":
+                        if (collider.CompareTag(textContent))
+                        {
+                            if (InventoryManager.Instance == null || !InventoryManager.Instance.HasItem("Jupiter") || !InventoryManager.Instance.HasItem("Launcher"))
+                            {
+                                transform.SetParent(parentAfterDrag);
+                                return;
+                            }
+                            collider.transform.GetChild(0)?.gameObject.SetActive(true);
+                            string itemNameToRemove = "Jupiter"; // 제거할 아이템의 이름
+                            InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
+                            Destroy(gameObject);
+                        }
+                        break;
+                    case "Uranus":
+                        if (collider.CompareTag(textContent))
+                        {
+                            if (InventoryManager.Instance == null || !InventoryManager.Instance.HasItem("Uranus") || !InventoryManager.Instance.HasItem("Launcher"))
+                            {
+                                transform.SetParent(parentAfterDrag);
+                                return;
+                            }
+                            string itemNameToRemove = textContent; // 제거할 아이템의 이름
+                            collider.transform.GetChild(0)?.gameObject.SetActive(true);
+                            InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
+                            Destroy(gameObject);
+                        }
+                        break;
+                    default: //Ball
+                        if (collider.CompareTag(textContent))
+                        {
+                            string itemNameToRemove = "Ball";
+                            ShadowPuzzle shadowPuzzle = GameManager.Instance.Puzzles
+                                [(int)GameManager.Puzzle.ShadowLight - GameManager.Instance.NUMBER_OF_PUZZLES].GetComponent<ShadowPuzzle>();
+                            Item ball = InventoryManager.Instance.Items.FirstOrDefault(item => item.name == "Ball");
+                            if (ball != null && shadowPuzzle.CurrentShadow == ShadowPuzzle.Shadow.Dog) // 테스트 용 코드
+                            {
+                                StartCoroutine(shadowPuzzle.DogShadowCatchBall()); // 공 물어오기
+                                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
+                            }
+                        }
+                        break;
                 }
             }
-            else if (collider.CompareTag(textContent))
-            {
-                if (InventoryManager.Instance == null || !InventoryManager.Instance.HasItem("Mars") || !InventoryManager.Instance.HasItem("Launcher"))
-                {
-                    transform.SetParent(parentAfterDrag);
-                    return;
-                }
-                collider.transform.GetChild(0)?.gameObject.SetActive(true);
-                string itemNameToRemove = "Mars"; // 제거할 아이템의 이름
-                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
-                Destroy(gameObject);
-            }
-            else if (collider.CompareTag(textContent))
-            {
-                if (InventoryManager.Instance == null || !InventoryManager.Instance.HasItem("Jupiter") || !InventoryManager.Instance.HasItem("Launcher"))
-                {
-                    transform.SetParent(parentAfterDrag);
-                    return;
-                }
-                collider.transform.GetChild(0)?.gameObject.SetActive(true);
-                string itemNameToRemove = "Jupiter"; // 제거할 아이템의 이름
-                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
-                Destroy(gameObject);
-            }
-            else if (collider.CompareTag(textContent))
-            {
-                if (InventoryManager.Instance == null || !InventoryManager.Instance.HasItem("Uranus") || !InventoryManager.Instance.HasItem("Launcher"))
-                {
-                    transform.SetParent(parentAfterDrag);
-                    return;
-                }
-                string itemNameToRemove = textContent; // 제거할 아이템의 이름
-                collider.transform.GetChild(0)?.gameObject.SetActive(true);
-                InventoryManager.Instance.RemoveItemFromInventory(itemNameToRemove);
-                Destroy(gameObject);
-            }
-            
         }
         if (this.gameObject != null)
             transform.SetParent(parentAfterDrag);

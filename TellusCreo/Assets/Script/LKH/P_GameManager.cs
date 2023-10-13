@@ -38,8 +38,11 @@ public class P_GameManager : MonoBehaviour
         topClear = false;
 
         isGetFinalItem = false;
-
-        SoundManager.Instance.Play("playroom_background", Sound.Bgm);
+        
+        if(SoundManager.Instance != null )
+        {
+           SoundManager.Instance.Play("playroom_background", Sound.Bgm);
+        }
     }
     
     void Update()
@@ -118,6 +121,8 @@ public class P_GameManager : MonoBehaviour
     public void Set_isGetFinalItem()
     {
         isGetFinalItem = true;
+        if (EarthMaterial.GetInstance() != null)
+            EarthMaterial.GetInstance().SetSoilValue(isGetFinalItem);
         Debug.Log("get final item");
     }
 

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler//, IDragHandler
+public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     public Transform parentAfterDrag;
     private string draggedItemName;
@@ -34,7 +34,6 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler//, 
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-
         ItemDataBase itemDatabase = GameObject.Find("ItemDataBase").GetComponent<ItemDataBase>();
 
         
