@@ -6,7 +6,13 @@ public class test : MonoBehaviour
 {
     public void testtest()
     {
-        EarthMaterial earthMaterial = EarthMaterial.GetInstance();
-        earthMaterial.SetSunValue(true);
+        for (int i = 0; i < GameManager.Instance.ClearPuzzles.Length; i++)
+        {
+            GameManager.Instance.ClearPuzzles[i] = true;
+        }
+
+        
+            GameManager.Instance.CheckRoomClear();
+       
     }
 }

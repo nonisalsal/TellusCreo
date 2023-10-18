@@ -6,8 +6,7 @@ public class DoorKnob : MonoBehaviour
     public string sceneName;
     private void OnMouseDown()
     {   
-        // 최종 빌드에 올릴 코드
-        //   if(CheckRoomOrder()) SceneManager.LoadScene(sceneName);
+          if(CheckRoomOrder()) SceneManager.LoadScene(sceneName);
       
         // 클리어 아닐 때만 입장
         if (!EarthMaterial.GetInstance().GetSunValue() && string.Equals(sceneName, "Attic"))

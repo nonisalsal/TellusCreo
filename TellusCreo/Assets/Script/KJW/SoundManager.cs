@@ -152,4 +152,12 @@ public class SoundManager : MonoBehaviour
         bgmSource.volume = bgmVolume;
     }
 
+    public void SetBgmVolumeBasic(float volume)
+    {
+        // BGM 볼륨 조절
+        if (_audioSources[(int)Sound.Bgm] != null)
+        {
+            _audioSources[(int)Sound.Bgm].volume = Mathf.Clamp(volume, 0.0f, 1.0f);
+        }
+    }
 }

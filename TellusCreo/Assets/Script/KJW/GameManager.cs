@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     GameObject curtain_open;
     List<Func<bool>> ShadowPuzzleDelegate;
     Action Room;
-    bool[] ClearPuzzles;
+    public bool[] ClearPuzzles;
     bool isCurtainOpen;
     bool switchStatus;
     bool _clearAttic = false;
@@ -386,7 +386,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void CheckRoomClear()
+   public void CheckRoomClear()
     {
         if (ClearPuzzles.Any(puzzle => puzzle == false))
         {
