@@ -22,7 +22,7 @@ public class AudioManager : MonoBehaviour
 
     
         volumeSlider.value = PlayerPrefs.GetFloat("BGMVolume", 0.5f);
-        audioSource.volume = volumeSlider.value;
+        audioSource.volume = volumeSlider.value / 100 ;
 
 
         AudioClip audioClip = backgroundSound;
@@ -36,7 +36,7 @@ public class AudioManager : MonoBehaviour
 
     private void ChangeVolume(float volume)
     {
-        audioSource.volume = volume;
+        audioSource.volume = volume/100;
         PlayerPrefs.SetFloat("BGMVolume", volume);
     }
 
