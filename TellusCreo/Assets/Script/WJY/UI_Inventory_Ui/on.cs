@@ -33,12 +33,14 @@ public class on : MonoBehaviour
     {
         puzzleGuitarRenderer.enabled = true;
         puzzleGuitarRenderer.GetComponent<P_IsRightPos>().IsRight_true();
+        SoundManager.Instance.Play("playroom_guitar");
     }
 
     public void SpriteOn1()
     {
         puzzleViolinRenderer.enabled = true;
         puzzleViolinRenderer.GetComponent<P_IsRightPos>().IsRight_true();
+        SoundManager.Instance.Play("playroom_violin");
     }
 
     public void SpriteOn2()
@@ -48,6 +50,7 @@ public class on : MonoBehaviour
             renderer.enabled = true;
         }
         puzzledrumRenderer[0].transform.parent.gameObject.GetComponent<P_IsRightPos>().IsRight_true();
+        SoundManager.Instance.Play("playroom_drum");
     }
 
     public void SpriteOn3()

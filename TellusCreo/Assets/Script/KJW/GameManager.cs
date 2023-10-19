@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     GameObject curtain_open;
     List<Func<bool>> ShadowPuzzleDelegate;
     Action Room;
-    public bool[] ClearPuzzles; // 테스트 해보려고 public으로 바꿈 보호 수준 문제 생길 수 있을겁니다
+    bool[] ClearPuzzles; // 테스트 해보려고 public으로 바꿈 보호 수준 문제 생길 수 있을겁니다
     bool isCurtainOpen;
     bool switchStatus;
     bool _clearAttic = false;

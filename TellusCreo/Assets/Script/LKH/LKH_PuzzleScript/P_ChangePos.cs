@@ -16,7 +16,8 @@ public class P_ChangePos : MonoBehaviour
     {
         if (!isSet && !isMove)
         {
-            transform.localPosition = beforePos;
+            //transform.localPosition = beforePos;
+            transform.SetPositionAndRotation(beforePos, Quaternion.identity);
             isSet = true;
             startOnTrig = false;
             checkLayer = 0;
@@ -40,8 +41,9 @@ public class P_ChangePos : MonoBehaviour
     {
         if (!isSet && collision.CompareTag("P_stop"))
         {
-            afterPos = collision.transform.localPosition;
-            collision.transform.localPosition = beforePos;
+            afterPos = collision.transform.position;
+            //collision.transform.localPosition = beforePos;
+            collision.transform.SetPositionAndRotation(beforePos, Quaternion.identity);
             beforePos = afterPos;
             //Debug.Log("change position");
         }
@@ -60,7 +62,7 @@ public class P_ChangePos : MonoBehaviour
             if (System.Object.ReferenceEquals(gameObject, downHit))
             {
                 isSet = false;
-                beforePos = this.transform.localPosition;
+                beforePos = this.transform.position;
                 checkLayer = 1;
             }
         }
