@@ -87,7 +87,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        SoundManager.Instance.Play("Attic_bgm", Sound.Bgm);
         Room += CheckRoomClear;
         ClearPuzzles = new bool[CLEAR_PUZZLE];
         isCurtainOpen = false;
