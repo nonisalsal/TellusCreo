@@ -5,7 +5,8 @@ public class AudioManager : MonoBehaviour
 {
     public Slider volumeSlider; 
 
-    private AudioSource audioSource; 
+    private AudioSource audioSource;
+    public AudioClip backgroundSound;
     public AudioClip buttonClickSound; 
     public AudioClip menuClickSound;
     public AudioClip bagClickSound;
@@ -24,7 +25,7 @@ public class AudioManager : MonoBehaviour
         audioSource.volume = volumeSlider.value;
 
 
-        AudioClip audioClip = Resources.Load<AudioClip>("Sound/leva-eternity-149473");
+        AudioClip audioClip = backgroundSound;
         if (audioClip != null)
         {
             audioSource.clip = audioClip;

@@ -10,7 +10,7 @@ public class TitleManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(BlinkCoroutine());
-        SoundManager.Instance.Play("Title_bgm", Sound.Bgm);
+        //SoundManager.Instance.Play("Title_bgm", Sound.Bgm);
     }
 
     private IEnumerator BlinkCoroutine()

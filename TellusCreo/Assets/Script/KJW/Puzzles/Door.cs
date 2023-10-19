@@ -8,7 +8,11 @@ public class Door : MonoBehaviour
     {
         if(GameManager.Instance!=null)
         {
-            if (GameManager.Instance.ClearAttic) SceneManager.LoadScene("livingRoom");
+            if (GameManager.Instance.ClearAttic)
+            {
+                SceneManager.LoadScene("livingRoom");
+                EarthMaterial.GetInstance().SetSunValue(true);
+            }
             else Debug.Log("다락방 미완료");
         }
     }

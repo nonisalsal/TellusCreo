@@ -3,7 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class Save : MonoBehaviour
 {
-    private void Start()
+
+   
+private void Start()
     {
         
 
@@ -23,6 +25,9 @@ public class Save : MonoBehaviour
     public void Load()
     {
         
+
+        
+
         bool sunValue = PlayerPrefs.GetInt("Sun", 0) == 1; 
         EarthMaterial.GetInstance().SetSunValue(sunValue);
 
