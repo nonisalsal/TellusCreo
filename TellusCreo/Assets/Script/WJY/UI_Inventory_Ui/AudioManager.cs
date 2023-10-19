@@ -3,21 +3,31 @@ using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
-    public Slider volumeSlider; 
+    public Slider volumeSlider;
+ 
 
     private AudioSource audioSource;
 
     public GameObject Onmutebutton;
     public GameObject Offmutebutton;
 
+
+
+
     public AudioClip backgroundSound;
     public AudioClip buttonClickSound; 
     public AudioClip menuClickSound;
     public AudioClip bagClickSound;
 
+    private Muteall muteallScript;
+
     private void Start()
     {
-      
+
+        muteallScript = GetComponent<Muteall>();
+
+       
+
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.loop = true;
         
@@ -26,10 +36,8 @@ public class AudioManager : MonoBehaviour
         volumeSlider.onValueChanged.AddListener(ChangeVolume);
 
     
-
-        volumeSlider.value = PlayerPrefs.GetFloat("BGMVolume", 0.5f);
-        audioSource.volume = volumeSlider.value / 100 ;
-
+        volumeSlider.value = PlayerPrefs.GetFloat("BGMVolume", 0.1f);
+        audioSource.volume = volumeSlider.value;
 
 
         AudioClip audioClip = backgroundSound;
@@ -47,11 +55,12 @@ public class AudioManager : MonoBehaviour
             Onmutebutton.SetActive(true);
             Offmutebutton.SetActive(false);
         }
+
+        
     }
     private void ChangeVolume(float volume)
     {
-
-        audioSource.volume = volume/100;
+        audioSource.volume = volume / 100f;
         PlayerPrefs.SetFloat("BGMVolume", volume);
 
     }
@@ -97,4 +106,5 @@ public class AudioManager : MonoBehaviour
     }
 
     
+
 }

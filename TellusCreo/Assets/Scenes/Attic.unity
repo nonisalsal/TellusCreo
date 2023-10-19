@@ -1897,6 +1897,12 @@ Transform:
   m_Father: {fileID: 28338044}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &367254038 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3171457390761998111, guid: 3cede6262d25ffa46933df2d3c834958,
+    type: 3}
+  m_PrefabInstance: {fileID: 1667650093}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &371136084
 GameObject:
   m_ObjectHideFlags: 0
@@ -6402,6 +6408,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1667650093}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1292351762 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1310333903786984478, guid: 3cede6262d25ffa46933df2d3c834958,
+    type: 3}
+  m_PrefabInstance: {fileID: 1667650093}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1319915372
 GameObject:
   m_ObjectHideFlags: 0
@@ -8635,6 +8653,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1310333903786984478, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1846227729119539967, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -9131,6 +9154,11 @@ PrefabInstance:
       objectReference: {fileID: 1249640062}
     - target: {fileID: 8637147245367154046, guid: 25a728ac64d16304299073b6abd81547,
         type: 3}
+      propertyPath: EffectSlider
+      value: 
+      objectReference: {fileID: 1292351762}
+    - target: {fileID: 8637147245367154046, guid: 25a728ac64d16304299073b6abd81547,
+        type: 3}
       propertyPath: Onmutebutton
       value: 
       objectReference: {fileID: 1249640062}
@@ -9149,6 +9177,16 @@ PrefabInstance:
       propertyPath: backgroundSound
       value: 
       objectReference: {fileID: 8300000, guid: 16170789560b19a49b38d833a9c4951a, type: 3}
+    - target: {fileID: 8637147245367154046, guid: 25a728ac64d16304299073b6abd81547,
+        type: 3}
+      propertyPath: OnEffectmutebutton
+      value: 
+      objectReference: {fileID: 367254038}
+    - target: {fileID: 8637147245367154046, guid: 25a728ac64d16304299073b6abd81547,
+        type: 3}
+      propertyPath: OffEffectmutebutton
+      value: 
+      objectReference: {fileID: 1950475319}
     - target: {fileID: 8637147245367154047, guid: 25a728ac64d16304299073b6abd81547,
         type: 3}
       propertyPath: m_RootOrder
@@ -10035,6 +10073,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7989bf0f49c0d74eb8e59adb90976b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EffectSlider: {fileID: 1292351762}
+  OnEffectmutebutton: {fileID: 367254038}
+  OffEffectmutebutton: {fileID: 1950475319}
 --- !u!1 &1829866783
 GameObject:
   m_ObjectHideFlags: 0
@@ -10706,6 +10747,12 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2427611032068609164, guid: 3d25b67d3ae9cb941b26b8d7896ca237, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3d25b67d3ae9cb941b26b8d7896ca237, type: 3}
+--- !u!1 &1950475319 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4066471839447203395, guid: 3cede6262d25ffa46933df2d3c834958,
+    type: 3}
+  m_PrefabInstance: {fileID: 1667650093}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1980474767 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2427611032068609167, guid: 3d25b67d3ae9cb941b26b8d7896ca237,
