@@ -40,9 +40,7 @@ public class P_GameManager : MonoBehaviour
         isGetFinalItem = false;
         
         if(SoundManager.Instance != null )
-        {
            SoundManager.Instance.Play("playroom_background", Sound.Bgm);
-        }
     }
     
     void Update()

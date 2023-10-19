@@ -118,9 +118,10 @@ public class P_ClickObject : MonoBehaviour
     private void Click_finalDoor()
     {
         bool isPlayroomClear = P_GameManager.instance.Get_isGetFinalItem();
-        if (isPlayroomClear)
+        if (isPlayroomClear) { 
+            SceneManager.LoadScene("livingroom");
             return;
-        //SceneManager.LoadScene("livingroom");
+        }
         else
             SoundManager.Instance.Play("door_locked");
     }
