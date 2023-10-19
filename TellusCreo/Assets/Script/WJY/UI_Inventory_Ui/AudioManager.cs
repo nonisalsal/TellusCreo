@@ -10,7 +10,6 @@ public class AudioManager : MonoBehaviour
     public GameObject Onmutebutton;
     public GameObject Offmutebutton;
 
-
     public AudioClip backgroundSound;
     public AudioClip buttonClickSound; 
     public AudioClip menuClickSound;
@@ -27,8 +26,10 @@ public class AudioManager : MonoBehaviour
         volumeSlider.onValueChanged.AddListener(ChangeVolume);
 
     
-        volumeSlider.value = PlayerPrefs.GetFloat("BGMVolume", 0.1f);
-        audioSource.volume = volumeSlider.value;
+
+        volumeSlider.value = PlayerPrefs.GetFloat("BGMVolume", 0.5f);
+        audioSource.volume = volumeSlider.value / 100 ;
+
 
 
         AudioClip audioClip = backgroundSound;
@@ -51,7 +52,8 @@ public class AudioManager : MonoBehaviour
     }
     private void ChangeVolume(float volume)
     {
-        audioSource.volume = volume / 100f;
+
+        audioSource.volume = volume/100;
         PlayerPrefs.SetFloat("BGMVolume", volume);
 
     }
