@@ -119,10 +119,16 @@ public class P_ClickObject : MonoBehaviour
     {
         bool isPlayroomClear = P_GameManager.instance.Get_isGetFinalItem();
         if (isPlayroomClear)
-            return;
-        //SceneManager.LoadScene("livingroom");
+        {
+            SceneManager.LoadScene("livingroom");
+            EarthMaterial.GetInstance().SetSoilValue(true);
+        }
+            
+       
         else
             SoundManager.Instance.Play("door_locked");
+
+        return;
     }
 
     void Update()

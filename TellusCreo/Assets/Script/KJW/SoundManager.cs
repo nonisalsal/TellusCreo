@@ -5,8 +5,9 @@ using UnityEngine;
 public enum Sound
 {
     Bgm,
+    LoopEffect, // 2023.10.12 추가
     Effect,
-    MaxCount, 
+    MaxCount,
 }
 
 public class SoundManager : MonoBehaviour
@@ -14,7 +15,7 @@ public class SoundManager : MonoBehaviour
     static SoundManager instance = null;
     public static SoundManager Instance => instance;
 
-    private float bgmVolume = 0.5f; 
+    private float bgmVolume = 0.5f;
 
     AudioSource[] _audioSources = new AudioSource[(int)Sound.MaxCount]; // 사운드 재생 수 관련
     Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>();
@@ -27,7 +28,7 @@ public class SoundManager : MonoBehaviour
 
     //void Start()
     //{
-        
+
     //}
 
     public void Init()
@@ -49,7 +50,8 @@ public class SoundManager : MonoBehaviour
             go.transform.parent = root.transform;
         }
 
-        _audioSources[(int)Sound.Bgm].loop = true; // bgm 재생기는 무한 반복 재생
+        _audioSources[(int)Sound.Bgm].loop = true; // bgm 재생기는 무한 반복 재생 
+        _audioSources[(int)Sound.LoopEffect].loop = true;   // 2023.10.12 추가s
     }
 
 
@@ -62,6 +64,10 @@ public class SoundManager : MonoBehaviour
         {
 
             PlayBGM(audioClip, pitch);
+        }
+        else if (type == Sound.LoopEffect)          // 2023.10.12 추가
+        {
+            PlayLoopEffect(audioClip, pitch);
         }
         else // Effect 효과음 재생
         {
@@ -76,14 +82,15 @@ public class SoundManager : MonoBehaviour
     }
 
 
-     AudioClip GetOrAddAudioClip(string path, Sound type = Sound.Effect)
+    AudioClip GetOrAddAudioClip(string path, Sound type = Sound.Effect)
     {
         if (path.Contains("Sound/") == false)
             path = $"Sound/{path}"; // Sound 폴더 안에 저장될 수 있도록
 
         AudioClip audioClip = null;
 
-        if (type == Sound.Bgm) // BGM 배경음악 클립 붙이기
+        // 2023.10.12 || 뒤 추가
+        if (type == Sound.Bgm || type == Sound.LoopEffect) // BGM 배경음악 클립 붙이기
         {
             audioClip = Resources.Load<AudioClip>(path);
         }
@@ -97,7 +104,7 @@ public class SoundManager : MonoBehaviour
         }
 
         if (audioClip == null)
-        { 
+        {
 #if UNITY_EDITOR
             Debug.LogWarning($"AudioClip 없음. {path}");
 #endif
@@ -123,6 +130,29 @@ public class SoundManager : MonoBehaviour
         bgmSource.Play();
     }
 
+    void PlayLoopEffect(AudioClip audioClip, float pitch = 1.0f)    // 2023.10.12 추가
+    {
+        if (audioClip == null)
+            return;
+
+        AudioSource loopEffectSource = _audioSources[(int)Sound.LoopEffect];
+
+        if (loopEffectSource.isPlaying && loopEffectSource.clip == audioClip) // 이미 재생 중이거나 아니면 같은 BGM이라면
+            return;
+
+        loopEffectSource.Stop();
+        loopEffectSource.pitch = pitch;
+        loopEffectSource.volume = 0.5f;
+        loopEffectSource.PlayOneShot(audioClip);
+    }
+
+    public void StopLoopEffect()    // 2023.10.12 추가
+    {
+        AudioSource loopEffectSource = _audioSources[(int)Sound.LoopEffect];
+        loopEffectSource.Stop();
+        loopEffectSource.clip = null;
+    }
+
     void PlaySoundEffect(AudioClip audioClip, float pitch = 1.0f)
     {
         if (audioClip == null)
@@ -145,11 +175,19 @@ public class SoundManager : MonoBehaviour
         UpdateBGMVolume();
     }
 
-  
+
     private void UpdateBGMVolume()
     {
         AudioSource bgmSource = _audioSources[(int)Sound.Bgm];
         bgmSource.volume = bgmVolume;
     }
 
+    public void SetBgmVolumeBasic(float volume)
+    {
+        // BGM 볼륨 조절
+        if (_audioSources[(int)Sound.Bgm] != null)
+        {
+            _audioSources[(int)Sound.Bgm].volume = Mathf.Clamp(volume, 0.0f, 1.0f);
+        }
+    }
 }

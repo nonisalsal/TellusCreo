@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     GameObject curtain_open;
     List<Func<bool>> ShadowPuzzleDelegate;
     Action Room;
-    bool[] ClearPuzzles;
+    bool[] ClearPuzzles; // 테스트 해보려고 public으로 바꿈 보호 수준 문제 생길 수 있을겁니다
     bool isCurtainOpen;
     bool switchStatus;
     bool _clearAttic = false;
@@ -87,7 +87,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        SoundManager.Instance.Play("Attic_bgm", Sound.Bgm);
         Room += CheckRoomClear;
         ClearPuzzles = new bool[CLEAR_PUZZLE];
         isCurtainOpen = false;
@@ -386,7 +385,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void CheckRoomClear()
+   public void CheckRoomClear() // 테스트 하려고 잠깐 public으로 바꿈 
     {
         if (ClearPuzzles.Any(puzzle => puzzle == false))
         {

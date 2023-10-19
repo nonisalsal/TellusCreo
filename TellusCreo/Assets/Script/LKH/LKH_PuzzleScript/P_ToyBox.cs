@@ -21,6 +21,7 @@ public class P_ToyBox : MonoBehaviour
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(true);
         transform.GetChild(2).gameObject.SetActive(false);
+        //transform.GetChild(1).GetComponent<Collider2D>().enabled = true;
     }
 
     private void PlayerInput()
@@ -37,8 +38,14 @@ public class P_ToyBox : MonoBehaviour
                 for (int i = 0; i < 3; i++)
                 {
                     transform.GetChild(i).gameObject.SetActive(false);
+                    //transform.GetChild(i).GetComponent<Collider2D>().enabled = false;
+                    //transform.GetChild(i).GetComponent<SpriteRenderer>().enabled = false;
                     if (i == num)
+                    {
                         transform.GetChild(i).gameObject.SetActive(true);
+                        //transform.GetChild(i).GetComponent<Collider2D>().enabled = true;
+                        //transform.GetChild(i).GetComponent<SpriteRenderer>().enabled = true;
+                    }
                 }
                 Debug.Log("adsf");
             }

@@ -40,6 +40,7 @@ public class P_TowerClearZone : MonoBehaviour
             colliderLastPos = collision.gameObject.transform.localPosition;
             isContect = true;
             contectObj = collision.gameObject;
+            SoundManager.Instance.Play("playroom_timer", Sound.LoopEffect);
         }
     }
 
@@ -50,6 +51,7 @@ public class P_TowerClearZone : MonoBehaviour
         isColliderMove = false;
 
         time = 0;
+        SoundManager.Instance.StopLoopEffect();
     }
 
     private void Update()
