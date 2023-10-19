@@ -36,5 +36,8 @@ public class Muteall : MonoBehaviour
 
         // 볼륨을 기준으로 음소거를 설정합니다.
         AudioListener.pause = isMuted;
+
+        if(AudioListener.pause == true)
+        EffectSlider.value = 0;
     }
 }
