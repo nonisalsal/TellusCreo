@@ -3,7 +3,8 @@ using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
-    public Slider volumeSlider; 
+    public Slider volumeSlider;
+ 
 
     private AudioSource audioSource;
 
@@ -11,14 +12,22 @@ public class AudioManager : MonoBehaviour
     public GameObject Offmutebutton;
 
 
+
+
     public AudioClip backgroundSound;
     public AudioClip buttonClickSound; 
     public AudioClip menuClickSound;
     public AudioClip bagClickSound;
 
+    private Muteall muteallScript;
+
     private void Start()
     {
-      
+
+        muteallScript = GetComponent<Muteall>();
+
+       
+
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.loop = true;
         
@@ -48,6 +57,8 @@ public class AudioManager : MonoBehaviour
             Onmutebutton.SetActive(true);
             Offmutebutton.SetActive(false);
         }
+
+        
     }
     private void ChangeVolume(float volume)
     {
@@ -97,4 +108,5 @@ public class AudioManager : MonoBehaviour
     }
 
     
+
 }
