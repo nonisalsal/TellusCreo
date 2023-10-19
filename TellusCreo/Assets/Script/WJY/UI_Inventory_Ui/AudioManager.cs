@@ -44,8 +44,6 @@ public class AudioManager : MonoBehaviour
     {
         if (volumeSlider.value > 0)
         {
-
-  
             Onmutebutton.SetActive(true);
             Offmutebutton.SetActive(false);
         }
