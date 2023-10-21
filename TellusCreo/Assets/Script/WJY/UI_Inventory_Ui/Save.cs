@@ -4,11 +4,26 @@ using UnityEngine.SceneManagement;
 public class Save : MonoBehaviour
 {
 
-   
-private void Start()
-    {
-        
 
+    private static Save instance;
+
+    // 싱글톤 인스턴스를 가져오거나 생성하는 메서드
+    public static Save GetInstance()
+    {
+        if (instance == null)
+        {
+            // 씬에서 EarthMaterial 오브젝트를 찾아보고 없으면 생성
+            instance = FindObjectOfType<Save>();
+
+            if (instance == null)
+            {
+                GameObject obj = new GameObject("SaveManager");
+                instance = obj.AddComponent<Save>();
+            }
+
+            DontDestroyOnLoad(instance.gameObject);
+        }
+        return instance;
     }
 
     public void save()
@@ -18,7 +33,7 @@ private void Start()
         PlayerPrefs.SetInt("Water", EarthMaterial.GetInstance().GetWaterValue() ? 1 : 0);
         PlayerPrefs.SetInt("Soil", EarthMaterial.GetInstance().GetSoilValue() ? 1 : 0);
         PlayerPrefs.SetInt("CutS", EarthMaterial.GetInstance().GetcutValue() ? 1 : 0);
-
+        
         PlayerPrefs.Save(); 
     }
 
