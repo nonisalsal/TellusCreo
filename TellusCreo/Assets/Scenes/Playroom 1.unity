@@ -1916,12 +1916,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &177635761 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2067445795240109271, guid: 3cede6262d25ffa46933df2d3c834958,
-    type: 3}
-  m_PrefabInstance: {fileID: 743164050}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &198712722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6860,7 +6854,7 @@ PrefabInstance:
     - target: {fileID: 1020269478019778691, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ScenesTitle3
+      value: ExitGame
       objectReference: {fileID: 0}
     - target: {fileID: 1020269478019778691, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
@@ -10038,8 +10032,8 @@ Camera:
   m_GameObject: {fileID: 1052022074}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -17028,12 +17022,6 @@ Transform:
   m_Father: {fileID: 228986073}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1907647190 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8475050345647161920, guid: 3cede6262d25ffa46933df2d3c834958,
-    type: 3}
-  m_PrefabInstance: {fileID: 743164050}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1920633507
 GameObject:
   m_ObjectHideFlags: 0
@@ -18460,13 +18448,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 336558866}
-
   Onmutebutton: {fileID: 0}
   Offmutebutton: {fileID: 0}
-  backgroundSound: {fileID: 8300000, guid: 80d707e4c07850040bdb76bdf1b200b3, type: 3}
-  buttonClickSound: {fileID: 8300000, guid: 77075820a6b587841a8e5a288b260be8, type: 3}
-  menuClickSound: {fileID: 8300000, guid: 83b65fa8f1182ca4aac5d9fde4c1223d, type: 3}
-  bagClickSound: {fileID: 8300000, guid: 827522fa6909bbe4e86ca4c304c7c2f3, type: 3}
+  backgroundSound: {fileID: 0}
+  buttonClickSound: {fileID: 0}
+  menuClickSound: {fileID: 0}
+  bagClickSound: {fileID: 0}
 --- !u!4 &2024356037
 Transform:
   m_ObjectHideFlags: 0

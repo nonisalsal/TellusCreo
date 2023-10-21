@@ -8636,7 +8636,7 @@ PrefabInstance:
     - target: {fileID: 1020269478019778691, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ScenesTitle3
+      value: ExitGame
       objectReference: {fileID: 0}
     - target: {fileID: 1020269478019778691, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}

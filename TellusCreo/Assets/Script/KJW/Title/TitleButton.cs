@@ -8,49 +8,46 @@ public class TitleButton : MonoBehaviour
     public GameObject yesButton;
     public GameObject yesPanel;
     public bool buttonSet;
+
     private void Awake()
     {
         EarthMaterial earthMaterial = EarthMaterial.GetInstance();
+        Save save = Save.GetInstance();
 
-        if (!earthMaterial.GetcutValue())
+        // Load the 'cutsceneShown' flag from PlayerPrefs
+        bool cutsceneShown = PlayerPrefs.GetInt("CutsceneShown", 0) == 1;
+
+        if (!cutsceneShown)
         {
-            gameStartButton.onClick.AddListener(() => {
+            gameStartButton.onClick.AddListener(() =>
+            {
+                // Set the 'cutsceneShown' flag to true and save it in PlayerPrefs
+                PlayerPrefs.SetInt("CutsceneShown", 1);
+                PlayerPrefs.Save();
+
                 SceneManager.LoadScene("TitleCutscene");
                 earthMaterial.SetcutValue(true);
+                save.Load();
             });
         }
         else
         {
-
-            
-            if (earthMaterial.GetSoilValue() && earthMaterial.GetWaterValue())
+            gameStartButton.onClick.AddListener(() =>
             {
-                yesPanel.SetActive(true);
-
-                if(yesButton.activeSelf == true)
-                {
-
-                }
-            
-            // 라이브러리룸으로 이동
-            // SceneManager.LoadScene("Libraryroom");
-        }
-            else if (earthMaterial.GetSoilValue())
-            {
-                // Soil만 true인 경우
-                // 애틱으로 이동
-                yesButton.SetActive(true);
-                SceneManager.LoadScene("Attic");
-            }
-            else
-            {
+                save.Load();
                 SceneManager.LoadScene("livingroom");
-            }
+                if (earthMaterial.GetSoilValue())
+                {
+                    SceneManager.LoadScene("Attic");
+                }
+                else
+                {
+                    SceneManager.LoadScene("livingroom");
+                }
+            });
         }
-    }
-
-    public void ClickEvent()
-    {
-
     }
 }
+
+
+
