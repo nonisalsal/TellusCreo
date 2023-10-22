@@ -62,7 +62,6 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.volume = volume / 100f;
         PlayerPrefs.SetFloat("BGMVolume", volume);
-
     }
 
     public void PlayButtonClickSound()
@@ -84,7 +83,6 @@ public class AudioManager : MonoBehaviour
     {
         if (bagClickSound != null)
         {
-            
             audioSource.PlayOneShot(bagClickSound);
         }
     }
