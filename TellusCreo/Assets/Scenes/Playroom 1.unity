@@ -7161,6 +7161,11 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7373178411927139890, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -145185189
+      objectReference: {fileID: 0}
     - target: {fileID: 7373178411927139891, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
       propertyPath: m_Pivot.x
@@ -10082,6 +10087,7 @@ GameObject:
   - component: {fileID: 1052022075}
   - component: {fileID: 1052022079}
   - component: {fileID: 1052022078}
+  - component: {fileID: 1052022080}
   m_Layer: 0
   m_Name: P_MainCamera
   m_TagString: MainCamera
@@ -10204,6 +10210,18 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &1052022080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052022074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a21ae226ea882304e959297b384bfbf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1054058057
 PrefabInstance:
   m_ObjectHideFlags: 0

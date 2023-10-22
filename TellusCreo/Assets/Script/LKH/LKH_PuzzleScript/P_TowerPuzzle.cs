@@ -18,8 +18,8 @@ public class P_TowerPuzzle : MonoBehaviour
 
     private void OnEnable()
     {
-        if (P_Camera.instance.nowPuzzle.Get_isClear())
-            return;
+        //if (P_Camera.instance.nowPuzzle.Get_isClear())
+        //    return;
 
         transform.position = originPos;
     }

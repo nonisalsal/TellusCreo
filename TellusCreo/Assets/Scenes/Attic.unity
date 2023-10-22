@@ -4031,6 +4031,11 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2893923378049205770, guid: cf9c3e38053b8ad4f8842ce709edad65,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -145185189
+      objectReference: {fileID: 0}
     - target: {fileID: 2893923378049205771, guid: cf9c3e38053b8ad4f8842ce709edad65,
         type: 3}
       propertyPath: m_MatchWidthOrHeight
@@ -8808,6 +8813,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -121
       objectReference: {fileID: 0}
+    - target: {fileID: 4353486655257603913, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -91.675995
+      objectReference: {fileID: 0}
     - target: {fileID: 4506051338946488524, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -8922,6 +8932,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -57.149902
+      objectReference: {fileID: 0}
+    - target: {fileID: 7373178411927139890, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 7373178411927139890, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7373178411927139890, guid: 3cede6262d25ffa46933df2d3c834958,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -145185189
       objectReference: {fileID: 0}
     - target: {fileID: 7373178411927139891, guid: 3cede6262d25ffa46933df2d3c834958,
         type: 3}
