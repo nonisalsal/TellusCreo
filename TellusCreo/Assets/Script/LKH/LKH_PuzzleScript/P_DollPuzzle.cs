@@ -14,6 +14,14 @@ public class P_DollPuzzle : P_ChangePos
         parentObj = transform.parent.gameObject;
     }
 
+    private void OnEnable()
+    {
+        if (P_Camera.instance.nowPuzzle.Get_isClear())
+            return;
+
+        transform.SetPositionAndRotation(originPos, Quaternion.identity);
+    }
+
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         if (System.Object.ReferenceEquals(parentObj, collision.transform.parent.gameObject))

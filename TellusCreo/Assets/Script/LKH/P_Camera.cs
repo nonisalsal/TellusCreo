@@ -32,7 +32,8 @@ public class P_Camera : MonoBehaviour
         nonPuzzleCanvas.SetActive(true);
         puzzleCanvas.SetActive(false);
 
-        transform.position = new Vector3(sidePos_x, 0f, -10f);
+        //transform.position = new Vector3(sidePos_x, 0f, -10f);
+        transform.SetPositionAndRotation(new Vector3(sidePos_x, 0f, -10f), Quaternion.identity);
 
         nowPuzzle = null;
 
@@ -57,14 +58,16 @@ public class P_Camera : MonoBehaviour
                 break;
         }
 
-        transform.position = new Vector3(sidePos_x, 0f, -10f);
+        // transform.position = new Vector3(sidePos_x, 0f, -10f);
+        transform.SetPositionAndRotation(new Vector3(sidePos_x, 0f, -10f), Quaternion.identity);
     }
 
     public void PlayPuzzle(P_PuzzleInfo clickPuzzle)
     {
         if (nowPuzzle == null)
         {
-            transform.position = new Vector3(puzzlePos_x, puzzlePos_y, -10f);
+            //transform.position = new Vector3(puzzlePos_x, puzzlePos_y, -10f);
+            transform.SetPositionAndRotation(new Vector3(puzzlePos_x, puzzlePos_y, -10f), Quaternion.identity);
             nowPuzzle = clickPuzzle;
             nowPuzzle.IsActive_true();
         }
@@ -79,7 +82,8 @@ public class P_Camera : MonoBehaviour
     {
         if (nowPuzzle != null)
         {
-            transform.position = new Vector3(sidePos_x, 0f, -10f);
+            //transform.position = new Vector3(sidePos_x, 0f, -10f);
+            transform.SetPositionAndRotation(new Vector3(sidePos_x, 0f, -10f), Quaternion.identity);
             nowPuzzle.IsActive_false();
             nowPuzzle = null;
         }
