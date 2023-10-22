@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3074,6 +3074,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2010032438}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2010032443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8475050345647161920, guid: 3cede6262d25ffa46933df2d3c834958,
+    type: 3}
+  m_PrefabInstance: {fileID: 2010032438}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2010032444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2067445795240109271, guid: 3cede6262d25ffa46933df2d3c834958,
+    type: 3}
+  m_PrefabInstance: {fileID: 2010032438}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2064327301
 GameObject:
   m_ObjectHideFlags: 0
@@ -3468,9 +3480,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8637147245367154046, guid: 25a728ac64d16304299073b6abd81547,
         type: 3}
+      propertyPath: Onmutebutton
+      value: 
+      objectReference: {fileID: 2010032444}
+    - target: {fileID: 8637147245367154046, guid: 25a728ac64d16304299073b6abd81547,
+        type: 3}
       propertyPath: volumeSlider
       value: 
       objectReference: {fileID: 2010032439}
+    - target: {fileID: 8637147245367154046, guid: 25a728ac64d16304299073b6abd81547,
+        type: 3}
+      propertyPath: Offmutebutton
+      value: 
+      objectReference: {fileID: 2010032443}
     - target: {fileID: 8637147245367154046, guid: 25a728ac64d16304299073b6abd81547,
         type: 3}
       propertyPath: backgroundSound
