@@ -13,7 +13,7 @@ public class UI : MonoBehaviour
 
     public GameObject specificUI;
 
-
+    public AudioManager audioManager;
 
     public void BackArrow()
     {
@@ -48,8 +48,8 @@ public class UI : MonoBehaviour
     public void LeftArrow()
     {
         Camera.main.transform.position = new Vector3((Camera.main.transform.position.x + 60) % 80, 0f, -10f);
-
-    //    HandleSpecificUI();
+       
+        //    HandleSpecificUI();
 
     }
 
