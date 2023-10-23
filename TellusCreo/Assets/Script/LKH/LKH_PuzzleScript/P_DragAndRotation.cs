@@ -49,7 +49,8 @@ public class P_DragAndRotation : MonoBehaviour
         foreach (Collider2D collider in colliders)
             collider.enabled = true;
 
-        transform.rotation = originAngle;
+        //transform.rotation = originAngle;
+        transform.SetPositionAndRotation(transform.position, originAngle);
     }
 
     private void Start()
@@ -62,7 +63,8 @@ public class P_DragAndRotation : MonoBehaviour
     {
         mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         angle = Mathf.Atan2(mouse.y - clockHand.y, mouse.x - clockHand.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        //transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        transform.SetPositionAndRotation(transform.position, Quaternion.AngleAxis(angle - 90, Vector3.forward));
     }
 
     private void PlayerInput()

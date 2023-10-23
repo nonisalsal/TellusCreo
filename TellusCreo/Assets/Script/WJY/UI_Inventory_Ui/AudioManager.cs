@@ -15,6 +15,11 @@ public class AudioManager : MonoBehaviour
 
 
     public AudioClip backgroundSound;
+
+    public AudioSource buttonClickAudioSource;
+    public AudioSource menuClickAudioSource;
+    public  AudioSource bagClickAudioSource;
+
     public AudioClip buttonClickSound; 
     public AudioClip menuClickSound;
     public AudioClip bagClickSound;
@@ -46,6 +51,27 @@ public class AudioManager : MonoBehaviour
             audioSource.clip = audioClip;
             audioSource.Play();
         }
+
+        buttonClickAudioSource = gameObject.AddComponent<AudioSource>();
+        menuClickAudioSource = gameObject.AddComponent<AudioSource>();
+        bagClickAudioSource = gameObject.AddComponent <AudioSource>();
+
+        if (buttonClickSound != null)
+        {
+            buttonClickAudioSource.clip = buttonClickSound;
+        }
+
+        if (menuClickSound != null)
+        {
+            menuClickAudioSource.clip = menuClickSound;
+        }
+
+        if (bagClickSound != null)
+        {
+            bagClickAudioSource.clip = bagClickSound;
+        }
+
+
     }
 
     public void Update()
@@ -62,32 +88,33 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.volume = volume / 100f;
         PlayerPrefs.SetFloat("BGMVolume", volume);
-
     }
 
     public void PlayButtonClickSound()
     {
-        if (buttonClickSound != null)
+        if (buttonClickAudioSource != null)
         {
-            audioSource.PlayOneShot(buttonClickSound);
+            buttonClickAudioSource.Play();
         }
     }
 
     public void PlayMenuClickSound()
     {
-        if (menuClickSound != null)
+        if (menuClickAudioSource != null)
         {
-            audioSource.PlayOneShot(menuClickSound);
+            menuClickAudioSource.Play();
         }
     }
-    public void PlaybagClickSound()
+
+    public void PlayBagClickSound()
     {
-        if (bagClickSound != null)
+        if (bagClickAudioSource != null)
         {
-            
-            audioSource.PlayOneShot(bagClickSound);
+            bagClickAudioSource.Play();
         }
     }
+
+
     public void MuteButton()
     {
         if (volumeSlider.value > 0)

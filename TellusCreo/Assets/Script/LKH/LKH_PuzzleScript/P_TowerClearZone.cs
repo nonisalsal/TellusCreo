@@ -20,8 +20,8 @@ public class P_TowerClearZone : MonoBehaviour
 
     private void OnEnable()
     {
-        if (P_Camera.instance.nowPuzzle.Get_isClear())
-            return;
+        //if (P_Camera.instance.nowPuzzle.Get_isClear())
+        //    return;
 
         isContect = false;
 

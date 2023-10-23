@@ -5,39 +5,72 @@ using UnityEngine.UI;
 
 public class Muteall : MonoBehaviour
 {
-    private bool isMuted = false;
+    private bool isEffectMuted = false;
+    private float originalButtonVolume;
+    private float originalMenuVolume;
+    private float originalBagVolume;
 
     public Slider EffectSlider;
     public GameObject OnEffectmutebutton;
     public GameObject OffEffectmutebutton;
+    public AudioManager audioManager; 
 
     private void Start()
     {
-        // 초기 음소거 상태를 확인하고 설정합니다.
-        isMuted = AudioListener.pause;
+       
+        originalButtonVolume = audioManager.buttonClickAudioSource.volume;
+        originalMenuVolume = audioManager.menuClickAudioSource.volume;
+        originalBagVolume = audioManager.bagClickAudioSource.volume;
+        EffectSlider.value = 50;
     }
 
     public void Update()
     {
-        if (EffectSlider.value > 0)
+
+        if (EffectSlider.value == 0)
         {
-            if (isMuted) // 현재 음소거 상태인 경우에만 토글합니다.
-            {
-                OnEffectmutebutton.SetActive(true);
-                OffEffectmutebutton.SetActive(false);
-                ToggleMute();
-            }
+            MuteEffects();
+        }
+        else
+        {
+            UnmuteEffects();
         }
     }
 
     public void ToggleMute()
     {
-        isMuted = !isMuted;
+        isEffectMuted = !isEffectMuted;
 
-        // 볼륨을 기준으로 음소거를 설정합니다.
-        AudioListener.pause = isMuted;
+        if (isEffectMuted)
+        {
+            MuteEffects();
+            EffectSlider.value = 0;
+        }
+        else
+        {
+            UnmuteEffects();
+            EffectSlider.value = 50;
+        }
+    }
 
-        if(AudioListener.pause == true)
-        EffectSlider.value = 0;
+    private void MuteEffects()
+    {
+
+        audioManager.buttonClickAudioSource.volume = 0;
+        audioManager.menuClickAudioSource.volume = 0;
+        audioManager.bagClickAudioSource.volume = 0;
+        OnEffectmutebutton.SetActive(false);
+        OffEffectmutebutton.SetActive(true);
+    }
+
+    private void UnmuteEffects()
+    {
+        
+        audioManager.buttonClickAudioSource.volume = originalButtonVolume;
+        audioManager.menuClickAudioSource.volume = originalMenuVolume;
+        audioManager.bagClickAudioSource.volume = originalBagVolume;
+
+        OnEffectmutebutton.SetActive(true);
+        OffEffectmutebutton.SetActive(false);
     }
 }

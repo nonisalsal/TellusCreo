@@ -26,10 +26,6 @@ public class SoundManager : MonoBehaviour
         instance = this;
     }
 
-    //void Start()
-    //{
-
-    //}
 
     public void Init()
     {
@@ -51,7 +47,7 @@ public class SoundManager : MonoBehaviour
         }
 
         _audioSources[(int)Sound.Bgm].loop = true; // bgm 재생기는 무한 반복 재생 
-        _audioSources[(int)Sound.LoopEffect].loop = true;   // 2023.10.12 추가s
+        _audioSources[(int)Sound.LoopEffect].loop = true;   // 2023.10.12 추가
     }
 
 

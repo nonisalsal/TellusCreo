@@ -9,7 +9,6 @@ public class P_IsRightPos : MonoBehaviour
 
     private bool isTrigger;
     [SerializeField] private bool isRight;
-    [SerializeField] private GameObject testText;
 
     private P_PuzzleClear clearController;
 
@@ -42,14 +41,10 @@ public class P_IsRightPos : MonoBehaviour
         if (System.Object.ReferenceEquals(collision.gameObject, correctObj))
         {
             isRight = true;
-            if (testText != null)
-                testText.SetActive(true);
         }
         else
         {
             isRight = false;
-            if (testText != null)
-                testText.SetActive(false);
         }
 
         clearController.CheckClear_IsRightPos();
@@ -65,8 +60,6 @@ public class P_IsRightPos : MonoBehaviour
         if (System.Object.ReferenceEquals(collision.gameObject, correctObj))
         {
             isRight = false;
-            if (testText != null)
-                testText.SetActive(false);
         }
     }
 

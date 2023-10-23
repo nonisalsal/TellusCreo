@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public GameObject Curtain { get => curtain; }
     public bool SwitchStatus { get => switchStatus; }
     public bool ClearAttic { get => _clearAttic; }
+    public bool DraggingItem = false;
     public int SetPlanet = 0;
 
     [SerializeField] Item sun;
@@ -99,7 +100,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (!EventSystem.current.IsPointerOverGameObject()&&DraggingItem == false)
         {
             HandlePuzzleClick();
         }

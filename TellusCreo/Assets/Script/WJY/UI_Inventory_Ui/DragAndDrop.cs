@@ -36,13 +36,13 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     {
         ItemDataBase itemDatabase = GameObject.Find("ItemDataBase").GetComponent<ItemDataBase>();
 
-        
-    foreach (ItemData itemData in itemDatabase.itemDB)
-    {
-        inventoryItems.Add(itemData);
-    }
 
-       
+        foreach (ItemData itemData in itemDatabase.itemDB)
+        {
+            inventoryItems.Add(itemData);
+        }
+
+
         GameObject draggedObject = eventData.pointerDrag;
         if (draggedObject != null)
         {
@@ -51,10 +51,10 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
             if (textComponent != null)
             {
- 
+
                 textContent = textComponent.text;
                 Debug.Log(textContent);
-            
+
             }
         }
         parentAfterDrag = transform.parent;
@@ -65,9 +65,10 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     }
 
     public void OnDrag(PointerEventData eventData)
-    {
-        rectTransform.anchoredPosition += eventData.delta / transform.root.localScale.x;
-
+    { 
+        Vector3 position = Camera.main.ScreenToWorldPoint(eventData.position);
+        position.z = 0;
+        this.transform.position = position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
