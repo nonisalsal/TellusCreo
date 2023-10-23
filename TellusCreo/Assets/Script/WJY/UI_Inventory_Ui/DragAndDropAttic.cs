@@ -63,21 +63,21 @@ public class DragAndDropAttic : MonoBehaviour, IBeginDragHandler, IEndDragHandle
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
         canvasGroup.blocksRaycasts = false;
-
+        GameManager.Instance.DraggingItem = true;
+        
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        //rectTransform.anchoredPosition += eventData.delta*0.1f;// / transform.root.localScale.x;
-        Canvas canvas = GetComponentInParent<Canvas>();
-
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        Vector3 position = Camera.main.ScreenToWorldPoint(eventData.position);
+        position.z = 0;
+        this.transform.position = position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = true;
-
+        GameManager.Instance.DraggingItem = false;
         Vector3 dropPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         dropPosition.z = 0f;
         List<Item> Items = InventoryManager.Instance.GetItems();
